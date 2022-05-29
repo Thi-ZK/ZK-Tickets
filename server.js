@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const trashRouter = require('./routes/trash_for_test');
 
 const app = express();
 
@@ -13,6 +14,8 @@ const DB_URI = process.env.DB_URI;
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/trash_for_test', trashRouter);
 
 mongoose.connect(DB_URI)
     .then( () => { app.listen( PORT, () => { console.log(`Server Running On ${PORT}`); }); })
