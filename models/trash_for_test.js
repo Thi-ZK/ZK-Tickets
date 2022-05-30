@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const trash_schema = new Schema({
     field1: {
-        type: Object,
+        type: Array,
         required: true 
     },
 
     field2: {
-        type: Array,
+        type: Object,
         required: true
     },
 
