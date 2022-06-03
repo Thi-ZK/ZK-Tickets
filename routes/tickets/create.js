@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const TicketModel = require('../models/create_ticket');
+const TicketModel = require('../../models/ticket');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
-router.get('/', urlencodedParser, (req, res) => {
+router.get('/create', urlencodedParser, (req, res) => {
 	const newTicketDocument = new TicketModel({
 		
 	});

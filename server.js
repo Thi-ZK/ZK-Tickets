@@ -2,7 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const trashRouter = require('./routes/trash_for_test');
-const ticketCreationRouter = require('./routes/create_ticket');
+
+const ticketExecuteActionRouter = require('./routes/tickets/execute_action');
+const ticketCreateRouter = require('./routes/tickets/create');
+const ticketGetRouter = require('./routes/tickets/get');
 
 const app = express();
 
@@ -21,7 +24,10 @@ app.get("/", (req, res) => {
 });
 
 app.use('/trash_for_test', trashRouter);
-app.use('/create_ticket', ticketCreationRouter);
+
+app.use('/tickets/execute_action', ticketExecuteActionRouter);
+app.use('/tickets/create', ticketCreateRouter);
+app.use('/tickets/get', ticketGetRouter);
 
 mongoose.connect(DB_URI)
     .then( () => { app.listen( PORT, () => { console.log(`Server Running On ${PORT}`); }); })
