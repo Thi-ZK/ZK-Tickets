@@ -7,7 +7,7 @@ var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false })
 
 router.get('/', urlencodedParser, (req, res) => {
 	Trash.find().then( (data) => {
-		res.end(data);
+		res.end(JSON.stringify(data));
 	}).catch((error) => {
 		res.end(JSON.stringify(error));
 	});
