@@ -5,42 +5,34 @@ const TicketModel = require('../../models/ticket');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
-router.post('/single', urlencodedParser, (req, res) => {
+router.post('/single', urlencodedParser, async (req, res) => {
 	let ticket_data = req.body;
-	return res.end(ticket_data);
+	let last_ticket = await TicketModel.find().sort({_id:-1}).limit(1)
+	.catch(() => {res.end("Something Went Wrong");});
+
+	console.log(ticket_data);
+	return res.end();
 
 	const newTicketDocument = new TicketModel({
-		name: "Fastshop - Implementation FB Pixel",
-		id: 2,
-		related_users: [1, 2, 4],
-		groups: [3, 6],
-		description: "We have to implement Pagevies and DPA tracking for them. The pixel is: 320948324848. Please don't forget first pageviewloss prevention.",
-		creator: 1,
-		status: "Low",
-		assumers: [1, 2, 3],
+		name: ticket_data.name,
+		id: last_ticket[0].id + 1,
+		related_users: ticket_data.related_users,
+		groups: ticket_data.groups,
+		description: ticket_data.description,
+		creator: 1, // TO DO
+		status: ticket_data.status,
+		assumers: ticket_data.assumers,
 		creation_date: Date(),
-		due_date: "Fri Jun 14 2022 12:16:57 GMT-0300 (Brasilia Standard Time)",
-		priority: "Urgent!",
-		attachments: [],
-		messages: [
-			{
-				user: 2,
-				message: "I already implemented, I wish to require homologation for it.",
-				date: "Fri Jun 8 2022 12:16:57 GMT-0300 (Brasilia Standard Time)"
-			},
-			{
-				user: 1,
-				message: "Very good, I give permission for you to do such.",
-				date: "Fri Jun 9 2022 12:16:57 GMT-0300 (Brasilia Standard Time)"
-			}
-		]
+		due_date: ticket_data.due_date,
+		priority: ticket_data.priority,
+		attachments: ticket_data.attachments,
+		messages: []
 	});
 
-	newTicketDocument.save().then(() => {
-		res.end("Ticket Successfully Created");
-	}).catch(() => {
-		res.end("Action Unsuccessful");
-	});
+	await newTicketDocument.save()
+	.catch(() => {res.end("Action Unsuccessful");});
+
+	res.end("Ticket Successfully Created");
 });
 
 module.exports = router;
