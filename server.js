@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const trashRouter = require('./routes/trash_for_test');
 
 const ticketDeleteRouter = require('./routes/tickets/delete');
+const ticketUpdateRouter = require('./routes/tickets/update');
 const ticketCreateRouter = require('./routes/tickets/create');
 const ticketGetRouter = require('./routes/tickets/get');
 
@@ -26,7 +27,7 @@ app.get("/", (req, res) => {
 app.use('/trash_for_test', trashRouter);
 
 app.use('/tickets/delete', ticketDeleteRouter);
-app.use('/tickets/update', ticketDeleteRouter);
+app.use('/tickets/update', ticketUpdateRouter);
 app.use('/tickets/create', ticketCreateRouter);
 app.use('/tickets/get', ticketGetRouter);
 

@@ -5,10 +5,13 @@ const TicketModel = require('../../models/ticket');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
-router.get('/single/:ticket_id', urlencodedParser, (req, res) => {
-	let ticket_id = req.params.ticket_id;
-
+router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
+	let ticket_id = Number(req.params.ticket_id);
 	
+	await TicketModel.deleteOne({id: ticket_id})
+	.catch(() => {res.end("Action Unsuccessful");});
+
+	res.end("Ticket Deleted");
 });
 
 module.exports = router;
