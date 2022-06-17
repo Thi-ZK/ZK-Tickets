@@ -46,9 +46,9 @@ router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let new_status = req.body.new_status;
 
-	await TicketModel.updateOne({id: ticket_id}, {status: new_status})
+	await TicketModel.updateOne({id: ticket_id}, {last_status_update_date: Date(), status: new_status})
 	.catch((error) => {return res.end("Action Unsuccessful");});
-
+	
 	res.end("Ticket Updated");
 });
 

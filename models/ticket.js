@@ -12,12 +12,32 @@ const ticketSchema = new Schema({
         type: Number
     },
 
+    assumers: {
+        required: true,
+        type: Array
+    },
+    
+    assumers_names: {
+        required: true,
+        type: Array
+    },
+
     related_users: {
         required: true,
         type: Array
     },
 
+    related_users_names: {
+        required: true,
+        type: Array
+    },
+
     groups: {
+        required: true,
+        type: Array
+    },
+
+    groups_names: {
         required: true,
         type: Array
     },
@@ -30,6 +50,11 @@ const ticketSchema = new Schema({
     creator: {
         required: true,
         type: Number // user ID
+    },
+
+    creator: {
+        required: true,
+        type: String // user name
     },
 
     status: {
@@ -65,6 +90,11 @@ const ticketSchema = new Schema({
     messages: {
         required: true,
         type: Array
+    },
+
+    last_status_update_date: {
+        required: true,
+        type: String
     }
 }, {timestamps: true });
 
