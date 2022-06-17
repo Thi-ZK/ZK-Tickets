@@ -20,7 +20,7 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 	let messages_array_to_be_updated = ticket[0].messages;
 
 	await TicketModel.updateOne({id: ticket_id}, {messages: messages_array_to_be_updated})
-	.catch(() => {res.end("Action Unsuccessful");});
+	.catch(() => {return res.end("Action Unsuccessful");});
 
 	res.end("Ticket Updated");
 });
@@ -37,7 +37,17 @@ router.post('/single/messages/delete/:ticket_id/:message_id', urlencodedParser, 
 	});
 
 	await TicketModel.updateOne({id: ticket_id}, {messages: messages_array_to_be_updated})
-	.catch(() => {res.end("Action Unsuccessful");});
+	.catch((error) => {return res.end("Action Unsuccessful");});
+
+	res.end("Ticket Updated");
+});
+
+router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
+	let ticket_id = req.params.ticket_id;
+	let new_status = req.body.new_status;
+
+	await TicketModel.updateOne({id: ticket_id}, {status: new_status})
+	.catch((error) => {return res.end("Action Unsuccessful");});
 
 	res.end("Ticket Updated");
 });

@@ -7,7 +7,7 @@ var urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false }
 
 router.get('/all', urlencodedParser, async (req, res) => {
 	let all_tickets = await TicketModel.find()
-	.catch((error) => {res.end(JSON.stringify(error));});
+	.catch((error) => {return res.end(JSON.stringify(error));});
 
 	res.end(JSON.stringify(all_tickets));
 });
