@@ -52,7 +52,7 @@ const ticketSchema = new Schema({
         type: Number // user ID
     },
 
-    creator: {
+    creator_name: {
         required: true,
         type: String // user name
     },
@@ -94,7 +94,7 @@ const ticketSchema = new Schema({
 
     last_status_update_date: {
         required: true,
-        type: String
+        type: Date
     }
 }, {timestamps: true });
 

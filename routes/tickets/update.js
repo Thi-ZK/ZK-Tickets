@@ -10,7 +10,8 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 	let ticket = await TicketModel.find({id: ticket_id}).catch((error) => {return res.end("Ticket Not Found")});
 	let new_message = {
 		message: req.body.message,
-		date: Date(),
+		date: new Date(),
+		date_casual_format: Date(),
 		id: ticket[0].messages.length + 1,
 		message_owner: 1, // TO DO
 		message_owner_name: "Athalia Sieghart" // TO DO
@@ -46,7 +47,7 @@ router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let new_status = req.body.new_status;
 
-	await TicketModel.updateOne({id: ticket_id}, {last_status_update_date: Date(), status: new_status})
+	await TicketModel.updateOne({id: ticket_id}, {last_status_update_date: new Date(), status: new_status})
 	.catch((error) => {return res.end("Action Unsuccessful");});
 	
 	res.end("Ticket Updated");
