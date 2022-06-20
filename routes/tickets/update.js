@@ -5,6 +5,7 @@ const TicketModel = require('../../models/ticket');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
+// Meant For Setting A New Message For A Single Ticket
 router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let ticket = await TicketModel.find({id: ticket_id}).catch((error) => {return res.end("Ticket Not Found")});
@@ -26,6 +27,7 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 	res.end("Ticket Updated");
 });
 
+// Meant For Deleting A Message For A Single Ticket
 router.post('/single/messages/delete/:ticket_id/:message_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let message_id = req.params.message_id;
@@ -43,11 +45,28 @@ router.post('/single/messages/delete/:ticket_id/:message_id', urlencodedParser, 
 	res.end("Ticket Updated");
 });
 
+// Meant For Setting A New Status For A Single Ticket
 router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let new_status = req.body.new_status;
 
 	await TicketModel.updateOne({id: ticket_id}, {last_status_update_date: new Date(), status: new_status})
+	.catch((error) => {return res.end("Action Unsuccessful");});
+	
+	res.end("Ticket Updated");
+});
+
+// Meant For Setting A New Assigned User For A Single Ticket
+router.post('/single/assigneds/set/:ticket_id', urlencodedParser, async (req, res) => {
+	let ticket_id = req.params.ticket_id;
+	let new_assigned_id = req.body.assignedId;
+	let new_assigned_name = req.body.assignedName;
+
+	let ticket = await TicketModel.find({id: ticket_id}).catch((error) => {return res.end("Ticket Not Found")});
+	let new_assumers = ticket[0].assumers; new_assumers.push(new_assigned_id);
+	let new_assumers_names = ticket[0].assumers_names; new_assumers_names.push(new_assigned_name);
+
+	await TicketModel.updateOne({id: ticket_id}, {assumers: new_assumers, assumers_names: new_assumers_names})
 	.catch((error) => {return res.end("Action Unsuccessful");});
 	
 	res.end("Ticket Updated");

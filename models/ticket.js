@@ -62,11 +62,6 @@ const ticketSchema = new Schema({
         type: String
     },
 
-    assumers: {
-        required: true,
-        type: Array
-    },
-
     creation_date: {
         required: true,
         type: Date
