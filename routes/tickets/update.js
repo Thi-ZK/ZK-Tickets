@@ -72,4 +72,20 @@ router.post('/single/assigneds/set/:ticket_id', urlencodedParser, async (req, re
 	res.end("Ticket Updated");
 });
 
+// Meant For Setting A New Assigned User For A Single Ticket
+router.post('/single/assigneds/delete/:ticket_id', urlencodedParser, async (req, res) => {
+	let ticket_id = req.params.ticket_id;
+	let assigned_id = req.body.assignedId;
+	let assigned_name = req.body.assignedName;
+
+	let ticket = await TicketModel.find({id: ticket_id}).catch((error) => {return res.end("Ticket Not Found")});
+	let new_assumers = ticket[0].assumers.filter((id) => {return id !== assigned_id});
+	let new_assumers_names = ticket[0].assumers_names.filter((name) => {return name !== assigned_name});
+
+	await TicketModel.updateOne({id: ticket_id}, {assumers: new_assumers, assumers_names: new_assumers_names})
+	.catch((error) => {return res.end("Action Unsuccessful");});
+	
+	res.end("Ticket Updated");
+});
+
 module.exports = router;
