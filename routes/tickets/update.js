@@ -15,7 +15,8 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 		date_casual_format: Date(),
 		id: ticket[0].messages.length + 1,
 		message_owner: 1, // TO DO
-		message_owner_name: "Athalia Sieghart" // TO DO
+		message_owner_name: "Athalia Sieghart", // TO DO
+		status: "alive"
 	}
 
 	ticket[0].messages.push(new_message);
@@ -35,9 +36,8 @@ router.post('/single/messages/delete/:ticket_id/:message_id', urlencodedParser, 
 	let ticket = await TicketModel.find({id: ticket_id})
 	.catch((error) => {return res.end("Ticket Not Found")});
 
-	let messages_array_to_be_updated = ticket[0].messages.filter((msg) => {
-		return msg.id !== Number(message_id);
-	});
+	let messages_array_to_be_updated = ticket[0].messages;
+	messages_array_to_be_updated[message_id - 1].status = "deleted";
 
 	await TicketModel.updateOne({id: ticket_id}, {messages: messages_array_to_be_updated})
 	.catch((error) => {return res.end("Action Unsuccessful");});
