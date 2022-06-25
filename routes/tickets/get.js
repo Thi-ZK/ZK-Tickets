@@ -3,7 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const TicketModel = require('../../models/ticket');
 
-var urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false } );
+let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false } );
 
 router.get('/all', urlencodedParser, async (req, res) => {
 	let all_tickets = await TicketModel.find()
