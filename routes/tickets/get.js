@@ -7,7 +7,6 @@ let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false }
 
 router.get('/all', urlencodedParser, async (req, res) => {
 	let all_tickets = await TicketModel.find()
-	.catch((error) => {return res.end(JSON.stringify(error));});
 
 	res.end(JSON.stringify(all_tickets));
 });
@@ -15,8 +14,11 @@ router.get('/all', urlencodedParser, async (req, res) => {
 router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 
-	let ticket = await TicketModel.find({id: ticket_id})
-	.catch((error) => {res.end(JSON.stringify(error));});
+	let ticket = await TicketModel.findOne({id: ticket_id}).select();
+
+	if (!ticket) {
+		return res.end("Ticket Not Found");
+	}
 	
 	res.end(JSON.stringify(ticket));
 });

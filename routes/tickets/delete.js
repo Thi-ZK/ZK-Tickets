@@ -9,7 +9,6 @@ router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = Number(req.params.ticket_id);
 	
 	await TicketModel.deleteOne({id: ticket_id})
-	.catch(() => {res.end("Action Unsuccessful");});
 
 	res.end("Ticket Deleted");
 });
