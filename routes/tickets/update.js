@@ -14,8 +14,8 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 		date: new Date(),
 		date_casual_format: Date(),
 		id: String(Date.now()) + "." + String(Math.floor(Math.random() * 100000)),
-		message_owner: 1, // TO DO
-		message_owner_name: "Athalia Sieghart", // TO DO
+		message_owner: req.session.user.id,
+		message_owner_name: req.session.user.name,
 		status: "alive"
 	}
 
@@ -29,7 +29,12 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let message_id = req.body.message_id;
+	let message_owner = req.body.message_owner;
 	let req_status = "Ticket Updated";
+
+	if (!(message_owner === req.session.user.id) && (req.session.user.user_power <= 3)) {
+		return res.end("Not Allowed");
+	}
 
 	await TicketModel.findOneAndUpdate({
 		id: ticket_id,
