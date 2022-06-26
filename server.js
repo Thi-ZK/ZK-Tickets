@@ -8,6 +8,7 @@ const ticketDeleteRouter = require('./routes/tickets/delete');
 const ticketUpdateRouter = require('./routes/tickets/update');
 const ticketCreateRouter = require('./routes/tickets/create');
 const ticketGetRouter = require('./routes/tickets/get');
+const userGetRouter = require('./routes/users/get');
 const loginAuthRouter = require('./routes/login');
 
 const app = express();
@@ -42,11 +43,18 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 1 } // one day 
 }));
 
+// Middleware To Restrict User To Access Content Unless He / She Logs In
+app.use((req, res, next) => {
+    if (req.path === "/login/auth") {return next();}
+    !req.session.user ? res.end("Not Authenticated -- Not Allowed") : next();
+});
+
 // Routes
 app.use('/tickets/delete', ticketDeleteRouter);
 app.use('/tickets/update', ticketUpdateRouter);
 app.use('/tickets/create', ticketCreateRouter);
 app.use('/tickets/get', ticketGetRouter);
+app.use('/users/get', userGetRouter);
 app.use('/login', loginAuthRouter);
 
 // Server Start After Successful Connection With DB
