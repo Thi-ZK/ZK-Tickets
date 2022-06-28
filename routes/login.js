@@ -19,4 +19,10 @@ router.post('/auth', async (req, res) => {
 	}
 });
 
+router.get('/logout', (req, res) => {
+	req.session.destroy();
+	res.clearCookie('connect.sid');
+	res.end("Session Destroyed");
+});
+
 module.exports = router;
