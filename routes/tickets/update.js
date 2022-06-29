@@ -13,7 +13,7 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 		message: req.body.message,
 		date: new Date(),
 		date_casual_format: Date(),
-		id: String(Date.now()) + "." + String(Math.floor(Math.random() * 100000)),
+		id: req.body.message_id || String(Date.now()) + "." + String(Math.floor(Math.random() * 100000)),
 		message_owner: req.session.user.id,
 		message_owner_name: req.session.user.name,
 		status: "alive"
