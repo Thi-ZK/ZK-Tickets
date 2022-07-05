@@ -7,11 +7,7 @@ var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false })
 
 router.post('/single', urlencodedParser, async (req, res) => {
 	let ticket_data = req.body;
-	let last_ticket = await TicketModel.find().sort({_id:-1}).limit(1)
-	.catch(() => {res.end("Something Went Wrong");});
-
-	console.log(ticket_data);
-	return res.end();
+	let last_ticket = await TicketModel.find().sort({_id:-1}).limit(1);
 
 	const newTicketDocument = new TicketModel({
 		name: ticket_data.name,
@@ -33,6 +29,9 @@ router.post('/single', urlencodedParser, async (req, res) => {
 		messages: [],
 		last_status_update_date: new Date()
 	});
+
+	console.log(newTicketDocument);
+	return res.end();
 
 	await newTicketDocument.save()
 	.catch(() => {res.end("Action Unsuccessful");});
