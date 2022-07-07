@@ -5,7 +5,7 @@ const TicketModel = require('../../models/ticket');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
-// Meant For Setting A New Message For A Single Ticket
+// NEW MESSAGE - Meant For Setting A New Message For A Single Ticket
 router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let req_status = "Ticket Updated";
@@ -25,7 +25,7 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 	res.end(req_status);
 });
 
-// Meant For Deleting A Message For A Single Ticket
+// DELETING MESSAGE - Meant For Deleting A Message For A Single Ticket
 router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let message_id = req.body.message_id;
@@ -45,7 +45,7 @@ router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req,
 	res.end(req_status);
 });
 
-// Meant For Setting A New Status For A Single Ticket
+// NEW TICKET STATUS - Meant For Setting A New Status For A Single Ticket
 router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let new_status = req.body.new_status;
@@ -55,27 +55,43 @@ router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
 	res.end("Ticket Updated");
 });
 
-// Meant For Setting A New Assigned User For A Single Ticket
+// NEW ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
 router.post('/single/assigneds/set/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let new_assumer = req.body.assignedId;
 	let new_assumer_name = req.body.assignedName;
 	let req_status = "Ticket Updated";
 
-	await TicketModel.updateOne({id: ticket_id}, {$push: {assumers: new_assumer, assumers_names: new_assumer_name}})
+	await TicketModel.updateOne({id: ticket_id}, {
+		$addToSet: {
+			assumers: new_assumer,
+			assumers_names: new_assumer_name,
+			related_users: new_assumer,
+			related_users_names: new_assumer_name
+		}})
 	.catch(() => {req_status = "Ticket Doesn't Exist"});
 	
 	res.end(req_status);
 });
 
-// Meant For Deleting A Assigned User For A Single Ticket
+// DELETING ASSIGNED - Meant For Deleting A Assigned User For A Single Ticket
 router.post('/single/assigneds/delete/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let new_assumer = req.body.assignedId;
 	let new_assumer_name = req.body.assignedName;
 	let req_status = "Ticket Updated";
+	let ticket_creator = req.body.ticket_creator;
+	let ticket_creator_name = req.body.ticket_creator_name;
 
-	await TicketModel.updateOne({id: ticket_id}, {$pull: {assumers: new_assumer, assumers_names: new_assumer_name}})
+	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off
+	// From The Array Of Related Users.
+	await TicketModel.updateOne({id: ticket_id}, {
+		$pull: {
+			assumers: new_assumer,
+			assumers_names: new_assumer_name,
+			related_users: ticket_creator === new_assumer ? undefined : new_assumer,
+			related_users_names: ticket_creator_name === new_assumer_name ? undefined : new_assumer_name,
+		}})
 	.catch(() => {req_status = "Ticket Doesnt' Exist"});
 
 	res.end(req_status);
