@@ -8,7 +8,11 @@ let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false }
 router.get('/all', urlencodedParser, async (req, res) => {
 	let all_tickets = await TicketModel.find()
 
-	res.end(JSON.stringify(all_tickets));
+	res.send(JSON.stringify({
+		data: all_tickets,
+		success: true,
+		requested: "All Tickets Data"
+	}));
 });
 
 router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
@@ -20,7 +24,11 @@ router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
 		return res.end("Ticket Not Found");
 	}
 	
-	res.end(JSON.stringify(ticket));
+	res.send(JSON.stringify({
+		data: ticket,
+		success: true,
+		requested: "Single Ticket Data"
+	}));
 });
 
 module.exports = router;

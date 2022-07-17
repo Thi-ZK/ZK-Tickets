@@ -7,10 +7,14 @@ let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false }
 
 // Retrieve Current User
 router.get('/single/current', urlencodedParser, (req, res) => {
-	res.end(JSON.stringify(req.session.user));
+	res.send(JSON.stringify({
+		data: req.session.user,
+		success: true,
+		requested: "Single User Data"
+	}));
 });
 
-// Retrieve All Users Names & IDs. (Piece means it only retrieves a piece of data from the whole)
+// Retrieve All Users Names & IDs. (Piece means it only retrieves a piece of data from the whole User Data)
 router.get('/piece/all_users', urlencodedParser, async (req, res) => {
 	let all_users = await UserModel.find();
 	let users_ids_with_names = {};
@@ -19,7 +23,11 @@ router.get('/piece/all_users', urlencodedParser, async (req, res) => {
 		users_ids_with_names[all_users[i].id] = all_users[i].name;
 	}
 
-	res.end(JSON.stringify(users_ids_with_names));
+	res.end(JSON.stringify({
+		data: users_ids_with_names,
+		success: true,
+		requested: "All Ticket Names With IDs"
+	}));
 });
 
 

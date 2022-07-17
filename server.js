@@ -46,7 +46,7 @@ app.use(session({
 // Middleware To Restrict User To Access Content Unless He / She Logs In
 app.use((req, res, next) => {
     if (req.path === "/login/auth") {return next();}
-    !req.session.user ? res.end("Not Authenticated -- Not Allowed") : next();
+    !req.session.user ? res.send({success: false, status_message: "Not Authenticated -- Not Allowed"}) : next();
 });
 
 // Routes
