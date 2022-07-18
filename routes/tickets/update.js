@@ -9,6 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false })
 router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = req.params.ticket_id;
 	let req_status = "Ticket Updated";
+
 	let new_message = {
 		message: req.body.message,
 		date: new Date(),
@@ -27,10 +28,10 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 
 // DELETING MESSAGE - Meant For Deleting A Message For A Single Ticket
 router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req, res) => {
-	let ticket_id = req.params.ticket_id;
-	let message_id = req.body.message_id;
+	let ticket_id     = req.params.ticket_id;
+	let message_id    = req.body.message_id;
 	let message_owner = req.body.message_owner;
-	let req_status = "Ticket Updated";
+	let req_status    = "Ticket Updated";
 
 	if (!(message_owner === req.session.user.id) && (req.session.user.user_power <= 3)) {
 		return res.end("Not Allowed");
@@ -47,7 +48,7 @@ router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req,
 
 // NEW TICKET STATUS - Meant For Setting A New Status For A Single Ticket
 router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id = req.params.ticket_id;
+	let ticket_id  = req.params.ticket_id;
 	let new_status = req.body.new_status;
 	
 	await TicketModel.updateOne({id: ticket_id}, {last_status_update_date: new Date(), status: new_status});
@@ -57,10 +58,10 @@ router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
 
 // NEW ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
 router.post('/single/assigneds/set/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id = req.params.ticket_id;
-	let new_assumer = req.body.assignedId;
-	let new_assumer_name = req.body.assignedName;
-	let req_status = "Ticket Updated";
+	let ticket_id        = req.params.ticket_id;
+	let new_assumer      = req.body.assigne_id;
+	let new_assumer_name = req.body.assigned_name;
+	let req_status       = "Ticket Updated";
 
 	await TicketModel.updateOne({id: ticket_id}, {
 		$addToSet: {
@@ -76,11 +77,11 @@ router.post('/single/assigneds/set/:ticket_id', urlencodedParser, async (req, re
 
 // DELETING ASSIGNED - Meant For Deleting A Assigned User For A Single Ticket
 router.post('/single/assigneds/delete/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id = req.params.ticket_id;
-	let new_assumer = req.body.assignedId;
-	let new_assumer_name = req.body.assignedName;
-	let req_status = "Ticket Updated";
-	let ticket_creator = req.body.ticket_creator;
+	let ticket_id           = req.params.ticket_id;
+	let new_assumer         = req.body.assigne_id;
+	let new_assumer_name    = req.body.assigned_name;
+	let req_status          = "Ticket Updated";
+	let ticket_creator      = req.body.ticket_creator;
 	let ticket_creator_name = req.body.ticket_creator_name;
 
 	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off
