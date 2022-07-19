@@ -68,7 +68,7 @@ const ticketSchema = new Schema({
     },
 
     due_date: {
-       required: true,
+       required: false,
        type: Date
     },
 

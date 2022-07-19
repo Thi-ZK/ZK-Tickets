@@ -30,13 +30,12 @@ router.post('/single', urlencodedParser, async (req, res) => {
 		last_status_update_date: new Date()
 	});
 
-	console.log(newTicketDocument);
-	return res.end();
+	await newTicketDocument.save();
 
-	await newTicketDocument.save()
-	.catch(() => {res.end("Action Unsuccessful");});
-
-	res.end("Ticket Successfully Created");
+	res.send(JSON.stringify({
+		success: true,
+		requested: "New Ticket Creation"
+	}));
 });
 
 module.exports = router;
