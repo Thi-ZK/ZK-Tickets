@@ -29,7 +29,7 @@ const sessionStore = MongoStore.create({
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000", "https://zktickets.herokuapp.com", "https://zktickets-server.herokuapp.com"],
+    origin: ["http://localhost:3000", "https://zktickets.herokuapp.com"],
     method: ["GET", "POST"],
     credentials: true
 }));
@@ -43,7 +43,8 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 1, // one day
         domain: process.env.SESSION_COOKIE_DOMAIN,
-        path: "/"
+        path: "/",
+        secure: true
     }
 }));
 
