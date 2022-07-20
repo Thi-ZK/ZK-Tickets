@@ -42,8 +42,8 @@ app.use(session({
     store: sessionStore,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 1, // one day
-        SameSite: "none",
-        secure: true // Comment When Debugging
+        domain: process.env.SESSION_COOKIE_DOMAIN,
+        path: "/"
     }
 }));
 
