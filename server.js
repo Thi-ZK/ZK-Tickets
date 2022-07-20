@@ -43,7 +43,10 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 1, // one day
         domain: process.env.SESSION_COOKIE_DOMAIN,
-        path: "/"
+        path: "/",
+        SameSite: "none",
+        sameSite: "none",
+        secure: true
     }
 }));
 
