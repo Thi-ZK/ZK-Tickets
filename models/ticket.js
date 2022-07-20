@@ -43,7 +43,7 @@ const ticketSchema = new Schema({
     },
 
     description: {
-        required: true,
+        required: false,
         type: String
     },
 
