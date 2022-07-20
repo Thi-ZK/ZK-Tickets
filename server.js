@@ -40,7 +40,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 1, sameSite: "none" } // one day 
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 1, sameSite: "none", secure: true } // one day 
 }));
 
 // Middleware To Restrict User To Access Content Unless He / She Logs In
