@@ -1,0 +1,14 @@
+{
+    "ticket_description": {
+        "english": "Ticket Description",
+        "german": "Ticket Beschreibung",
+        "portuguese": "Descrição do Ticket",
+        "spanish": "Descripción del Ticket"
+    },
+    "attachments": {
+        "english": "Attachments",
+        "german": "Anhänge",
+        "portuguese": "Anexos",
+        "spanish": "Archivos Adjuntos"
+    }
+}

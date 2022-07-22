@@ -1,0 +1,9 @@
+#unauthorized-container {
+    display: flex;
+    justify-content: center;
+}
+
+#unauthorized-container img {
+    height: 600px;
+    width: 600px;
+}

@@ -1,0 +1,26 @@
+{
+    "delete": {
+        "english": "Delete",
+        "german": " Löschen",
+        "portuguese": "Deletar",
+        "spanish": "Eliminar"
+    },
+    "conclude": {
+        "english": "Conclude ",
+        "german": "Abschliessen",
+        "portuguese": "Finalizar",
+        "spanish": "Concluir"
+    },
+    "block": {
+        "english": "Block ",
+        "german": " Blockieren",
+        "portuguese": "Bloquear",
+        "spanish": "Bloquear"
+    },
+    "homologate": {
+        "english": "Homologate ",
+        "german": " Homologieren",
+        "portuguese": "Homologar",
+        "spanish": "Homologar"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "sign_in": {
+        "english": "Sign In",
+        "german": "Anmelden",
+        "portuguese": "Fazer Login",
+        "spanish": "Hacer Login"
+    },
+    "password": {
+        "english": "Password",
+        "german": "Passwort",
+        "portuguese": "Senha",
+        "spanish": "Contraseña"
+    },
+    "login_button": {
+        "english": "Log In",
+        "german": "Login",
+        "portuguese": "Login",
+        "spanish": "Login"
+    },
+    "forgot_password": {
+        "english": "Forgot Your Password?",
+        "german": "Sie haben ihres Passwort vergessen?",
+        "portuguese": "Esqueceu Sua Senha?",
+        "spanish": "¿Olvidaste Tu Contraseña?"
+    },
+    "have_no_account_yet": {
+        "english": "Don't have an account?",
+        "german": "Sie haben kein Konto?",
+        "portuguese": "Não possui uma conta?",
+        "spanish": "¿No tienes una cuenta?"
+    },
+    "ask_one": {
+        "english": "Ask one",
+        "german": "Fragen Sie nach einem",
+        "portuguese": "Peça uma",
+        "spanish": "Pide una"
+    },
+    "Password Incorrect": {
+        "english": "Password Incorrect",
+        "german": "Falsches Passwort",
+        "portuguese": "Senha Incorreta",
+        "spanish": "Contraseña Incorrecta"
+    },
+    "User Doesn't Exist": {
+        "english": "User Doesn't Exist",
+        "german": "ein solcher Nutzer existiert nicht",
+        "portuguese": "Usuário Inexistente",
+        "spanish": "Usuario Inexistente"
+    },
+    "what_is_your_plan": {
+        "english": "What Are You Planing To Do?",
+        "german": "Was haben Sie mit dieser Aktion vor?",
+        "portuguese": "Qual É A Sua Ideia?",
+        "spanish": "¿Cual Es Tu Idea?"
+    },
+    "none": {
+        "english": "",
+        "german": "",
+        "portuguese": "",
+        "spanish": ""
+    }
+}

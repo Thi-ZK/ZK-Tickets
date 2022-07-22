@@ -1,0 +1,115 @@
+.attachment-title-container{
+	color: rgb(230, 230, 230);
+	font-size: 14px;
+	text-align: center;
+	text-decoration: underline;
+}
+div[theme='bright'] .attachment-title-container {
+	color: rgb(40, 40, 40);
+}
+
+.attachments-container {
+	padding: 24px 1em 1em 1em;
+	font-size: 14px;
+}
+
+.attachments-direct-container {
+	padding: 24px 1em 1em 1em;
+}
+
+
+.attachments-direct-container input:hover {
+	cursor: pointer;
+}
+
+.attachment-blocks{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+/* UPLOAD BUTTON */
+
+
+.tv-attachment-repeatable-block {
+	margin-top: 6px;
+}
+
+
+.tv-attachments-direct-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+  } 
+  .tv-attachments-direct-container .input-file-trigger {
+	display: block;
+	padding: 14px 45px;
+	background: #2e3836;
+	color: #fff;
+	font-size: 14px;
+	transition: all .4s;
+	cursor: pointer;
+	text-align: center;
+	width: 130px;
+  }
+  div[theme='bright'] .tv-attachments-direct-container .input-file-trigger {
+	  color: rgb(90, 90, 90);
+	  background-color: rgb(220, 220, 220);
+  }
+
+  .tv-attachments-direct-container .attachment {
+	position: absolute;
+	top: 0; left: 0;
+	width: 225px;
+	opacity: 0;
+	padding: 14px 0;
+	cursor: pointer;
+  }
+  .tv-attachments-direct-container:hover label {
+	color: rgb(237, 213, 2) !important;
+  }
+  div[theme='bright'] .tv-attachments-direct-container:hover label {
+	color: black !important;
+  }
+
+  .file-return {
+	margin: 0;
+	font-size: 14px;
+	color: white;
+  }
+  div[theme='bright'] .file-return {
+	  color: rgb(20, 20, 20);
+  }
+
+  .file-return:not(:empty) {
+	margin: 1em 0;
+  }
+  .tv-attachments-direct-container .file-return {
+	font-style: italic;
+	font-size: .9em;
+	font-weight: bold;
+  }
+  .tv-attachments-direct-container .file-return:not(:empty):before {
+	content: "Selected file: ";
+	font-style: normal;
+	font-weight: normal;
+  }
+
+  #tv-att-file-name-and-delete-button-container {
+	  display: flex;
+	  align-items: center;
+  }
+
+  #tv-att-file-name-and-delete-button-container img {
+	  width: 25px;
+	  height: 25px;
+	  margin-top: 3px;
+	  margin-left: 8px;
+	  cursor: pointer;
+	  visibility: hidden;
+  }
+
+  #tv-att-file-name-and-delete-button-container img.open {
+	visibility: visible;
+  }

@@ -1,0 +1,50 @@
+{
+    "profile": {
+        "english": "Profile",
+        "german": "Profil",
+        "portuguese": "Perfil",
+        "spanish": "Perfil"
+    },
+    "total_linked_tickets": {
+        "english": "Total Linked Tickets",
+        "german": "Insgesamnt verbundene Tickets",
+        "portuguese": "Total De Tickets Relacionados",
+        "spanish": "Total De Tickets Relacionados"
+    },
+    "about": {
+        "english": "About",
+        "german": "Über den Benutzer",
+        "portuguese": "Sobre",
+        "spanish": "Sobre"
+    },
+    "preferences": {
+        "english": "Preferences",
+        "german": "Vorlieben",
+        "portuguese": "Preferências",
+        "spanish": "Preferencias"
+    },
+    "user_id": {
+        "english": "User ID",
+        "german": "ID des Benutzers",
+        "portuguese": "ID do Usuário",
+        "spanish": "ID del Usuario"
+    },
+    "name": {
+        "english": "Name",
+        "german": "Name",
+        "portuguese": "Nome",
+        "spanish": "Nombre"
+    },
+    "user_power": {
+        "english": "User Power",
+        "german": "Benutzerleistung",
+        "portuguese": "Autoridade do Usuário",
+        "spanish": "Autoridad del Usuario"
+    },
+    "phone_number": {
+        "english": "Phone Number",
+        "german": "Telefonnummer",
+        "portuguese": "Número de Telefone",
+        "spanish": "Número de teléfono"
+    }
+}

@@ -1,0 +1,116 @@
+{
+    "select_the_assigneds": {
+        "english": "Select The",
+        "german": "Wählen Sie die",
+        "portuguese": "Selecione Os",
+        "spanish": "Seleccione Los"
+    },
+    "assigneds": {
+        "english": "Assigneds",
+        "german": "Zugewiesene aus",
+        "portuguese": "Responsáveis",
+        "spanish": "Responsables"
+    },
+    "select_the_group": {
+        "english": "Select The",
+        "german": "Wählen Sie die",
+        "portuguese": "Selecione Os",
+        "spanish": "Seleccione Los"
+    },
+    "group": {
+        "english": "Groups",
+        "german": "Gruppen aus",
+        "portuguese": "Grupos",
+        "spanish": "Grupos"
+    },
+    "select_the_priority": {
+        "english": "Select The",
+        "german": "Wählen Sie die",
+        "portuguese": "Selecione A",
+        "spanish": "Seleccione La"
+    },
+    "priority": {
+        "english": "Priority",
+        "german": "Priorität",
+        "portuguese": "Prioridade",
+        "spanish": "Prioridad"
+    },
+    "select_the_status": {
+        "english": "Select The",
+        "german": "Wählen Sie die",
+        "portuguese": "Selecione O",
+        "spanish": "Seleccione Lo"
+    },
+    "status": {
+        "english": "Status",
+        "german": "Status",
+        "portuguese": "Status",
+        "spanish": "Status"
+    },
+    "select_a": {
+        "english": "Select a",
+        "german": "Wählen Sie ein",
+        "portuguese": "Escolha Um",
+        "spanish": "Elige Un"
+    },
+    "standard": {
+        "english": "Standard",
+        "german": "Standard",
+        "portuguese": "Padrão",
+        "spanish": "Patrón"
+    },
+    "very low": {
+        "english": "Very Low",
+        "german": "Sehr niedrig",
+        "portuguese": "Muito Baixa",
+        "spanish": "Muy Baja"
+    },
+    "low": {
+        "english": "Low",
+        "german": "Niedrig",
+        "portuguese": "Baixa",
+        "spanish": "Baja"
+    },
+    "high": {
+        "english": "High",
+        "german": "Hoch",
+        "portuguese": "Alta",
+        "spanish": "Alta"
+    },
+    "very high": {
+        "english": "Very High",
+        "german": "Sehr hoch",
+        "portuguese": "Muito Alta",
+        "spanish": "Muy Alta"
+    },
+    "urgent!": {
+        "english": "Urgent!",
+        "german": "Dringend!",
+        "portuguese": "Urgente!",
+        "spanish": "¡Urgente!"
+    },
+    "open": {
+        "english": "Open",
+        "german": "Geöffnet",
+        "portuguese": "Aberto",
+        "spanish": "Abierto"
+    },
+    "blocked": {
+        "english": "Blocked",
+        "german": "Blockiert",
+        "portuguese": "Bloqueado",
+        "spanish": "Bloqueado"
+    },
+    "concluded": {
+        "english": "Concluded",
+        "german": "Abgeschlossen",
+        "portuguese": "Finalizado",
+        "spanish": "Concluido"
+    },
+    "homologation": {
+        "english": "Homologation",
+        "german": "Homologation",
+        "portuguese": "Homologação",
+        "spanish": "Homologación"
+    }
+}

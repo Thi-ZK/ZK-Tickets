@@ -1,0 +1,14 @@
+{
+    "select a file": {
+        "english": "Select a File",
+        "german": "Wählen Sie eine Datei aus",
+        "portuguese": "Escolha Um Arquivo",
+        "spanish": "Elija Un Archivo"
+    },
+    "file chosen": {
+        "english": "File Chosen",
+        "german": "Datei gewählt",
+        "portuguese": "Arquivo Selecionado",
+        "spanish": "Archivo Elegido"
+    }
+}

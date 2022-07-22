@@ -1,0 +1,123 @@
+/*buttons effects*/
+html *:before,
+html *:after {
+  transition: 0.55s ease-in-out;
+  z-index: -1;
+}
+
+.ticket-management-buttons-container div{
+	position: relative; box-sizing: border-box; float: left; width: 35%;
+	background-color: rgb(30, 30, 30);
+}
+div[theme='bright'] .ticket-management-buttons-container div {
+	background-color: white;
+}
+
+.ticket-management-buttons-container button{
+	cursor: pointer;
+	font-family: 'Questrial', sans-serif;
+	  position: relative;
+	  display: block;
+	  overflow: hidden;
+	  font-size: 0.8em;
+	  width: 100%;
+	  max-width: 220px;
+	  background-color: white;
+	  height: 45px;
+	  border-radius: 1px;
+	  letter-spacing: 0.5px;
+}
+.ticket-management-buttons-container button:before, .ticket-management-buttons-container button:after,
+.ticket-management-buttons-container button > span:before,
+.ticket-management-buttons-container button > span:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 25.25%;
+  height: 0;
+}
+/*button colors*/
+#delete-ticket{
+	border: 1px solid rgb(199, 47, 53);
+	color: rgb(199, 47, 53);
+	background-color: rgb(30, 30, 30);
+}
+div[theme='bright'] #delete-ticket, div[theme='bright'] #conclude-ticket, div[theme='bright'] #block-ticket, div[theme='bright'] #homologate-ticket{
+	background-color: white;
+}
+
+#delete-ticket:hover{
+	border: 1px solid darkred;
+	color: darkred;
+}
+.ticket-management-buttons-container #delete-ticket:before, .ticket-management-buttons-container #delete-ticket:after,
+.ticket-management-buttons-container #delete-ticket > span:before,
+.ticket-management-buttons-container #delete-ticket > span:after {
+	background-color: darkred;
+}
+
+#conclude-ticket{
+	border: 1px solid rgb(49, 182, 53);
+	color: rgb(49, 182, 53);
+	background-color: rgb(30, 30, 30);
+}
+.ticket-management-buttons-container #conclude-ticket:before, .ticket-management-buttons-container #conclude-ticket:after,
+.ticket-management-buttons-container #conclude-ticket > span:before,
+.ticket-management-buttons-container #conclude-ticket > span:after {
+	background-color: rgb(49, 182, 53);
+}
+
+#block-ticket{
+	border: 1px solid rgb(204,204,0);
+	color: rgb(204,204,0);
+	background-color: rgb(30, 30, 30);
+}
+.ticket-management-buttons-container #block-ticket:before, .ticket-management-buttons-container #block-ticket:after,
+.ticket-management-buttons-container #block-ticket > span:before,
+.ticket-management-buttons-container #block-ticket > span:after {
+	background-color: rgb(204,204,0);
+}
+
+#homologate-ticket{
+	border: 1px solid rgb(45, 176, 175);
+	color: rgb(45, 176, 175);
+	background-color: rgb(30, 30, 30);
+}
+.ticket-management-buttons-container #homologate-ticket:before, .ticket-management-buttons-container #homologate-ticket:after,
+.ticket-management-buttons-container #homologate-ticket > span:before,
+.ticket-management-buttons-container #homologate-ticket > span:after {
+	background-color: rgb(45, 176, 175);
+}
+/*button colors*/
+.ticket-management-buttons-container button:before {
+  left: 0;
+}
+.ticket-management-buttons-container button:after {
+  left: 50%;
+}
+.ticket-management-buttons-container button > span:before, .ticket-management-buttons-container button > span:after {
+  top: auto;
+  bottom: 0;
+}
+.ticket-management-buttons-container button > span:before {
+  left: 25%;
+}
+.ticket-management-buttons-container button > span:after {
+  left: 75%;
+}
+.ticket-management-buttons-container button:hover{
+	z-index: 100;
+}
+.ticket-management-buttons-container button:hover span{
+	color: white;
+	transition-duration: 0.4s;
+}
+.ticket-management-buttons-container button:hover:before, .ticket-management-buttons-container button:hover:after,
+.ticket-management-buttons-container button:hover span:before,
+.ticket-management-buttons-container button:hover span:after {
+  height: 100%;
+  transition-duration: 0.4s;
+  color: white;
+}
+/*buttons effects*/
+/*TICKET MANAGMENT*/

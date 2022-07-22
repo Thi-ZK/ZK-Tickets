@@ -1,0 +1,128 @@
+{
+    "ticket_creator": {
+        "english": "Ticket Creator",
+        "german": "Ticketersteller",
+        "portuguese": "Criador do Ticket",
+        "spanish": "Creador del Ticket"
+    },
+    "creation_date": {
+        "english": "Creation Date",
+        "german": "Erstellungsdatum",
+        "portuguese": "Data de Criação",
+        "spanish": "Fecha de creación"
+    },
+    "ticket_id": {
+        "english": "Ticket ID",
+        "german": "Ticketnummer",
+        "portuguese": "ID do Ticket",
+        "spanish": "ID del Ticket"
+    },
+    "due_date": {
+        "english": "Due Date",
+        "german": "Stichtag",
+        "portuguese": "Prazo",
+        "spanish": "Plazo"
+    },
+    "concluded_date": {
+        "english": "Concluded At",
+        "german": "Abgeschlossen am",
+        "portuguese": "Finalizado Em",
+        "spanish": "Concluido en"
+    },
+    "groups": {
+        "english": "Groups",
+        "german": "Gruppen",
+        "portuguese": "Grupos",
+        "spanish": "Grupos"
+    },
+    "priority": {
+        "english": "Priority",
+        "german": "Priorität",
+        "portuguese": "Prioridade",
+        "spanish": "Prioridad"
+    },
+    "assigneds": {
+        "english": "Ticket Assigned",
+        "german": "Ticket zugewiesen",
+        "portuguese": "Responsável Pelo Ticket",
+        "spanish": "Responsable Del Ticket"
+    },
+    "assigneds_plural": {
+        "english": "Ticket Assigneds",
+        "german": "Ticket zugewiesene",
+        "portuguese": "Responsáveis Pelo Ticket",
+        "spanish": "Responsables Del Ticket"
+    },
+    "add_assigneds": {
+        "english": "Add Assgineds",
+        "german": "Zuweisungen hinzufügen",
+        "portuguese": "Adicionar Responsáveis",
+        "spanish": "Añadir Responsable"
+    },
+    "Open": {
+        "english": "Open",
+        "german": "Geöffnet",
+        "portuguese": "Aberto",
+        "spanish": "Abierto"
+    },
+    "Deleted": {
+        "english": "Deleted",
+        "german": "Gelöscht",
+        "portuguese": "Deletado",
+        "spanish": "Eliminado"
+    },
+    "Concluded": {
+        "english": "Concluded",
+        "german": "Abgeschlossen",
+        "portuguese": "Finalizado",
+        "spanish": "Concluido"
+    },
+    "Blocked": {
+        "english": "Blocked",
+        "german": "Blockiert",
+        "portuguese": "Bloqueado",
+        "spanish": "Bloqueado"
+    },
+    "Homologation": {
+        "english": "Homologation",
+        "german": "Homologation",
+        "portuguese": "Homologação",
+        "spanish": "Homologación"
+    },
+    "Standard": {
+        "english": "Standard",
+        "german": "Standard",
+        "portuguese": "Padrão",
+        "spanish": "Patrón"
+    },
+    "Very low": {
+        "english": "Very Low",
+        "german": "Sehr niedrig",
+        "portuguese": "Muito Baixa",
+        "spanish": "Muy Baja"
+    },
+    "Low": {
+        "english": "Low",
+        "german": "Niedrig",
+        "portuguese": "Baixa",
+        "spanish": "Baja"
+    },
+    "High": {
+        "english": "High",
+        "german": "Hoch",
+        "portuguese": "Alta",
+        "spanish": "Alta"
+    },
+    "Very high": {
+        "english": "Very High",
+        "german": "Sehr hoch",
+        "portuguese": "Muito Alta",
+        "spanish": "Muy Alta"
+    },
+    "Urgent!": {
+        "english": "Urgent!",
+        "german": "Dringend!",
+        "portuguese": "Urgente!",
+        "spanish": "¡Urgente!"
+    }
+}

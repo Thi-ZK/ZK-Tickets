@@ -1,0 +1,179 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#all-content-container{
+	display: flex;
+}
+#home-content-title{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.25em;
+	padding-top: 3em;
+	text-align: center;
+	color: black;
+	letter-spacing: 0.05em;
+	padding-bottom: 2em;
+	text-transform: capitalize;
+	line-height: 30px;
+}
+div[theme='bright'] #home-content-title {
+	color: white;
+}
+
+.App {
+	display: flex;
+	min-height: 100vh;
+}
+
+.main-content-container {
+	background-color: rgb(55, 55, 55);
+	width: calc(100vw - 318px);
+	margin-left: 318px;
+	padding-bottom: 16px;
+}
+div[theme='bright'] .main-content-container {
+	background-color: rgb(240, 240, 240);
+}
+
+#top-header-space-auxiliary {
+	height: 48px;
+}
+
+#universal-overlay {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	z-index: 99;
+	background-color: rgba(0, 0, 0, 0.55);
+}
+
+#universal-overlay[status*='on'] {
+	display: block;
+}
+
+.calendar-closed {
+	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 30px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 30px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555;
+  }
+
+  .rectangle-span-selected_pieces {
+	color: white;
+}
+
+.rectangle-span-selected_pieces span {
+	margin-right: 4px;
+	font-size: 13px;
+	padding: 2px 4px 2px 4px;
+	border: 1px solid rgb(90,90,90);
+	cursor: pointer;
+	transition-duration: 0.25s;
+}
+
+div[theme='bright'] .rectangle-span-selected_pieces span {
+	color: rgb(35, 35, 35);
+	border: 1px solid rgb(200,200,200);
+}
+
+.rectangle-span-selected_pieces span:hover {
+	background-color: rgba(187, 49, 49, 0.8);
+	border: 1px solid rgb(187, 49, 49, 0.8);
+}
+
+div[theme='bright'] .rectangle-span-selected_pieces span:hover {
+	background-color: rgba(187, 49, 49, 0.95);
+	border: 1px solid rgb(187, 49, 49, 0.95);
+	color: white !important;
+}
+
+
+@import "./styles/header/headers.css";
+
+@import "./styles/ticket/ticket.css";
+@import "./styles/ticket/ticket_action_modal.css";
+
+@import "./styles/pages/login.css";
+@import "./styles/pages/not_authorized.css";
+@import "./styles/pages/help_and_info.css";
+@import "./styles/pages/profile.css";
+@import "./styles/pages/error_page.css";
+
+@import "./styles/pages/create_ticket/create_ticket.css";
+@import "./styles/pages/create_ticket/selection_piece.css";
+
+@import "./styles/pages/ticket_view/manage_ticket_buttons.css";
+@import "./styles/pages/ticket_view/message.css";
+@import "./styles/pages/ticket_view/ticket_view.css";
+
+@import "./styles/independent_pieces/attachment_block.css";

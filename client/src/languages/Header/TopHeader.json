@@ -1,0 +1,26 @@
+{
+    "login": {
+        "english": "Log In",
+        "german": "Anmelden",
+        "portuguese": "Realizar Login",
+        "spanish": "Hacer Login"
+    },
+    "logout": {
+        "english": "Log Out",
+        "german": "Abmelden",
+        "portuguese": "Realizar Logout",
+        "spanish": "Hacer Logout"
+    },
+    "bright": {
+        "english": "Bright Theme",
+        "german": "Helles Thema",
+        "portuguese": "Tema Claro",
+        "spanish": "Tema Claro"
+    },
+    "dark": {
+        "english": "Dark Theme",
+        "german": "Dunkles Thema",
+        "portuguese": "Tema Escuro",
+        "spanish": "Tema Oscuro"
+    }
+}

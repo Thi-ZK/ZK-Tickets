@@ -1,0 +1,146 @@
+{
+    "ticket_creator": {
+        "english": "Ticket Creator",
+        "german": "Ticketersteller",
+        "portuguese": "Criador do Ticket",
+        "spanish": "Creador del Ticket"
+    },
+    "ticket_id": {
+        "english": "Ticket ID",
+        "german": "Ticketnummer",
+        "portuguese": "ID do Ticket",
+        "spanish": "ID del Ticket"
+    },
+    "assigneds": {
+        "english": "Assigneds",
+        "german": "Zugeordnete",
+        "portuguese": "Responsáveis",
+        "spanish": "Responsables"
+    },
+    "groups": {
+        "english": "Groups",
+        "german": "Gruppen",
+        "portuguese": "Grupos",
+        "spanish": "Grupos"
+    },
+    "ticket_description": {
+        "english": "Ticket Description",
+        "german": "Ticket Beschreibung",
+        "portuguese": "Descrição do Ticket",
+        "spanish": "Descripción del Ticket"
+    },
+    "delete": {
+        "english": "Delete",
+        "german": "Löschen",
+        "portuguese": "Deletar",
+        "spanish": "Eliminar"
+    },
+    "conclude": {
+        "english": "Conclude",
+        "german": "Abschliessen",
+        "portuguese": "Finalizar",
+        "spanish": "Concluir"
+    },
+    "block": {
+        "english": "Block",
+        "german": "Blockieren",
+        "portuguese": "Bloquear",
+        "spanish": "Bloquear"
+    },
+    "homologate": {
+        "english": "Homologate",
+        "german": "Homologieren",
+        "portuguese": "Homologar",
+        "spanish": "Homologar"
+    },
+    "Deleted": {
+        "english": "Deleted",
+        "german": "Gelöscht",
+        "portuguese": "Deletado",
+        "spanish": "Eliminado"
+    },
+    "Concluded": {
+        "english": "Concluded",
+        "german": "Abgeschlossen",
+        "portuguese": "Finalizado",
+        "spanish": "Concluido"
+    },
+    "Blocked": {
+        "english": "Blocked",
+        "german": "Blockiert",
+        "portuguese": "Bloqueado",
+        "spanish": "Bloqueado"
+    },
+    "Homologation": {
+        "english": "Homologation",
+        "german": "Homologation",
+        "portuguese": "Homologação",
+        "spanish": "Homologación"
+    },
+    "Open": {
+        "english": "Open",
+        "german": "Geöffnet",
+        "portuguese": "Aberto",
+        "spanish": "Abierto"
+    },
+    "creation_date": {
+        "english": "Creation Date",
+        "german": "Erstellungsdatum",
+        "portuguese": "Data de Criação",
+        "spanish": "Fecha de Creación"
+    },
+    "due_date": {
+        "english": "Due Date",
+        "german": "Stichtag",
+        "portuguese": "Data de Finalização",
+        "spanish": "Fecha de Finalizacion"
+    },
+    "last_updated": {
+        "english": "Last Updated",
+        "german": "Zuletzt aktualisiert",
+        "portuguese": "Última Atualização",
+        "spanish": "Última Actualización"
+    },
+    "priority": {
+        "english": "Priority",
+        "german": "Priorität",
+        "portuguese": "Prioridade",
+        "spanish": "Prioridad"
+    },
+    "Standard": {
+        "english": "Standard",
+        "german": "Standard",
+        "portuguese": "Padrão",
+        "spanish": "Patrón"
+    },
+    "Very low": {
+        "english": "Very Low",
+        "german": "Sehr niedrig",
+        "portuguese": "Muito Baixa",
+        "spanish": "Muy Baja"
+    },
+    "Low": {
+        "english": "Low",
+        "german": "Niedrig",
+        "portuguese": "Baixa",
+        "spanish": "Baja"
+    },
+    "High": {
+        "english": "High",
+        "german": "Hoch",
+        "portuguese": "Alta",
+        "spanish": "Alta"
+    },
+    "Very high": {
+        "english": "Very High",
+        "german": "Sehr hoch",
+        "portuguese": "Muito Alta",
+        "spanish": "Muy Alta"
+    },
+    "Urgent!": {
+        "english": "Urgent!",
+        "german": "Dringend!",
+        "portuguese": "Urgente!",
+        "spanish": "¡Urgente!"
+    }
+}

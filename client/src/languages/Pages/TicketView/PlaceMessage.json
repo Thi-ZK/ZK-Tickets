@@ -1,0 +1,14 @@
+{
+    "place_a_message_below": {
+        "english": "Place a Message In The Box Below",
+        "german": "Hinterlassen Sie eine Nachricht unten",
+        "portuguese": "Escreva Uma Mensagem No Campo Abaixo",
+        "spanish": "Escribe Un Mensaje En El Campo Abajo"
+    },
+    "place_message": {
+        "english": "Place Message",
+        "german": "Nachricht hinterlassen",
+        "portuguese": "Enviar Mensagem",
+        "spanish": "Enviar Mensaje"
+    }
+}

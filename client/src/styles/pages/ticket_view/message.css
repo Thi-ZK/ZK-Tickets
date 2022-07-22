@@ -1,0 +1,68 @@
+#tv-messages-container {
+    border: 1px solid rgb(90, 90, 90);
+	background-color: rgb(30, 30, 30);
+    max-height: 352px;
+    margin-bottom: 12px;
+    overflow-y: auto;
+}
+div[theme='bright'] #tv-messages-container {
+    background-color: white;
+    border: 1px solid rgb(230, 230, 230);
+}
+
+.tv-message-direct-container {
+    padding: 10px;
+    padding-bottom: 13px;
+}
+
+div[class='tv-message-direct-container'][type='2'] {
+    background-color: rgb(40, 40, 40) !important;
+}
+
+div[theme='bright'] div[class='tv-message-direct-container'][type='2'] {
+    background-color: rgb(245, 245, 245) !important;
+}
+
+.tv-message-title-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: white;
+}
+div[theme='bright'] .tv-message-title-container {
+    color: rgb(30, 30, 30);
+}
+
+.tv-message-name {
+    display: flex;
+}
+.tv-message-name img {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.tv-single-message-container {
+    font-size: 14px;
+    padding: 14px 12px 0px 2px;
+    line-height: 120%;
+    color: white;
+}
+div[theme='bright'] .tv-single-message-container {
+    color: rgb(30, 30, 30);
+}
+
+.delete-msg-icon {
+    width: 13px !important;
+    height: 13px !important;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.tv-message-delete-message-img[status='off']{
+    display: none;
+}
+.tv-message-delete-message-img[status='on']{
+    display: inline-block;
+}

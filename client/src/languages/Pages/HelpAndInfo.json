@@ -1,0 +1,26 @@
+{
+    "help_and_informations": {
+        "english": "Help & Informations",
+        "german": "Hilfe & Informationen",
+        "portuguese": "Ajuda & Informações",
+        "spanish": "Ayuda & Informaciones"
+    },
+    "have_question_or_need_help": {
+        "english": "Do you have a question or need help?",
+        "german": "Haben Sie eine Frage oder brauchen Sie Hilfe?",
+        "portuguese": "Você teria uma pergunta ou precisa de ajuda?",
+        "spanish": "¿Usted tiene alguna pregunta o necesita ayuda?"
+    },
+    "contact_email_below": {
+        "english": "Then plese contact the email below with your question / your observation:",
+        "german": "Dann kontaktieren Sie bitte die untenstehende Email mit Ihrer Frage / Beobachtung",
+        "portuguese": "Para tal, por favor contate o email abaixo com sua pergunta / observação",
+        "spanish": "Para hacerlo, envía por favor un email para el email abajo con su pregunta / nota."
+    },
+    "alternatively": {
+        "english": "Alternatively you can also talk directly to me (thiago), if you prefer! Send me a message directly.",
+        "german": "Alternativ können Sie auch direkt mit mir (Thiago) sprechen, wenn Ihnen es lieber ist! Senden Sie mir gerne eine direkte Nachricht",
+        "portuguese": "Caso você prefira, também pode falar comigo diretamente! Me envie uma mensagem.",
+        "spanish": "Si lo prefieres, ¡también puedes hablar conmigo directamente! Envíame un mensaje."
+    }
+}

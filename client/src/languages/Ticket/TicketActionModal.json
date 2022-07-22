@@ -1,0 +1,65 @@
+{
+    "confirmation": {
+        "english": "Confirmation",
+        "german": "Bestätigung",
+        "portuguese": "Confirmação",
+        "spanish": "Confirmación"
+    },
+    "action_warning1": {
+        "english": "Are you sure you want to",
+        "german": "Sind Sie sicher, dass Sie dieses Ticket",
+        "portuguese": "Você têm certeza que gostaria de",
+        "spanish": "¿Usted estas seguro que desea"
+    },
+    "action_warning2": {
+        "english": "this ticket? This action can be changed again.",
+        "german": "möchten? Diese Aktion kann wieder geändert werden.",
+        "portuguese": "este ticket? Esta ação pode ser mudada novamente.",
+        "spanish": "este ticket? Esta acción se puede cambiar de nuevo."
+    },
+    "delete": {
+        "english": "delete",
+        "german": "löschen",
+        "portuguese": "deletar",
+        "spanish": "eliminar"
+    },
+    "conclude": {
+        "english": "conclude",
+        "german": "abschliessen",
+        "portuguese": "finalizar",
+        "spanish": "concluir"
+    },
+    "block": {
+        "english": "block",
+        "german": "blockieren",
+        "portuguese": "bloquear",
+        "spanish": "bloquear"
+    },
+    "homologate": {
+        "english": "homologate",
+        "german": "homologieren",
+        "portuguese": "homologar",
+        "spanish": "homologar"
+    },
+    "cancel": {
+        "english": "Cancel",
+        "german": "Abbrechen",
+        "portuguese": "Cancelar",
+        "spanish": "Cancelar"
+    },
+    "yes_go_on": {
+        "english": "Yes.",
+        "german": "Ja.",
+        "portuguese": "Sim.",
+        "spanish": "Si."
+    },
+    "already_in_status": {
+        "english": "The ticket is already in status:",
+        "german": "Das Ticket befindet sich bereits im Status:",
+        "portuguese": "O ticket já está em status de:",
+        "spanish": "El ticket ya está en status de:"
+    },
+    "none": {
+
+    }
+}

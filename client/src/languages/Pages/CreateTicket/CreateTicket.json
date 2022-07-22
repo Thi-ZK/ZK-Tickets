@@ -1,0 +1,80 @@
+{
+    "create_ticket": {
+        "english": "Create Ticket",
+        "german": "Ticket erstellen",
+        "portuguese": "Criar Ticket",
+        "spanish": "Crear Ticket"
+    },
+    "please_write_the_ticket_name": {
+        "english": "Please Write The",
+        "german": "Bitte schreiben Sie den",
+        "portuguese": "Por Favor Escreva O",
+        "spanish": "Por Favor Escriba El"
+    },
+    "ticket_name": {
+        "english": "Ticket Name",
+        "german": "Ticket Name",
+        "portuguese": "Nome Do Ticket",
+        "spanish": "Nombre Del Ticket"
+    },
+    "select_a": {
+        "english": "Select a",
+        "german": "Wählen Sie ein",
+        "portuguese": "Escolha Um",
+        "spanish": "Elige Un"
+    },
+    "due_date": {
+        "english": "Due Date",
+        "german": "Stichtag aus",
+        "portuguese": "Prazo",
+        "spanish": "Plazo"
+    },
+    "please_write_the_ticket_description": {
+        "english": "Please Write The",
+        "german": "Bitte schreiben Sie die",
+        "portuguese": "Por Favor Escreva A",
+        "spanish": "Por Favor Escribe La"
+    },
+    "ticket_description": {
+        "english": "Ticket Description",
+        "german": "Ticket Beschreibung",
+        "portuguese": "Descrição Do Ticket",
+        "spanish": "Descripción Del Ticket"
+    },
+    "click_to_pick_a_date": {
+        "english": "Click Here To Pick a Date",
+        "german": "Clicken Sie, um ein Datum auszuwählen",
+        "portuguese": "Clique Para Escolher Uma Data",
+        "spanish": "Haga Click Para Elegir Una Fecha"
+    },
+    "attachments": {
+        "english": "Attachments",
+        "german": "Anhänge",
+        "portuguese": "Anexos",
+        "spanish": "Archivos Adjuntos"
+    },
+    "write_substantial_name": {
+        "english": "Provide a Substantial Name",
+        "german": "Bitte geben Sie einen aussagekräftigen Namen ein",
+        "portuguese": "Escolha Um Nome Substancial",
+        "spanish": "Elige Un Nombre Substancial"
+    },
+    "name_is_too_long": {
+        "english": "Name Is Too Long",
+        "german": "Der Name ist zu lang",
+        "portuguese": "O Nome É Muito Longo",
+        "spanish": "El Nombre Es Muy Largo"
+    },
+    "description_is_too_long": {
+        "english": "Description Is Too Long",
+        "german": "Die Beschreibung ist zu lang",
+        "portuguese": "A Descrição É Muito Longa",
+        "spanish": "La Descripción Es Muy Larga"
+    },
+    "none": {
+        "english": "",
+        "german": "",
+        "portuguese": "",
+        "spanish": ""
+    }
+}

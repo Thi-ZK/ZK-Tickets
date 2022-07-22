@@ -1,0 +1,43 @@
+.create-ticket-input-direct-container select{
+	border: 1px solid rgb(200,200,200);
+	padding: 0.35em;
+	background-color: rgb(30, 30, 30);
+	font-size: 14px;
+	font-family: 'Quicksand', sans-serif;
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color: white;
+}
+div[theme='bright'] .create-ticket-input-direct-container select {
+	color: rgb(92, 92, 92);
+	background-color: white;
+}
+
+.create-ticket-input-direct-container{
+	width: 45%;
+	color: white;
+}
+div[theme='bright'] .create-ticket-input-direct-container {
+	color: rgb(30, 30, 30);
+}
+
+.client-and-midia-titles-description span {
+	font-weight: bold;
+	color: rgb(200,200,200);
+	text-decoration: underline;
+}
+div[theme='bright'] .client-and-midia-titles-description span {
+	color:rgb(40, 40, 40);
+}
+#client-and-midias-inputs-container {
+	padding-top: 1.75em !important;
+}
+
+#client-and-midias-inputs-container-second {
+	padding-top: 1.5em !important;
+}
+
+#ct-sp-selected-pieces {
+	line-height: 27px;
+}

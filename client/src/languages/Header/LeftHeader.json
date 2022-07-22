@@ -1,0 +1,74 @@
+{
+    "create_ticket": {
+        "english": "Create Ticket",
+        "german": "Ticket erstellen",
+        "portuguese": "Criar Ticket",
+        "spanish": "Crear Ticket"
+    },
+    "all_tickets": {
+        "english": "All Tickets",
+        "german": "Alle Tickets",
+        "portuguese": "Todos Os Tickets",
+        "spanish": "Todos Los Tickets"
+    },
+    "standard_ticket_groups": {
+        "english": "Tickets I Am Assgined",
+        "german": "Tickets, die mir zugeteilt wurden",
+        "portuguese": "Tickets Em Que Sou Responsável",
+        "spanish": "Tickets En Los Que Soy Responsable"
+    },
+    "my_ticket_groups": {
+        "english": "My Ticket Groups",
+        "german": "Meine Ticketgruppen",
+        "portuguese": "Meus Grupos De Ticket",
+        "spanish": "Mis Grupos De Ticket"
+    },
+    "profile_and_settings": {
+        "english": "Profile & Settings",
+        "german": "Profil & Einstellungen",
+        "portuguese": "Perfil & Configurações",
+        "spanish": "Perfil & Configuraciones"
+    },
+    "help_and_info": {
+        "english": "Help & Info",
+        "german": "Hilfe & Info",
+        "portuguese": "Ajuda & Info",
+        "spanish": "Ayuda & Info"
+    },
+    "open_tickets": {
+        "english": "Open Tickets",
+        "german": "Offene Tickets",
+        "portuguese": "Tickets Abertos",
+        "spanish": "Tickets Abiertos"
+    },
+    "deleted_tickets": {
+        "english": "Deleted Tickets",
+        "german": "Gelöschte Tickets",
+        "portuguese": "Tickets Deletados",
+        "spanish": "Tickets Eliminados"
+    },
+    "concluded_tickets": {
+        "english": "Concluded Tickets",
+        "german": "Abgeschlossene Tickets",
+        "portuguese": "Tickets Concluídos",
+        "spanish": "Tickets Concluidos"
+    },
+    "blocked_tickets": {
+        "english": "Blocked Tickets",
+        "german": "Blockierten Tickets",
+        "portuguese": "Tickets Bloquados",
+        "spanish": "Tickets Bloqueados"
+    },
+    "homologated_tickets": {
+        "english": "Tickets In Homologation",
+        "german": "Tickets in der Homologation",
+        "portuguese": "Tickets Em Homologação",
+        "spanish": "Tickets En Homologación"
+    },
+    "my_created_tickets": {
+        "english": "My Created Tickets",
+        "german": "Meine erstellten Tickets",
+        "portuguese": "Tickets Criados Por Mim",
+        "spanish": "Tickets Creados Por Mí"
+    }
+}
