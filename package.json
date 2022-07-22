@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "mongoose": "^6.3.4",
-    "node-modules": "^1.0.1"
+    "node-modules": "^1.0.1",
+    "path": "^0.12.7"
   }
 }

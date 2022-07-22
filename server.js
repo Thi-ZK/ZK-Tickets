@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const path = require("path");
 
 const ticketDeleteRouter = require('./routes/tickets/delete');
 const ticketUpdateRouter = require('./routes/tickets/update');
@@ -16,6 +17,9 @@ const app = express();
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
 }
+
+// When You Navigate To The Root page, It Will Use The Built React App
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // Declaration Of Varied Variables
 const PORT = process.env.PORT;
@@ -40,11 +44,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 1, // one day
-        domain: process.env.SESSION_COOKIE_DOMAIN,
-        path: "/"
-    }
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 1 } // one day 
 }));
 
 // Middleware To Restrict User To Access Content Unless He / She Logs In
