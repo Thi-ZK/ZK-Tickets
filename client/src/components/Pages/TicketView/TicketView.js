@@ -10,7 +10,7 @@ import TicketOverviewInformation from "./TicketOverviewInformation";
 
 function TicketView({ allPopulationData }) {
 	// Population Data Alias
-	const all_tickets        = allPopulationData.allTickets;
+	const allTickets         = allPopulationData.allTickets;
 	const update_all_tickets = allPopulationData.update_all_tickets;
 	const userData           = allPopulationData.userData;
 	const language           = allPopulationData.language;
@@ -18,7 +18,7 @@ function TicketView({ allPopulationData }) {
 
 	// Alias For Cleaner Code
 	const { ticket_id } = useParams();
-	const ticket_data = all_tickets.filter((elem) => {return elem.id === Number(ticket_id)})[0];
+	const ticket_data = allTickets.filter((elem) => {return elem.id === Number(ticket_id)})[0];
 
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
@@ -26,7 +26,7 @@ function TicketView({ allPopulationData }) {
 
 	// Assigneds State Declaration | assigneds and assumers are the same thing.
 	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
-	const assignedsUtils = {assigneds: assigneds, updateAssigneds: updateAssigneds, language: language};
+	const assigneds_utils = {assigneds: assigneds, updateAssigneds: updateAssigneds, language: language};
 	
 	if (ticket_id > 5000) { window.location.href = "/ticket_does_not_exist";}
 	
@@ -37,13 +37,13 @@ function TicketView({ allPopulationData }) {
   	return (
     <>
 	<div id="ticket-view-container" css-marker="TV" ticket-id={ticket_id}>
-		<div id="TV-description-attachments-and-info-container" eye-helper="FIRST-LEFT-BLOCK-CONTAINER">
+		<div id="TV-description-attachments-and-info-container" eye-helper="FIRST-LEFT-BLOCK">
 			<div id="TV-title-and-info-container">
 				<div id="TV-title-direct-container">
 					<h2>{ticket_data.name}</h2>
 					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 				</div>
-				<TicketOverviewInformation usersNamesWithIds={usersNamesWithIds} assignedsUtils={assignedsUtils} ticket_data={ticket_data}></TicketOverviewInformation>
+				<TicketOverviewInformation usersNamesWithIds={usersNamesWithIds} assigneds_utils={assigneds_utils} ticket_data={ticket_data}></TicketOverviewInformation>
 			</div>
 			<div className='TV-line-breaker'>
 				<div className='TV-line-breaker-centrelizer'>

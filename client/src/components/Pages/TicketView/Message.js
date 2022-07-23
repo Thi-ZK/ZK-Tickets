@@ -30,17 +30,17 @@ function Message({ type, message_data, ticket_id, messages_utils }) {
     }
   
   return (
-    <div className="tv-message-direct-container" type={type}>
-        <div className="tv-message-title-container">
-            <p className='tv-message-name'>
+    <div className="TV-message-container" css-marker="MSG" type={type}>
+        <div className="TV-MSG-title-direct-container">
+            <p className='TV-MSG-owner-name'>
                 <img alt='-tv-person' src='/imgs/home/honeybaby.jpg'/>
                 {message_data.message_owner_name}
-                <img onClick={delete_message} className='delete-msg-icon' alt="deleted-msg-icon" src='/imgs/general/close_icon.png'/>
-                <img id={message_data.id} className='tv-message-delete-message-img' status="off" alt='cleaning gif' src='/imgs/general/loading.gif'/>
+                <img onClick={delete_message} className='TV-MSG-delete-icon' alt="deleted-msg-icon" src='/imgs/general/close_icon.png'/>
+                <img id={message_data.id} className='TV-MSG-deleting-gif' status="off" alt='cleaning gif' src='/imgs/general/loading.gif'/>
             </p>
-            <p className='tv-message-date'>{String(message_data.date_casual_format.split(" GMT")[0])}</p>
+            <p className='TV-MSG-date'>{String(message_data.date_casual_format.split(" GMT")[0])}</p>
         </div>
-        <div className='tv-single-message-container'>
+        <div className='TV-MSG-text'>
           {message_data.message}
         </div>
     </div>

@@ -1,4 +1,4 @@
-#tv-ticket-info {
+#TV-ticket-info-container {
 	padding-top: 20px;
 	letter-spacing: 0.3px;
 	display: flex;
@@ -6,44 +6,44 @@
 	font-size: 13px;
 }
 
-#tv-ticket-info p {
+#TV-ticket-info-container p {
 	padding-bottom: 8px;
 	color: rgb(210, 210, 210);
 	line-height: 16px;
 }
-div[theme='bright'] #tv-ticket-info p {
+div[theme='bright'] #TV-ticket-info-container p {
 	color: rgb(95, 95, 95);
 }
 
-#tv-ticket-info p span {
+#TV-ticket-info-container p span {
 	color: rgb(230, 230, 230);
 	font-weight: bold;
 }
-div[theme='bright'] #tv-ticket-info p span {
+div[theme='bright'] #TV-ticket-info-container p span {
 	color: rgb(60, 60, 60);
 }
 
-.nested-info {
+.TV-INF-info-line-direct-container {
 	display: flex;
 	justify-content: space-between;
 }
 
-.larger-info-piece {
+.TV-INF-line-info-key {
 	width: 55%;
 }
-p[class='larger-info-piece rectangle-span-selected_pieces'] span {
+p[class='TV-INF-line-info-key rectangle-span-selected_pieces'] span {
 	margin-right: 6px;
 }
-#ticket-assumer-pure-text {
+#TV-INF-assumers-text-key {
 	margin-right: 4px;
 }
-.smaller-info-piece {
+.TV-INF-line-info-value {
 	width: 40%;
 	display: flex;
 	justify-content: space-between;
 }
 
-#assignments-management {
+#TV-INF-assigneds-selector {
 	border: 1px solid rgb(200,200,200);
 	color: rgb(230, 230, 230);
 	padding: 5px;
@@ -51,12 +51,12 @@ p[class='larger-info-piece rectangle-span-selected_pieces'] span {
 	margin-top: 3px;
 	height: 30px;
 }
-div[theme='bright'] #assignments-management {
+div[theme='bright'] #TV-INF-assigneds-selector {
 	color: rgb(50, 50, 50);
 	background-color: white;
 	border: 1px solid rgb(180,180,180);
 }
 
-.ticket-view-assigneds-blocks-span {
+.TV-INF-assigneds-rectangle-span {
 	line-height: 27px;
 }

@@ -11,10 +11,10 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
 
     // Meant For Setting Messages
     const set_message = () => {
-        let message = document.querySelector("#textarea-div").innerText;
+        let message = document.querySelector("#TV-PM-message-textarea").innerText;
         if (!message) { return; }
         
-        document.querySelector("#textarea-div").innerText = ""; // Clean TextArea
+        document.querySelector("#TV-PM-message-textarea").innerText = ""; // Clean TextArea
         let new_msg_id = AF.generate_random_id();
 
         axios.post('/tickets/update/single/messages/set/' + ticket_id, {message: message, message_id: new_msg_id})
@@ -32,18 +32,18 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
     } 
     
   return (
-    <div id="place-message-container">
-        <div id="place-message-title-container">
+    <div id="TV-place-message-container" css-marker="PM">
+        <div id="TV-PM-title-direct-container">
             <p>{texts.place_a_message_below[language]}</p>
             <img alt="etwas" src="/imgs/home/ticket_management.png"/>
         </div>
-        <div id="place-message-message-container">
-            <div id="message-textarea-container">
-                <div suppressContentEditableWarning={true} contentEditable="true" id="textarea-div">
+        <div id="TV-PM-textarea-and-submit-button-container">
+            <div id="TV-PM-textarea-direct-container">
+                <div suppressContentEditableWarning={true} contentEditable="true" id="TV-PM-message-textarea">
                     <img alt="arrow img in place message" src="/imgs/home/arrow.png"/>
                 </div>
             </div>
-            <div id="place-message-button-container">
+            <div id="TV-PM-submit-button-direct-container">
                 <img status="off" alt="success message placed icon" src="/imgs/general/success.gif"/>
                 <button onClick={set_message}>{texts.place_message[language]}</button>
             </div>

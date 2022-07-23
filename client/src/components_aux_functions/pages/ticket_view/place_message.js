@@ -1,6 +1,6 @@
 // Meant For Success Blue Gif That Shows When Message Successful Placed 
 const show_and_fade_success_icon = () => {
-    let success_message = document.querySelector("#place-message-button-container img");
+    let success_message = document.querySelector("#TV-PM-submit-button-direct-container img");
     success_message.setAttribute("status", "on");
     setTimeout(() => {success_message.setAttribute("status", "off");}, 1000);
 }

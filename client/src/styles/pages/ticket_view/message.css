@@ -10,59 +10,59 @@ div[theme='bright'] #TV-messages-direct-container {
     border: 1px solid rgb(230, 230, 230);
 }
 
-.tv-message-direct-container {
+.TV-message-container {
     padding: 10px;
     padding-bottom: 13px;
 }
 
-div[class='tv-message-direct-container'][type='2'] {
+div[class='TV-message-container'][type='2'] {
     background-color: rgb(40, 40, 40) !important;
 }
 
-div[theme='bright'] div[class='tv-message-direct-container'][type='2'] {
+div[theme='bright'] div[class='TV-message-container'][type='2'] {
     background-color: rgb(245, 245, 245) !important;
 }
 
-.tv-message-title-container {
+.TV-MSG-title-direct-container {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
     color: white;
 }
-div[theme='bright'] .tv-message-title-container {
+div[theme='bright'] .TV-MSG-title-direct-container {
     color: rgb(30, 30, 30);
 }
 
-.tv-message-name {
+.TV-MSG-owner-name {
     display: flex;
 }
-.tv-message-name img {
+.TV-MSG-owner-name img {
     height: 30px;
     width: 30px;
     border-radius: 10px;
     margin-right: 10px;
 }
 
-.tv-single-message-container {
+.TV-MSG-text {
     font-size: 14px;
     padding: 14px 12px 0px 2px;
     line-height: 120%;
     color: white;
 }
-div[theme='bright'] .tv-single-message-container {
+div[theme='bright'] .TV-MSG-text {
     color: rgb(30, 30, 30);
 }
 
-.delete-msg-icon {
+.TV-MSG-delete-icon {
     width: 13px !important;
     height: 13px !important;
     padding-left: 5px;
     cursor: pointer;
 }
 
-.tv-message-delete-message-img[status='off']{
+.TV-MSG-deleting-gif[status='off']{
     display: none;
 }
-.tv-message-delete-message-img[status='on']{
+.TV-MSG-deleting-gif[status='on']{
     display: inline-block;
 }

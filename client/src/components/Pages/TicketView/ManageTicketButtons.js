@@ -21,22 +21,22 @@ function ManageTicketButtons ({ ticket_data, allPopulationData }) {
 	}
 
     return (
-    <div id="manage-ticket-container">
-        <div id="manage-ticket-buttons-container">
-            <div className="ticket-management-buttons-container">
+    <div id="TV-status-action-buttons-container" css-marker="SAB">
+        <div id="TV-SAB-button-groups-container">
+            <div className="TV-SAB-buttons-group">
                 <div>
-                    <button onClick={() => open_ticket_action_modal("delete")} id="delete-ticket"><span>{texts.delete[language]}</span></button>	
+                    <button onClick={() => open_ticket_action_modal("delete")} id="TV-SAB-delete-ticket"><span>{texts.delete[language]}</span></button>	
                 </div>
                 <div>
-                    <button onClick={() => open_ticket_action_modal("conclude")} id="conclude-ticket"><span>{texts.conclude[language]}</span></button>	
+                    <button onClick={() => open_ticket_action_modal("conclude")} id="TV-SAB-conclude-ticket"><span>{texts.conclude[language]}</span></button>	
                 </div>
             </div>
-            <div className="ticket-management-buttons-container">
+            <div className="TV-SAB-buttons-group">
                 <div>
-                    <button onClick={() => open_ticket_action_modal("block")} id="block-ticket"><span>{texts.block[language]}</span></button>	
+                    <button onClick={() => open_ticket_action_modal("block")} id="TV-SAB-block-ticket"><span>{texts.block[language]}</span></button>	
                 </div>
                 <div>
-                    <button onClick={() => open_ticket_action_modal("homologate")} id="homologate-ticket"><span>{texts.homologate[language]}</span></button>	
+                    <button onClick={() => open_ticket_action_modal("homologate")} id="TV-SAB-homologate-ticket"><span>{texts.homologate[language]}</span></button>	
                 </div>
             </div>
         </div>
