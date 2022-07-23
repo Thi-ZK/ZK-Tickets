@@ -80,7 +80,6 @@ div[theme='bright'] #home-content-title {
 	background-color: rgb(55, 55, 55);
 	width: calc(100vw - 318px);
 	margin-left: 318px;
-	padding-bottom: 16px;
 }
 div[theme='bright'] .main-content-container {
 	background-color: rgb(240, 240, 240);

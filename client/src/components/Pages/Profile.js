@@ -12,52 +12,52 @@ function Profile({ allPopulationData }) {
     }).length;
 
     return (
-    <div id="profile-main-container">
-        <div id="profile-main-container-centrelizer">
-            <div id="profile-title-container">
+    <div id="profile-container" css-marker="PFL">
+        <div id="PFL-container-centrelizer">
+            <div id="PFL-title-direct-container">
                 <h1>{texts.profile[language]}</h1>
             </div>
-            <div id='profile-info-main-container'>
-                <div id='profile-name-and-picture-direct-container'>
-                    <div id='profile-picture-direct-container'>
+            <div id='PFL-all-content-info-container'>
+                <div id='PFL-name-and-picture-container'>
+                    <div id='PFL-picture-direct-container'>
                         <img alt='user' src='/imgs/home/honeybaby.jpg'/>
                     </div>
-                    <div id='profile-name-and-related-info-direct-container'>
-                        <div id='profile-name-and-title-direct-container'>
-                            <h3 id='profile-person-name'>{userData.name}</h3>
-                            <p id='profile-job-title'>{userData.profession}</p>
+                    <div id='PFL-name-and-related-info-container'>
+                        <div id='PFL-name-and-title-direct-container'>
+                            <h3 id='PFL-person-name'>{userData.name}</h3>
+                            <p id='PFL-job-title'>{userData.profession}</p>
                         </div>
-                        <div id='profile-infos-options-direct-container'>
+                        <div id='PFL-total-linked-tickets-direct-container'>
                             <p>{texts.total_linked_tickets[language]}: <span>{total_linked_tickets}</span></p>
                         </div>
                     </div>
                 </div>
-                <div id='profile-section-splitter-and-option-choice-container'>
-                    <div id='profile-section-choices-direct-container'>
+                <div id='PFL-section-splitter-and-option-choice-container'>
+                    <div id='PFL-section-choices-direct-container'>
                         <p>{texts.about[language]}</p>
                         <p style={{fontWeight: "normal"}}>{texts.preferences[language]}</p>
                     </div>
-                    <div className='profile-long-line-splitter'></div>
+                    <div className='PFL-long-line-splitter'></div>
                 </div>
-                <div id='profile-person-info-container'>
-                    <div className='profile-person-info-direct-container'>
-                        <p className='profile-person-key-info'>{texts.user_id[language]}</p>
+                <div id='PFL-person-info-container'>
+                    <div className='PFL-person-info-direct-container'>
+                        <p className='PFL-person-key-info'>{texts.user_id[language]}</p>
                         <p>#{userData.id}</p>
                     </div>
-                    <div className='profile-person-info-direct-container'>
-                        <p className='profile-person-key-info'>{texts.name[language]}</p>
+                    <div className='PFL-person-info-direct-container'>
+                        <p className='PFL-person-key-info'>{texts.name[language]}</p>
                         <p>{userData.name}</p>
                     </div>
-                    <div className='profile-person-info-direct-container'>
-                        <p className='profile-person-key-info'>Email</p>
+                    <div className='PFL-person-info-direct-container'>
+                        <p className='PFL-person-key-info'>Email</p>
                         <p>{userData.email}</p>
                     </div>
-                    <div className='profile-person-info-direct-container'>
-                        <p className='profile-person-key-info'>{texts.user_power[language]}</p>
+                    <div className='PFL-person-info-direct-container'>
+                        <p className='PFL-person-key-info'>{texts.user_power[language]}</p>
                         <p>{userData.user_power === 4 ? userData.user_power + " - Admin (Max)" : userData.user_power}</p>
                     </div>
-                    <div className='profile-person-info-direct-container'>
-                        <p className='profile-person-key-info'>{texts.phone_number[language]}</p>
+                    <div className='PFL-person-info-direct-container'>
+                        <p className='PFL-person-key-info'>{texts.phone_number[language]}</p>
                         <p>{userData.phone}</p>
                     </div>
                 </div>

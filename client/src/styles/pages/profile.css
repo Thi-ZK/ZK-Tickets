@@ -1,4 +1,4 @@
-#profile-main-container {
+#profile-container {
     display: flex;
 	justify-content: center;
 	align-items: center;
@@ -6,29 +6,29 @@
 	top: 6vh;
 }
 
-#profile-main-container-centrelizer {
+#PFL-container-centrelizer {
     width: 70%;
 	background-color: rgb(30, 30, 30);
 	border: 1px solid rgb(90, 90, 90);
 	overflow-y: auto;
 	max-height: 80vh;
 }
-div[theme='bright'] #profile-main-container-centrelizer {
+div[theme='bright'] #PFL-container-centrelizer {
     background-color: white;
 	border: 1px solid rgb(220, 220, 220);
 }
 
-#profile-title-container {
+#PFL-title-direct-container {
     display: flex;
 	padding: 0px 10px 0px 10px;
 	border-bottom: 1px solid rgb(90, 90, 90);
 	justify-content: center;
 }
-div[theme='bright'] #profile-title-container {
+div[theme='bright'] #PFL-title-direct-container {
     border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-#profile-title-container h1 {
+#PFL-title-direct-container h1 {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1.1em;
 	letter-spacing: 0.035em;
@@ -42,112 +42,112 @@ div[theme='bright'] #profile-title-container {
 	background-color: rgb(30, 30, 30);
 	color: rgb(225, 225, 225);
 }
-div[theme='bright'] #profile-title-container h1 {
+div[theme='bright'] #PFL-title-direct-container h1 {
     background-color: white;
 	color: rgb(55, 55, 55);
 }
 
-#profile-info-main-container {
+#PFL-all-content-info-container {
     padding: 30px;
     letter-spacing: 0.35px;
 }
 
-#profile-name-and-picture-direct-container {
+#PFL-name-and-picture-container {
     display: flex;
 }
 
-#profile-picture-direct-container img {
+#PFL-picture-direct-container img {
     width: 150px;
     height: 150px;
     border-radius: 100%;
 }
 
-#profile-name-and-related-info-direct-container {
+#PFL-name-and-related-info-container {
     padding-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-#profile-person-name {
+#PFL-person-name {
     color: rgb(225, 225, 225);
     font-size: 21px;
 }
-div[theme='bright'] #profile-person-name {
+div[theme='bright'] #PFL-person-name {
     color: rgb(65, 65, 65);
 }
 
-#profile-job-title {
+#PFL-job-title {
     color: rgb(235, 235, 235);
     font-size: 14px;
     padding-top: 9px;
 }
-div[theme='bright'] #profile-job-title {
+div[theme='bright'] #PFL-job-title {
     color: rgb(55, 55, 55);
 }
 
-#profile-infos-options-direct-container {
+#PFL-total-linked-tickets-direct-container {
     color: rgb(235, 235, 235);
     font-size: 15px;
 }
-div[theme='bright'] #profile-infos-options-direct-container {
+div[theme='bright'] #PFL-total-linked-tickets-direct-container {
     color: rgb(55, 55, 55);
 }
 
-#profile-infos-options-direct-container span {
+#PFL-total-linked-tickets-direct-container span {
     font-weight: bold;
 }
 
 
-#profile-section-splitter-and-option-choice-container, #profile-person-info-container {
+#PFL-section-splitter-and-option-choice-container, #PFL-person-info-container {
     padding-top: 30px;
     padding-left: calc(150px + 40px);/*picture size + padding texts container*/
 }
 
-#profile-section-choices-direct-container {
+#PFL-section-choices-direct-container {
     display: flex;
 }
 
-#profile-section-choices-direct-container p {
+#PFL-section-choices-direct-container p {
     color: rgb(45, 176, 175);
     font-size: 16px;
     font-weight: bold;
     padding-right: 20px;
     cursor: pointer;
 }
-div[theme='bright'] #profile-section-choices-direct-container p {
+div[theme='bright'] #PFL-section-choices-direct-container p {
     color: rgb(29, 109, 109);
 }
 
-.profile-long-line-splitter {
+.PFL-long-line-splitter {
     border-bottom: 1px solid rgb(90, 90, 90);
     padding-top: 18px;
     margin-right: calc(150px + 40px);
 }
-div[theme='bright'] .profile-long-line-splitter {
+div[theme='bright'] .PFL-long-line-splitter {
     border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-.profile-person-info-direct-container {
+.PFL-person-info-direct-container {
     margin-right: calc(150px + 40px);
     display: flex;
     justify-content: space-between;
 }
 
-.profile-person-info-direct-container p {
+.PFL-person-info-direct-container p {
     font-size: 14.2px;
     color: rgb(45, 176, 175);
     padding-bottom: 24px;
     letter-spacing: 0.6px;
 }
-div[theme='bright'] .profile-person-info-direct-container p {
+div[theme='bright'] .PFL-person-info-direct-container p {
     color: rgb(29, 109, 109);
 }
 
-.profile-person-key-info {
+.PFL-person-key-info {
     font-weight: bold;
     color: rgb(200, 200, 200) !important;
 }
-div[theme='bright'] .profile-person-key-info {
+div[theme='bright'] .PFL-person-key-info {
     color: rgb(90, 90, 90) !important;
 }

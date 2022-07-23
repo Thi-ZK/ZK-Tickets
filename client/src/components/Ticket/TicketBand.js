@@ -13,7 +13,7 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 	let navigate = useNavigate();
 	let navigate_to_ticket = (event) => {
 		let elem_class = event.target.className;
-		if (elem_class !== "ticket-band-options-buttons") {
+		if (elem_class !== "TB-action-options-button") {
 			navigate('/ticket_view/' + ticket_data.id);
 		}
 	};
@@ -32,45 +32,45 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 	}
 	
     return (
-	<div onClick={navigate_to_ticket} className="main-content-first-block">
-		<div id="first-block-title-container">
-			<div className="first-block-title-container-aux">
+	<div onClick={navigate_to_ticket} className="ticket-band-container" css-marker="TB">
+		<div id="TB-header">
+			<div className="TB-title-container">
 				<p>{ticket_data.name}</p>
-				<p className="ticket_id">&nbsp;-&nbsp;</p>
+				<p className="TB-ticket_id">&nbsp;-&nbsp;</p>
 				<img alt="ticket status icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 			</div>
-			<div id="first-block-intitle-ticket-management-options">
-				<span onClick={() => open_ticket_action_modal("delete")} id="ticket-delete" className="ticket-band-options-buttons">{texts.delete[language]}</span>
-				<span onClick={() => open_ticket_action_modal("conclude")} id="ticket-conclude" className="ticket-band-options-buttons">{texts.conclude[language]}</span>
-				<span onClick={() => open_ticket_action_modal("block")} id="ticket-block" className="ticket-band-options-buttons">{texts.block[language]}</span>
-				<span onClick={() => open_ticket_action_modal("homologate")} id="ticket-homologate" className="ticket-band-options-buttons">{texts.homologate[language]}</span>
+			<div id="TB-intitle-ticket-management-options">
+				<span onClick={() => open_ticket_action_modal("delete")} id="TB-ticket-delete" className="TB-action-options-button">{texts.delete[language]}</span>
+				<span onClick={() => open_ticket_action_modal("conclude")} id="TB-ticket-conclude" className="TB-action-options-button">{texts.conclude[language]}</span>
+				<span onClick={() => open_ticket_action_modal("block")} id="TB-ticket-block" className="TB-action-options-button">{texts.block[language]}</span>
+				<span onClick={() => open_ticket_action_modal("homologate")} id="TB-ticket-homologate" className="TB-action-options-button">{texts.homologate[language]}</span>
 			</div>
 		</div>
-		<div className="first-block-main-info">
-			<div id="photo-and-personal-identification-container">
+		<div className="TB-content-block-container">
+			<div id="TB-photo-and-personal-identification-container">
 				<img alt="person / user pic" src="/imgs/home/honeybaby.jpg"/>
-				<div className="name-and-person-info">
-					<p className="name">{texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
+				<div className="TB-name-and-person-info-direct-container">
+					<p className="TB-name">{texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
 					<div>
-						<p className="other">{texts.ticket_id[language]}: <span>#{ticket_data.id}</span></p>
-						<p className="other">{texts.assigneds[language]}: <span>{ticket_data.assumers_names.join(", ")}</span></p>
-						<p className="other">{texts.groups[language]}: <span>{ticket_data.groups_names.join(", ")}</span></p>
+						<p className="TB-ticket-id">{texts.ticket_id[language]}: <span>#{ticket_data.id}</span></p>
+						<p className="TB-assigneds-names">{texts.assigneds[language]}: <span>{ticket_data.assumers_names.join(", ")}</span></p>
+						<p className="TB-groups-names">{texts.groups[language]}: <span>{ticket_data.groups_names.join(", ")}</span></p>
 					</div>
 				</div>
 			</div>
-			<div className="ticket-description-direct">
-				<div>
+			<div className="TB-description-container">
+				<div className="TB-description-direct-container">
 					<h2>{texts.ticket_description[language]}:</h2>
-					<p className="description-itself">{ticket_data.description}</p>
+					<p className="TB-description">{ticket_data.description}</p>
 				</div>
 			</div>
-			<div id="ticket-descriptions-container">
-				<div className="first-description-block">
-					<p className="description-piece">{texts.creation_date[language]}: <span>{AF.date_formatter(ticket_data.creation_date)}</span></p>
-					<p className="description-piece">{texts.due_date[language]}: <span>{ticket_data.due_date ? AF.date_formatter(ticket_data.due_date) : "--"}</span></p>
-					<p className="description-piece">{texts.last_updated[language]}: <span>{AF.date_formatter(ticket_data.updatedAt)}</span></p>
-					<p className="description-piece">Status: <span>{texts[ticket_data.status][language]}</span></p>
-					<p className="description-piece">{texts.priority[language]}: <span>{texts[ticket_data.priority][language]}</span></p>
+			<div className="TB-statuses-and-dates-container">
+				<div className="TB-statuses-and-dates-direct-container">
+					<p className="TB-status-or-date">{texts.creation_date[language]}: <span>{AF.date_formatter(ticket_data.creation_date)}</span></p>
+					<p className="TB-status-or-date">{texts.due_date[language]}: <span>{ticket_data.due_date ? AF.date_formatter(ticket_data.due_date) : "--"}</span></p>
+					<p className="TB-status-or-date">{texts.last_updated[language]}: <span>{AF.date_formatter(ticket_data.updatedAt)}</span></p>
+					<p className="TB-status-or-date">Status: <span>{texts[ticket_data.status][language]}</span></p>
+					<p className="TB-status-or-date">{texts.priority[language]}: <span>{texts[ticket_data.priority][language]}</span></p>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-#ticket-management-button-modal-container{
+#ticket-action-modal-container{
 	position: fixed;
 	z-index: 1001;
 	width: 500px;
@@ -13,74 +13,74 @@
 	height: 0px;
 	transition-duration: 0.55s;
 }
-div[theme='bright'] #ticket-management-button-modal-container {
+div[theme='bright'] #ticket-action-modal-container {
 	background-color: rgb(245, 245, 245);
 }
 
-#ticket-management-button-modal-container[status*="closed"] * {
+#ticket-action-modal-container[status*="closed"] * {
 	visibility: hidden;
 	height: 0px;
 	transition-duration: 0s;
 }
 
-#ticket-management-button-modal-container[status*="open"] * {
+#ticket-action-modal-container[status*="open"] * {
 	transition-duration: 0s;
 }
 
-#ticket-management-button-modal-container[status*="open"] {
+#ticket-action-modal-container[status*="open"] {
 	visibility: visible !important;
 	height: 200px;
 	transition-duration: 0.55s;
 }
 
-#ticket-management-modal-first-block{
+#TAM-confirmation-message-container{
 	padding-left: 2em;
 	padding-right: 1em;
 	height: 65%;
 	background-color: white;
 	background-color: rgb(30, 30, 30);
 }
-div[theme='bright'] #ticket-management-modal-first-block{
+div[theme='bright'] #TAM-confirmation-message-container{
 	background-color: white;
 }
 
-#ticket-management-modal-title-and-close-button-container{
+#TAM-title-and-close-icon-direct-container{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding-bottom: 1.5em;
 }
-#ticket-management-modal-title-and-close-button-container h2{
+#TAM-title-and-close-icon-direct-container h2{
 	margin-top: 1.5em;
 }
 
-#ticket-management-modal-title-and-close-button-container img{
+#TAM-title-and-close-icon-direct-container img{
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
 }
-#ticket-management-modal-first-block *{
+#TAM-confirmation-message-container *{
 	line-height: 20px;
 }
-#ticket-management-modal-first-block h2 {
+#TAM-confirmation-message-container h2 {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1.05em;
 	color: rgb(190, 190, 190);
 }
-div[theme='bright'] #ticket-management-modal-first-block h2 {
+div[theme='bright'] #TAM-confirmation-message-container h2 {
 	color: rgb(110, 110, 110);
 }
 
-#ticket-management-modal-first-block p{
+#TAM-confirmation-message-container p{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 0.95em;
 	color: rgb(210, 210, 210);
 }
-div[theme='bright'] #ticket-management-modal-first-block p {
+div[theme='bright'] #TAM-confirmation-message-container p {
 	color: rgb(115, 115, 115);
 }
 
-#ticket-management-modal-second-block{
+#TAM-action-buttons-container{
 	height: calc(45% - 1.5em);
 	display: flex;
 	justify-content: flex-end;
@@ -88,7 +88,7 @@ div[theme='bright'] #ticket-management-modal-first-block p {
 	align-items: center;
 }
 
-#ticket-management-modal-buttons-container button{
+#TAM-action-buttons-direct-container button{
 	color: white;
 	border: none;
 	font-family: 'Quicksand', sans-serif;
@@ -101,52 +101,52 @@ div[theme='bright'] #ticket-management-modal-first-block p {
 	margin-right: 4px;
 	margin-left: 4px;
 }
-#ticket-management-modal-button-cancel{
+#TAM-cancel-button{
 	background-color: rgb(160, 160, 160);
 }
-#ticket-management-modal-button-proceed{
+#TAM-proceed-button{
 	background-color: grey
 }
 
 /* COLORS OF TEXTS AND BUTTONS THAT VARIES DEPENDING THE ACTION BELOW */
 
-#ticket-management-button-modal-container[which-action='delete'] #ticket-management-modal-button-proceed {
+#ticket-action-modal-container[which-action='delete'] #TAM-proceed-button {
 	background-color: rgb(199, 47, 53) !important;
 }
-#ticket-management-button-modal-container[which-action='delete'] .tam-action-text {
+#ticket-action-modal-container[which-action='delete'] .TAM-action-text {
 	color: rgb(199, 47, 53) !important;
 }
 
-#ticket-management-button-modal-container[which-action='conclude'] #ticket-management-modal-button-proceed {
+#ticket-action-modal-container[which-action='conclude'] #TAM-proceed-button {
 	background-color: rgb(49, 182, 53) !important;
 }
-#ticket-management-button-modal-container[which-action='conclude'] .tam-action-text {
+#ticket-action-modal-container[which-action='conclude'] .TAM-action-text {
 	color: rgb(49, 182, 53) !important;
 }
 
-#ticket-management-button-modal-container[which-action='block'] #ticket-management-modal-button-proceed{
+#ticket-action-modal-container[which-action='block'] #TAM-proceed-button{
 	background-color: rgb(204,204,0) !important;
 }
-#ticket-management-button-modal-container[which-action='block'] .tam-action-text {
+#ticket-action-modal-container[which-action='block'] .TAM-action-text {
 	color: rgb(204,204,0) !important;
 }
 
-#ticket-management-button-modal-container[which-action='homologate'] #ticket-management-modal-button-proceed{
+#ticket-action-modal-container[which-action='homologate'] #TAM-proceed-button{
 	background-color: rgb(45, 176, 175) !important;
 }
-#ticket-management-button-modal-container[which-action='homologate'] .tam-action-text {
+#ticket-action-modal-container[which-action='homologate'] .TAM-action-text {
 	color: rgb(45, 176, 175) !important;
 }
 
 @media(max-width: 550px){
-	#ticket-management-button-modal-container{
+	#ticket-action-modal-container{
 		width: 320px;
 		margin-left: -160px;
 	}
-	#ticket-management-modal-title-and-close-button-container{
+	#TAM-title-and-close-icon-direct-container{
 		padding-bottom: 0.5em;
 	}
-	#ticket-management-modal-first-block{
+	#TAM-confirmation-message-container{
 		line-height: 20px;
 	}
 }

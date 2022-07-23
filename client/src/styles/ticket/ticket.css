@@ -1,5 +1,5 @@
 /*FIRST BLOCK ITSELF*/
-.main-content-first-block {
+.ticket-band-container {
 	margin-left: 22px;
 	background-color: rgb(30, 30, 30);
 	margin-top: 16px;
@@ -7,56 +7,57 @@
     cursor: pointer;
 	transition-duration: 0.3s;
 	border: 1px solid rgb(90, 90, 90);
+	margin-bottom: 12px;
 }
-div[theme='bright'] .main-content-first-block {
+div[theme='bright'] .ticket-band-container {
 	background-color: white;
 	border: 1px solid rgb(220, 220, 220);
 }
 
-.main-content-first-block:hover{
+.ticket-band-container:hover{
 	box-shadow: 0 1px 30px 4px rgba(220,220,220,0.42);
 }
-div[theme='bright'] .main-content-first-block:hover {
+div[theme='bright'] .ticket-band-container:hover {
 	box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
 }
 
-#first-block-title-container{
+#TB-header{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding-top: 16px;
     padding-left: 20px;
 }
-.first-block-title-container-aux {
+.TB-title-container {
 	color: white;
 	display: flex;
 }
-div[theme='bright'] .first-block-title-container-aux {
+div[theme='bright'] .TB-title-container {
 	color: rgb(30, 30, 30);
 }
 
-.first-block-title-container-aux p{
+.TB-title-container p{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 19px;
 }
-.first-block-title-container-aux img{
+.TB-title-container img{
 	width: 19px;
 	height: 19px;
 }
-#first-block-intitle-ticket-management-options{
+#TB-intitle-ticket-management-options{
 	padding-right: 2em;
 }
-#first-block-intitle-ticket-management-options span{
+#TB-intitle-ticket-management-options span{
 	padding-left: 4px;
 	padding-right: 4px;
 	font-family: 'Quicksand', sans-serif;
 	font-size: 0.9em;
 	cursor: pointer;
 }
-#first-block-intitle-ticket-management-options span:hover{
+#TB-intitle-ticket-management-options span:hover{
 	text-decoration: underline;
 }
-.first-block-main-info{
+.TB-content-block-container{
 	padding-top: 2em;
     padding-left: 20px;
 	display: flex;
@@ -65,93 +66,95 @@ div[theme='bright'] .first-block-title-container-aux {
 	padding-bottom: 16px;
 }
 
-#ticket-delete {
+#TB-ticket-delete {
 	color: rgb(199, 47, 53);
 }
 
-#ticket-conclude {
+#TB-ticket-conclude {
 	color: rgb(49, 182, 53);
 }
 
-#ticket-block {
+#TB-ticket-block {
 	color: rgb(204,204,0);
 }
 
-#ticket-homologate {
+#TB-ticket-homologate {
 	color: rgb(45, 176, 175);
 }
 
 
-#photo-and-personal-identification-container{
+#TB-photo-and-personal-identification-container{
 	display: flex;
 	padding-right: 18px;
+	max-width: 35%;
 }
-#photo-and-personal-identification-container img{
+#TB-photo-and-personal-identification-container img{
 	width: 110px;
 	height: 110px;
 	padding-right: 35px;
 }
-.other{
-	padding-top: 6px;
+.TB-ticket-id, .TB-assigneds-names, .TB-groups-names{
+	padding-top: 3px;
 }
-.name-and-person-info{
+.TB-name-and-person-info-direct-container{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	height: 110px;
 	font-size: 14px;
 }
-.name-and-person-info p {
+.TB-name-and-person-info-direct-container p {
 	font-family: 'Quicksand', sans-serif;
 	letter-spacing: 0.3px;
 	color: rgb(210, 210, 210);
 }
-div[theme='bright'] .name-and-person-info p {
+div[theme='bright'] .TB-name-and-person-info-direct-container p {
 	color: rgb(90, 90, 90);
 }
 
-.name-and-person-info p span {
+.TB-name-and-person-info-direct-container p span {
 	color: rgb(230, 230, 230) !important;
 	font-weight: bold;
+	line-height: 19px;
 }
-div[theme='bright'] .name-and-person-info p span {
+div[theme='bright'] .TB-name-and-person-info-direct-container p span {
 	color: rgb(65, 65, 65) !important;
 }
 
-#ticket-descriptions-container{
+.TB-statuses-and-dates-container{
 	display: flex;
 	padding-right: 3em;
 	font-size: 14px;
 }
-.description-piece {
+.TB-status-or-date {
 	font-family: 'Quicksand', sans-serif;
 	letter-spacing: 0.3px;
 	padding-bottom: 8px;
 	color: rgb(210, 210, 210);
 }
-div[theme='bright'] .description-piece {
+div[theme='bright'] .TB-status-or-date {
 	color: rgb(90, 90, 90);
 }
 
-.description-piece span{
+.TB-status-or-date span{
 	font-weight: bold;
 	color: rgb(230, 230, 230);
 }
-div[theme='bright'] .description-piece span {
+div[theme='bright'] .TB-status-or-date span {
 	color: rgb(65, 65, 65);
 }
 
-.ticket-description-direct{
+.TB-description-container{
 	display: flex;
 	width: 35%;
 	padding-right: 12px;
 }
-.ticket-description-direct h2{
+.TB-description-container h2{
 	text-align: center;
 	font-size: 1.1em;
 
 }
-.ticket-description-direct p, .ticket-description-direct h2{
+.TB-description-container p, .TB-description-container h2{
 	font-family: 'Quicksand', sans-serif;
 	padding-bottom: 16px;
 	letter-spacing: 0.3px;
@@ -159,132 +162,108 @@ div[theme='bright'] .description-piece span {
 	font-size: 14px;
 	color: white;
 }
-.ticket-description-direct h2 {
+.TB-description-container h2 {
 	color: rgb(240, 240, 240);
 }
-div[theme='bright'] .ticket-description-direct p, div[theme='bright'] .ticket-description-direct h2 {
+div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-description-container h2 {
 	color: rgb(30, 30, 30);
 }
 
 /*FIRST BLOCK ITSELF*/
 
 @media(max-height: 820px){
-	.first-block-main-info{
+	.TB-content-block-container{
 		font-size: 0.85em !important;
-	}
-	#main-content-first-block-container{
-		padding-bottom: 0.25em;
-	}
-	#first-block-title-container{
-		padding-top: 1em;
-	}
-	#second-block-container{
-		margin-top: 1em;
-		margin-bottom: 0.5em;
-	}
-
-	#log-history-title-container, #place-message-title-container{
-		padding-top: 1em;
-		padding-bottom: 1em;
 	}
 }
 
 @media(max-width: 1580px){
-	#main-content-first-block-container{
-		padding-bottom: 0.9em;
-	}
-	.ticket-description-direct p, .description-piece, .name-and-person-info p{
+	.TB-description-container p, .TB-status-or-date, .TB-name-and-person-info-direct-container p{
 		font-size: 0.9em;
 	}
-	.ticket-description-direct h2{
+	.TB-description-container h2{
 		font-size: 1.05em;
 	}
 }
 
 @media(max-width: 1440px){
-	#main-content-first-block-container{
-		padding-left: 1em;
-	}
-	.first-block-main-info{
+	.TB-content-block-container{
 		font-size: 0.9em;
 	}
-	#photo-and-personal-identification-container{
+	#TB-photo-and-personal-identification-container{
 		padding-right: 1.75em;
 	}
-	#ticket-descriptions-container{
+	.TB-statuses-and-dates-container{
 		padding-right: 1em;
 	}
 }
 
 @media(max-width: 1200px){
-	.first-block-main-info{
+	.TB-content-block-container{
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
-	.ticket-description-direct{
+	.TB-description-container{
 		width: 50%;
 		padding-top: 2.5em;
 	}
-	.description-piece{
+	.TB-status-or-date{
 		padding-bottom: 8px;
 	}
-	.ticket-description-direct h2{
+	.TB-description-container h2{
 		padding-bottom: 10px;
 	}
-	#ticket-descriptions-container{
+	.TB-statuses-and-dates-container{
 		padding-top: 2.5em;
 	}
 }
 
 @media(max-width: 818px){
-	#photo-and-personal-identification-container{
+	#TB-photo-and-personal-identification-container{
 		padding-right: 1em;
 	}
-	.ticket-description-direct{
+	.TB-description-container{
 		width: 75%;
 	}
-	.ticket-descriptions-container{
+	.TB-statuses-and-dates-container{
 		padding-right: 0px;
 	}
 }
 @media(max-width: 700px){
-	#first-block-title-container{
-		flex-direction: column;
-	}
-	#first-block-intitle-ticket-management-options{
+	#TB-intitle-ticket-management-options{
 		padding-top: 1em;
 	}
 }
 @media(max-width: 600px){
-	#photo-and-personal-identification-container img{
+	#TB-photo-and-personal-identification-container img{
 		padding-right: 25px;
 	}
 }
 
 @media(max-width: 450px){
-	.first-block-title-container-aux{
+	.TB-title-container{
 		max-width: 80%;
 		align-items: center;
 	}
-	#first-block-intitle-ticket-management-options{
+	#TB-intitle-ticket-management-options{
 		padding-top: 2.5em;
 		padding-bottom: 1.5em;
 	}
-	#photo-and-personal-identification-container img{
+	#TB-photo-and-personal-identification-container img{
 		display: none;
 	}
-	.name-and-person-info p{
+	.TB-name-and-person-info-direct-container p{
 		text-align: center;
 		padding-bottom: 6px; 
 	}
-	.ticket-description-direct{
+	.TB-description-container{
 		padding-right: 0px;
 		width: 90%;
 	}
-	#ticket-descriptions-container{
+	.TB-statuses-and-dates-container{
 		padding-right: 0px;
 	}
-	.first-block-title-container-aux p{
+	.TB-title-container p{
 		font-size: 1.15em;
 	}
 }

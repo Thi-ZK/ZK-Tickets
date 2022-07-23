@@ -74,7 +74,7 @@ function App() {
     
     return (
     <Router>
-        <div className="App" theme="dark">
+        <div className="App" theme="dark" language={language}>
             <div status="off" id="universal-overlay"></div>
             <TicketActionModal allPopulationData={allPopulationData}></TicketActionModal>
             <LeftHeader language={language}></LeftHeader>
