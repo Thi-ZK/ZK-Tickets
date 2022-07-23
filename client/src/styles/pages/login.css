@@ -1,9 +1,9 @@
-#home-main-container {
+#login-container {
     width: 100%;
     height: 94.3vh;
 }
 
-#login-modal-centralizer {
+#LOG-centralizer {
     display: flex;
 	justify-content: center;
 	align-items: center;
@@ -11,7 +11,7 @@
 	top: 6vh;
 }
 
-#login-modal-direct-container {
+#LOG-form-container {
     width: 500px;
 	background-color: rgb(30, 30, 30);
 	border: 1px solid rgb(90, 90, 90);
@@ -19,32 +19,32 @@
 	height: 500px;
     transition-duration:0.32s;
 }
-div[theme='bright'] #login-modal-direct-container {
+div[theme='bright'] #LOG-form-container {
 	background-color: white;
 	border: 1px solid rgb(190, 190, 190);
 }
-.logged-in {
+#LOG-form-container[login-status*='logged-in'] {
     transition-duration: 1s !important;
     opacity: 0;
     visibility: hidden;
 }
 
-#login-modal-title-container {
+#LOG-title-direct-container {
     padding-top: 50px;
     text-align: center;
     color: white;
 }
-div[theme='bright'] #login-modal-title-container {
+div[theme='bright'] #LOG-title-direct-container {
 	color: rgb(110, 110, 110);
 }
 
-#login-modal-title-container > p {
+#LOG-title-direct-container > p {
     font-size: 20px;
     letter-spacing: 0.45px;
     font-weight: bold;
 }
 
-#login-modal-inputs-container {
+#LOG-inputs-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -52,11 +52,11 @@ div[theme='bright'] #login-modal-title-container {
     padding-top: 40px;
 }
 
-.login-modal-inputs-direct-container {
+.LOG-inputs-direct-container {
     padding-bottom: 20px;
 }
 
-.login-modal-inputs-direct-container input{
+.LOG-inputs-direct-container input{
     padding: 11px;
 	padding-left: 0px;
 	font-size: 14.5px;
@@ -69,26 +69,26 @@ div[theme='bright'] #login-modal-title-container {
 	letter-spacing: 0.025em;
 	transition-duration: 0.4s;
 }
-div[theme='bright'] .login-modal-inputs-direct-container input {
+div[theme='bright'] .LOG-inputs-direct-container input {
 	color: rgb(30, 30, 30);
     background-color: white;
     border-bottom: 1px solid rgba(90, 90, 90, 0.29);
 }
 
-.login-modal-inputs-direct-container input:focus{
+.LOG-inputs-direct-container input:focus{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.76);
 }
-div[theme='bright'] .login-modal-inputs-direct-container input:focus{
+div[theme='bright'] .LOG-inputs-direct-container input:focus{
 	border-bottom: 1px solid rgba(90, 90, 90, 0.69);
 }
 
-#login-modal-submit-button-container {
+#LOG-submit-button-direct-container {
     padding-top: 10px;
     display: flex;
     justify-content: center;
 }
 
-#login-modal-submit-button-container button {
+#LOG-submit-button-direct-container button {
     padding: 12px;
     border: none;
     width: 306px;
@@ -99,66 +99,66 @@ div[theme='bright'] .login-modal-inputs-direct-container input:focus{
     color: white;
 }
 
-#login-modal-forgot-password-container{
+#LOG-forgot-password-button-direct-container{
     display: flex;
     justify-content: center;
     padding-top: 30px;
 }
 
-#login-modal-forgot-password-container button {
+#LOG-forgot-password-button-direct-container button {
     font-size: 14px;
     cursor: pointer;
     color: rgb(172, 233, 223);
     background: none;
     border: none;
 }
-div[theme='bright'] #login-modal-forgot-password-container button {
+div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     color: rgb(42, 127, 170);
 }
 
-#login-modal-forgot-password-container button:hover {
+#LOG-forgot-password-button-direct-container button:hover {
     text-decoration: underline;
 }
 
-#login-modal-loading-gif {
+#LOG-loading-gif-direct-container {
     justify-content: center;
     padding-top: 10px;
 }
 
-#login-modal-loading-gif[status='on'] {
+#LOG-loading-gif-direct-container[status='on'] {
     display: flex;
 }
-#login-modal-loading-gif[status='off'] {
+#LOG-loading-gif-direct-container[status='off'] {
     display: none;
 }
 
-#login-modal-loading-gif img { 
+#LOG-loading-gif-direct-container img { 
     width: 70px;
     height: 70px;
 }
 
-#login-modal-error-display-container[status='on'] {
+#LOG-error-display-direct-container[status='on'] {
     visibility: visible;
     opacity: 1;
 }
-#login-modal-error-display-container[status='off'] {
+#LOG-error-display-direct-container[status='off'] {
     visibility: hidden;
     opacity: 0;
 }
 
-#login-modal-error-display-container {
+#LOG-error-display-direct-container {
     padding-top: 20px;
     transition-duration: 0.32s;
 }
 
-#login-modal-error-display-container p {
+#LOG-error-display-direct-container p {
     text-align: center;
     color: red;
     font-size: 13px;
 }
 
 
-#login-modal-new-account-request-container {
+#LOG-new-account-request-button-direct-container {
     position: absolute;
     bottom: 0px;
     border-top: 1px solid rgb(90, 90, 90);
@@ -167,27 +167,27 @@ div[theme='bright'] #login-modal-forgot-password-container button {
     text-align: center;
 }
 
-#login-modal-new-account-request-container button {
+#LOG-new-account-request-button-direct-container button {
     font-size: 14.5px;
     background: none;
     border: none;
     color:white;
 }
 
-#login-modal-new-account-request-container span {
+#LOG-new-account-request-button-direct-container span {
     cursor: pointer;
     color: rgb(172, 233, 223);
 }
-#login-modal-new-account-request-container span:hover {
+#LOG-new-account-request-button-direct-container span:hover {
     text-decoration: underline;
 }
 
-div[theme='bright'] #login-modal-new-account-request-container {
+div[theme='bright'] #LOG-new-account-request-button-direct-container {
     border-top: 1px solid rgb(190, 190, 190);
 }
-div[theme='bright'] #login-modal-new-account-request-container button{
+div[theme='bright'] #LOG-new-account-request-button-direct-container button{
     color: rgb(110, 110, 110) !important;
 }
-div[theme='bright'] #login-modal-new-account-request-container span {
+div[theme='bright'] #LOG-new-account-request-button-direct-container span {
     color: rgb(42, 127, 170);
 }

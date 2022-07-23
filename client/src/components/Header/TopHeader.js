@@ -26,10 +26,7 @@ const TopHeader = ({ allPopulationData }) => {
     // Destroy Session
     let destroy_session = () => {
         axios.get('/login/logout')
-        .then(() => {
-            updateUserData(undefined); // Cleaning existing user data
-            document.querySelector("#login-modal-direct-container").className = "logged-out";
-        });
+        .then(() => { updateUserData(undefined); }); // Cleaning existing user data
     }
 
     // Update Language

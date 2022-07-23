@@ -47,31 +47,31 @@ function Home({ allPopulationData }) {
     // Meant For Displaying Or Hiding Error Message (Status Can Be "on" Or "off")
     const [errorMessage, updateErrorMessage] = useState("none");
     const set_error_message_appearence = ( status, message ) => {
-        document.querySelector("#login-modal-error-display-container").setAttribute("status", status);
+        document.querySelector("#LOG-error-display-direct-container").setAttribute("status", status);
         if ( message ) { updateErrorMessage(message); }
     }
 
     return (
-    <div style={{backgroundImage: 'url(/imgs/home/home.jpg)'}} id='home-main-container'>
-        <div id='login-modal-centralizer'>
-            <form id='login-modal-direct-container' className={userData ? "logged-in" : "logged-out"}>
-                <div id='login-modal-title-container'>
+    <div style={{backgroundImage: 'url(/imgs/home/home.jpg)'}} id='login-container' css-marmker="LOG">
+        <div id='LOG-centralizer'>
+            <form id='LOG-form-container' login-status={userData ? "logged-in" : "logged-out"}>
+                <div id='LOG-title-direct-container'>
                     <p>{texts.sign_in[language]}</p>
                 </div>
-                <div id='login-modal-inputs-container'>
-                    <div className='login-modal-inputs-direct-container'>
+                <div id='LOG-inputs-container'>
+                    <div className='LOG-inputs-direct-container'>
                         <input
                             onFocus={() => {return set_error_message_appearence("off")}}
-                            id='login-modal-email'
+                            id='LOG-email'
                             placeholder='Email'
                             autoComplete="on" 
                             required>
                         </input>
                     </div>
-                    <div className='login-modal-inputs-direct-container'>
+                    <div className='LOG-inputs-direct-container'>
                         <input 
                             onFocus={() => {return set_error_message_appearence("off")}}
-                            id='login-modal-password'
+                            id='LOG-password'
                             type="password"
                             placeholder={texts.password[language]}
                             autoComplete="on"
@@ -79,21 +79,21 @@ function Home({ allPopulationData }) {
                         </input>
                     </div>
                 </div>
-                <div id='login-modal-submit-button-container'>
+                <div id='LOG-submit-button-direct-container'>
                     <button type="submit" onClick={attemptLogin}>{texts.login_button[language]}</button>
                 </div>
-                <div id='login-modal-forgot-password-container'>
+                <div id='LOG-forgot-password-button-direct-container'>
                     <button onClick={(event) => AF.prevent_default(event)}>{texts.forgot_password[language]}</button>
                 </div>
                 <div>
-                    <div id='login-modal-loading-gif' status="off">
+                    <div id='LOG-loading-gif-direct-container' status="off">
                         <img alt='user' src='/imgs/login/loading.gif'/>
                     </div>
-                    <div id='login-modal-error-display-container' status='off'>
+                    <div id='LOG-error-display-direct-container' status='off'>
                         <p>{texts[errorMessage][language]}</p>
                     </div>
                 </div>
-                <div id='login-modal-new-account-request-container'>
+                <div id='LOG-new-account-request-button-direct-container'>
                     <button onClick={(event) => AF.prevent_default(event)}>{texts.have_no_account_yet[language]} <span>{texts.ask_one[language]}</span></button>
                 </div>
             </form>
