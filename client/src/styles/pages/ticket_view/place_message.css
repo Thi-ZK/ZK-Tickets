@@ -1,0 +1,124 @@
+#TV-place-message-and-ticket-management-options-container{
+	padding-left: 0.75em;
+	width: calc(50% - 1em);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+#place-message-container{
+	border: 1px solid rgb(90, 90, 90);
+	background-color: rgb(30, 30, 30);
+}
+div[theme='bright'] #place-message-container {
+	border: 1px solid rgb(225, 225, 225);
+	background-color: white;
+}
+
+#place-message-title-container{
+	padding: 1em 12px 0.3em 18px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#place-message-title-container p{
+	letter-spacing: 0.6px;
+	font-size: 1em;
+	color: white;
+}
+div[theme='bright'] #place-message-title-container p {
+	color: rgb(30, 30, 30);
+}
+
+#place-message-title-container img{
+	display: none;
+	width: 40px;
+	height: 40px;
+}
+#message-textarea-container{
+	display: flex;
+	justify-content: center;
+}
+#textarea-div{
+	margin-top: 12px;
+	margin-bottom: 10px;
+	width: 95%;
+	resize: none;
+	font-family: 'Questrial', sans-serif;
+	font-size: 1em;
+	height: 110px;
+	letter-spacing: 0.4px;
+	overflow: auto;
+	color: white;
+	font-size: 15px;
+
+	transition-duration: 0.5s;
+}
+div[theme='bright'] #textarea-div {
+	color: rgb(30, 30, 30);
+}
+
+#textarea-div:focus img{
+	width: 0px;
+} 
+#textarea-div img{
+	transition-duration: 0.3s;
+	width: 10px;
+	height: 12px;
+}
+#place-message-button-container{
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 2.5%;
+	margin-bottom: 12px;
+	align-items: center;
+}
+#place-message-button-container button{
+	font-size: 13px;
+	padding: 7px;
+	border: 1px solid rgb(90, 90, 90);
+	color: rgb(230, 230, 230);
+	background-color: rgb(30, 30, 30);
+	transition-duration: 0.3s;
+	cursor: pointer;
+	border-radius: 3px;
+}
+div[theme='bright'] #place-message-button-container button {
+	border: 1px solid rgb(225, 225, 225);
+	background-color: white;
+	color: rgb(75,75,75);
+}
+
+#place-message-button-container img{
+	width: 24px;
+	height: 24px;
+	padding-right: 1%;
+	visibility: hidden;
+	opacity: 0;
+	transition-duration: 0.32s;
+}
+img[status='on'] {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+#place-message-button-container button:hover{
+	background-color: rgb(20, 20, 20);
+	color: white;
+	transition-duration: 0.3s;
+}
+div[theme='bright'] #place-message-button-container button:hover {
+	background-color: rgb(60, 60, 60) !important;
+	color: white !important;
+}
+
+@media(max-height: 790px) {
+	#place-message-title-container{
+		padding-top: 0.5em;
+	}
+}
+
+@media(max-width: 1700px){
+	#textarea-div{
+		min-height: 190px;
+	}
+}

@@ -36,31 +36,30 @@ function TicketView({ allPopulationData }) {
 
   	return (
     <>
-	<div id="second-block-container" ticket-id={ticket_id}>
-		<div id="history-log-container">
-			<div id="log-history-title-container">
-				<div id="ticket-view-ticket-title">
+	<div id="ticket-view-container" css-marker="TV" ticket-id={ticket_id}>
+		<div id="TV-description-attachments-and-info-container" eye-helper="FIRST-LEFT-BLOCK-CONTAINER">
+			<div id="TV-title-and-info-container">
+				<div id="TV-title-direct-container">
 					<h2>{ticket_data.name}</h2>
-					<img className="ticket-view-icon" alt="lock icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
+					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 				</div>
-				<TicketOverviewInformation usersNamesWithIds={usersNamesWithIds
-				} assignedsUtils={assignedsUtils} ticket_data={ticket_data}></TicketOverviewInformation>
+				<TicketOverviewInformation usersNamesWithIds={usersNamesWithIds} assignedsUtils={assignedsUtils} ticket_data={ticket_data}></TicketOverviewInformation>
 			</div>
-			<div className='line-breaker-styled'>
-				<div className='lns-centerizer'>
+			<div className='TV-line-breaker'>
+				<div className='TV-line-breaker-centrelizer'>
 					<p></p>
 				</div>
 			</div>
-			<div id='ticket-description-container'>
-				<div id='td-title-container'>
+			<div id='TV-description-container'>
+				<div id='TV-description-title-direct-container'>
 					<h3>{texts.ticket_description[language]}:</h3>
 				</div>
-				<div id='td-description-direct-container'>
+				<div id='TV-description-direct-container'>
 					<p>{ticket_data.description}</p>
 				</div>
 			</div>
-			<div className='line-breaker-styled'>
-				<div className='lns-centerizer'>
+			<div className='TV-line-breaker'>
+				<div className='TV-line-breaker-centrelizer'>
 					<p></p>
 				</div>
 			</div>
@@ -73,15 +72,13 @@ function TicketView({ allPopulationData }) {
 				</div>
 			</div>
 		</div>
-		<div id="place-message-and-ticket-management-options-container">
-			<div id="tv-messages-container">
-				<div>
-					{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
-						<Message messages_utils={messages_utils} ticket_id={ticket_data.id} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
-					))}
-				</div>
+		<div id="TV-place-message-and-ticket-management-options-container">
+			<div id="TV-messages-direct-container" css-marker="MSG">
+				{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
+					<Message messages_utils={messages_utils} ticket_id={ticket_data.id} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
+				))}
 			</div>
-			<div id="place-message-and-manage-ticket-buttons-agrouper">
+			<div id="TV-place-message-and-manage-ticket-buttons">
 				<PlaceMessage userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id}></PlaceMessage>
 				<ManageTicketButtons allPopulationData={allPopulationData} ticket_data={ticket_data}></ManageTicketButtons>
 			</div>

@@ -1,3 +1,4 @@
+/* BASE STYLES REFRESH & CLEAN */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -29,33 +30,34 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-
 a {
 	text-decoration: none;
 	color: white;
 }
-
-/* remember to define focus styles! */
 :focus {
 	outline: 0;
 }
-
-/* remember to highlight inserts somehow! */
 ins {
 	text-decoration: none;
 }
 del {
 	text-decoration: line-through;
 }
-
-/* tables still need 'cellspacing="0"' in the markup */
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* BASE STYLES REFRESH & CLEAN */
+
+* {
+	font-family: 'Quicksand', sans-serif;
+}
+
 #all-content-container{
 	display: flex;
 }
+
 #home-content-title{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1.25em;
@@ -106,6 +108,8 @@ div[theme='bright'] .main-content-container {
 	display: none;
 }
 
+/* OVERFLOWS DESIGN */
+
 ::-webkit-scrollbar {
 	width: 9px;
   }
@@ -130,6 +134,8 @@ div[theme='bright'] .main-content-container {
   .rectangle-span-selected_pieces {
 	color: white;
 }
+
+/* OVERFLOWS DESIGN */
 
 .rectangle-span-selected_pieces span {
 	margin-right: 4px;
@@ -174,5 +180,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 @import "./styles/pages/ticket_view/manage_ticket_buttons.css";
 @import "./styles/pages/ticket_view/message.css";
 @import "./styles/pages/ticket_view/ticket_view.css";
+@import "./styles/pages/ticket_view/ticket_overview_information.css";
+@import "./styles/pages/ticket_view/place_message.css";
 
 @import "./styles/independent_pieces/attachment_block.css";
