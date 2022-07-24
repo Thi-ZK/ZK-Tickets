@@ -80,24 +80,6 @@ div[theme='bright'] #TC-title-container h1 {
 	display: flex;
 	justify-content: space-around;
 }
-.client-and-midia-titles-description{
-	font-family: 'Quicksand', sans-serif;
-	padding-bottom: 0.57em;
-	font-size: 14px;
-}
-.checkbox-container{
-	display: flex;
-	align-items: center;
-}
-.checkbox-container input{
-	margin: 0px;
-	margin-top: 1px;
-	margin-right: 12px;
-}
-.checkbox-container p{
-	font-family: 'Quicksand', sans-serif;
-	font-size: 0.8em;
-}
 
 
 #TC-name-and-date-container {
@@ -301,6 +283,7 @@ div[theme='bright'] .react-calendar__month-view__weekdays__weekday {
 #TC-description-direct-container p {
 	padding-bottom: 20px;
 }
+
 #TC-description-direct-container textarea{
 	resize: none;
 	height: 80px;

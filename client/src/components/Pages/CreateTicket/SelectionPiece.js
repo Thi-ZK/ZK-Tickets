@@ -14,7 +14,7 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
     // Meant For Add Aggregative Option (User Or Group)
     const add_aggregative = (event) => {
         if ((data.type_of_piece !== "Assigneds") && (data.type_of_piece !== "Group")) {return;}
-        event.target.querySelector(".no-assignment-id").disabled = true; // Prevent Several Commands Before Finishing Last
+        event.target.querySelector(".TC-SP-aux-filling-option").disabled = true; // Prevent Several Commands Before Finishing Last
 
         let option_chosen = event.target.options[event.target.selectedIndex];
         
@@ -43,11 +43,11 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
 
     return (
         // Options Itself
-        <div className="create-ticket-input-direct-container">
-            <p className="client-and-midia-titles-description">{texts["select_the_" + curr_piece][language]} <span>{texts[curr_piece][language]}</span></p>
-            <select id={data.type_of_piece} onChange={add_aggregative}>
-                { data.is_aggregative ? ( // THE -- OPTION
-                    <option className="no-assignment-id" assigned-name="none">--</option>
+        <div className="TC-selection-input-direct-container" css-marker="SP">
+            <p className="TC-SP-selection-title">{texts["select_the_" + curr_piece][language]} <span>{texts[curr_piece][language]}</span></p>
+            <select id={"TC-SP-" + data.type_of_piece.toLowerCase()} onChange={add_aggregative}>
+                { data.is_aggregative ? ( // The -- Option
+                    <option className="TC-SP-aux-filling-option" assigned-name="none">--</option>
                     ) : (
                     <></> 
                 )}
@@ -58,13 +58,13 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
             </select>
             
             { data.is_aggregative ? ( // Those Are The Aggregative Options Selected Blocks (Assigned Users or Groups Blocks)
-                <div id="ct-sp-selected-pieces" className='rectangle-span-selected_pieces'>
+                <div className='rectangle-span-selected_pieces TC-SP-aggregative-selected-blocks-direct-container'>
                     {currentAggregatives.names.map((option, index) => (
                         <span aggregative-id={currentAggregatives.ids[index]} onClick={delete_aggregative} key={index}>{option}</span>
                     ))}
-                    <input className={data.type_of_piece} type="hidden" aggregative_names={currentAggregatives.names}></input>
-                    <input className={data.type_of_piece} type="hidden" aggregative_ids={currentAggregatives.ids}></input>
-                    <input onClick={reset_aggregatives} className="reseter" type="hidden"></input>
+                    <input className={"TC-SP-" + data.type_of_piece.toLowerCase()} type="hidden" aggregative_names={currentAggregatives.names}></input>
+                    <input className={"TC-SP-" + data.type_of_piece.toLowerCase()} type="hidden" aggregative_ids={currentAggregatives.ids}></input>
+                    <input onClick={reset_aggregatives} className="TC-SP-reseter" type="hidden"></input>
                 </div>
                 ) : (
                 <></> 

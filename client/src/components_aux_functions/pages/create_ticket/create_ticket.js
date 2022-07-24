@@ -45,7 +45,7 @@ const reset_all_inputs = ( setValue ) => {
     let selections = document.querySelectorAll("select#Assigneds, select#Groups, select#Priority, select#Status");
     for ( let i = 0; i < selections.length; i++) {selections[i].selectedIndex = 0;}
 
-    let aggregatives_reseters = document.querySelectorAll("input.reseter");
+    let aggregatives_reseters = document.querySelectorAll("input.TC-SP-reseter");
     aggregatives_reseters[0].click();
     aggregatives_reseters[1].click();
 
@@ -57,10 +57,10 @@ const reset_all_inputs = ( setValue ) => {
 
 // Assemble & Gather New Ticket Data 
 const gather_new_ticket_data = () => {
-    let assigneds_data_elems = document.querySelectorAll("input.Assigneds");
-    let groups_data_elems = document.querySelectorAll("input.Group");
-    let status = document.querySelector("#Status");
-    let priority = document.querySelector("#Priority");
+    let assigneds_data_elems = document.querySelectorAll("input.TC-SP-assigneds");
+    let groups_data_elems = document.querySelectorAll("input.TC-SP-group");
+    let status = document.querySelector("#TC-SP-status");
+    let priority = document.querySelector("#TC-SP-priority");
 
     let new_ticket_data = {
         name: document.querySelector("#TC-ticket-name").value,

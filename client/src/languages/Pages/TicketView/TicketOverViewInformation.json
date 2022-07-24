@@ -95,7 +95,7 @@
         "portuguese": "Padrão",
         "spanish": "Patrón"
     },
-    "Very low": {
+    "Very Low": {
         "english": "Very Low",
         "german": "Sehr niedrig",
         "portuguese": "Muito Baixa",
@@ -113,7 +113,7 @@
         "portuguese": "Alta",
         "spanish": "Alta"
     },
-    "Very high": {
+    "Very High": {
         "english": "Very High",
         "german": "Sehr hoch",
         "portuguese": "Muito Alta",

@@ -134,9 +134,9 @@ div[theme='bright'] .main-content-container {
   .rectangle-span-selected_pieces {
 	color: white;
 }
-
 /* OVERFLOWS DESIGN */
 
+/* Selected Options Block (Can Be Found In Ticket View & Create Ticket)*/
 .rectangle-span-selected_pieces span {
 	margin-right: 4px;
 	font-size: 13px;
