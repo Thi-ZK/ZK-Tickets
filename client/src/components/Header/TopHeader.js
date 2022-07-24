@@ -7,7 +7,7 @@ const TopHeader = ({ allPopulationData }) => {
     // Aliases For Language Related
     const updateLanguage   = allPopulationData.updateLanguage;
     const language         = allPopulationData.language;
-    const language_buttons = document.querySelectorAll("#languages-container button");
+    const language_buttons = document.querySelectorAll("#TH-languages-direct-container button");
 
     // Aliases For User Related
     const userData       = allPopulationData.userData;
@@ -40,13 +40,13 @@ const TopHeader = ({ allPopulationData }) => {
     }
     
     return (
-        <header id="top-header-container">
-        <div id="log-out-container">
+    <header id="top-header-container" css-marker="TH">
+        <div id="TH-login-and-brightness-direct-container">
             <img alt="logout icon" src={ userData ? "/imgs/headers/logout.png" : "/imgs/headers/login.png"}/> 
             <Link to="/login" onClick={ userData ? destroy_session : undefined }>
                 <p>{ userData ? texts.logout[language] : texts.login[language] }</p>
             </Link> 
-            <div id="top-header-brightness-theme-container">
+            <div id="TH-brightness-theme-direct-container">
                 <img alt="brightness-theme"
                     src={ currentBrightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}
                 />
@@ -55,14 +55,11 @@ const TopHeader = ({ allPopulationData }) => {
                 </span>
             </div>
       </div>
-      <div id="languages-container">
+      <div id="TH-languages-direct-container">
             <button onClick={(ev) => update_language(ev, 'spanish')}>Español</button>
             <button onClick={(ev) => update_language(ev, 'german')}>Deutsch</button>
             <button status="on" onClick={(ev) => update_language(ev, 'english')}>English</button>
             <button onClick={(ev) => update_language(ev, 'portuguese')}>Português</button>
-            <div id="left-header-controller-button-mob-container">
-                <img alt="language" src="/imgs/headers/options-list-mob.png"/>
-            </div>
         </div>
     </header>
     )

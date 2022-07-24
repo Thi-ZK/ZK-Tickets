@@ -109,7 +109,6 @@ div[theme='bright'] .main-content-container {
 }
 
 /* OVERFLOWS DESIGN */
-
 ::-webkit-scrollbar {
 	width: 9px;
   }
@@ -163,7 +162,8 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 }
 
 
-@import "./styles/header/headers.css";
+@import "./styles/header/left_header.css";
+@import "./styles/header/top_header.css";
 
 @import "./styles/ticket/ticket.css";
 @import "./styles/ticket/ticket_action_modal.css";
