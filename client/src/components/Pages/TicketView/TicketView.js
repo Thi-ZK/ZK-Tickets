@@ -63,11 +63,11 @@ function TicketView({ allPopulationData }) {
 					<p></p>
 				</div>
 			</div>
-			<div className='attachments-container'>
-				<div className='attachment-title-container'>
+			<div className='TV-attachments-container'>
+				<div className='TV-attachment-title-direct-container'>
 					<h3>{texts.attachments[language]}:</h3>
 				</div>
-				<div className='attachment-blocks'>
+				<div id='TV-attachment-blocks-direct-container'>
 				<AttachmentBlock language={language}></AttachmentBlock>
 				</div>
 			</div>

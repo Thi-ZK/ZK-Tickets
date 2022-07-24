@@ -1,23 +1,23 @@
 // Ticket Creation Name Error Message Appearence Controller
 const set_ticket_name_error_message_appearence = (status) => {
-    document.querySelector("#tc-ticket-name-error-message").setAttribute("status", status);
+    document.querySelector("#TC-ticket-name-error-message").setAttribute("status", status);
 }
 
 // Ticket Creation Description Error Message Appearence Controller
 const set_ticket_description_error_message_appearence = (status) => {
-    document.querySelector("#tc-description-error-message").setAttribute("status", status);
+    document.querySelector("#TC-description-error-message").setAttribute("status", status);
 }
 
 // Ticket Creation Loading Icon Appearence Controller
 const set_loading_icon_appearence = (status) => {
-    let loading_icons = document.querySelectorAll(".tc-loading-gif");
+    let loading_icons = document.querySelectorAll(".TC-loading-gif");
     loading_icons[0].setAttribute("status", status);
     loading_icons[1].setAttribute("status", status);
 }
 
 // Ticket Creation Loading Icon Appearence Controller
 const display_success_icon = () => {
-    let success_icon = document.querySelectorAll(".tc-success-gif");
+    let success_icon = document.querySelectorAll(".TC-success-gif");
     success_icon[0].setAttribute("status", "on");
     success_icon[1].setAttribute("status", "on");
     setTimeout(() => {
@@ -28,7 +28,7 @@ const display_success_icon = () => {
 
 // Function Below Used To Prevent User From Sending Many Requests
 const set_disabled_status_on_ticket_creation_buttons = (status) => { // Receives Boolean
-    let tickeat_creation_buttons = document.querySelectorAll(".create-ticket-create-button-container button"); // 2 Buttons
+    let tickeat_creation_buttons = document.querySelectorAll(".TC-create-button-direct-container button"); // 2 Buttons
     tickeat_creation_buttons[0].disabled = status;
     tickeat_creation_buttons[1].disabled = status;
 }
@@ -49,8 +49,8 @@ const reset_all_inputs = ( setValue ) => {
     aggregatives_reseters[0].click();
     aggregatives_reseters[1].click();
 
-    document.querySelector("input#ticket-name").value = "";
-    document.querySelector("#tc-ticket-description-container textarea").value = "";
+    document.querySelector("input#TC-ticket-name").value = "";
+    document.querySelector("#TC-description-direct-container textarea").value = "";
 
     setValue(undefined);
 }
@@ -63,8 +63,8 @@ const gather_new_ticket_data = () => {
     let priority = document.querySelector("#Priority");
 
     let new_ticket_data = {
-        name: document.querySelector("#ticket-name").value,
-        description: document.querySelector("#tc-ticket-description-container textarea").value,
+        name: document.querySelector("#TC-ticket-name").value,
+        description: document.querySelector("#TC-description-direct-container textarea").value,
         status: status.options[status.selectedIndex].id,
         priority: priority.options[priority.selectedIndex].id,
         related_users_names: aggregatives_formatter(assigneds_data_elems[0], "aggregative_names"),
@@ -90,7 +90,7 @@ const generate_final_new_ticket = (new_ticket_data) => {
         status: new_ticket_data.status, // REQUIRED
         assumers: new_ticket_data.assumers_ids,
         assumers_names: new_ticket_data.assumers_names,
-        due_date: new Date(document.querySelector("#due-date-chosen").innerText),
+        due_date: new Date(document.querySelector("#TC-due-date-chosen").innerText),
         priority: new_ticket_data.priority, // REQUIRED
         attachments: []
     };

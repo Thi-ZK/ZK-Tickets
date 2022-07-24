@@ -7,7 +7,7 @@
 
 }
 
-#create-ticket-container-aux{
+#TC-container-centrelizer{
 	width: 70%;
 	background-color: rgb(30, 30, 30);
 	border: 1px solid rgb(90, 90, 90);
@@ -15,39 +15,39 @@
 	max-height: 80vh;
 }
 
-div[theme='bright'] #create-ticket-container-aux {
+div[theme='bright'] #TC-container-centrelizer {
 	background-color: white;
 	border: 1px solid rgb(225, 225, 225);
 }
 
-#create-ticket-title-container {
+#TC-title-container {
 	display: flex;
 	padding: 0px 10px 0px 10px;
 	border-bottom: 1px solid rgb(90, 90, 90);
 	justify-content: space-between;
 }
-div[theme='bright'] #create-ticket-title-container {
+div[theme='bright'] #TC-title-container {
 	border-bottom: 1px solid rgb(225, 225, 225);
 }
 
-#create-ticket-h1-container {
+#TC-title-direct-container {
 	display: flex;
 	align-items: center;
 }
 
-.tc-loading-gif {
+.TC-loading-gif {
 	width: 50px;
 	height: 50px;
 	transition-duration: 0.3s;
 }
 
-.tc-success-gif {
+.TC-success-gif {
 	width: 30px;
 	height: 30px;
 	transition-duration: 0.3s;
 }
 
-#create-ticket-title-container h1{
+#TC-title-container h1{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1.1em;
 	letter-spacing: 0.035em;
@@ -61,12 +61,20 @@ div[theme='bright'] #create-ticket-title-container {
 	color: rgb(225, 225, 225);
 	padding: 1em 14px 1em 14px;
 }
-div[theme='bright'] #create-ticket-title-container h1 {
+div[theme='bright'] #TC-title-container h1 {
 	background-color: white;
 	color: rgb(20, 20, 20);
 }
 
-.create-ticket-inputs-pair-container {
+#TC-inputs-first-block-container {
+	padding-top: 1.75em !important;
+}
+
+#TC-inputs-second-block-container {
+	padding-top: 1.5em !important;
+}
+
+.TC-inputs-block-container {
 	padding-top: 2em;
 	padding-bottom: 1em;
 	display: flex;
@@ -92,7 +100,7 @@ div[theme='bright'] #create-ticket-title-container h1 {
 }
 
 
-#tc-status-and-date-block {
+#TC-name-and-date-container {
 	padding-top: 1em;
 	padding-bottom: 1em;
 	display: flex;
@@ -100,49 +108,49 @@ div[theme='bright'] #create-ticket-title-container h1 {
 }
 
 
-#tc-ticket-name-container {
+#TC-name-direct-container {
 	width: 45%;
 	font-size: 14px;
 }
 
-.tc-error-message-containing-container {
+.TC-error-message-direct-container {
 	display: flex;
 	justify-content: space-between;
 }
-.tc-error-message {
+.TC-error-message {
 	padding-left: 15px;
 	color: red !important;
 	transition-duration: 0.3s;
 	max-width: 200px;
 }
 
-#tc-ticket-name-error-message[status='off'], .tc-loading-gif[status='off'], .tc-success-gif[status='off'] {
+#TC-ticket-name-error-message[status='off'], .TC-loading-gif[status='off'], .TC-success-gif[status='off'] {
 	visibility: hidden;
 	opacity: 0;
 }
-#tc-ticket-name-error-message[status='on'], .tc-loading-gif[status='on'], .tc-success-gif[status='on'] {
+#TC-ticket-name-error-message[status='on'], .TC-loading-gif[status='on'], .TC-success-gif[status='on'] {
 	visibility: visible;
 	opacity: 1;
 }
 
-#tc-ticket-name-container p {
+#TC-name-direct-container p {
 	color: white;
 	margin-bottom: 25px;
 }
-div[theme='bright'] #tc-ticket-name-container p {
+div[theme='bright'] #TC-name-direct-container p {
 	color: rgb(20, 20, 20);
 }
 
-#tc-ticket-name-container span {
+#TC-name-direct-container span {
 	text-decoration: underline;
 	font-weight: bold;
 	color: rgb(230, 230, 230);
 }
-div[theme='bright'] #tc-ticket-name-container span {
+div[theme='bright'] #TC-name-direct-container span {
 	color: rgb(40, 40, 40);
 }
 
-#tc-ticket-name-container input {
+#TC-name-direct-container input {
 	padding: 8px;
 	color: rgb(230, 230, 230);
 	background-color: rgb(30, 30, 30);
@@ -153,60 +161,60 @@ div[theme='bright'] #tc-ticket-name-container span {
 	width: 98%;
 	transition-duration: 0.37s;
 }
-div[theme='bright'] #tc-ticket-name-container input {
+div[theme='bright'] #TC-name-direct-container input {
 	color: rgb(92, 92, 92);
 	background-color: white;
 	border-bottom: 1px solid rgb(200,200,200);
 }
 
-#tc-ticket-name-container input:focus {
+#TC-name-direct-container input:focus {
 	border-bottom: 1px solid rgb(135, 135, 135);
 }
-div[theme='bright'] #tc-ticket-name-container input:focus {
+div[theme='bright'] #TC-name-direct-container input:focus {
 	border-bottom: 1px solid rgb(80, 80, 80);
 }
 
-#tc-due-date-container, #tc-ticket-description-container {
+#TC-due-date-direct-container, #TC-description-direct-container {
 	color: white;
 	width: 45%;
 	font-size: 14px;
 }
-div[theme='bright'] #tc-due-date-container, div[theme='bright'] #tc-ticket-description-container {
+div[theme='bright'] #TC-due-date-direct-container, div[theme='bright'] #TC-description-direct-container {
 	color: rgb(20, 20, 20);
 }
 
-#due-date-title {
+#TC-due-date-title {
 	margin-bottom: 25px;
 	/*margin-bottom: calc(2.5em + 11.8px);*/ /*total sums of padding & margins with the size of the element subtracting the border*/
 }
 
-#due-date-title span, #tc-ticket-description-container span {
+#TC-due-date-title span, #TC-description-direct-container span {
 	color: rgba(228, 228, 228);
 	font-weight: bold;
 	text-decoration: underline;
 }
-div[theme='bright'] #due-date-title span, div[theme='bright'] #tc-ticket-description-container span {
+div[theme='bright'] #TC-due-date-title span, div[theme='bright'] #TC-description-direct-container span {
 	color: rgb(90, 90, 90);
 }
 
-#due-date-chosen {
+#TC-due-date-chosen {
 	padding: 10px;
 	background-color: rgb(90, 90, 90);
 	cursor: pointer;
 	transition-duration: 0.35s;
 }
-div[theme='bright'] #due-date-chosen {
+div[theme='bright'] #TC-due-date-chosen {
 	background-color: rgb(200,200,200);
 }
 
-#due-date-chosen:hover {
+#TC-due-date-chosen:hover {
 	background-color: rgb(115, 115, 115);
 }
-div[theme='bright'] #due-date-chosen:hover {
+div[theme='bright'] #TC-due-date-chosen:hover {
 	background-color: rgb(255, 255, 255);
 }
 
-#tc-attachment-blocks-title {
+#TC-attachment-blocks-title {
 	text-decoration: underline;
 	font-weight: bold;
 	color: white;
@@ -214,35 +222,35 @@ div[theme='bright'] #due-date-chosen:hover {
 	padding-bottom: 10px;
 	margin-top: 20px;
 }
-div[theme='bright'] #tc-attachment-blocks-title {
+div[theme='bright'] #TC-attachment-blocks-title {
 	color: rgb(20, 20, 20);
 }
 
-#tc-attachments-and-create-button-container {
+#TC-attachments-and-description-container {
 	padding-top: 15px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
-#tc-attachments-and-create-button-container .attachment-blocks {
+#TC-attachments-and-description-container .attachment-blocks {
 	margin-top: 10px !important;
 }
-#tc-attachments-and-create-button-container > div {
+#TC-attachments-and-description-container > div {
 	width: 45%;
 }
 
-#create-ticket-create-button-container {
+#TC-create-button-direct-container {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 }
-.create-ticket-create-button-container {
+.TC-create-button-direct-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.create-ticket-create-button-container button {
+.TC-create-button-direct-container button {
 	border: none;
 	background-color: rgb(30, 30, 30);
 	cursor: pointer;
@@ -252,12 +260,12 @@ div[theme='bright'] #tc-attachment-blocks-title {
 	transition-duration: 0.3s;
 	text-transform: uppercase;
 }
-div[theme='bright'] .create-ticket-create-button-container button {
+div[theme='bright'] .TC-create-button-direct-container button {
 	color: rgb(20, 20, 20);
 	background-color: rgb(250, 250, 250);
 }
 
-.create-ticket-create-button-container button:hover {
+.TC-create-button-direct-container button:hover {
 	box-shadow: inset 0 0 20px rgb(255 255 255 / 0%);
 	outline-color: rgba(255, 255, 255, 0.5);
 	/* border: 1px solid; */
@@ -266,7 +274,7 @@ div[theme='bright'] .create-ticket-create-button-container button {
   outline-color: rgba(255, 255, 255, 0);
   text-shadow: 1px 1px 2px #427388;
 }
-div[theme='bright'] .create-ticket-create-button-container button:hover {
+div[theme='bright'] .TC-create-button-direct-container button:hover {
 	outline-color: rgba(20, 20, 20, 0.5);
 	-webkit-box-shadow: inset 0 0 20px rgba(20, 20, 20, 0.5), 0 0 20px rgba(20, 20, 20, 0.2);
           box-shadow: inset 0 0 20px rgba(20, 20, 20, 0.5), 0 0 20px rgba(20, 20, 20, 0.2);
@@ -286,14 +294,14 @@ div[theme='bright'] .react-calendar__month-view__weekdays__weekday {
 	color: white;
 }
 
-#tc-ticket-description-container {
+#TC-description-direct-container {
 	padding-bottom: 25px;
 }
 
-#tc-ticket-description-container p {
+#TC-description-direct-container p {
 	padding-bottom: 20px;
 }
-#tc-ticket-description-container textarea{
+#TC-description-direct-container textarea{
 	resize: none;
 	height: 80px;
 	width: calc(100% - 15px);
@@ -303,16 +311,23 @@ div[theme='bright'] .react-calendar__month-view__weekdays__weekday {
 	border: 1px solid rgb(180, 180, 180) !important;
 }
 
-div[theme='bright'] #tc-ticket-description-container textarea {
+div[theme='bright'] #TC-description-direct-container textarea {
 	color: rgb(30, 30, 30);
 	background-color: rgb(255, 255, 255);
 }
 
-#tc-description-error-message[status='off'] {
+#TC-description-error-message[status='off'] {
 	visibility: hidden;
 	opacity: 0;
 }
-#tc-description-error-message[status='on'] {
+#TC-description-error-message[status='on'] {
 	visibility: visible;
 	opacity: 1;
+}
+
+.TC-attachment-blocks-direct-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
 }

@@ -30,13 +30,6 @@ div[theme='bright'] .create-ticket-input-direct-container {
 div[theme='bright'] .client-and-midia-titles-description span {
 	color:rgb(40, 40, 40);
 }
-#client-and-midias-inputs-container {
-	padding-top: 1.75em !important;
-}
-
-#client-and-midias-inputs-container-second {
-	padding-top: 1.5em !important;
-}
 
 #ct-sp-selected-pieces {
 	line-height: 27px;

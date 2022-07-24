@@ -30,19 +30,19 @@ function AttachmentBlock ({ language }) {
     return (
     <>
     {attachments.map((attachment, index) => (
-    <div key={index} className='tv-attachment-repeatable-block'>
-        <div className="tv-attachments-direct-container">  
+    <div key={index} className='attachment-container' css-marker="ATT">
+        <div className="ATT-input-direct-container">  
             <input
-                className="attachment"
+                className="ATT-input"
                 id={attachment.id}
                 type="file"
                 accept='.pdf, .jpeg, .jpg, .png, .xlsx, .docx'
                 onChange={(e) => update_path_and_add_new_att(e)}
             />
-            <label tabIndex="0" htmlFor="my-file" className="input-file-trigger">{texts[attachment.desc.toLowerCase()][language]}</label>
+            <label tabIndex="0" htmlFor="my-file" className="ATT-input-status-text">{texts[attachment.desc.toLowerCase()][language]}</label>
         </div>
-        <div id="tv-att-file-name-and-delete-button-container">
-            <p className="file-return">{attachment.downloadPath}</p>
+        <div id="ATT-file-name-and-delete-button-direct-container">
+            <p className="ATT-file-path-text">{attachment.downloadPath}</p>
             <img 
                 onClick={(e) => {deleteAttachment(attachment.id)}}
                 className={attachment.downloadPath ? "open" : "closed"}

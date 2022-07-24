@@ -70,64 +70,64 @@ function CreateTicket ({ allPopulationData }) {
     }
     
     return (
-    <div id="create-ticket-container">
-        <div id="create-ticket-container-aux">
-            <div id="create-ticket-title-container">
-                <div className='create-ticket-create-button-container'>
+    <div id="create-ticket-container" css-marker="TC">
+        <div id="TC-container-centrelizer">
+            <div id="TC-title-container">
+                <div className='TC-create-button-direct-container'>
                     <button onClick={create_ticket}>{texts.create_ticket[language]}</button>
                 </div>
-                <div id='create-ticket-h1-container'>
-                    <img status="off" className='tc-success-gif' alt="flying_witch" src="/imgs/general/success.gif"/>
-                    <img status="off" className='tc-loading-gif' alt="flying_witch" src="/imgs/login/loading.gif"/>
+                <div id='TC-title-direct-container'>
+                    <img status="off" className='TC-success-gif' alt="flying_witch" src="/imgs/general/success.gif"/>
+                    <img status="off" className='TC-loading-gif' alt="flying_witch" src="/imgs/login/loading.gif"/>
                     <h1>{texts.create_ticket[language]}</h1>
-                    <img status="off" className='tc-loading-gif' alt="flying_witch" src="/imgs/login/loading.gif"/>
-                    <img status="off" className='tc-success-gif' alt="flying_witch" src="/imgs/general/success.gif"/>
+                    <img status="off" className='TC-loading-gif' alt="flying_witch" src="/imgs/login/loading.gif"/>
+                    <img status="off" className='TC-success-gif' alt="flying_witch" src="/imgs/general/success.gif"/>
                 </div>
-                <div className='create-ticket-create-button-container'>
+                <div className='TC-create-button-direct-container'>
                     <button onClick={create_ticket}>{texts.create_ticket[language]}</button>
                 </div>
             </div>
-            <div id="inputs-container">
-                <div id="client-and-midias-inputs-container" className='create-ticket-inputs-pair-container'>
+            <div id="TC-inputs-container">
+                <div id="TC-inputs-first-block-container" className='TC-inputs-block-container'>
                     <SelectionPiece usersNamesWithIds={usersNamesWithIds} data={AF.selection_piece_assigneds} language={language}></SelectionPiece>
                     <SelectionPiece language={language} data={AF.selection_piece_group}></SelectionPiece>
                 </div>
-                <div id="client-and-midias-inputs-container-second" className='create-ticket-inputs-pair-container'>
+                <div id="TC-inputs-second-block-container" className='TC-inputs-block-container'>
                     <SelectionPiece language={language} data={AF.selection_piece_priority}></SelectionPiece>
                     <SelectionPiece language={language} data={AF.selection_piece_status}></SelectionPiece>
                 </div>
             </div>
-            <div id='tc-status-and-date-block'>
-                <div id='tc-ticket-name-container'>
-                    <div className='tc-error-message-containing-container'>
+            <div id='TC-name-and-date-container'>
+                <div id='TC-name-direct-container'>
+                    <div className='TC-error-message-direct-container'>
                         <p>{texts.please_write_the_ticket_name[language]} <span>{texts.ticket_name[language]}</span></p>
-                        <p status="off" className='tc-error-message' id='tc-ticket-name-error-message'>{texts[ticketNameError][language]}</p>
+                        <p status="off" className='TC-error-message' id='TC-ticket-name-error-message'>{texts[ticketNameError][language]}</p>
                     </div>
                     <input
                         onFocus={() => {return AF.set_ticket_name_error_message_appearence("off");}}
                         required
-                        id='ticket-name'
+                        id='TC-ticket-name'
                         type='text'
                     />
                 </div>
-                <div id='tc-due-date-container'>
-                    <div id='due-date-title'>{texts.select_a[language]} <span>{texts.due_date[language]}</span></div>
-                    <div id='due-date-chosen'
+                <div id='TC-due-date-direct-container'>
+                    <div id='TC-due-date-title'>{texts.select_a[language]} <span>{texts.due_date[language]}</span></div>
+                    <div id='TC-due-date-chosen'
                         onClick={() => {setCalAppearence('calendar-open')}}
                         >{value ? value.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
                     </div>
                     <Calendar className={calAppearence} onChange={onChange} value={value}/>
                 </div>
             </div>
-            <div id='tc-attachments-and-create-button-container'>
-                <div className='attachment-blocks' id='ct-attachment-blocks'>
-                    <p id='tc-attachment-blocks-title'>{texts.attachments[language]}:</p>
+            <div id='TC-attachments-and-description-container'>
+                <div className='TC-attachment-blocks-direct-container' id='TC-attachment-blocks'>
+                    <p id='TC-attachment-blocks-title'>{texts.attachments[language]}:</p>
                     <AttachmentBlock language={language}></AttachmentBlock>
                 </div>
-                <div id='tc-ticket-description-container'>
-                    <div className='tc-error-message-containing-container'>
+                <div id='TC-description-direct-container'>
+                    <div className='TC-error-message-direct-container'>
                         <p>{texts.please_write_the_ticket_description[language]} <span>{texts.ticket_description[language]}</span></p>
-                        <p status="off" id='tc-description-error-message' className='tc-error-message'>{texts.description_is_too_long[language]}</p>
+                        <p status="off" id='TC-description-error-message' className='TC-error-message'>{texts.description_is_too_long[language]}</p>
                     </div>
                     <textarea
                         onFocus={() => { return AF.set_ticket_description_error_message_appearence("off");}}>
