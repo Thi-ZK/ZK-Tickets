@@ -4,8 +4,6 @@
 }
 
 #LOG-centralizer {
-    display: flex;
-	justify-content: center;
 	align-items: center;
 	position: relative;
 	top: 6vh;
@@ -45,11 +43,14 @@ div[theme='bright'] #LOG-title-direct-container {
 }
 
 #LOG-inputs-container {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     padding-top: 40px;
+}
+
+#LOG-centralizer, #LOG-inputs-container, #LOG-submit-button-direct-container, #LOG-forgot-password-button-direct-container, #LOG-loading-gif-direct-container[status='on'] {
+    display: flex;
+    justify-content: center;
 }
 
 .LOG-inputs-direct-container {
@@ -57,8 +58,7 @@ div[theme='bright'] #LOG-title-direct-container {
 }
 
 .LOG-inputs-direct-container input{
-    padding: 11px;
-	padding-left: 0px;
+    padding: 11px 11px 11px 0px;
 	font-size: 14.5px;
 	width: 295px;
 	color: white;
@@ -84,8 +84,6 @@ div[theme='bright'] .LOG-inputs-direct-container input:focus{
 
 #LOG-submit-button-direct-container {
     padding-top: 10px;
-    display: flex;
-    justify-content: center;
 }
 
 #LOG-submit-button-direct-container button {
@@ -100,8 +98,6 @@ div[theme='bright'] .LOG-inputs-direct-container input:focus{
 }
 
 #LOG-forgot-password-button-direct-container{
-    display: flex;
-    justify-content: center;
     padding-top: 30px;
 }
 
@@ -121,13 +117,9 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
 }
 
 #LOG-loading-gif-direct-container {
-    justify-content: center;
     padding-top: 10px;
 }
 
-#LOG-loading-gif-direct-container[status='on'] {
-    display: flex;
-}
 #LOG-loading-gif-direct-container[status='off'] {
     display: none;
 }
@@ -156,7 +148,6 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     color: red;
     font-size: 13px;
 }
-
 
 #LOG-new-account-request-button-direct-container {
     position: absolute;

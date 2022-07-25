@@ -5,8 +5,7 @@
 	font-size: 14px;
 	font-family: 'Quicksand', sans-serif;
 	width: 100%;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	margin: 1em 0px 1em 0px;
 	color: white;
 }
 div[theme='bright'] .TC-selection-input-direct-container select {
@@ -15,7 +14,6 @@ div[theme='bright'] .TC-selection-input-direct-container select {
 }
 
 .TC-SP-selection-title{
-	font-family: 'Quicksand', sans-serif;
 	padding-bottom: 0.57em;
 	font-size: 14px;
 }

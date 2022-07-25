@@ -3,11 +3,11 @@
 	display: flex;
 	justify-content: space-between;
 	width: calc(100vw - 318px);
-	padding-top: 10px;
-	padding-bottom: 10px;
 	background-color: rgb(105, 105, 105);
 	font-size: 14.5px;
 	border-bottom: 1px solid rgb(120, 120, 120);
+	padding: 10px 0px 10px 0px;
+	font-family: 'Quicksand', sans-serif;
 }
 div[theme='bright'] #top-header-container {
 	background-color: rgb(232, 232, 232);
@@ -16,15 +16,13 @@ div[theme='bright'] #top-header-container {
 
 #TH-login-and-brightness-direct-container{
 	display: flex;
-	padding-left: 12px;
-	padding-right: 12px;
+	padding: 0px 12px 0px 12px;
 	align-items: center;
 }
 
 #TH-login-and-brightness-direct-container a{
 	text-decoration: none;
 	color: rgb(240, 240, 240);
-	font-family: 'Quicksand', sans-serif;
 	padding-left: 10px;
 }
 div[theme='bright'] #TH-login-and-brightness-direct-container a{
@@ -71,7 +69,7 @@ div[theme='bright'] #TH-brightness-theme-direct-container span {
 	background-color: rgb(105, 105, 105);
 	padding-left: 6px;
 	padding-right: 6px;
-	font-family: 'Quicksand', sans-serif;
+	padding: 0px 6px 0px 6px;
 	color: rgb(240, 240, 240);
 	cursor: pointer;
 }

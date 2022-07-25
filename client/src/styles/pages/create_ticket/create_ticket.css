@@ -4,7 +4,7 @@
 	align-items: center;
 	position: relative;
 	top: 6vh;
-
+	font-family: 'Quicksand', sans-serif;
 }
 
 #TC-container-centrelizer{
@@ -14,17 +14,14 @@
 	overflow-y: auto;
 	max-height: 80vh;
 }
-
 div[theme='bright'] #TC-container-centrelizer {
 	background-color: white;
 	border: 1px solid rgb(225, 225, 225);
 }
 
 #TC-title-container {
-	display: flex;
 	padding: 0px 10px 0px 10px;
 	border-bottom: 1px solid rgb(90, 90, 90);
-	justify-content: space-between;
 }
 div[theme='bright'] #TC-title-container {
 	border-bottom: 1px solid rgb(225, 225, 225);
@@ -48,15 +45,13 @@ div[theme='bright'] #TC-title-container {
 }
 
 #TC-title-container h1{
-	font-family: 'Quicksand', sans-serif;
 	font-size: 1.1em;
 	letter-spacing: 0.035em;
 	line-height: 22px;
 	text-align: center;
 	text-transform: capitalize;
 	font-weight: normal;
-	border-left: none;
-	border-right: none;
+	border-left: none; border-right: none;
 	background-color: rgb(30, 30, 30);
 	color: rgb(225, 225, 225);
 	padding: 1em 14px 1em 14px;
@@ -75,30 +70,28 @@ div[theme='bright'] #TC-title-container h1 {
 }
 
 .TC-inputs-block-container {
-	padding-top: 2em;
-	padding-bottom: 1em;
-	display: flex;
-	justify-content: space-around;
+	padding: 2em 0px 1em 0px;
 }
-
 
 #TC-name-and-date-container {
-	padding-top: 1em;
-	padding-bottom: 1em;
+	padding: 1em 0px 1em 0px;
+}
+
+#TC-name-and-date-container, .TC-inputs-block-container, #TC-attachments-and-description-container{
 	display: flex;
 	justify-content: space-around;
 }
-
 
 #TC-name-direct-container {
 	width: 45%;
 	font-size: 14px;
 }
 
-.TC-error-message-direct-container {
+.TC-error-message-direct-container, #TC-title-container {
 	display: flex;
 	justify-content: space-between;
 }
+
 .TC-error-message {
 	padding-left: 15px;
 	color: red !important;
@@ -106,11 +99,11 @@ div[theme='bright'] #TC-title-container h1 {
 	max-width: 200px;
 }
 
-#TC-ticket-name-error-message[status='off'], .TC-loading-gif[status='off'], .TC-success-gif[status='off'] {
+#TC-ticket-name-error-message[status='off'], .TC-loading-gif[status='off'], .TC-success-gif[status='off'], #TC-description-error-message[status='off'] {
 	visibility: hidden;
 	opacity: 0;
 }
-#TC-ticket-name-error-message[status='on'], .TC-loading-gif[status='on'], .TC-success-gif[status='on'] {
+#TC-ticket-name-error-message[status='on'], .TC-loading-gif[status='on'], .TC-success-gif[status='on'], #TC-description-error-message[status='on'] {
 	visibility: visible;
 	opacity: 1;
 }
@@ -133,12 +126,11 @@ div[theme='bright'] #TC-name-direct-container span {
 }
 
 #TC-name-direct-container input {
-	padding: 8px;
+	padding: 8px 8px 8px 0px;
 	color: rgb(230, 230, 230);
 	background-color: rgb(30, 30, 30);
 	border: none;
 	border-bottom: 1px solid rgb(90, 90, 90);
-	padding-left: 0px;
 	font-size: 15px !important;
 	width: 98%;
 	transition-duration: 0.37s;
@@ -165,9 +157,8 @@ div[theme='bright'] #TC-due-date-direct-container, div[theme='bright'] #TC-descr
 	color: rgb(20, 20, 20);
 }
 
-#TC-due-date-title {
+#TC-due-date-title { /*total sums of padding & margins with the size of the element subtracting the border*/
 	margin-bottom: 25px;
-	/*margin-bottom: calc(2.5em + 11.8px);*/ /*total sums of padding & margins with the size of the element subtracting the border*/
 }
 
 #TC-due-date-title span, #TC-description-direct-container span {
@@ -210,13 +201,13 @@ div[theme='bright'] #TC-attachment-blocks-title {
 
 #TC-attachments-and-description-container {
 	padding-top: 15px;
-	display: flex;
-	justify-content: space-around;
 	align-items: center;
 }
+
 #TC-attachments-and-description-container .attachment-blocks {
 	margin-top: 10px !important;
 }
+
 #TC-attachments-and-description-container > div {
 	width: 45%;
 }
@@ -226,9 +217,8 @@ div[theme='bright'] #TC-attachment-blocks-title {
 	justify-content: flex-end;
 	align-items: center;
 }
+
 .TC-create-button-direct-container {
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
 }
 
@@ -250,11 +240,10 @@ div[theme='bright'] .TC-create-button-direct-container button {
 .TC-create-button-direct-container button:hover {
 	box-shadow: inset 0 0 20px rgb(255 255 255 / 0%);
 	outline-color: rgba(255, 255, 255, 0.5);
-	/* border: 1px solid; */
-  -webkit-box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  	-webkit-box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
           box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-  outline-color: rgba(255, 255, 255, 0);
-  text-shadow: 1px 1px 2px #427388;
+  	outline-color: rgba(255, 255, 255, 0);
+  	text-shadow: 1px 1px 2px #427388;
 }
 div[theme='bright'] .TC-create-button-direct-container button:hover {
 	outline-color: rgba(20, 20, 20, 0.5);
@@ -299,18 +288,12 @@ div[theme='bright'] #TC-description-direct-container textarea {
 	background-color: rgb(255, 255, 255);
 }
 
-#TC-description-error-message[status='off'] {
-	visibility: hidden;
-	opacity: 0;
-}
-#TC-description-error-message[status='on'] {
-	visibility: visible;
-	opacity: 1;
-}
-
 .TC-attachment-blocks-direct-container {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	margin-top: 20px;
+}
+
+.TC-attachment-blocks-direct-container, .TC-create-button-direct-container{
+	display: flex;
+	flex-direction: column;
 }

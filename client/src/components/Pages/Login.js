@@ -13,7 +13,8 @@ function Home({ allPopulationData }) {
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
     const attemptLogin = (event) => {
-        event.target.disabled = true; // prevent user from clicking many times and submit tons of requests.
+        set_error_message_appearence("off"); // Clean Error Msg
+        event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
         event.preventDefault();
 
         let email = AF.get_email();
@@ -46,6 +47,7 @@ function Home({ allPopulationData }) {
 
     // Meant For Displaying Or Hiding Error Message (Status Can Be "on" Or "off")
     const [errorMessage, updateErrorMessage] = useState("none");
+    
     const set_error_message_appearence = ( status, message ) => {
         document.querySelector("#LOG-error-display-direct-container").setAttribute("status", status);
         if ( message ) { updateErrorMessage(message); }

@@ -2,13 +2,13 @@
 	margin-top: 6px;
 }
 
-
 .ATT-input-direct-container {
 	position: relative;
 	display: flex;
 	justify-content: center;
-  } 
-  .ATT-input-direct-container .ATT-input-status-text {
+} 
+
+.ATT-input-direct-container .ATT-input-status-text {
 	display: block;
 	padding: 14px 45px;
 	background: #2e3836;
@@ -18,64 +18,65 @@
 	cursor: pointer;
 	text-align: center;
 	width: 130px;
-  }
-  div[theme='bright'] .ATT-input-direct-container .ATT-input-status-text {
-	  color: rgb(90, 90, 90);
-	  background-color: rgb(220, 220, 220);
-  }
+}
+div[theme='bright'] .ATT-input-direct-container .ATT-input-status-text {
+	color: rgb(90, 90, 90);
+	background-color: rgb(220, 220, 220);
+}
 
-  .ATT-input-direct-container .ATT-input {
+.ATT-input-direct-container .ATT-input {
 	position: absolute;
 	top: 0; left: 0;
 	width: 225px;
 	opacity: 0;
 	padding: 14px 0;
 	cursor: pointer;
-  }
-  .ATT-input-direct-container:hover label {
+}
+.ATT-input-direct-container:hover label {
 	color: rgb(237, 213, 2) !important;
-  }
-  div[theme='bright'] .ATT-input-direct-container:hover label {
+}
+div[theme='bright'] .ATT-input-direct-container:hover label {
 	color: black !important;
-  }
+}
 
-  .ATT-file-path-text {
+.ATT-file-path-text {
 	margin: 0;
 	font-size: 14px;
 	color: white;
-  }
-  div[theme='bright'] .ATT-file-path-text {
-	  color: rgb(20, 20, 20);
-  }
+}
+div[theme='bright'] .ATT-file-path-text {
+	color: rgb(20, 20, 20);
+}
 
-  .ATT-file-path-text:not(:empty) {
+.ATT-file-path-text:not(:empty) {
 	margin: 1em 0;
-  }
-  .ATT-input-direct-container .ATT-file-path-text {
+}
+
+.ATT-input-direct-container .ATT-file-path-text {
 	font-style: italic;
 	font-size: .9em;
 	font-weight: bold;
-  }
-  .ATT-input-direct-container .ATT-file-path-text:not(:empty):before {
+}
+
+.ATT-input-direct-container .ATT-file-path-text:not(:empty):before {
 	content: "Selected file: ";
 	font-style: normal;
 	font-weight: normal;
-  }
+}
 
-  #ATT-file-name-and-delete-button-direct-container {
-	  display: flex;
-	  align-items: center;
-  }
+#ATT-file-name-and-delete-button-direct-container {
+	display: flex;
+	align-items: center;
+}
 
-  #ATT-file-name-and-delete-button-direct-container img {
-	  width: 25px;
-	  height: 25px;
-	  margin-top: 3px;
-	  margin-left: 8px;
-	  cursor: pointer;
-	  visibility: hidden;
-  }
+#ATT-file-name-and-delete-button-direct-container img {
+	width: 25px;
+	height: 25px;
+	margin: 3px 0px 0px 8px;
+	cursor: pointer;
+	visibility: hidden;
+}
 
-  #ATT-file-name-and-delete-button-direct-container img.open {
+#ATT-file-name-and-delete-button-direct-container img.open {
 	visibility: visible;
-  }
+}

@@ -138,14 +138,17 @@ div[theme='bright'] #TAM-confirmation-message-container p {
 	color: rgb(45, 176, 175) !important;
 }
 
+
 @media(max-width: 550px){
 	#ticket-action-modal-container{
 		width: 320px;
 		margin-left: -160px;
 	}
+
 	#TAM-title-and-close-icon-direct-container{
 		padding-bottom: 0.5em;
 	}
+
 	#TAM-confirmation-message-container{
 		line-height: 20px;
 	}
