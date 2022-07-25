@@ -1,4 +1,4 @@
-/* BASE STYLES REFRESH & CLEAN */
+/* Base Styles Refresh & Clean */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,8 +47,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-/* BASE STYLES REFRESH & CLEAN */
+/* Base Styles Refresh & Clean */
 
 * {
 	font-family: 'Quicksand', sans-serif;
@@ -61,13 +60,12 @@ table {
 #home-content-title{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1.25em;
-	padding-top: 3em;
 	text-align: center;
 	color: black;
 	letter-spacing: 0.05em;
-	padding-bottom: 2em;
 	text-transform: capitalize;
 	line-height: 30px;
+	padding: 3em 0px 2em 0px;
 }
 div[theme='bright'] #home-content-title {
 	color: white;
@@ -108,32 +106,32 @@ div[theme='bright'] .main-content-container {
 	display: none;
 }
 
-/* OVERFLOWS DESIGN */
+/* Overflows Design */
 ::-webkit-scrollbar {
 	width: 9px;
-  }
+}
   
   /* Track */
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
 	background: #f1f1f1;
 	border-radius: 30px;
-  }
+}
   
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	background: #888;
 	border-radius: 30px;
-  }
+}
   
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
 	background: #555;
-  }
+}
 
-  .rectangle-span-selected_pieces {
+.rectangle-span-selected_pieces {
 	color: white;
 }
-/* OVERFLOWS DESIGN */
+/* Overflows Design */
 
 /* Selected Options Block (Can Be Found In Ticket View & Create Ticket)*/
 .rectangle-span-selected_pieces span {
@@ -165,7 +163,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 @import "./styles/header/left_header.css";
 @import "./styles/header/top_header.css";
 
-@import "./styles/ticket/ticket.css";
+@import "./styles/ticket/ticket_band.css";
 @import "./styles/ticket/ticket_action_modal.css";
 
 @import "./styles/pages/login.css";

@@ -72,7 +72,7 @@ function TicketView({ allPopulationData }) {
 				</div>
 			</div>
 		</div>
-		<div id="TV-place-message-and-ticket-management-options-container">
+		<div id="TV-place-message-and-ticket-management-options-container" eye-helper="SECOND-RIGHT-BLOCK">
 			<div id="TV-messages-direct-container" css-marker="MSG">
 				{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
 					<Message messages_utils={messages_utils} ticket_id={ticket_data.id} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>

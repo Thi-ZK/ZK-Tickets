@@ -11,14 +11,12 @@ div[theme='bright'] #TV-messages-direct-container {
 }
 
 .TV-message-container {
-    padding: 10px;
-    padding-bottom: 13px;
+    padding: 10px 10px 13px 10px;
 }
 
 div[class='TV-message-container'][type='2'] {
     background-color: rgb(40, 40, 40) !important;
 }
-
 div[theme='bright'] div[class='TV-message-container'][type='2'] {
     background-color: rgb(245, 245, 245) !important;
 }
@@ -36,6 +34,7 @@ div[theme='bright'] .TV-MSG-title-direct-container {
 .TV-MSG-owner-name {
     display: flex;
 }
+
 .TV-MSG-owner-name img {
     height: 30px;
     width: 30px;
@@ -63,6 +62,7 @@ div[theme='bright'] .TV-MSG-text {
 .TV-MSG-deleting-gif[status='off']{
     display: none;
 }
+
 .TV-MSG-deleting-gif[status='on']{
     display: inline-block;
 }

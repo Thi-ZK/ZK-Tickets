@@ -3,15 +3,15 @@
 	z-index: 1001;
 	width: 500px;
 	left: 50%;
-	margin-left: -250px;
+	margin: -100px 0px 0px -250px;
 	top: 50%;
-	margin-top: -100px;
 	box-shadow: 0px 0px 5px 0px black;
 	border-radius: 6px;
 	background-color: rgb(60, 60, 60);
 	visibility: hidden;
 	height: 0px;
 	transition-duration: 0.55s;
+	font-family: 'Quicksand', sans-serif;
 }
 div[theme='bright'] #ticket-action-modal-container {
 	background-color: rgb(245, 245, 245);
@@ -34,10 +34,8 @@ div[theme='bright'] #ticket-action-modal-container {
 }
 
 #TAM-confirmation-message-container{
-	padding-left: 2em;
-	padding-right: 1em;
+	padding: 0px 1em 0px 2em;
 	height: 65%;
-	background-color: white;
 	background-color: rgb(30, 30, 30);
 }
 div[theme='bright'] #TAM-confirmation-message-container{
@@ -63,7 +61,6 @@ div[theme='bright'] #TAM-confirmation-message-container{
 	line-height: 20px;
 }
 #TAM-confirmation-message-container h2 {
-	font-family: 'Quicksand', sans-serif;
 	font-size: 1.05em;
 	color: rgb(190, 190, 190);
 }
@@ -72,7 +69,6 @@ div[theme='bright'] #TAM-confirmation-message-container h2 {
 }
 
 #TAM-confirmation-message-container p{
-	font-family: 'Quicksand', sans-serif;
 	font-size: 0.95em;
 	color: rgb(210, 210, 210);
 }
@@ -91,15 +87,12 @@ div[theme='bright'] #TAM-confirmation-message-container p {
 #TAM-action-buttons-direct-container button{
 	color: white;
 	border: none;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 30px;
 	height: 36px;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 0px 15px 0px 15px;
 	font-weight: bold;
 	cursor: pointer;
-	margin-right: 4px;
-	margin-left: 4px;
+	margin: 0px 4px 0px 4px;
 }
 #TAM-cancel-button{
 	background-color: rgb(160, 160, 160);

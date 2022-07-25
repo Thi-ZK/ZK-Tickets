@@ -1,3 +1,8 @@
+#ticket-view-container{
+	display: flex;
+	margin: 1.2em 1.5em 1.5em 1.5em;
+}
+
 .TV-title-icon {
 	width: 21px;
 	height: 21px;
@@ -16,8 +21,7 @@
 div[theme='bright'] #TV-title-direct-container{
 	color: rgb(30, 30, 30);
 	border: 1px solid rgb(200,200,200);
-	border-right: 0px;
-	border-left: 0px;
+	border-right: 0px; border-left: 0px;
 	background-color: rgb(232,232,232);
 }
 
@@ -25,8 +29,7 @@ div[theme='bright'] #TV-title-direct-container{
 	padding: 1em;
 }
 
-/* ticket description */
-
+/* Ticket Description */
 .TV-line-breaker-centrelizer {
 	display: flex;
 	justify-content: center;
@@ -37,7 +40,6 @@ div[theme='bright'] #TV-title-direct-container{
 	padding: 8px;
 	border-bottom: 1px solid rgb(202,202,202);
 	font-size: 14px;
-	/* font-weight: normal; */
 	letter-spacing: 0.2px;
 	width: 60%;
 	color: rgb(80, 80, 80);
@@ -45,9 +47,7 @@ div[theme='bright'] #TV-title-direct-container{
 div[theme='bright'] .TV-line-breaker p{
 	border-bottom: 1px solid rgb(200,200,200);
 }
-
-
-/*ticket description*/
+/* Ticket Description */
 
 #TV-description-container{
 	padding: 24px 1em 16px 1em;
@@ -65,8 +65,7 @@ div[theme='bright'] #TV-description-container #TV-description-title-direct-conta
 
 #TV-description-direct-container {
 	font-size: 13.5px;
-	padding: 17px;
-	padding-top: 20px;
+	padding: 20px 17px 17px 17px;
 	line-height: 21px;
 	color: white;
 }
@@ -74,14 +73,6 @@ div[theme='bright'] #TV-description-direct-container {
 	color: rgb(30, 30, 30);
 }
 
-
-
-
-
-#ticket-view-container{
-	display: flex;
-	margin: 1.2em 1.5em 1.5em 1.5em;
-}
 #TV-description-attachments-and-info-container{
 	width: calc(50% - 1em);
 	background-color: rgb(30, 30, 30);
@@ -97,13 +88,12 @@ div[theme='bright'] #TV-description-attachments-and-info-container {
 #TV-title-and-info-container{
 	padding: 1em 1em 1em 1em;
 }
+
 #TV-title-and-info-container h2{
 	letter-spacing: 0.6px;
 	font-size: 17px;
 	font-weight: normal;
 }
-
-
 
 .TV-attachments-container {
 	padding: 24px 1em 1em 1em;
@@ -118,60 +108,19 @@ div[theme='bright'] #TV-description-attachments-and-info-container {
 div[theme='bright'] .TV-attachment-title-direct-container {
 	color: rgb(40, 40, 40);
 }
+
 #TV-attachment-blocks-direct-container{
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	margin-top: 20px;
 }
 
-
-@media(max-height: 790px) {
-	#ticket-view-container{
-		margin-top: 1.2em;
-		margin-bottom: 0.3em !important;
-	}
-	#TV-title-and-info-container{
-		padding-top: 0.5em;
-	}
+#TV-place-message-and-ticket-management-options-container{
+	padding-left: 0.75em;
+	width: calc(50% - 1em);
+	justify-content: space-between;
 }
 
-@media(max-width: 1700px){
-	#TV-description-attachments-and-info-container{
-		max-height: 480px;
-	}
-}
-
-@media(max-width: 1450px){
-	#ticket-view-container{
-		flex-direction: column;
-	}
-	#TV-description-attachments-and-info-container{
-		width: auto;
-	}
-	#TV-place-message-and-ticket-management-options-container{
-		padding-left: 0px;
-		width: 100%;
-		margin-top: 2em;
-	}
-}
-
-@media(max-width: 950px){
-	#TV-title-and-info-container h2{
-		font-size: 1.05em;
-	}
-	#TV-title-and-info-container img{
-		width: 36px;
-		height: 36px;
-	}
-	#TV-title-and-info-container button{
-		display: none;
-	}
-}
-
-@media(max-width: 450px){
-	#ticket-view-container{
-		margin-left: 0.5em;
-		margin-right: 0.5em;
-	}
+#TV-place-message-and-ticket-management-options-container, #TV-attachment-blocks-direct-container {
+	display: flex;
+	flex-direction: column;
 }

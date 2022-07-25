@@ -23,22 +23,23 @@ div[theme='bright'] #TV-ticket-info-container p span {
 	color: rgb(60, 60, 60);
 }
 
-.TV-INF-info-line-direct-container {
-	display: flex;
-	justify-content: space-between;
-}
-
 .TV-INF-line-info-key {
 	width: 55%;
 }
+
 p[class='TV-INF-line-info-key rectangle-span-selected_pieces'] span {
 	margin-right: 6px;
 }
+
 #TV-INF-assumers-text-key {
 	margin-right: 4px;
 }
+
 .TV-INF-line-info-value {
 	width: 40%;
+}
+
+.TV-INF-line-info-value, .TV-INF-info-line-direct-container {
 	display: flex;
 	justify-content: space-between;
 }

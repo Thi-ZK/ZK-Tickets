@@ -32,6 +32,7 @@ div[theme='bright'] .ATT-input-direct-container .ATT-input-status-text {
 	padding: 14px 0;
 	cursor: pointer;
 }
+
 .ATT-input-direct-container:hover label {
 	color: rgb(237, 213, 2) !important;
 }
