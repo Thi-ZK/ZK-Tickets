@@ -1,12 +1,19 @@
-import React from 'react';
-import texts from '../../languages/Pages/Profile.json';
+import React, { useState } from 'react';
+import texts from '../../../languages/Pages/Profile.json';
+import Switch from '../../IndependentPieces/Switch.js';
+import Preferences from './Preferences';
+import UserInfo from './UserInfo';
 
 function Profile({ allPopulationData }) {
-    // Aliases
+    // Aliases For Language & Population Data
     const userData   = allPopulationData.userData;
     const language   = allPopulationData.language;
     const allTickets = allPopulationData.allTickets;
-    
+
+    // State Declaration For Which Main Content To Be Displayed 
+    const [currentDisplayedContent, updateDisplayedContent] = useState("user_info");
+
+    // Total Linked Tickets Number
     const total_linked_tickets = allTickets.filter((ticket) => {
         return ticket.related_users.includes(userData.id) ? ticket : undefined;
     }).length;
@@ -39,28 +46,10 @@ function Profile({ allPopulationData }) {
                     </div>
                     <div className='PFL-long-line-splitter'></div>
                 </div>
-                <div id='PFL-person-info-container'>
-                    <div className='PFL-person-info-direct-container'>
-                        <p className='PFL-person-key-info'>{texts.user_id[language]}</p>
-                        <p>#{userData.id}</p>
-                    </div>
-                    <div className='PFL-person-info-direct-container'>
-                        <p className='PFL-person-key-info'>{texts.name[language]}</p>
-                        <p>{userData.name}</p>
-                    </div>
-                    <div className='PFL-person-info-direct-container'>
-                        <p className='PFL-person-key-info'>Email</p>
-                        <p>{userData.email}</p>
-                    </div>
-                    <div className='PFL-person-info-direct-container'>
-                        <p className='PFL-person-key-info'>{texts.user_power[language]}</p>
-                        <p>{userData.user_power === 4 ? userData.user_power + " - Admin (Max)" : userData.user_power}</p>
-                    </div>
-                    <div className='PFL-person-info-direct-container'>
-                        <p className='PFL-person-key-info'>{texts.phone_number[language]}</p>
-                        <p>{userData.phone}</p>
-                    </div>
-                </div>
+                <Switch currentDisplayedContent={currentDisplayedContent}>
+                    <UserInfo switch_case="user_info" texts={texts} userData={userData} language={language}/>
+                    <p switch_case="positive">+</p>
+                </Switch>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
 }
 
-// When You Navigate To The Root page, It Will Use The Built React App
+// When Root Page Is Visited, Client Will Be Serverd Instead Of A STD Route
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // Declaration Of Varied Variables
@@ -38,16 +38,16 @@ app.use(cors({
     credentials: true
 }));
 
-//Session Configurations Settage
+// Session Configurations Settage
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 2 } // two day 
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 2 } // Two Days
 }));
 
-// Middleware To Restrict User To Access Content Unless He / She Logs In
+// Middleware To Restrict User Access To Content Unless He / She Is Logged In
 app.use((req, res, next) => {
     if (req.path === "/login/auth") {return next();}
     !req.session.user ? res.send({success: false, status_message: "Not Authenticated -- Not Allowed"}) : next();

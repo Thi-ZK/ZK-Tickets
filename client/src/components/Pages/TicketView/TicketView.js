@@ -16,7 +16,7 @@ function TicketView({ allPopulationData }) {
 	const language           = allPopulationData.language;
 	const usersNamesWithIds  = allPopulationData.usersNamesWithIds;
 
-	// Alias For Cleaner Code
+	// Aliases For Specific Ticket Being Viewed Data
 	const { ticket_id } = useParams();
 	const ticket_data = allTickets.filter((elem) => {return elem.id === Number(ticket_id)})[0];
 

@@ -6,7 +6,7 @@ import Login from './components/Pages/Login';
 import TicketView from './components/Pages/TicketView/TicketView';
 import TicketListing from './components/Pages/TicketListing';
 import ErrorPage from './components/Pages/ErrorPage';
-import Profile from './components/Pages/Profile';
+import Profile from './components/Pages/Profile/Profile';
 import HelpAndInfo from './components/Pages/HelpAndInfo';
 import CreateTicket from './components/Pages/CreateTicket/CreateTicket';
 import NotAuthorized from './components/Pages/NotAuthorized';
