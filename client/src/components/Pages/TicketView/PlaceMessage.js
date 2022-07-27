@@ -35,12 +35,12 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
     <div id="TV-place-message-container" css-marker="PM">
         <div id="TV-PM-title-direct-container">
             <p>{texts.place_a_message_below[language]}</p>
-            <img alt="etwas" src="/imgs/home/ticket_management.png"/>
+            <img alt="etwas" src="/imgs/ticket/leave_message.gif"/>
         </div>
         <div id="TV-PM-textarea-and-submit-button-container">
             <div id="TV-PM-textarea-direct-container">
                 <div suppressContentEditableWarning={true} contentEditable="true" id="TV-PM-message-textarea">
-                    <img alt="arrow img in place message" src="/imgs/home/arrow.png"/>
+                    <img alt="arrow img in place message" src="/imgs/ticket/black_right_arrow.png"/>
                 </div>
             </div>
             <div id="TV-PM-submit-button-direct-container">

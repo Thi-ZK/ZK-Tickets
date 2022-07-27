@@ -25,9 +25,9 @@ div[theme='bright'] #TV-PM-title-direct-container p {
 }
 
 #TV-PM-title-direct-container img{
-	display: none;
-	width: 40px;
-	height: 40px;
+	/* display: none; */
+	width: 50px;
+	height: 50px;
 }
 
 #TV-PM-textarea-direct-container{

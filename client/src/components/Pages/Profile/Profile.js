@@ -27,7 +27,7 @@ function Profile({ allPopulationData }) {
             <div id='PFL-all-content-info-container'>
                 <div id='PFL-name-and-picture-container'>
                     <div id='PFL-picture-direct-container'>
-                        <img alt='user' src='/imgs/home/honeybaby.jpg'/>
+                        <img alt='user' src='/imgs/ticket/dahyun_pic.jpg'/>
                     </div>
                     <div id='PFL-name-and-related-info-container'>
                         <div id='PFL-name-and-title-direct-container'>

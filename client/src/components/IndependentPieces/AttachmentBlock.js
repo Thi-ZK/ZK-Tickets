@@ -47,7 +47,7 @@ function AttachmentBlock ({ language }) {
                 onClick={(e) => {deleteAttachment(attachment.id)}}
                 className={attachment.downloadPath ? "open" : "closed"}
                 alt="delete-icon"
-                src='/imgs/general/delete_icon.png'
+                src='/imgs/general/red_x_delete_icon.png'
             />
         </div>
     </div> 

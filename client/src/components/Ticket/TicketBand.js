@@ -48,7 +48,7 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 		</div>
 		<div className="TB-content-block-container">
 			<div id="TB-photo-and-personal-identification-container">
-				<img alt="person / user pic" src="/imgs/home/honeybaby.jpg"/>
+				<img alt="person / user pic" src="/imgs/ticket/dahyun_pic.jpg"/>
 				<div className="TB-name-and-person-info-direct-container">
 					<p className="TB-name">{texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
 					<div>

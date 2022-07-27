@@ -78,9 +78,9 @@ function CreateTicket ({ allPopulationData }) {
                 </div>
                 <div id='TC-title-direct-container'>
                     <img status="off" className='TC-success-gif' alt="flying_witch" src="/imgs/general/success.gif"/>
-                    <img status="off" className='TC-loading-gif' alt="flying_witch" src="/imgs/login/loading.gif"/>
+                    <img status="off" className='TC-loading-gif' alt="flying_witch" src="/imgs/general/loading_mew.gif"/>
                     <h1>{texts.create_ticket[language]}</h1>
-                    <img status="off" className='TC-loading-gif' alt="flying_witch" src="/imgs/login/loading.gif"/>
+                    <img status="off" className='TC-loading-gif' alt="flying_witch" src="/imgs/general/loading_mew.gif"/>
                     <img status="off" className='TC-success-gif' alt="flying_witch" src="/imgs/general/success.gif"/>
                 </div>
                 <div className='TC-create-button-direct-container'>

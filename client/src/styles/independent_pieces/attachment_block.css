@@ -71,8 +71,8 @@ div[theme='bright'] .ATT-file-path-text {
 }
 
 #ATT-file-name-and-delete-button-direct-container img {
-	width: 25px;
-	height: 25px;
+	width: 16px;
+	height: 16px;
 	margin: 3px 0px 0px 8px;
 	cursor: pointer;
 	visibility: hidden;

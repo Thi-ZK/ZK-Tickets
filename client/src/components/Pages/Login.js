@@ -54,7 +54,7 @@ function Home({ allPopulationData }) {
     }
 
     return (
-    <div style={{backgroundImage: 'url(/imgs/home/home.jpg)'}} id='login-container' css-marmker="LOG">
+    <div style={{backgroundImage: 'url(/imgs/login/planet_background.jpg)'}} id='login-container' css-marmker="LOG">
         <div id='LOG-centralizer'>
             <form id='LOG-form-container' login-status={userData ? "logged-in" : "logged-out"}>
                 <div id='LOG-title-direct-container'>
@@ -89,7 +89,7 @@ function Home({ allPopulationData }) {
                 </div>
                 <div>
                     <div id='LOG-loading-gif-direct-container' status="off">
-                        <img alt='user' src='/imgs/login/loading.gif'/>
+                        <img alt='user' src='/imgs/general/loading_mew.gif'/>
                     </div>
                     <div id='LOG-error-display-direct-container' status='off'>
                         <p>{texts[errorMessage][language]}</p>

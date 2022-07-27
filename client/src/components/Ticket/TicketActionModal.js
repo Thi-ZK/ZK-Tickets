@@ -30,7 +30,7 @@ const TicketActionModal = ({ allPopulationData }) => {
                 <div id="TAM-title-and-close-icon-direct-container">
                     <h2>{texts.confirmation[language]}</h2>
                     <div onClick={() => AF.close_modal(updateTicketActionModalSettings)}>
-                        <img alt="close icon" src="/imgs/general/close-button.png"/>
+                        <img alt="close icon" src="/imgs/ticket/close_grey_circle_icon.png"/>
                     </div>
                 </div>
 
