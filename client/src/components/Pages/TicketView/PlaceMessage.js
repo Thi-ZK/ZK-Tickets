@@ -35,7 +35,6 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
     <div id="TV-place-message-container" css-marker="PM">
         <div id="TV-PM-title-direct-container">
             <p>{texts.place_a_message_below[language]}</p>
-            <img alt="etwas" src="/imgs/ticket/leave_message.gif"/>
         </div>
         <div id="TV-PM-textarea-and-submit-button-container">
             <div id="TV-PM-textarea-direct-container">

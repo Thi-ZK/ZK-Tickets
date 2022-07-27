@@ -12,22 +12,15 @@ div[theme='bright'] #TV-place-message-container {
 	padding: 1em 12px 0.3em 18px;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-
 }
 #TV-PM-title-direct-container p{
+	padding-top: 6px;
 	letter-spacing: 0.6px;
 	font-size: 1em;
 	color: white;
 }
 div[theme='bright'] #TV-PM-title-direct-container p {
 	color: rgb(30, 30, 30);
-}
-
-#TV-PM-title-direct-container img{
-	/* display: none; */
-	width: 50px;
-	height: 50px;
 }
 
 #TV-PM-textarea-direct-container{

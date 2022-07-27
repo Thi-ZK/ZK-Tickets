@@ -3,6 +3,7 @@ import texts from '../../../languages/Pages/Profile.json';
 import Switch from '../../IndependentPieces/Switch.js';
 import Preferences from './Preferences';
 import UserInfo from './UserInfo';
+import AF from '../../../components_aux_functions/pages/profile.js'; // Aux Functions
 
 function Profile({ allPopulationData }) {
     // Aliases For Language & Population Data
@@ -12,6 +13,12 @@ function Profile({ allPopulationData }) {
 
     // State Declaration For Which Main Content To Be Displayed 
     const [currentDisplayedContent, updateDisplayedContent] = useState("user_info");
+
+    // Updates Displayed Content State & Sets <p> Attributes For Styles
+    const switch_displayed_content = (event) => {
+        AF.set_content_display_p_elems_status(event.target);
+        updateDisplayedContent(event.target.getAttribute("which_content"));
+    }
 
     // Total Linked Tickets Number
     const total_linked_tickets = allTickets.filter((ticket) => {
@@ -41,14 +48,14 @@ function Profile({ allPopulationData }) {
                 </div>
                 <div id='PFL-section-splitter-and-option-choice-container'>
                     <div id='PFL-section-choices-direct-container'>
-                        <p>{texts.about[language]}</p>
-                        <p style={{fontWeight: "normal"}}>{texts.preferences[language]}</p>
+                        <p status="on" which_content="user_info" onClick={switch_displayed_content}>{texts.about[language]}</p>
+                        <p status="off" which_content="preferences" onClick={switch_displayed_content}>{texts.preferences[language]}</p>
                     </div>
                     <div className='PFL-long-line-splitter'></div>
                 </div>
                 <Switch currentDisplayedContent={currentDisplayedContent}>
                     <UserInfo switch_case="user_info" texts={texts} userData={userData} language={language}/>
-                    <p switch_case="positive">+</p>
+                    <Preferences switch_case="preferences"/>
                 </Switch>
             </div>
         </div>
