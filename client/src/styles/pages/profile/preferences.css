@@ -1,55 +1,62 @@
 
-  
-  .group {
-    margin-bottom: 2em;
-  }
-  
-  
-  input[type=radio] {
-    margin-right: 13px;
-    cursor: pointer;
-  }
-  
-  label {
-    position: relative;
-    margin-right: 1em;
-    padding-left: 2em;
-    padding-right: 1em;
-    line-height: 2;
-    cursor: pointer;
-  }
-  label:before {
-    box-sizing: border-box;
-    content: " ";
-    position: absolute;
-    top: 0.3em;
-    left: 0;
-    display: block;
-    width: 1.4em;
-    height: 1.4em;
-    border: 2px solid white;
-    border-radius: 0.25em;
-    z-index: -1;
-  }
-  
-  input[type=radio] + label::before {
-    border-radius: 1em;
-  }
-  
+.PFL-PRE-content-line-container {
+    display: flex;
+    justify-content: space-between;
+}
 
-  input[type=radio]:checked + label {
-    padding-left: 0.6em;
+#PFL-preferences-container {
+    padding: 0px 190px 0px 190px;
+}
+
+#PFL-PRE-languages-direct-container, #PFL-PRE-brightness-themes-direct-container {
+    margin-top: 27px;
+    padding: 15px 25px 20px 25px;
+    border: 1px dotted rgb(220, 220, 220);
+}
+
+#PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 30px;
+}
+
+.PFL-PRE-language-label, .PFL-PRE-language-input, .PFL-PRE-brightness-theme-label, .PFL-PRE-brightness-theme-input {
+    cursor: pointer;
+}
+
+.PFL-PRE-language-direct-container, .PFL-PRE-brightness-theme-direct-container {
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.PFL-PRE-brightness-theme-direct-container {
+    padding-bottom: 12px;
+}
+
+.PFL-PRE-language-label, .PFL-PRE-brightness-theme-label {
+    padding-left: 17px;
+    transition-duration: 0.25s;
+    font-size: 14.2px;
+}
+
+.PFL-PRE-language-input, .PFL-PRE-brightness-theme-input {
+    margin: 0px;
+}
+
+.PFL-PRE-language-input:checked + label, .PFL-PRE-brightness-theme-input:checked + label {
+    padding-left: 30px;
     color: #8e44ad;
-  }
+}
 
-  input[type=radio]:checked + label:before {
-    top: 0;
-    width: 100%;
-    height: 2em;
-    background: white;
-  }
-  
+.PFL-PRE-language-direct-container img {
+    width: 20px;
+    height: 14px;
+    padding-left: 5px;
+}
 
-  label, label::before {
-    transition: 0.25s all ease;
-  }
+.PFL-PRE-brightness-theme-direct-container img {
+    width: 22px;
+    height: 22px;
+    padding-left: 5px;
+}

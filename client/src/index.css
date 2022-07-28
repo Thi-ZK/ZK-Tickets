@@ -159,27 +159,35 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	color: white !important;
 }
 
-
+/* Header Styles */
 @import "./styles/header/left_header.css";
 @import "./styles/header/top_header.css";
 
+/* Ticket Styles */
 @import "./styles/ticket/ticket_band.css";
 @import "./styles/ticket/ticket_action_modal.css";
 
+/* Simple Page Styles */
 @import "./styles/pages/login.css";
 @import "./styles/pages/not_authorized.css";
 @import "./styles/pages/help_and_info.css";
-@import "./styles/pages/profile/profile.css";
-@import "./styles/pages/profile/preferences.css";
 @import "./styles/pages/error_page.css";
 
+/* Profile Page Styles */
+@import "./styles/pages/profile/profile.css";
+@import "./styles/pages/profile/preferences.css";
+@import "./styles/pages/profile/user_info.css";
+
+/* Create Ticket Page Styles */
 @import "./styles/pages/create_ticket/create_ticket.css";
 @import "./styles/pages/create_ticket/selection_piece.css";
 
+/* Ticket View Page Styles */
 @import "./styles/pages/ticket_view/manage_ticket_buttons.css";
 @import "./styles/pages/ticket_view/message.css";
 @import "./styles/pages/ticket_view/ticket_view.css";
 @import "./styles/pages/ticket_view/ticket_overview_information.css";
 @import "./styles/pages/ticket_view/place_message.css";
 
+/* Independent Pieces Styles */
 @import "./styles/independent_pieces/attachment_block.css";
