@@ -67,9 +67,7 @@ div[theme='bright'] #TH-brightness-theme-direct-container span {
 #TH-languages-direct-container button{
 	border: none;
 	background-color: rgb(105, 105, 105);
-	padding-left: 6px;
-	padding-right: 6px;
-	padding: 0px 6px 0px 6px;
+	padding: 0px 6px 0px 5px;
 	color: rgb(240, 240, 240);
 	cursor: pointer;
 }
@@ -89,6 +87,18 @@ div[theme='bright'] #TH-languages-direct-container button {
 
 #TH-languages-direct-container p:hover{
 	text-decoration: underline;
+}
+
+.TH-language-direct-container {
+	display: flex;
+	align-items: center;
+	padding-left: 8px;
+}
+
+.TH-language-direct-container img {
+	width: 20px;
+	height: 13px;
+	padding-top: 2px;
 }
 
 @media(max-width: 1440px){

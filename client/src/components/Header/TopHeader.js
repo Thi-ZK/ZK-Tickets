@@ -56,10 +56,22 @@ const TopHeader = ({ allPopulationData }) => {
             </div>
       </div>
       <div id="TH-languages-direct-container">
-            <button onClick={(ev) => update_language(ev, 'spanish')}>Español</button>
-            <button onClick={(ev) => update_language(ev, 'german')}>Deutsch</button>
-            <button status="on" onClick={(ev) => update_language(ev, 'english')}>English</button>
-            <button onClick={(ev) => update_language(ev, 'portuguese')}>Português</button>
+            <div className="TH-language-direct-container">
+                <img src="./imgs/general/country_flag_icons/spain.png"/>
+                <button onClick={(ev) => update_language(ev, 'spanish')}>Español</button>
+            </div>
+            <div className="TH-language-direct-container">
+                <img src="./imgs/general/country_flag_icons/germany.png"/>
+                <button onClick={(ev) => update_language(ev, 'german')}>Deutsch</button>
+            </div>
+            <div className="TH-language-direct-container">
+                <img src="./imgs/general/country_flag_icons/usa.png"/>
+                <button status="on" onClick={(ev) => update_language(ev, 'english')}>English</button>
+            </div>
+            <div className="TH-language-direct-container">
+                <img src="./imgs/general/country_flag_icons/brazil.png"/>
+                <button onClick={(ev) => update_language(ev, 'portuguese')}>Português</button>
+            </div>
         </div>
     </header>
     )
