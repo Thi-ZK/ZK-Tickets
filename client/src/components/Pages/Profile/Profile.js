@@ -3,7 +3,7 @@ import texts from '../../../languages/Pages/Profile.json';
 import Switch from '../../IndependentPieces/Switch.js';
 import Preferences from './Preferences';
 import UserInfo from './UserInfo';
-import AF from '../../../components_aux_functions/pages/profile.js'; // Aux Functions
+import AF from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
 function Profile({ allPopulationData }) {
     // Aliases For Language & Population Data

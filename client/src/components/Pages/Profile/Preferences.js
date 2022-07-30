@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from '../../../api/axios';
+import AF from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
 // import texts from '../../languages/Pages/Login.json';
 
 function Preferences ({ userData }) {
@@ -10,11 +11,14 @@ function Preferences ({ userData }) {
     // Meant For Updating Preferred Language
     const updated_preferred_language = (event) => {
         let chosen_language = event.target.getAttribute("language");
+
+        AF.disable_or_enable_all_language_inputs("disable");
         console.log(chosen_language);
-        // axios.post('users/update/current/preferred_language', { preferred_language: chosen_language }).then(( response ) => {
-            
-        //     if (response.data._id);
-        // });
+        axios.post('users/update/current/preferred_language', { preferred_language: chosen_language })
+        .then(( response ) => {
+            console.log(response);
+            AF.disable_or_enable_all_language_inputs("enable");
+        });
     }
 
     return (

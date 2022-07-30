@@ -11,7 +11,7 @@ const ticketUpdateRouter = require('./routes/tickets/update');
 const ticketCreateRouter = require('./routes/tickets/create');
 const ticketGetRouter = require('./routes/tickets/get');
 const userGetRouter = require('./routes/users/get');
-const userUpdateRouter = require('./routes/users/get');
+const userUpdateRouter = require('./routes/users/update');
 const loginAuthRouter = require('./routes/login');
 
 const app = express();
