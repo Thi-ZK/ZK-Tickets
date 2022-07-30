@@ -50,6 +50,18 @@ const userSchema = new Schema({
     password: {
         required: true,
         type: String
+    },
+    
+    preferred_language: {
+        required: true,
+        type: String,
+        default: "english"
+    },
+
+    preferred_brightness_theme: {
+        required: true,
+        type: String,
+        default: "bright"
     }
 }, { timestamps: true });
 

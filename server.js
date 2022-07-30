@@ -5,11 +5,13 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const path = require("path");
 
+// Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
 const ticketUpdateRouter = require('./routes/tickets/update');
 const ticketCreateRouter = require('./routes/tickets/create');
 const ticketGetRouter = require('./routes/tickets/get');
 const userGetRouter = require('./routes/users/get');
+const userUpdateRouter = require('./routes/users/get');
 const loginAuthRouter = require('./routes/login');
 
 const app = express();
@@ -59,6 +61,7 @@ app.use('/tickets/update', ticketUpdateRouter);
 app.use('/tickets/create', ticketCreateRouter);
 app.use('/tickets/get', ticketGetRouter);
 app.use('/users/get', userGetRouter);
+app.use('/users/update', userUpdateRouter);
 app.use('/login', loginAuthRouter);
 
 // Server Start After Successful Connection With DB

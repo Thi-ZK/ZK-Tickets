@@ -55,7 +55,7 @@ function Profile({ allPopulationData }) {
                 </div>
                 <Switch currentDisplayedContent={currentDisplayedContent}>
                     <UserInfo switch_case="user_info" texts={texts} userData={userData} language={language}/>
-                    <Preferences switch_case="preferences"/>
+                    <Preferences switch_case="preferences" userData={userData}/>
                 </Switch>
             </div>
         </div>
