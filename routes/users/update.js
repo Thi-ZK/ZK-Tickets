@@ -20,4 +20,19 @@ router.post('/current/preferred_language', urlencodedParser, async (req, res) =>
 	}));
 });
 
+// Update Current (User Who Made The Request) User Preferred Brightness Theme
+router.post('/current/preferred_brightness_theme', urlencodedParser, async (req, res) => {
+    let preferred_theme = req.body.preferred_brightness_theme;
+    let user_id = Number(req.session.user.id);
+
+    await UserModel.updateOne({ id: user_id }, { preferred_brightness_theme: preferred_theme });
+    req.session.user.preferred_brightness_theme = preferred_theme;
+
+	res.send(JSON.stringify({
+        data: preferred_theme,
+		success: true,
+		requested: "Update Current User Preferred Brightness Theme"
+	}));
+});
+
 module.exports = router;

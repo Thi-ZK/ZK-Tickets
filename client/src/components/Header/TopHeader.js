@@ -12,9 +12,10 @@ const TopHeader = ({ allPopulationData }) => {
     // Aliases For User Related
     const userData       = allPopulationData.userData;
     const updateUserData = allPopulationData.updateUserData;
+    const user_preferred_brightness_theme = userData && userData.preferred_brightness_theme;
 
     // Meant For Dark / Bright Theme
-    const [currentBrightnessTheme, setNewBrightnessTheme] = useState("dark");
+    const [currentBrightnessTheme, setNewBrightnessTheme] = useState(user_preferred_brightness_theme);
 
     // Switch The Current Brightness
     const switch_brightness = () => {
@@ -25,8 +26,7 @@ const TopHeader = ({ allPopulationData }) => {
 
     // Destroy Session
     let destroy_session = () => {
-        axios.get('/login/logout')
-        .then(() => { updateUserData(undefined); }); // Cleaning existing user data
+        axios.get('/login/logout').then(() => { updateUserData(undefined); }); // Cleaning Existing User Data
     }
 
     // Update Language

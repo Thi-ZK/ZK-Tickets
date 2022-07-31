@@ -27,7 +27,7 @@ function App() {
     });
 
     // Language State
-    const [language, updateLanguage] = useState("english"); // change later to save in user preferences
+    const [language, updateLanguage] = useState("english");
 
     // All Tickets State Set
     const [allTickets, updateTickets] = useState([]);
@@ -38,7 +38,7 @@ function App() {
     }
 
     // User Data State Set
-    const [userData, updateUserData] = useState(undefined); // Is an object
+    const [userData, updateUserData] = useState(undefined); // Is An Object
     const update_user_data = () => {
         axios.get('/users/get/single/current').then((user) => {console.log(user.data);
             if ( user.data.success ) { updateUserData(user.data.data); }
@@ -72,10 +72,13 @@ function App() {
         ticketActionModalSettings: ticketActionModalSettings,
         updateTicketActionModalSettings: updateTicketActionModalSettings
     }
+
+    // Alias For Brightness Theme
+    const user_preferred_brightness_theme = userData && userData.preferred_brightness_theme;
     
     return (
     <Router>
-        <div className="App" theme="dark" language={language}>
+        <div className="App" theme={user_preferred_brightness_theme} language={language}>
             <div status="off" id="universal-overlay"></div>
             <TicketActionModal allPopulationData={allPopulationData}></TicketActionModal>
             <LeftHeader language={language}></LeftHeader>
