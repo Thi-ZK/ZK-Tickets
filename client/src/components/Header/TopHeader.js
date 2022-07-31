@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect } from "react";
 import axios from '../../api/axios';
 import { Link } from "react-router-dom";
 import texts from '../../languages/Header/TopHeader.json';
@@ -10,17 +10,22 @@ const TopHeader = ({ allPopulationData }) => {
     const language_buttons = document.querySelectorAll("#TH-languages-direct-container button");
 
     // Aliases For User Related
-    const userData       = allPopulationData.userData;
-    const updateUserData = allPopulationData.updateUserData;
-    const user_preferred_brightness_theme = userData && userData.preferred_brightness_theme;
+    const userData               = allPopulationData.userData;
+    const updateUserData         = allPopulationData.updateUserData;
+    const currentBrightnessTheme = allPopulationData.currentBrightnessTheme;
+    const updateBrightnessTheme  = allPopulationData.updateBrightnessTheme;
 
-    // Meant For Dark / Bright Theme
-    const [currentBrightnessTheme, setNewBrightnessTheme] = useState(user_preferred_brightness_theme);
+    // Updating Preferred Language & Brightness Theme For When User Data Is Loaded
+    useEffect(() => {
+        if ( userData ) { 
+            updateBrightnessTheme(userData.preferred_brightness_theme) 
+        }
+    }, [userData]);
 
     // Switch The Current Brightness
     const switch_brightness = () => {
         let theme = (currentBrightnessTheme === "dark") ? "bright" : "dark";
-        setNewBrightnessTheme(theme);
+        updateBrightnessTheme(theme);
         document.querySelector(".App").setAttribute("theme", theme);
     }
 
@@ -47,29 +52,25 @@ const TopHeader = ({ allPopulationData }) => {
                 <p>{ userData ? texts.logout[language] : texts.login[language] }</p>
             </Link> 
             <div id="TH-brightness-theme-direct-container">
-                <img alt="brightness-theme"
-                    src={ currentBrightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}
-                />
-                <span onClick={switch_brightness}>
-                    {texts[currentBrightnessTheme === "dark" ? "bright" : "dark"][language]}
-                </span>
+                <img alt="brightness-theme"src={ currentBrightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}/>
+                <span onClick={switch_brightness}>{texts[currentBrightnessTheme === "dark" ? "bright" : "dark"][language]}</span>
             </div>
       </div>
       <div id="TH-languages-direct-container">
             <div className="TH-language-direct-container">
-                <img src="./imgs/general/country_flag_icons/spain.png"/>
+                <img alt="" src="./imgs/general/country_flag_icons/spain.png"/>
                 <button onClick={(ev) => update_language(ev, 'spanish')}>Español</button>
             </div>
             <div className="TH-language-direct-container">
-                <img src="./imgs/general/country_flag_icons/germany.png"/>
+                <img alt="" src="./imgs/general/country_flag_icons/germany.png"/>
                 <button onClick={(ev) => update_language(ev, 'german')}>Deutsch</button>
             </div>
             <div className="TH-language-direct-container">
-                <img src="./imgs/general/country_flag_icons/usa.png"/>
+                <img alt="" src="./imgs/general/country_flag_icons/usa.png"/>
                 <button status="on" onClick={(ev) => update_language(ev, 'english')}>English</button>
             </div>
             <div className="TH-language-direct-container">
-                <img src="./imgs/general/country_flag_icons/brazil.png"/>
+                <img alt="" src="./imgs/general/country_flag_icons/brazil.png"/>
                 <button onClick={(ev) => update_language(ev, 'portuguese')}>Português</button>
             </div>
         </div>

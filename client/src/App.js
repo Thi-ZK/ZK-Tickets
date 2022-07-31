@@ -13,7 +13,6 @@ import NotAuthorized from './components/Pages/NotAuthorized';
 import LeftHeader from './components/Header/LeftHeader/LeftHeader';
 import TopHeader from './components/Header/TopHeader';
 import TicketActionModal from './components/Ticket/TicketActionModal';
-
 // import AF from './components_aux_functions/app.js'; // Aux Functions
 
 function App() {
@@ -28,6 +27,9 @@ function App() {
 
     // Language State
     const [language, updateLanguage] = useState("english");
+
+    // Meant For Dark / Bright Theme (Logic For Its Updating Is In Top Header Component)
+    const [currentBrightnessTheme, updateBrightnessTheme] = useState("bright");
 
     // All Tickets State Set
     const [allTickets, updateTickets] = useState([]);
@@ -61,24 +63,23 @@ function App() {
     // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States (The Ones That Used In Many Contexts)
     const allPopulationData = {
         allTickets: allTickets,
+        update_all_tickets: update_all_tickets,
         userData: userData,
+        updateUserData: updateUserData,
         usersNamesWithIds: usersNamesWithIds,
         update_user_names_and_ids: update_user_names_and_ids,
-        update_all_tickets: update_all_tickets,
-        updateUserData: updateUserData,
-        update_user_data: update_user_data,
         language: language,
         updateLanguage: updateLanguage,
         ticketActionModalSettings: ticketActionModalSettings,
-        updateTicketActionModalSettings: updateTicketActionModalSettings
+        updateTicketActionModalSettings: updateTicketActionModalSettings,
+        currentBrightnessTheme: currentBrightnessTheme,
+        updateBrightnessTheme: updateBrightnessTheme,
+        update_user_data: update_user_data
     }
-
-    // Alias For Brightness Theme
-    const user_preferred_brightness_theme = userData && userData.preferred_brightness_theme;
     
     return (
     <Router>
-        <div className="App" theme={user_preferred_brightness_theme} language={language}>
+        <div className="App" theme={currentBrightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
             <TicketActionModal allPopulationData={allPopulationData}></TicketActionModal>
             <LeftHeader language={language}></LeftHeader>
