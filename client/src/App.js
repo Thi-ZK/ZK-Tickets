@@ -25,7 +25,7 @@ function App() {
         which_action: "none"
     });
 
-    // Language State
+    // Language State (Logic For Its Updating Is In Top Header Component)
     const [language, updateLanguage] = useState("english");
 
     // Meant For Dark / Bright Theme (Logic For Its Updating Is In Top Header Component)
@@ -41,9 +41,16 @@ function App() {
 
     // User Data State Set
     const [userData, updateUserData] = useState(undefined); // Is An Object
-    const update_user_data = () => {
-        axios.get('/users/get/single/current').then((user) => {console.log(user.data);
-            if ( user.data.success ) { updateUserData(user.data.data); }
+    const update_user_data = (should_update_lang_and_brightness_theme) => {
+        axios.get('/users/get/single/current').then((res) => {console.log(res.data);
+            if ( res.data.success ) {
+                updateUserData(res.data.data);
+
+                if ( should_update_lang_and_brightness_theme ) {
+                    updateBrightnessTheme(res.data.data.preferred_brightness_theme);
+                    updateLanguage(res.data.data.preferred_language);
+                }
+            }
         })
     }
 
@@ -56,7 +63,7 @@ function App() {
     // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh)
     useEffect(() => {
         update_all_tickets();
-        update_user_data();
+        update_user_data(true);
         update_user_names_and_ids();
     }, []);
 

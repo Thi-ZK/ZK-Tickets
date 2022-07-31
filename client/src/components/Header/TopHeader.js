@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from '../../api/axios';
 import { Link } from "react-router-dom";
 import texts from '../../languages/Header/TopHeader.json';
@@ -7,7 +7,6 @@ const TopHeader = ({ allPopulationData }) => {
     // Aliases For Language Related
     const updateLanguage   = allPopulationData.updateLanguage;
     const language         = allPopulationData.language;
-    const language_buttons = document.querySelectorAll("#TH-languages-direct-container button");
 
     // Aliases For User Related
     const userData               = allPopulationData.userData;
@@ -15,33 +14,19 @@ const TopHeader = ({ allPopulationData }) => {
     const currentBrightnessTheme = allPopulationData.currentBrightnessTheme;
     const updateBrightnessTheme  = allPopulationData.updateBrightnessTheme;
 
-    // Updating Preferred Language & Brightness Theme For When User Data Is Loaded
-    useEffect(() => {
-        if ( userData ) { 
-            updateBrightnessTheme(userData.preferred_brightness_theme) 
-        }
-    }, [userData]);
-
     // Switch The Current Brightness
     const switch_brightness = () => {
         let theme = (currentBrightnessTheme === "dark") ? "bright" : "dark";
         updateBrightnessTheme(theme);
-        document.querySelector(".App").setAttribute("theme", theme);
     }
 
     // Destroy Session
     let destroy_session = () => {
-        axios.get('/login/logout').then(() => { updateUserData(undefined); }); // Cleaning Existing User Data
-    }
-
-    // Update Language
-    const update_language = (ev, lang) => {
-        for (let i = 0; i < language_buttons.length; i++) {
-            language_buttons[i].setAttribute("status", "off");
-        }
-
-        ev.target.setAttribute("status", "on");
-        updateLanguage(lang);
+        axios.get('/login/logout').then(() => { 
+            updateUserData(undefined); // Cleaning Existing User Data
+            updateLanguage("english");
+            updateBrightnessTheme("bright"); 
+        });
     }
     
     return (
@@ -59,19 +44,19 @@ const TopHeader = ({ allPopulationData }) => {
       <div id="TH-languages-direct-container">
             <div className="TH-language-direct-container">
                 <img alt="" src="./imgs/general/country_flag_icons/spain.png"/>
-                <button onClick={(ev) => update_language(ev, 'spanish')}>Español</button>
+                <button status={language === "spanish" ? "on" : "off"} onClick={(ev) => updateLanguage('spanish')}>Español</button>
             </div>
             <div className="TH-language-direct-container">
                 <img alt="" src="./imgs/general/country_flag_icons/germany.png"/>
-                <button onClick={(ev) => update_language(ev, 'german')}>Deutsch</button>
+                <button status={language === "german" ? "on" : "off"} onClick={(ev) => updateLanguage('german')}>Deutsch</button>
             </div>
             <div className="TH-language-direct-container">
                 <img alt="" src="./imgs/general/country_flag_icons/usa.png"/>
-                <button status="on" onClick={(ev) => update_language(ev, 'english')}>English</button>
+                <button status={language === "english" ? "on" : "off"} onClick={(ev) => updateLanguage('english')}>English</button>
             </div>
             <div className="TH-language-direct-container">
                 <img alt="" src="./imgs/general/country_flag_icons/brazil.png"/>
-                <button onClick={(ev) => update_language(ev, 'portuguese')}>Português</button>
+                <button status={language === "portuguese" ? "on" : "off"} onClick={(ev) => updateLanguage('portuguese')}>Português</button>
             </div>
         </div>
     </header>

@@ -6,7 +6,7 @@ import AF from '../../components_aux_functions/pages/login.js'; // Aux Functions
 function Home({ allPopulationData }) {
     // Aliases For Population Data
     const update_all_tickets        = allPopulationData.update_all_tickets;
-    const updateUserData            = allPopulationData.updateUserData;
+    const update_user_data          = allPopulationData.update_user_data;
     const update_user_names_and_ids = allPopulationData.update_user_names_and_ids;
     const userData                  = allPopulationData.userData;
     const language                  = allPopulationData.language;
@@ -34,7 +34,7 @@ function Home({ allPopulationData }) {
             
             if (response.data._id) { // If User Logged In Successfully
                 update_all_tickets();
-                updateUserData(response.data);
+                update_user_data(true);
                 update_user_names_and_ids();
                 set_error_message_appearence("off", "");
                 AF.vanish_login_form();
