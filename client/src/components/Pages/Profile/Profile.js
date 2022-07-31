@@ -10,6 +10,7 @@ function Profile({ allPopulationData }) {
     const userData   = allPopulationData.userData;
     const language   = allPopulationData.language;
     const allTickets = allPopulationData.allTickets;
+    const update_user_data = allPopulationData.update_user_data;
 
     // State Declaration For Which Main Content To Be Displayed 
     const [currentDisplayedContent, updateDisplayedContent] = useState("user_info");
@@ -55,7 +56,7 @@ function Profile({ allPopulationData }) {
                 </div>
                 <Switch currentDisplayedContent={currentDisplayedContent}>
                     <UserInfo switch_case="user_info" texts={texts} userData={userData} language={language}/>
-                    <Preferences switch_case="preferences" userData={userData}/>
+                    <Preferences switch_case="preferences" userData={userData} update_user_data={update_user_data}/>
                 </Switch>
             </div>
         </div>

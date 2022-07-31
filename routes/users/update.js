@@ -11,6 +11,7 @@ router.post('/current/preferred_language', urlencodedParser, async (req, res) =>
     let user_id = Number(req.session.user.id);
 
     await UserModel.updateOne({ id: user_id }, { preferred_language: preferred_language });
+    req.session.user.preferred_language = preferred_language;
 
 	res.send(JSON.stringify({
         data: preferred_language,

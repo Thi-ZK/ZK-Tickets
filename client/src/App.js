@@ -58,7 +58,7 @@ function App() {
         update_user_names_and_ids();
     }, []);
 
-    // Utils Variable To Reduce Props Number. Contains All State Variables
+    // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States (The Ones That Used In Many Contexts)
     const allPopulationData = {
         allTickets: allTickets,
         userData: userData,
@@ -66,6 +66,7 @@ function App() {
         update_user_names_and_ids: update_user_names_and_ids,
         update_all_tickets: update_all_tickets,
         updateUserData: updateUserData,
+        update_user_data: update_user_data,
         language: language,
         updateLanguage: updateLanguage,
         ticketActionModalSettings: ticketActionModalSettings,

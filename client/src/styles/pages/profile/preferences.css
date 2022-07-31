@@ -12,14 +12,32 @@
     margin-top: 27px;
 }
 
+.PFL-PRE-title-and-success-icon-direct-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 #PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
     font-size: 16px;
     font-weight: normal;
-    padding-bottom: 30px;
     color: rgb(235, 235, 235);
 }
 div[theme='bright'] #PFL-PRE-languages-direct-container h3, div[theme='bright'] #PFL-PRE-brightness-themes-direct-container h3 {
     color: rgb(30, 30, 30);
+}
+
+.PFL-PRE-success-gif {
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.32s;
+    padding-left: 8px;
+    width: 25px;
+    height: 25px;
+}
+.PFL-PRE-success-gif[status="on"] {
+    visibility: visible;
+    opacity: 1;
 }
 
 .PFL-PRE-language-label, .PFL-PRE-language-input, .PFL-PRE-brightness-theme-label, .PFL-PRE-brightness-theme-input {
