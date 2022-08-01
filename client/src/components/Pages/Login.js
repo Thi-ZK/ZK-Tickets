@@ -13,7 +13,7 @@ function Home({ allPopulationData }) {
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
     const attemptLogin = (event) => {
-        set_error_message_appearence("off"); // Clean Error Msg
+        set_error_message_appearence("off");
         event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
         event.preventDefault();
 
@@ -45,7 +45,7 @@ function Home({ allPopulationData }) {
         });
     }
 
-    // Meant For Displaying Or Hiding Error Message (Status Can Be "on" Or "off")
+    // Meant For Displaying Or Hiding Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
     const [errorMessage, updateErrorMessage] = useState("none");
     
     const set_error_message_appearence = ( status, message ) => {

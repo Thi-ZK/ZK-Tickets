@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from '../../../api/axios';
 import AF from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
-// import texts from '../../languages/Pages/Login.json';
+import texts from '../../../languages/Pages/Profile/Preferences.json';
 
-function Preferences ({ userData, update_user_data }) {
+function Preferences ({ userData, update_user_data, language }) {
     // Aliases
-    const preferred_language = userData.preferred_language;
+    const preferred_language         = userData.preferred_language;
     const preferred_brightness_theme = userData.preferred_brightness_theme;
 
     // Meant For Updating Preferred Language
@@ -39,7 +39,7 @@ function Preferences ({ userData, update_user_data }) {
         <div className="PFL-PRE-content-line-container">
             <div id='PFL-PRE-languages-direct-container'>
                 <div className='PFL-PRE-title-and-success-icon-direct-container'>
-                    <h3>Preferred Language</h3>
+                    <h3>{texts.preferred_language[language]}</h3>
                     <img status="off" className='PFL-PRE-success-gif' alt="blue success balloon" src="./imgs/general/success.gif"/>
                 </div>
                 <div className='PFL-PRE-language-direct-container'>
@@ -65,17 +65,17 @@ function Preferences ({ userData, update_user_data }) {
             </div>
             <div id='PFL-PRE-brightness-themes-direct-container'>
                 <div className='PFL-PRE-title-and-success-icon-direct-container'>
-                    <h3>Preferred Brightness Theme</h3>
+                    <h3>{texts.preferred_brightness_theme[language]}</h3>
                     <img status="off" className='PFL-PRE-success-gif' alt="blue success balloon" src="./imgs/general/success.gif"/>
                 </div>
                 <div className='PFL-PRE-brightness-theme-direct-container'>
                     <input onChange={update_preferred_brightness_theme} className="PFL-PRE-brightness-theme-input" type="radio" name="pfl-brightness-theme" theme="bright" id="PFL-PRE-bright" defaultChecked={preferred_brightness_theme === "bright"}/>
-                    <label className="PFL-PRE-brightness-theme-label" htmlFor="PFL-PRE-bright">Bright</label>
+                    <label className="PFL-PRE-brightness-theme-label" htmlFor="PFL-PRE-bright">{texts.bright[language]}</label>
                     <img alt="bright sun icon" src="./imgs/headers/bright_sun.png"/>
                 </div>
                 <div className='PFL-PRE-brightness-theme-direct-container'>
                     <input onChange={update_preferred_brightness_theme} className="PFL-PRE-brightness-theme-input" type="radio" name="pfl-brightness-theme" theme="dark" id="PFL-PRE-dark" defaultChecked={preferred_brightness_theme === "dark"}/>
-                    <label className="PFL-PRE-brightness-theme-label" htmlFor="PFL-PRE-dark">Dark</label>
+                    <label className="PFL-PRE-brightness-theme-label" htmlFor="PFL-PRE-dark">{texts.dark[language]}</label>
                     <img alt="dark sun icon" src="./imgs/headers/dark_sun.png"/>
                 </div>
             </div>

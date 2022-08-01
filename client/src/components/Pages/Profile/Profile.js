@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import texts from '../../../languages/Pages/Profile.json';
+import texts from '../../../languages/Pages/Profile/Profile.json';
 import Switch from '../../IndependentPieces/Switch.js';
 import Preferences from './Preferences';
 import UserInfo from './UserInfo';
@@ -56,7 +56,7 @@ function Profile({ allPopulationData }) {
                 </div>
                 <Switch currentDisplayedContent={currentDisplayedContent}>
                     <UserInfo switch_case="user_info" texts={texts} userData={userData} language={language}/>
-                    <Preferences switch_case="preferences" userData={userData} update_user_data={update_user_data}/>
+                    <Preferences switch_case="preferences" userData={userData} update_user_data={update_user_data} language={language}/>
                 </Switch>
             </div>
         </div>

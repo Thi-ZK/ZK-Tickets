@@ -13,7 +13,6 @@ import NotAuthorized from './components/Pages/NotAuthorized';
 import LeftHeader from './components/Header/LeftHeader/LeftHeader';
 import TopHeader from './components/Header/TopHeader';
 import TicketActionModal from './components/Ticket/TicketActionModal';
-// import AF from './components_aux_functions/app.js'; // Aux Functions
 
 function App() {
     // Ticket Action Modal State
@@ -25,10 +24,10 @@ function App() {
         which_action: "none"
     });
 
-    // Language State (Logic For Its Updating Is In Top Header Component)
+    // Language State
     const [language, updateLanguage] = useState("english");
 
-    // Meant For Dark / Bright Theme (Logic For Its Updating Is In Top Header Component)
+    // Meant For Dark / Bright Theme
     const [currentBrightnessTheme, updateBrightnessTheme] = useState("bright");
 
     // All Tickets State Set
@@ -60,7 +59,7 @@ function App() {
         axios.get('/users/get/piece/all_users').then((users) => {updateUsers(users.data.data); console.log(users.data);})
     }
  
-    // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh)
+    // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh Page)
     useEffect(() => {
         update_all_tickets();
         update_user_data(true);
