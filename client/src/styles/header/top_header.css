@@ -38,7 +38,7 @@ div[theme='bright'] #TH-login-and-brightness-direct-container a{
 	height: 27px;
 }
 
-#TH-brightness-theme-direct-container {
+#TH-brightness-theme-direct-container, #TH-logged-in-user-display-direct-container {
 	display: flex;
 	align-items: center;
 	padding-left: 15px;
@@ -53,7 +53,15 @@ div[theme='bright'] #TH-brightness-theme-direct-container span {
 	color: rgb(50, 50, 50);
 }
 
-#TH-brightness-theme-direct-container span:hover {
+#TH-logged-in-user-display-direct-container p {
+	color: rgb(240, 240, 240);
+	padding-left: 7px;
+}
+div[theme='bright'] #TH-logged-in-user-display-direct-container p {
+	color: rgb(50, 50, 50);
+}
+
+#TH-brightness-theme-direct-container span:hover, #TH-logged-in-user-display-direct-container p span {
 	text-decoration: underline;
 }
 

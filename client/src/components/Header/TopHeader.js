@@ -34,12 +34,18 @@ const TopHeader = ({ allPopulationData }) => {
         <div id="TH-login-and-brightness-direct-container">
             <img alt="logout icon" src={ userData ? "/imgs/headers/logout.png" : "/imgs/headers/login.png"}/> 
             <Link to="/login" onClick={ userData ? destroy_session : undefined }>
-                <p>{ userData ? texts.logout[language] : texts.login[language] }</p>
+                <p>{ userData ? texts.logout[language] : texts.login[language]}</p>
             </Link> 
             <div id="TH-brightness-theme-direct-container">
                 <img alt="brightness-theme"src={ currentBrightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}/>
                 <span onClick={switch_brightness}>{texts[currentBrightnessTheme === "dark" ? "bright" : "dark"][language]}</span>
             </div>
+            {userData ? 
+                <div id="TH-logged-in-user-display-direct-container">
+                    <img alt="logout icon" src="/imgs/headers/pink_ghost.gif"/> 
+                    <p>{texts.user[language]}: <span>{userData.name}</span></p>
+                </div> : <></>
+            }
       </div>
       <div id="TH-languages-direct-container">
             <div className="TH-language-direct-container">

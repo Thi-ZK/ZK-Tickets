@@ -22,5 +22,11 @@
         "german": "Dunkles Thema",
         "portuguese": "Tema Escuro",
         "spanish": "Tema Oscuro"
+    },
+    "user": {
+        "english": "User",
+        "german": "Nutzer",
+        "portuguese": "Usuário",
+        "spanish": "Usuario"
     }
 }
