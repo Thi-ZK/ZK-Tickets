@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from '../../../api/axios';
 
-function Message({ type, message_data, ticket_id, messages_utils }) {
+function Message({ type, message_data, ticket_id, messages_utils, userData}) {
     // Messages State Alias
     const messages       = messages_utils.messages;
     const updateMessages = messages_utils.updateMessages;
@@ -17,10 +17,13 @@ function Message({ type, message_data, ticket_id, messages_utils }) {
         let msg_id    = message_data.id;
         let msg_owner = message_data.message_owner;
 
+        // MAKE ANIMATION HERE LATER
+        if ((userData.id !== msg_owner) && (userData.user_power < 4)) { return console.log("Not Enough Power And Not Msg Owner"); }
+
         set_loading_icon_appearence("on");
 
-        axios.post('/tickets/update/single/messages/delete/' + ticket_id, {message_id: msg_id, message_owner: msg_owner})
-        .then(() => {
+        axios.post('/tickets/update/single/messages/delete/' + ticket_id, { message_id: msg_id, message_owner: msg_owner })
+        .then((res) => {console.log(res.data);
             set_loading_icon_appearence("off");
             updateMessages(messages.map((msg) => { 
                 if (msg.id === msg_id) { msg.status = "deleted";}

@@ -30,7 +30,7 @@ function TicketView({ allPopulationData }) {
 	
 	if (ticket_id > 5000) { window.location.href = "/ticket_does_not_exist";}
 	
-	// Updating Messages, Assigneds & All Mutable States.
+	// Brings Tickets From DB To Update Messages & Assigneds - Whenever User Performs Action.
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => { update_all_tickets(); }, [messages, assigneds]);
 
@@ -75,7 +75,7 @@ function TicketView({ allPopulationData }) {
 		<div id="TV-place-message-and-ticket-management-options-container" eye-helper="SECOND-RIGHT-BLOCK">
 			<div id="TV-messages-direct-container" css-marker="MSG">
 				{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
-					<Message messages_utils={messages_utils} ticket_id={ticket_data.id} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
+					<Message userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
 				))}
 			</div>
 			<div id="TV-place-message-and-manage-ticket-buttons">

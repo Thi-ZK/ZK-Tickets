@@ -5,10 +5,32 @@ const TicketModel = require('../../models/ticket');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
+// Generate Unsuccessful Response Object
+const generate_unsuccessful_response_object = (message) => {
+	let res_obj = JSON.stringify({
+		success: false,
+		status_message: message,
+		data: undefined
+	});
+
+	return res_obj;
+}
+
+// Generate Successful Response Object
+const generate_successful_response_object = (data, requested) => {
+	let res_obj = JSON.stringify({
+		data: data,
+		success: true,
+		requested: requested
+	});
+
+	return res_obj;
+}
+
 // NEW MESSAGE - Meant For Setting A New Message For A Single Ticket
 router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id  = req.params.ticket_id;
-	let req_status = "Ticket Updated";
+	let response   = undefined;
 
 	let new_message = {
 		message: req.body.message,
@@ -21,9 +43,9 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 	}
 
 	await TicketModel.updateOne({id: ticket_id}, {$push: {messages: new_message}})
-	.catch((error) => {req_status = "Ticket Doesn't Exist"});
+	.catch((error) => { response = generate_unsuccessful_response_object("Ticket Doesn't Exist") });
 
-	res.end(req_status);
+	res.send(response || generate_successful_response_object(new_message, "Place Message In Single Ticket"));
 });
 
 // DELETING MESSAGE - Meant For Deleting A Message For A Single Ticket
@@ -31,19 +53,19 @@ router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req,
 	let ticket_id     = req.params.ticket_id;
 	let message_id    = req.body.message_id;
 	let message_owner = req.body.message_owner;
-	let req_status    = "Ticket Updated";
+	let response      = undefined;
 
-	if (!(message_owner === req.session.user.id) && (req.session.user.user_power <= 3)) {
-		return res.end("Not Allowed");
+	if (!(message_owner === req.session.user.id) && (req.session.user.user_power <= 3)) { // Middleware Later
+		return res.send("Not Allowed");
 	}
 
 	await TicketModel.findOneAndUpdate({
 		id: ticket_id,
 		'messages.id': message_id
 	}, {'messages.$.status': "deleted"})
-	.catch(() => {req_status = "Ticket Doesn't Exist";});
+	.catch(() => {response = generate_unsuccessful_response_object("Ticket Doesn't Exist");});
 
-	res.end(req_status);
+	res.send(response || generate_successful_response_object({id: message_id}, "Delete Message In Single Ticket"));
 });
 
 // NEW TICKET STATUS - Meant For Setting A New Status For A Single Ticket
