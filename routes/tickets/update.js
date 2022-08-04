@@ -1,36 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const bodyParser = require('body-parser');
+const express     = require('express');
+const router      = express.Router();
+const bodyParser  = require('body-parser');
 const TicketModel = require('../../models/ticket');
+const midds       = require('../../middlewares/general_utils'); 
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
-// Generate Unsuccessful Response Object
-const generate_unsuccessful_response_object = (message) => {
-	let res_obj = JSON.stringify({
-		success: false,
-		status_message: message,
-		data: undefined
-	});
-
-	return res_obj;
-}
-
-// Generate Successful Response Object
-const generate_successful_response_object = (data, requested) => {
-	let res_obj = JSON.stringify({
-		data: data,
-		success: true,
-		requested: requested
-	});
-
-	return res_obj;
-}
-
 // NEW MESSAGE - Meant For Setting A New Message For A Single Ticket
-router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id  = req.params.ticket_id;
-	let response   = undefined;
+router.post('/single/messages/set', urlencodedParser, async (req, res) => {
+	let ticket_id  = req.body.ticket_id;
+	let error      = false; 
 
 	let new_message = {
 		message: req.body.message,
@@ -42,18 +21,17 @@ router.post('/single/messages/set/:ticket_id', urlencodedParser, async (req, res
 		status: "alive"
 	}
 
-	await TicketModel.updateOne({id: ticket_id}, {$push: {messages: new_message}})
-	.catch((error) => { response = generate_unsuccessful_response_object("Ticket Doesn't Exist") });
+	await TicketModel.updateOne({id: ticket_id}, {$push: {messages: new_message}}).catch((error) => { error = error; });
 
-	res.send(response || generate_successful_response_object(new_message, "Place Message In Single Ticket"));
+	res.send(midds.generate_response_object(error, new_message, req.originalUrl));
 });
 
 // DELETING MESSAGE - Meant For Deleting A Message For A Single Ticket
-router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req, res) => {
-	let ticket_id     = req.params.ticket_id;
+router.post('/single/messages/delete/', urlencodedParser, async (req, res) => {
+	let ticket_id     = req.body.ticket_id;
 	let message_id    = req.body.message_id;
 	let message_owner = req.body.message_owner;
-	let response      = undefined;
+	let error         = false;
 
 	if (!(message_owner === req.session.user.id) && (req.session.user.user_power <= 3)) { // Middleware Later
 		return res.send("Not Allowed");
@@ -62,62 +40,59 @@ router.post('/single/messages/delete/:ticket_id/', urlencodedParser, async (req,
 	await TicketModel.findOneAndUpdate({
 		id: ticket_id,
 		'messages.id': message_id
-	}, {'messages.$.status': "deleted"})
-	.catch(() => {response = generate_unsuccessful_response_object("Ticket Doesn't Exist");});
+	}, {'messages.$.status': "deleted"}).catch((error) => { error = error; });
 
-	res.send(response || generate_successful_response_object({id: message_id}, "Delete Message In Single Ticket"));
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // NEW TICKET STATUS - Meant For Setting A New Status For A Single Ticket
-router.post('/single/status/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id  = req.params.ticket_id;
+router.post('/single/status', urlencodedParser, async (req, res) => {
+	let ticket_id  = req.body.ticket_id;
 	let new_status = req.body.new_status;
+	let error      = false;
 	
-	await TicketModel.updateOne({id: ticket_id}, {last_status_update_date: new Date(), status: new_status});
+	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status}).catch((error) => { error = error; });
 	
-	res.end("Ticket Updated");
+	res.send(midds.generate_response_object(error, new_status, req.originalUrl));
 });
 
 // NEW ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
-router.post('/single/assigneds/set/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id        = req.params.ticket_id;
+router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
+	let ticket_id        = req.body.ticket_id;
 	let new_assumer      = req.body.assigne_id;
 	let new_assumer_name = req.body.assigned_name;
-	let req_status       = "Ticket Updated";
+	let error            = false;
 
-	await TicketModel.updateOne({id: ticket_id}, {
+	await TicketModel.updateOne({ id: ticket_id }, {
 		$addToSet: {
 			assumers: new_assumer,
 			assumers_names: new_assumer_name,
 			related_users: new_assumer,
 			related_users_names: new_assumer_name
-		}})
-	.catch(() => {req_status = "Ticket Doesn't Exist"});
+		}}).catch((error) => { error = error; });
 	
-	res.end(req_status);
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // DELETING ASSIGNED - Meant For Deleting A Assigned User For A Single Ticket
-router.post('/single/assigneds/delete/:ticket_id', urlencodedParser, async (req, res) => {
-	let ticket_id           = req.params.ticket_id;
+router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
+	let ticket_id           = req.body.ticket_id;
 	let new_assumer         = req.body.assigne_id;
 	let new_assumer_name    = req.body.assigned_name;
-	let req_status          = "Ticket Updated";
 	let ticket_creator      = req.body.ticket_creator;
 	let ticket_creator_name = req.body.ticket_creator_name;
+	let error               = false;
 
-	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off
-	// From The Array Of Related Users.
-	await TicketModel.updateOne({id: ticket_id}, {
+	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off From The Array Of Related Users.
+	await TicketModel.updateOne({ id: ticket_id }, {
 		$pull: {
 			assumers: new_assumer,
 			assumers_names: new_assumer_name,
 			related_users: ticket_creator === new_assumer ? undefined : new_assumer,
 			related_users_names: ticket_creator_name === new_assumer_name ? undefined : new_assumer_name,
-		}})
-	.catch(() => {req_status = "Ticket Doesnt' Exist"});
+		}}).catch((error) => { error = error; });
 
-	res.end(req_status);
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
 module.exports = router;

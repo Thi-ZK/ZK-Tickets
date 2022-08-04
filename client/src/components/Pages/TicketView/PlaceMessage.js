@@ -17,7 +17,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
         document.querySelector("#TV-PM-message-textarea").innerText = ""; // Clean TextArea
         let new_msg_id = AF.generate_random_id();
 
-        axios.post('/tickets/update/single/messages/set/' + ticket_id, {message: message, message_id: new_msg_id})
+        axios.post('/tickets/update/single/messages/set', { message: message, message_id: new_msg_id, ticket_id: ticket_id })
         .then((res) => {console.log(res.data);
             AF.show_and_fade_success_icon();
             updateMessages([...messages, {

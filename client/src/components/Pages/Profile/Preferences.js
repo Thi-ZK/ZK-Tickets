@@ -14,7 +14,7 @@ function Preferences ({ userData, update_user_data, language }) {
 
         AF.disable_or_enable_all_language_inputs("disable"); // Prevent Multiple Requests Before Current Is Done
         
-        axios.post('users/update/current/preferred_language', { preferred_language: chosen_language })
+        axios.post('/users/update/current/preferred_language', { preferred_language: chosen_language })
         .then(( response ) => {
             if ( response.data.success ) { AF.display_blue_success_icon("languages"); update_user_data(); }
             AF.disable_or_enable_all_language_inputs("enable");
@@ -27,7 +27,7 @@ function Preferences ({ userData, update_user_data, language }) {
 
         AF.disable_or_enable_all_brightness_theme_inputs("disable"); // Prevent Multiple Requests Before Current Is Done
         
-        axios.post('users/update/current/preferred_brightness_theme', { preferred_brightness_theme: chosen_theme })
+        axios.post('/users/update/current/preferred_brightness_theme', { preferred_brightness_theme: chosen_theme })
         .then(( response ) => {
             if ( response.data.success ) { AF.display_blue_success_icon("brightness_themes"); update_user_data(); }
             AF.disable_or_enable_all_brightness_theme_inputs("enable");

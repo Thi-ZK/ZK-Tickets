@@ -1,13 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const bodyParser = require('body-parser');
+const express     = require('express');
+const router      = express.Router();
+const bodyParser  = require('body-parser');
 const TicketModel = require('../../models/ticket');
+const midds       = require('../../middlewares/general_utils');
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
 router.post('/single', urlencodedParser, async (req, res) => {
 	let ticket_data = req.body;
-	let last_ticket = await TicketModel.find().sort({_id:-1}).limit(1);
+	let last_ticket = await TicketModel.find().sort({_id:-1}).limit(1).catch((error) => { error = error; })
+	let error       = false;
 
 	const newTicketDocument = new TicketModel({
 		name: ticket_data.name,
@@ -30,12 +32,9 @@ router.post('/single', urlencodedParser, async (req, res) => {
 		last_status_update_date: new Date()
 	});
 
-	await newTicketDocument.save();
+	await newTicketDocument.save().catch((error) => { error = error; });
 
-	res.send(JSON.stringify({
-		success: true,
-		requested: "New Ticket Creation"
-	}));
+	res.send(midds.generate_response_object(error, newTicketDocument, req.originalUrl));
 });
 
 module.exports = router;

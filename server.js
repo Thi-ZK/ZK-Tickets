@@ -1,18 +1,19 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const session = require('express-session');
+const express    = require('express');
+const cors       = require('cors');
+const mongoose   = require('mongoose');
+const session    = require('express-session');
 const MongoStore = require('connect-mongo');
-const path = require("path");
+const path       = require('path');
+const midds      = require('./middlewares/general_utils');
 
 // Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
 const ticketUpdateRouter = require('./routes/tickets/update');
 const ticketCreateRouter = require('./routes/tickets/create');
-const ticketGetRouter = require('./routes/tickets/get');
-const userGetRouter = require('./routes/users/get');
-const userUpdateRouter = require('./routes/users/update');
-const loginAuthRouter = require('./routes/login');
+const ticketGetRouter    = require('./routes/tickets/get');
+const userGetRouter      = require('./routes/users/get');
+const userUpdateRouter   = require('./routes/users/update');
+const loginAuthRouter    = require('./routes/login');
 
 const app = express();
 
@@ -52,7 +53,7 @@ app.use(session({
 // Middleware To Restrict User Access To Content Unless He / She Is Logged In
 app.use((req, res, next) => {
     if (req.path === "/login/auth") {return next();}
-    !req.session.user ? res.send({success: false, status_message: "Not Authenticated -- Not Allowed"}) : next();
+    !req.session.user ? res.send(midds.generate_response_object("Not Authenticated", null, req.path)) : next();
 });
 
 // Routes

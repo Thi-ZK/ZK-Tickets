@@ -17,10 +17,10 @@ function Home({ allPopulationData }) {
         event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
         event.preventDefault();
 
-        let email = AF.get_email();
+        let email    = AF.get_email();
         let password = AF.get_password();
         
-        if (!email || !password) {
+        if ( !email || !password ) {
             set_error_message_appearence("on", "what_is_your_plan"); // Text Matches Language File
             event.target.disabled = false;
             return;
@@ -28,11 +28,11 @@ function Home({ allPopulationData }) {
         
         AF.set_loading_icon_appearence("on");
 
-        axios.post('/login/auth', {email: email, password: password}).then(( response ) => {
+        axios.post('/login/auth', {email: email, password: password}).then(( res ) => {console.log(res.data);
             event.target.disabled = false;
             AF.set_loading_icon_appearence("off");
             
-            if (response.data._id) { // If User Logged In Successfully
+            if (res.data.success) { // If User Logged In Successfully
                 update_all_tickets();
                 update_user_data(true);
                 update_user_names_and_ids();
@@ -40,7 +40,7 @@ function Home({ allPopulationData }) {
                 AF.vanish_login_form();
                 AF.clean_pass_and_email_inputs();
             } else {
-                set_error_message_appearence("on", response.data);
+                set_error_message_appearence("on", res.data.error);
             }
         });
     }

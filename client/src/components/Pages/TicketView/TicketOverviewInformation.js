@@ -24,7 +24,7 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
         document.querySelector("#TV-INF-no-assigment-aux-option").disabled = true; // To Prevent Several Requests Before The Last Is Over
         if (assigneds.includes(assigned_name)) { return; }
 
-        axios.post('/tickets/update/single/assigneds/set/' + ticket_data.id, {assigned_id: assigned_id, assigned_name: assigned_name})
+        axios.post('/tickets/update/single/assigneds/set', { assigned_id: assigned_id, assigned_name: assigned_name, ticket_id: ticket_data.id })
         .then(() => {updateAssigneds([...assigneds, assigned_name])})
     }
 
@@ -37,10 +37,11 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
             assigned_id: unassigned_id,
             assigned_name: unassigned_name, 
             ticket_creator: ticket_creator,
-            ticket_creator_name: ticket_creator_name
+            ticket_creator_name: ticket_creator_name,
+            ticket_id: ticket_data.id
         }
         
-        axios.post('/tickets/update/single/assigneds/delete/' + ticket_data.id, data)
+        axios.post('/tickets/update/single/assigneds/delete', data)
         .then(() => {updateAssigneds(assigneds.filter((assigned) => {return assigned !== unassigned_name}))})
     }
     

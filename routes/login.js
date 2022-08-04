@@ -1,22 +1,25 @@
-const express = require('express');
-const router = express.Router();
+const express   = require('express');
+const router    = express.Router();
 const UserModel = require('../models/user');
+const midds     = require('../middlewares/general_utils');
 
 router.post('/auth', async (req, res) => {
-	let email = req.body.email;
+	let email    = req.body.email;
 	let password = req.body.password;
-	let user = await UserModel.findOne({ email }).select();
+	let error    = false;
+	let user     = await UserModel.findOne({ email }).select().catch((error) => { error = error; });
 
-	if (!user) {
-		return res.end("User Doesn't Exist");
-	}
-
-	if (password === user.password) {
-		req.session.user = user;
-		res.end(JSON.stringify(user));
+	if ( user ) {
+		if ( password === user.password ) {
+			req.session.user = user;
+		} else {
+			error = "Password Incorrect";
+		}
 	} else {
-		res.end("Password Incorrect");
+		error = "User Doesn't Exist";
 	}
+
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
 router.get('/logout', (req, res) => {

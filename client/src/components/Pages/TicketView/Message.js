@@ -22,7 +22,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData}) {
 
         set_loading_icon_appearence("on");
 
-        axios.post('/tickets/update/single/messages/delete/' + ticket_id, { message_id: msg_id, message_owner: msg_owner })
+        axios.post('/tickets/update/single/messages/delete', { message_id: msg_id, message_owner: msg_owner, ticket_id: ticket_id })
         .then((res) => {console.log(res.data);
             set_loading_icon_appearence("off");
             updateMessages(messages.map((msg) => { 
