@@ -25,7 +25,7 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
         if (assigneds.includes(assigned_name)) { return; }
 
         axios.post('/tickets/update/single/assigneds/set', { assigned_id: assigned_id, assigned_name: assigned_name, ticket_id: ticket_data.id })
-        .then(() => {updateAssigneds([...assigneds, assigned_name])})
+        .then((res) => { updateAssigneds([...assigneds, assigned_name]); console.log(res.data); })
     }
 
     // Unassign User Function
@@ -42,7 +42,7 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
         }
         
         axios.post('/tickets/update/single/assigneds/delete', data)
-        .then(() => {updateAssigneds(assigneds.filter((assigned) => {return assigned !== unassigned_name}))})
+        .then((res) => { updateAssigneds(assigneds.filter((assigned) => {return assigned !== unassigned_name})); console.log(res.data); })
     }
     
   return (

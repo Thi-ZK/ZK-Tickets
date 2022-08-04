@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // Declaration Of Varied Variables
-const PORT = process.env.PORT;
+const PORT   = process.env.PORT;
 const DB_URI = process.env.DB_URI;
 const sessionStore = MongoStore.create({
     mongoUrl: DB_URI,

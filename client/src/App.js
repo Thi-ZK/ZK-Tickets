@@ -24,10 +24,10 @@ function App() {
         which_action: "none"
     });
 
-    // Language State
+    // For Language State
     const [language, updateLanguage] = useState("english");
 
-    // Meant For Dark / Bright Theme
+    // Dark / Bright Theme
     const [currentBrightnessTheme, updateBrightnessTheme] = useState("bright");
 
     // All Tickets State Set

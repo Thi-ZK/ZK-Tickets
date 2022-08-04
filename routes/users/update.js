@@ -6,7 +6,7 @@ const midds      = require('../../middlewares/general_utils');
 
 let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false } );
 
-// Update Current (User Who Made The Request) User Preferred Language
+// Update Current User Preferred Language
 router.post('/current/preferred_language', urlencodedParser, async (req, res) => {
     let preferred_language = req.body.preferred_language;
     let user_id            = Number(req.session.user.id);
@@ -15,10 +15,10 @@ router.post('/current/preferred_language', urlencodedParser, async (req, res) =>
     await UserModel.updateOne({ id: user_id }, { preferred_language: preferred_language }).catch((error) => { error = error; });
     req.session.user.preferred_language = preferred_language;
 
-	res.send(midds.generate_response_object(error, preferred_language, req.originalUrl));
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
-// Update Current (User Who Made The Request) User Preferred Brightness Theme
+// Update Current User Preferred Brightness Theme
 router.post('/current/preferred_brightness_theme', urlencodedParser, async (req, res) => {
     let preferred_theme = req.body.preferred_brightness_theme;
     let user_id         = Number(req.session.user.id);
@@ -27,7 +27,7 @@ router.post('/current/preferred_brightness_theme', urlencodedParser, async (req,
     await UserModel.updateOne({ id: user_id }, { preferred_brightness_theme: preferred_theme }).catch((error) => { error = error; });
     req.session.user.preferred_brightness_theme = preferred_theme;
 
-	res.send(midds.generate_response_object(error, preferred_theme, req.originalUrl));
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
 module.exports = router;

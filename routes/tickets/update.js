@@ -53,7 +53,7 @@ router.post('/single/status', urlencodedParser, async (req, res) => {
 	
 	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status}).catch((error) => { error = error; });
 	
-	res.send(midds.generate_response_object(error, new_status, req.originalUrl));
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // NEW ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket

@@ -26,7 +26,7 @@ function CreateTicket ({ allPopulationData }) {
     const [ticketNameError, updateTicketNameError] = useState("none");
         
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
-    const create_ticket = async (event) => {
+    const create_ticket = (event) => {
         AF.set_disabled_status_on_ticket_creation_buttons(true); // True to disable.
         AF.set_loading_icon_appearence("on");
 
@@ -49,7 +49,7 @@ function CreateTicket ({ allPopulationData }) {
 
         // Checking Name Validity & Length Of Description
         if (is_name_substantial && !is_name_too_long && !is_description_too_long) {
-            await axios.post('/tickets/create/single', new_ticket);
+            axios.post('/tickets/create/single', new_ticket).then((res) => { console.log(res.data); });
             AF.display_success_icon();
             AF.reset_all_inputs(setValue); // setValue passed to reset calendar text
             update_all_tickets();
