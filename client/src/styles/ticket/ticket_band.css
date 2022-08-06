@@ -89,7 +89,7 @@ div[theme='bright'] .TB-title-container {
 #TB-photo-and-personal-identification-container img{
 	width: 110px;
 	height: 110px;
-	padding-right: 35px;
+	border-radius: 100%;
 }
 
 .TB-ticket-id, .TB-assigneds-names, .TB-groups-names{
@@ -100,6 +100,7 @@ div[theme='bright'] .TB-title-container {
 	flex-direction: column;
 	height: 110px;
 	font-size: 14px;
+	padding-left: 35px;
 }
 
 .TB-name-and-person-info-direct-container p {

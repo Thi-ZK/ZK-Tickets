@@ -21,8 +21,8 @@ if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
 }
 
-// When Root Page Is Visited, Client Will Be Serverd Instead Of A STD Route
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+// When Client Page Is Visited, Client Will Be Serverd Instead Of A Standard Server Route
+app.use(express.static(path.resolve('*', "./client/build")));
 
 // Declaration Of Varied Variables
 const PORT   = process.env.PORT;
