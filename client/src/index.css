@@ -47,6 +47,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+input[type='radio'] {
+	margin: 0;
+}
 /* Base Styles Refresh & Clean */
 
 * {
@@ -111,19 +115,19 @@ div[theme='bright'] .main-content-container {
 	width: 9px;
 }
   
-  /* Track */
+/* Track */
 ::-webkit-scrollbar-track {
 	background: #f1f1f1;
 	border-radius: 30px;
 }
   
-  /* Handle */
+/* Handle */
 ::-webkit-scrollbar-thumb {
 	background: #888;
 	border-radius: 30px;
 }
   
-  /* Handle on hover */
+/* Handle On Hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
@@ -131,7 +135,6 @@ div[theme='bright'] .main-content-container {
 .rectangle-span-selected_pieces {
 	color: white;
 }
-/* Overflows Design */
 
 /* Selected Options Block (Can Be Found In Ticket View & Create Ticket)*/
 .rectangle-span-selected_pieces span {

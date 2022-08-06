@@ -42,7 +42,7 @@ const aggregatives_formatter = ( source, which_data_string ) => {
 
 // Reset All Fields
 const reset_all_inputs = ( setValue ) => {
-    let selections = document.querySelectorAll("select#Assigneds, select#Groups, select#Priority, select#Status");
+    let selections = document.querySelectorAll("select#assigneds, select#groups, select#priority, select#status");
     for ( let i = 0; i < selections.length; i++) {selections[i].selectedIndex = 0;}
 
     let aggregatives_reseters = document.querySelectorAll("input.TC-SP-reseter");
@@ -57,22 +57,22 @@ const reset_all_inputs = ( setValue ) => {
 
 // Assemble & Gather New Ticket Data 
 const gather_new_ticket_data = () => {
-    let assigneds_data_elems = document.querySelectorAll("input.TC-SP-assigneds");
-    let groups_data_elems = document.querySelectorAll("input.TC-SP-group");
-    let status = document.querySelector("#TC-SP-status");
+    let assigneds_data_hidden_input = document.querySelector("input.TC-SP-assigneds");
+    let groups_data_hidden_input    = document.querySelector("input.TC-SP-groups");
+    let status   = document.querySelector("#TC-SP-status");
     let priority = document.querySelector("#TC-SP-priority");
 
     let new_ticket_data = {
-        name: document.querySelector("#TC-ticket-name").value,
-        description: document.querySelector("#TC-description-direct-container textarea").value,
-        status: status.options[status.selectedIndex].id,
-        priority: priority.options[priority.selectedIndex].id,
-        related_users_names: aggregatives_formatter(assigneds_data_elems[0], "aggregative_names"),
-        groups_names: aggregatives_formatter(groups_data_elems[0], "aggregative_names"),
-        assumers_names: aggregatives_formatter(assigneds_data_elems[0], "aggregative_names"),
-        related_users_ids: aggregatives_formatter(assigneds_data_elems[1], "aggregative_ids").map((e) => {return Number(e)}),
-        groups_ids: aggregatives_formatter(groups_data_elems[1], "aggregative_ids").map((e) => {return Number(e)}),
-        assumers_ids: aggregatives_formatter(assigneds_data_elems[1], "aggregative_ids").map((e) => {return Number(e)})
+        name:                document.querySelector("#TC-ticket-name").value,
+        description:         document.querySelector("#TC-description-direct-container textarea").value,
+        status:              status.options[status.selectedIndex].id,
+        priority:            priority.options[priority.selectedIndex].id,
+        related_users_names: aggregatives_formatter(assigneds_data_hidden_input, "aggregative_names"),
+        groups_names:        aggregatives_formatter(groups_data_hidden_input, "aggregative_names"),
+        assumers_names:      aggregatives_formatter(assigneds_data_hidden_input, "aggregative_names"),
+        related_users_ids:   aggregatives_formatter(assigneds_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
+        groups_ids:          aggregatives_formatter(groups_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
+        assumers_ids:        aggregatives_formatter(assigneds_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)})
     };
 
     return new_ticket_data;
@@ -98,10 +98,10 @@ const generate_final_new_ticket = (new_ticket_data) => {
 
 module.exports = {
     // Meant For The Selection Pieces Inputs
-	selection_piece_group: {type_of_piece: 'Group', allow_custom: false, is_aggregative: true},
-    selection_piece_priority: {type_of_piece: 'Priority', allow_custom: false, is_aggregative: false},
-    selection_piece_assigneds: {type_of_piece: 'Assigneds', allow_custom: false, is_aggregative: true},
-    selection_piece_status: {type_of_piece: 'Status', allow_custom: false, is_aggregative: false},
+	selection_piece_group: {type_of_piece: 'groups', allow_custom: true, is_aggregative: true},
+    selection_piece_priority: {type_of_piece: 'priority', allow_custom: false, is_aggregative: false},
+    selection_piece_assigneds: {type_of_piece: 'assigneds', allow_custom: false, is_aggregative: true},
+    selection_piece_status: {type_of_piece: 'status', allow_custom: false, is_aggregative: false},
 
     set_ticket_name_error_message_appearence: set_ticket_name_error_message_appearence,
     set_ticket_description_error_message_appearence: set_ticket_description_error_message_appearence,

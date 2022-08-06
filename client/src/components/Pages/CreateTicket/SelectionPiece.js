@@ -4,16 +4,16 @@ import AF from '../../../components_aux_functions/pages/create_ticket/selection_
 
 function SelectionPiece({ data, usersNamesWithIds, language }) {
     // Aliases
-    const curr_piece = data.type_of_piece.toLowerCase();
-    const users_ids   = Object.keys(usersNamesWithIds || {});
-    const options_map = AF.generate_options_map_obj(usersNamesWithIds);
+    const current_piece  = data.type_of_piece; // It Is An Object With Current Selection Data Properties
+    const users_ids      = Object.keys(usersNamesWithIds || {});
+    const options_map    = AF.generate_options_map_obj(usersNamesWithIds);
 
     // Meant For Aggregative Options Selections (Groups & Assigneds)
     const [currentAggregatives, updateAggregatives] = useState({ids: [], names: []});
 
     // Meant For Add Aggregative Option (User Or Group)
     const add_aggregative = (event) => {
-        if ((data.type_of_piece !== "Assigneds") && (data.type_of_piece !== "Group")) {return;}
+        if ((current_piece !== "assigneds") && (current_piece !== "groups")) {return;}
         event.target.querySelector(".TC-SP-aux-filling-option").disabled = true; // Prevent Several Commands Before Finishing Last
 
         let option_chosen = event.target.options[event.target.selectedIndex];
@@ -37,6 +37,7 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
         });
     }
 
+    // Reset All Aggregatives (Users & Groups)
     const reset_aggregatives = () => {
         updateAggregatives({ids: [], names: []});
     }
@@ -44,26 +45,37 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
     return (
         // Options Itself
         <div className="TC-selection-input-direct-container" css-marker="SP">
-            <p className="TC-SP-selection-title">{texts["select_the_" + curr_piece][language]} <span>{texts[curr_piece][language]}</span></p>
-            <select id={"TC-SP-" + data.type_of_piece.toLowerCase()} onChange={add_aggregative}>
-                { data.is_aggregative ? ( // The -- Option
-                    <option className="TC-SP-aux-filling-option" assigned-name="none">--</option>
-                    ) : (
-                    <></> 
-                )}
+            <div className='TC-SP-selection-title-direct-container'>
+                {data.allow_custom ? <input onChange={AF.update_custom_text_input_appearence} className='TC-SP-default-radio-input' type="radio" name={current_piece} defaultChecked/> : <></>}
+                <p className="TC-SP-selection-title">{texts["select_the_" + current_piece][language]} <span>{texts[current_piece][language]}</span></p>
+            </div>
+            
+            <select id={"TC-SP-" + current_piece} onChange={add_aggregative}>
+                { data.is_aggregative ? <option className="TC-SP-aux-filling-option" assigned-name="none">--</option> : <></> }
 
-                {options_map[data.type_of_piece].map((option, index) => ( // Options
+                { options_map[current_piece].map((option, index) => ( // Selection Options
                     <option id={users_ids[index] || option} key={index}>{data.is_aggregative ? option : texts[option.toLowerCase()][language]}</option>
                 ))}
             </select>
+
+            { data.allow_custom ? ( // The Custom Input Option (Currently Only Groups)
+                <div>
+                    <div className="TC-SP-custom-radio-input-direct-container">
+                        <input type="radio" name={current_piece} className='TC-SP-custom-radio-input' onChange={AF.update_custom_text_input_appearence}/>
+                        <p>{texts["write_a_custom_" + current_piece][language]}</p>
+                    </div>
+                    <input name={data.type_of_piece} className='TC-SP-custom-text-input' type="text" placeholder={texts["type_new_" + current_piece + "_name"][language]}></input>
+                </div>
+                ) : (
+                <></> 
+            )}
             
-            { data.is_aggregative ? ( // Those Are The Aggregative Options Selected Blocks (Assigned Users or Groups Blocks)
+            { data.is_aggregative ? ( // Those Are The Aggregative Options Selected Rectangle Blocks (Assigned Users or Groups Blocks)
                 <div className='rectangle-span-selected_pieces TC-SP-aggregative-selected-blocks-direct-container'>
                     {currentAggregatives.names.map((option, index) => (
                         <span aggregative-id={currentAggregatives.ids[index]} onClick={delete_aggregative} key={index}>{option}</span>
                     ))}
-                    <input className={"TC-SP-" + data.type_of_piece.toLowerCase()} type="hidden" aggregative_names={currentAggregatives.names}></input>
-                    <input className={"TC-SP-" + data.type_of_piece.toLowerCase()} type="hidden" aggregative_ids={currentAggregatives.ids}></input>
+                    <input className={"TC-SP-" + current_piece} type="hidden" aggregative_names={currentAggregatives.names} aggregative_ids={currentAggregatives.ids}></input>
                     <input onClick={reset_aggregatives} className="TC-SP-reseter" type="hidden"></input>
                 </div>
                 ) : (

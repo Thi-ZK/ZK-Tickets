@@ -22,11 +22,11 @@ function CreateTicket ({ allPopulationData }) {
         setCalAppearence('calendar-closed');
     }
 
-    // Ticket Name Error State Declaration
+    // Ticket Name Error State Declaration (State Used Because Of Dynamicity Of Language)
     const [ticketNameError, updateTicketNameError] = useState("none");
         
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
-    const create_ticket = (event) => {
+    const create_ticket = () => {
         AF.set_disabled_status_on_ticket_creation_buttons(true); // True to disable.
         AF.set_loading_icon_appearence("on");
 
@@ -89,12 +89,12 @@ function CreateTicket ({ allPopulationData }) {
             </div>
             <div id="TC-inputs-container">
                 <div id="TC-inputs-first-block-container" className='TC-inputs-block-container'>
-                    <SelectionPiece usersNamesWithIds={usersNamesWithIds} data={AF.selection_piece_assigneds} language={language}></SelectionPiece>
-                    <SelectionPiece language={language} data={AF.selection_piece_group}></SelectionPiece>
+                    <SelectionPiece usersNamesWithIds={usersNamesWithIds} data={AF.selection_piece_assigneds} language={language} /*Users To Be Assigned*//>
+                    <SelectionPiece language={language} data={AF.selection_piece_group} /*Groups To Be Chosen*//>
                 </div>
                 <div id="TC-inputs-second-block-container" className='TC-inputs-block-container'>
-                    <SelectionPiece language={language} data={AF.selection_piece_priority}></SelectionPiece>
-                    <SelectionPiece language={language} data={AF.selection_piece_status}></SelectionPiece>
+                    <SelectionPiece language={language} data={AF.selection_piece_priority}/>
+                    <SelectionPiece language={language} data={AF.selection_piece_status}/>
                 </div>
             </div>
             <div id='TC-name-and-date-container'>
@@ -122,7 +122,7 @@ function CreateTicket ({ allPopulationData }) {
             <div id='TC-attachments-and-description-container'>
                 <div className='TC-attachment-blocks-direct-container' id='TC-attachment-blocks'>
                     <p id='TC-attachment-blocks-title'>{texts.attachments[language]}:</p>
-                    <AttachmentBlock language={language}></AttachmentBlock>
+                    <AttachmentBlock language={language}/>
                 </div>
                 <div id='TC-description-direct-container'>
                     <div className='TC-error-message-direct-container'>

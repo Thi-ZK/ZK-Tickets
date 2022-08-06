@@ -13,9 +13,49 @@ div[theme='bright'] .TC-selection-input-direct-container select {
 	background-color: white;
 }
 
-.TC-SP-selection-title{
+.TC-SP-selection-title-direct-container{
 	padding-bottom: 0.57em;
+}
+
+.TC-SP-custom-radio-input-direct-container {
+	padding-top: 4px;
+}
+
+.TC-SP-selection-title, .TC-SP-custom-radio-input-direct-container p {
 	font-size: 14px;
+}
+
+.TC-SP-custom-radio-input-direct-container, .TC-SP-selection-title-direct-container {
+	display: flex;
+	align-items: center;
+}
+
+.TC-SP-custom-radio-input-direct-container input, .TC-SP-selection-title-direct-container input {
+	margin-right: 6px !important;
+}
+
+.TC-SP-custom-text-input {
+	padding: 8px 8px 8px 0px;
+	color: rgb(230, 230, 230);
+	background-color: rgb(30, 30, 30);
+	border: none; border-bottom: 1px solid rgb(90, 90, 90);
+	font-size: 14px !important;
+	width: 98%;
+	transition-duration: 0.37s;
+	visibility: hidden;
+	opacity: 0;
+	height: 0px;
+}
+div[theme='bright'] .TC-SP-custom-text-input {
+	color: rgb(92, 92, 92);
+	background-color: white;
+	border-bottom: 1px solid rgb(200,200,200);
+}
+.TC-SP-custom-text-input[status="on"] {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 30px;
+	height: auto;
 }
 
 .TC-selection-input-direct-container{

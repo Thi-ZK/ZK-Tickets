@@ -11,13 +11,13 @@
         "portuguese": "Responsáveis",
         "spanish": "Responsables"
     },
-    "select_the_group": {
+    "select_the_groups": {
         "english": "Select The",
         "german": "Wählen Sie die",
         "portuguese": "Selecione Os",
         "spanish": "Seleccione Los"
     },
-    "group": {
+    "groups": {
         "english": "Groups",
         "german": "Gruppen aus",
         "portuguese": "Grupos",
@@ -112,5 +112,17 @@
         "german": "Homologation",
         "portuguese": "Homologação",
         "spanish": "Homologación"
+    },
+    "write_a_custom_groups": {
+        "english": "Write a New Group",
+        "german": "Eine neue Gruppe schreiben",
+        "portuguese": "Escrever Um Novo Grupo",
+        "spanish": "Escribir Un Nuevo Grupo"
+    },
+    "type_new_groups_name": {
+        "english": "Type the name of the group you want to create",
+        "german": "Schreiben Sie die Gruppenname, die Sie erstellen möchten",
+        "portuguese": "Escreva o nome do grupo que você deseja criar",
+        "spanish": "Escribe el nombre del grupo que deseas crear"
     }
 }

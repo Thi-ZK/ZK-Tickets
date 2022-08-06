@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // When Client Page Is Visited, Client Will Be Serverd Instead Of A Standard Server Route
-app.use(express.static(path.resolve('*', "./client/build")));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // Declaration Of Varied Variables
 const PORT   = process.env.PORT;
