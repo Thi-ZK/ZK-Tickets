@@ -38,7 +38,7 @@ div[theme='bright'] .TV-MSG-title-direct-container {
 .TV-MSG-owner-name img {
     height: 30px;
     width: 30px;
-    border-radius: 10px;
+    border-radius: 100%;
     margin-right: 10px;
 }
 

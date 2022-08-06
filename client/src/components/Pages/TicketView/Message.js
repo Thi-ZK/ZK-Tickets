@@ -35,7 +35,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData}) {
     <div className="TV-message-container" css-marker="MSG" id={"TV-message-container-" + message_data.id} type={type}>
         <div className="TV-MSG-title-direct-container">
             <p className='TV-MSG-owner-name'>
-                <img alt='-tv-person' src='/imgs/ticket/dahyun_pic.jpg'/>
+                <img alt='-tv-person' src={"/imgs/general/users_photos/" + AF.generate_ticket_creator_img_src(message_data) + ".jpg"} onError={AF.set_anonymous_picture}/>
                 {message_data.message_owner_name}
                 <img onClick={delete_message} className='TV-MSG-delete-icon' alt="deleted-msg-icon" src='/imgs/general/red_x_delete_icon.png'/>
                 <img className='TV-MSG-deleting-gif' status="off" alt='cleaning gif' src='/imgs/ticket/loading_eevee.gif'/>

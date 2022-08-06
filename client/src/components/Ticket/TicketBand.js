@@ -30,7 +30,7 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 			which_action: action
 		});
 	}
-	
+
     return (
 	<div onClick={navigate_to_ticket} className="ticket-band-container" css-marker="TB">
 		<div id="TB-header">
@@ -48,7 +48,7 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 		</div>
 		<div className="TB-content-block-container">
 			<div id="TB-photo-and-personal-identification-container">
-				<img alt="person / user pic" src="/imgs/ticket/dahyun_pic.jpg"/>
+				<img alt="person / user pic" src={"/imgs/general/users_photos/" + AF.generate_ticket_creator_img_src(ticket_data) + ".jpg"} onError={AF.set_anonymous_picture}/>
 				<div className="TB-name-and-person-info-direct-container">
 					<p className="TB-name">{texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
 					<div>
