@@ -17,24 +17,24 @@ div[theme='bright'] .TC-selection-input-direct-container select {
 	padding-bottom: 0.57em;
 }
 
-.TC-SP-custom-radio-input-direct-container {
+.TC-SP-new-option-radio-input-direct-container {
 	padding-top: 4px;
 }
 
-.TC-SP-selection-title, .TC-SP-custom-radio-input-direct-container p {
+.TC-SP-selection-title, .TC-SP-new-option-radio-input-direct-container label {
 	font-size: 14px;
 }
 
-.TC-SP-custom-radio-input-direct-container, .TC-SP-selection-title-direct-container {
+.TC-SP-new-option-radio-input-direct-container, .TC-SP-selection-title-direct-container {
 	display: flex;
 	align-items: center;
 }
 
-.TC-SP-custom-radio-input-direct-container input, .TC-SP-selection-title-direct-container input {
+.TC-SP-new-option-radio-input-direct-container input, .TC-SP-selection-title-direct-container input {
 	margin-right: 6px !important;
 }
 
-.TC-SP-custom-text-input {
+.TC-SP-new-option-text-input {
 	padding: 8px 8px 8px 0px;
 	color: rgb(230, 230, 230);
 	background-color: rgb(30, 30, 30);
@@ -46,12 +46,12 @@ div[theme='bright'] .TC-selection-input-direct-container select {
 	opacity: 0;
 	height: 0px;
 }
-div[theme='bright'] .TC-SP-custom-text-input {
+div[theme='bright'] .TC-SP-new-option-text-input {
 	color: rgb(92, 92, 92);
 	background-color: white;
 	border-bottom: 1px solid rgb(200,200,200);
 }
-.TC-SP-custom-text-input[status="on"] {
+.TC-SP-new-option-text-input[status="on"] {
 	visibility: visible;
 	opacity: 1;
 	margin-top: 30px;

@@ -9,7 +9,7 @@ const set_ticket_description_error_message_appearence = (status) => {
 }
 
 // Ticket Creation Loading Icon Appearence Controller
-const set_loading_icon_appearence = (status) => {
+const set_loading_icons_appearence = (status) => {
     let loading_icons = document.querySelectorAll(".TC-loading-gif");
     loading_icons[0].setAttribute("status", status);
     loading_icons[1].setAttribute("status", status);
@@ -105,7 +105,7 @@ module.exports = {
 
     set_ticket_name_error_message_appearence: set_ticket_name_error_message_appearence,
     set_ticket_description_error_message_appearence: set_ticket_description_error_message_appearence,
-    set_loading_icon_appearence: set_loading_icon_appearence,
+    set_loading_icons_appearence: set_loading_icons_appearence,
     display_success_icon: display_success_icon,
     set_disabled_status_on_ticket_creation_buttons: set_disabled_status_on_ticket_creation_buttons,
     aggregatives_formatter: aggregatives_formatter,

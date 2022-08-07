@@ -15,8 +15,8 @@ const generate_options_map_obj = ( usersNamesWithIds ) => {
 
 // Custom Text Inputs Handler - Meant For Updating Visibility Status
 const update_custom_text_input_appearence = (event) => {
-    let new_custom_text_input_status = (event.target.className === "TC-SP-custom-radio-input") ? "on" : "off";
-    document.querySelector(".TC-SP-custom-text-input").setAttribute("status", new_custom_text_input_status);
+    let new_custom_text_input_status = (event.target.className === "TC-SP-new-option-radio-input") ? "on" : "off";
+    document.querySelector(".TC-SP-new-option-text-input").setAttribute("status", new_custom_text_input_status);
 }
 
 module.exports = {

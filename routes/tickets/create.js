@@ -10,7 +10,7 @@ router.post('/single', urlencodedParser, async (req, res) => {
 	let ticket_data = req.body;
 	let last_ticket = await TicketModel.find().sort({_id:-1}).limit(1).catch((error) => { error = error; })
 	let error       = false;
-
+	
 	const newTicketDocument = new TicketModel({
 		name: ticket_data.name,
 		id: last_ticket[0].id + 1,

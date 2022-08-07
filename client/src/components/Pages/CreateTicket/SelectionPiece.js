@@ -32,22 +32,21 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
         let elem_id   = event.target.getAttribute("aggregative-id");
 
         updateAggregatives({
-            ids: currentAggregatives.ids.filter((elem) => {return elem !== elem_id}),
-            names: currentAggregatives.names.filter((elem) => {return elem !== elem_name})
+            ids: currentAggregatives.ids.filter((elem) => { return elem !== elem_id }),
+            names: currentAggregatives.names.filter((elem) => { return elem !== elem_name })
         });
     }
 
     // Reset All Aggregatives (Users & Groups)
     const reset_aggregatives = () => {
-        updateAggregatives({ids: [], names: []});
+        updateAggregatives({ ids: [], names: [] });
     }
 
     return (
-        // Options Itself
         <div className="TC-selection-input-direct-container" css-marker="SP">
             <div className='TC-SP-selection-title-direct-container'>
-                {data.allow_custom ? <input onChange={AF.update_custom_text_input_appearence} className='TC-SP-default-radio-input' type="radio" name={current_piece} defaultChecked/> : <></>}
-                <p className="TC-SP-selection-title">{texts["select_the_" + current_piece][language]} <span>{texts[current_piece][language]}</span></p>
+                {data.allow_custom ? <input id={"TC-SP-" + current_piece + "-std-option-radio"} onChange={AF.update_custom_text_input_appearence} type="radio" name={current_piece + "-std-or-new-option"} defaultChecked/> : <></>}
+                <label htmlFor={"TC-SP-" + current_piece + "-std-option-radio"} className="TC-SP-selection-title">{texts["select_the_" + current_piece][language]} <span>{texts[current_piece][language]}</span></label>
             </div>
             
             <select id={"TC-SP-" + current_piece} onChange={add_aggregative}>
@@ -58,13 +57,13 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
                 ))}
             </select>
 
-            { data.allow_custom ? ( // The Custom Input Option (Currently Only Groups)
+            { data.allow_custom ? ( // The Custom Input Option (Currently Only For Groups)
                 <div>
-                    <div className="TC-SP-custom-radio-input-direct-container">
-                        <input type="radio" name={current_piece} className='TC-SP-custom-radio-input' onChange={AF.update_custom_text_input_appearence}/>
-                        <p>{texts["write_a_custom_" + current_piece][language]}</p>
+                    <div className="TC-SP-new-option-radio-input-direct-container">
+                        <input id={"TC-SP-" + current_piece + "-new-option-radio"} type="radio" name={current_piece + "-std-or-new-option"} className='TC-SP-new-option-radio-input' onChange={AF.update_custom_text_input_appearence}/>
+                        <label htmlFor={"TC-SP-" + current_piece + "-new-option-radio"}>{texts["write_a_custom_" + current_piece][language]}</label>
                     </div>
-                    <input name={data.type_of_piece} className='TC-SP-custom-text-input' type="text" placeholder={texts["type_new_" + current_piece + "_name"][language]}></input>
+                    <input name={data.type_of_piece} className='TC-SP-new-option-text-input' type="text" placeholder={texts["type_new_" + current_piece + "_name"][language]}></input>
                 </div>
                 ) : (
                 <></> 

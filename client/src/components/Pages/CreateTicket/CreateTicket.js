@@ -28,7 +28,7 @@ function CreateTicket ({ allPopulationData }) {
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
     const create_ticket = () => {
         AF.set_disabled_status_on_ticket_creation_buttons(true); // True to disable.
-        AF.set_loading_icon_appearence("on");
+        AF.set_loading_icons_appearence("on");
 
         // Getting All Inputs & New Ticket Data
         let new_ticket_data = AF.gather_new_ticket_data();
@@ -39,7 +39,7 @@ function CreateTicket ({ allPopulationData }) {
             new_ticket_data.related_users_ids.push(userData.id);
         }
 
-        let new_ticket = AF.generate_final_new_ticket(new_ticket_data);
+        let new_ticket = AF.generate_final_new_ticket(new_ticket_data); // Formats Ticket Data Inputed
         
         // Validations Variables Declaration
         let name_validation_regex   = /[a-zA-Z]{3,30}.*\s.*[a-zA-Z]{3,30}/;
@@ -49,11 +49,13 @@ function CreateTicket ({ allPopulationData }) {
 
         // Checking Name Validity & Length Of Description
         if (is_name_substantial && !is_name_too_long && !is_description_too_long) {
-            axios.post('/tickets/create/single', new_ticket).then((res) => { console.log(res.data); });
-            AF.display_success_icon();
-            AF.reset_all_inputs(setValue); // setValue passed to reset calendar text
-            update_all_tickets();
-        } else { 
+            axios.post('/tickets/create/single', new_ticket).then((res) => { console.log(res.data);
+                AF.set_loading_icons_appearence("off");
+                AF.display_success_icon();
+                update_all_tickets(); 
+            });
+            AF.reset_all_inputs(setValue); // Meant To Reset Calendar
+        } else {
             // Error Feedbacks Handling Below
             if ( !is_name_substantial || is_name_too_long ) {
                 AF.set_ticket_name_error_message_appearence("on");
@@ -65,7 +67,6 @@ function CreateTicket ({ allPopulationData }) {
             }
         }
         
-        AF.set_loading_icon_appearence("off");
         AF.set_disabled_status_on_ticket_creation_buttons(false); // Letting Create Ticket Buttons Enabled Again
     }
     
