@@ -78,8 +78,15 @@ const gather_new_ticket_data = () => {
     return new_ticket_data;
 }
 
-// Generate New Ticket Object To Be Sent To Server
-const generate_final_new_ticket = (new_ticket_data) => {
+// Generate New Ticket Object To Be Sent To Server (Also Newer Keys Added)
+const generate_final_new_ticket = (new_ticket_data, userData) => {
+    // As The User Is The Creator Of The Ticket, He/She Is Already Related To The Ticket (And So Must Be Included As Such)
+    // Also Meant To Avoid Adding User Two Times, In Case He/She Is An Assigned As Well As Creator
+    if (!new_ticket_data.assumers_names.includes(userData.name)) {
+        new_ticket_data.related_users_names.push(userData.name);
+        new_ticket_data.related_users_ids.push(userData.id);
+    }
+
     return {
         name: new_ticket_data.name, // REQUIRED
         related_users: new_ticket_data.related_users_ids,
