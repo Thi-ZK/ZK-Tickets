@@ -30,15 +30,15 @@ function CreateTicket ({ allPopulationData }) {
         AF.set_disabled_status_on_ticket_creation_buttons(true); // True to disable.
         AF.set_loading_icons_appearence("on");
 
-        let new_ticket_data = AF.gather_new_ticket_data(); // Getting All Inputs & New Ticket Data
-        let new_ticket = AF.generate_final_new_ticket(new_ticket_data, userData); // Formats Ticket Data Inputed
+        // Getting All Inputs & New Ticket Data
+        let new_ticket = AF.gather_new_ticket_data(userData);
         
         // Validations Variables Declaration
         let name_validation_regex   = /[a-zA-Z]{3,30}.*\s.*[a-zA-Z]{3,30}/;
-        let is_name_too_long        = !(new_ticket_data.name.length < 200);
-        let is_name_substantial     = name_validation_regex.test(new_ticket_data.name);
-        let is_description_too_long = !(new_ticket_data.description.length < 4000);
-
+        let is_name_too_long        = !(new_ticket.name.length < 200);
+        let is_name_substantial     = name_validation_regex.test(new_ticket.name);
+        let is_description_too_long = !(new_ticket.description.length < 4000);
+        
         // Checking Name Validity & Length Of Description
         if (is_name_substantial && !is_name_too_long && !is_description_too_long) {
             axios.post('/tickets/create/single', new_ticket).then((res) => { console.log(res.data);

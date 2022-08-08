@@ -56,51 +56,35 @@ const reset_all_inputs = ( setValue ) => {
 }
 
 // Assemble & Gather New Ticket Data 
-const gather_new_ticket_data = () => {
+const gather_new_ticket_data = (userData) => {
     let assigneds_data_hidden_input = document.querySelector("input.TC-SP-assigneds");
     let groups_data_hidden_input    = document.querySelector("input.TC-SP-groups");
-    let status   = document.querySelector("#TC-SP-status");
-    let priority = document.querySelector("#TC-SP-priority");
+    let status    = document.querySelector("#TC-SP-status");
+    let priority  = document.querySelector("#TC-SP-priority");
 
     let new_ticket_data = {
         name:                document.querySelector("#TC-ticket-name").value,
         description:         document.querySelector("#TC-description-direct-container textarea").value,
         status:              status.options[status.selectedIndex].id,
         priority:            priority.options[priority.selectedIndex].id,
+        due_date:            new Date(document.querySelector("#TC-due-date-chosen").innerText),
         related_users_names: aggregatives_formatter(assigneds_data_hidden_input, "aggregative_names"),
         groups_names:        aggregatives_formatter(groups_data_hidden_input, "aggregative_names"),
         assumers_names:      aggregatives_formatter(assigneds_data_hidden_input, "aggregative_names"),
-        related_users_ids:   aggregatives_formatter(assigneds_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
-        groups_ids:          aggregatives_formatter(groups_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
-        assumers_ids:        aggregatives_formatter(assigneds_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)})
+        related_users:       aggregatives_formatter(assigneds_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
+        groups:              aggregatives_formatter(groups_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
+        assumers:            aggregatives_formatter(assigneds_data_hidden_input, "aggregative_ids").map((e) => {return Number(e)}),
+        new_group:           document.querySelector(".TC-SP-new-option-text-input[name='groups']").value,
+        attachments:         []
     };
 
-    return new_ticket_data;
-}
-
-// Generate New Ticket Object To Be Sent To Server (Also Newer Keys Added)
-const generate_final_new_ticket = (new_ticket_data, userData) => {
     // As The User Is The Creator Of The Ticket, He/She Is Already Related To The Ticket (And So Must Be Included As Such)
-    // Also Meant To Avoid Adding User Two Times, In Case He/She Is An Assigned As Well As Creator
     if (!new_ticket_data.assumers_names.includes(userData.name)) {
         new_ticket_data.related_users_names.push(userData.name);
-        new_ticket_data.related_users_ids.push(userData.id);
+        new_ticket_data.related_users.push(userData.id);
     }
 
-    return {
-        name: new_ticket_data.name, // REQUIRED
-        related_users: new_ticket_data.related_users_ids,
-        related_users_names: new_ticket_data.related_users_names,
-        groups: new_ticket_data.groups_ids,
-        groups_names: new_ticket_data.groups_names,
-        description: new_ticket_data.description,
-        status: new_ticket_data.status, // REQUIRED
-        assumers: new_ticket_data.assumers_ids,
-        assumers_names: new_ticket_data.assumers_names,
-        due_date: new Date(document.querySelector("#TC-due-date-chosen").innerText),
-        priority: new_ticket_data.priority, // REQUIRED
-        attachments: []
-    };
+    return new_ticket_data;
 }
 
 module.exports = {
@@ -117,6 +101,5 @@ module.exports = {
     set_disabled_status_on_ticket_creation_buttons: set_disabled_status_on_ticket_creation_buttons,
     aggregatives_formatter: aggregatives_formatter,
     reset_all_inputs: reset_all_inputs,
-    gather_new_ticket_data: gather_new_ticket_data,
-    generate_final_new_ticket: generate_final_new_ticket
+    gather_new_ticket_data: gather_new_ticket_data
 };
