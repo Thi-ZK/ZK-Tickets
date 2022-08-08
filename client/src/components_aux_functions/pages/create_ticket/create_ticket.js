@@ -51,6 +51,8 @@ const reset_all_inputs = ( setValue ) => {
 
     document.querySelector("input#TC-ticket-name").value = "";
     document.querySelector("#TC-description-direct-container textarea").value = "";
+    document.querySelector(".TC-SP-new-option-text-input").value = "";
+    document.querySelector("#TC-SP-groups-std-option-radio").click();
 
     setValue(undefined);
 }

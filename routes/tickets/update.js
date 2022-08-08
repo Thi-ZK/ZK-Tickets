@@ -21,7 +21,7 @@ router.post('/single/messages/set', urlencodedParser, async (req, res) => {
 		status: "alive"
 	}
 
-	await TicketModel.updateOne({id: ticket_id}, {$push: {messages: new_message}}).catch((error) => { error = error; });
+	await TicketModel.updateOne({id: ticket_id}, {$push: {messages: new_message}}).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, new_message, req.originalUrl));
 });
@@ -40,7 +40,7 @@ router.post('/single/messages/delete/', urlencodedParser, async (req, res) => {
 	await TicketModel.findOneAndUpdate({
 		id: ticket_id,
 		'messages.id': message_id
-	}, {'messages.$.status': "deleted"}).catch((error) => { error = error; });
+	}, {'messages.$.status': "deleted"}).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -51,7 +51,7 @@ router.post('/single/status', urlencodedParser, async (req, res) => {
 	let new_status = req.body.new_status;
 	let error      = false;
 	
-	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status}).catch((error) => { error = error; });
+	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status}).catch((err) => { error = err; });
 	
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -69,7 +69,7 @@ router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
 			assumers_names: new_assumer_name,
 			related_users: new_assumer,
 			related_users_names: new_assumer_name
-		}}).catch((error) => { error = error; });
+		}}).catch((err) => { error = err; });
 	
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -90,7 +90,7 @@ router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
 			assumers_names: new_assumer_name,
 			related_users: ticket_creator === new_assumer ? undefined : new_assumer,
 			related_users_names: ticket_creator_name === new_assumer_name ? undefined : new_assumer_name,
-		}}).catch((error) => { error = error; });
+		}}).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
