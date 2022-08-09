@@ -1,10 +1,10 @@
-const express     = require('express');
-const router      = express.Router();
-const bodyParser  = require('body-parser');
-const TicketModel = require('../../models/ticket');
-const GroupModel  = require('../../models/group');
-const general_midds       = require('../../middlewares/general_utils');
-const route_midds         = require('../../middlewares/tickets/create'); // Specific Current Route Middlewares
+const express       = require('express');
+const router        = express.Router();
+const bodyParser    = require('body-parser');
+const TicketModel   = require('../../models/ticket');
+const GroupModel    = require('../../models/ticket_group');
+const general_midds = require('../../middlewares/general_utils');
+const route_midds   = require('../../middlewares/tickets/create'); // Specific Current Route Middlewares
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
@@ -40,10 +40,10 @@ router.post('/single', urlencodedParser, async (req, res) => {
 		last_status_update_date: new Date()
 	});
 
-	await newTicketDocument.save().catch((err) => { error = error ? error.push(err) : [err]; });
-
-	if ( !error && new_group_name) { // -1 DESCOBRIR DPOIS. 
-		error = route_midds.update_new_group_with_created_ticket_id(GroupModel, new_group_name, newTicketDocument.id - 1) || error;
+	// await newTicketDocument.save().catch((err) => { error = error ? error.push(err) : [err]; });
+console.log(newTicketDocument);
+	if ( !error && new_group_name ) { // Add New Ticket ID To Tickets Array In The New Group Created 
+		error = route_midds.update_new_group_with_created_ticket_id(GroupModel, new_group_name, newTicketDocument.id) || error;
 	}
 	
 	res.send(general_midds.generate_response_object(error, newTicketDocument, req.originalUrl));

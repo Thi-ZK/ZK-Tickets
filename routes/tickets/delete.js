@@ -10,7 +10,7 @@ router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
 	let ticket_id = Number(req.params.ticket_id);
 	let error     = false;
 	
-	await TicketModel.deleteOne({id: ticket_id}).catch((error) => { error = error; });
+	await TicketModel.deleteOne({id: ticket_id}).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, ticket_id, "Delete Single Ticket"));
 });

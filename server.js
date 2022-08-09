@@ -13,6 +13,7 @@ const ticketCreateRouter = require('./routes/tickets/create');
 const ticketGetRouter    = require('./routes/tickets/get');
 const userGetRouter      = require('./routes/users/get');
 const userUpdateRouter   = require('./routes/users/update');
+const ticketGroupRouter  = require('./routes/ticket_groups/get');
 const loginAuthRouter    = require('./routes/login');
 
 const app = express();
@@ -24,9 +25,11 @@ if (process.env.NODE_ENV !== 'production') {
 // When Client Page Is Visited, Client Will Be Serverd Instead Of A Standard Server Route
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-// Declaration Of Varied Variables
+// Declaration Of Enviroment Variables
 const PORT   = process.env.PORT;
 const DB_URI = process.env.DB_URI;
+
+// Session Store Configuration Creation
 const sessionStore = MongoStore.create({
     mongoUrl: DB_URI,
     collection: 'sessions'
@@ -63,6 +66,7 @@ app.use('/tickets/create', ticketCreateRouter);
 app.use('/tickets/get', ticketGetRouter);
 app.use('/users/get', userGetRouter);
 app.use('/users/update', userUpdateRouter);
+app.use('/ticket_groups/get', ticketGroupRouter);
 app.use('/login', loginAuthRouter);
 
 // Server Start After Successful Connection With DB

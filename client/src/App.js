@@ -37,7 +37,7 @@ function App() {
             if ( tickets.data.success ) { updateTickets(tickets.data.data); }
         })
     }
-
+    
     // User Data State Set
     const [userData, updateUserData] = useState(undefined); // Is An Object
     const update_user_data = (should_update_lang_and_brightness_theme) => {
@@ -56,14 +56,21 @@ function App() {
     // All Users Names & IDs State Set. This Is Necessary For Create Ticket (List Of Users To Attach) 
     const [usersNamesWithIds, updateUsers] = useState({});
     const update_user_names_and_ids = () => {
-        axios.get('/users/get/piece/all_users').then((users) => {updateUsers(users.data.data); console.log(users.data);})
+        axios.get('/users/get/piece/all_users').then((users) => { updateUsers(users.data.data); console.log(users.data); })
+    }
+
+    // All Users Names & IDs State Set. This Is Necessary For Create Ticket (List Of Users To Attach) 
+    const [ticketGroups, updateticketGroups] = useState({});
+    const update_ticket_groups = () => {
+        axios.get('/ticket_groups/get/all').then((ticket_groups) => { console.log(ticket_groups.data); })
     }
  
     // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh Page)
     useEffect(() => {
         update_all_tickets();
-        update_user_data(true);
+        update_user_data(true); // true To Update Lang & Brightness Theme With User Preferences
         update_user_names_and_ids();
+        update_ticket_groups();
     }, []);
 
     // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States (The Ones That Used In Many Contexts)
@@ -80,6 +87,8 @@ function App() {
         updateTicketActionModalSettings: updateTicketActionModalSettings,
         currentBrightnessTheme: currentBrightnessTheme,
         updateBrightnessTheme: updateBrightnessTheme,
+        ticketGroups: ticketGroups,
+        updateticketGroups: update_ticket_groups,
         update_user_data: update_user_data
     }
     

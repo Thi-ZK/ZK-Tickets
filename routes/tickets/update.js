@@ -21,7 +21,7 @@ router.post('/single/messages/set', urlencodedParser, async (req, res) => {
 		status: "alive"
 	}
 
-	await TicketModel.updateOne({id: ticket_id}, {$push: {messages: new_message}}).catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id}, {$push: {messages: new_message} }).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, new_message, req.originalUrl));
 });
