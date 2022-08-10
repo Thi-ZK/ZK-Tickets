@@ -60,9 +60,9 @@ function App() {
     }
 
     // All Users Names & IDs State Set. This Is Necessary For Create Ticket (List Of Users To Attach) 
-    const [ticketGroups, updateticketGroups] = useState({});
+    const [ticketGroups, updateTicketGroups] = useState({});
     const update_ticket_groups = () => {
-        axios.get('/ticket_groups/get/all').then((ticket_groups) => { console.log(ticket_groups.data); })
+        axios.get('/ticket_groups/get/piece/all_groups').then((ticket_groups) => { updateTicketGroups(ticket_groups.data.data); console.log(ticket_groups.data); })
     }
  
     // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh Page)

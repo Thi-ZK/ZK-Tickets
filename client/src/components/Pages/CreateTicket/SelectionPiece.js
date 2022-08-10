@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import texts from '../../../languages/Pages/CreateTicket/SelectionPiece.json';
 import AF from '../../../components_aux_functions/pages/create_ticket/selection_piece.js'; // Aux Functions
 
-function SelectionPiece({ data, usersNamesWithIds, language }) {
+function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
     // Aliases
-    const current_piece  = data.type_of_piece; // It Is An Object With Current Selection Data Properties
-    const users_ids      = Object.keys(usersNamesWithIds || {});
-    const options_map    = AF.generate_options_map_obj(usersNamesWithIds);
+    const current_piece  = data.type_of_piece; // Example: "assigneds" or "priority"
+    const options_map    = AF.generate_options_map_obj(usersNamesWithIds, ticketGroups);
+    const options_id_map = AF.generate_options_id_map_obj(usersNamesWithIds, ticketGroups);
 
     // Meant For Aggregative Options Selections (Groups & Assigneds)
     const [currentAggregatives, updateAggregatives] = useState({ids: [], names: []});
@@ -53,7 +53,7 @@ function SelectionPiece({ data, usersNamesWithIds, language }) {
                 { data.is_aggregative ? <option className="TC-SP-aux-filling-option" assigned-name="none">--</option> : <></> }
 
                 { options_map[current_piece].map((option, index) => ( // Selection Options
-                    <option id={users_ids[index] || option} key={index}>{data.is_aggregative ? option : texts[option.toLowerCase()][language]}</option>
+                    <option id={options_id_map[current_piece][index] || option} key={index}>{data.is_aggregative ? option : texts[option.toLowerCase()][language]}</option>
                 ))}
             </select>
 

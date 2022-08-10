@@ -13,6 +13,7 @@ function CreateTicket ({ allPopulationData }) {
     const language           = allPopulationData.language;
     const userData           = allPopulationData.userData;
     const update_all_tickets = allPopulationData.update_all_tickets;
+    const ticketGroups       = allPopulationData.ticketGroups;
     
     // Meant For Calendar
     const [calAppearence, setCalAppearence] = useState('calendar-closed');
@@ -85,7 +86,7 @@ function CreateTicket ({ allPopulationData }) {
             <div id="TC-inputs-container">
                 <div id="TC-inputs-first-block-container" className='TC-inputs-block-container'>
                     <SelectionPiece usersNamesWithIds={usersNamesWithIds} data={AF.selection_piece_assigneds} language={language} /*Users To Be Assigned*//>
-                    <SelectionPiece language={language} data={AF.selection_piece_group} /*Groups To Be Chosen*//>
+                    <SelectionPiece ticketGroups={ticketGroups} language={language} data={AF.selection_piece_group} /*Groups To Be Chosen*//>
                 </div>
                 <div id="TC-inputs-second-block-container" className='TC-inputs-block-container'>
                     <SelectionPiece language={language} data={AF.selection_piece_priority}/>
