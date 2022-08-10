@@ -91,17 +91,17 @@ const gather_new_ticket_data = (userData) => {
 
 module.exports = {
     // Meant For The Selection Pieces Inputs
-	selection_piece_group: {type_of_piece: 'groups', allow_custom: true, is_aggregative: true},
-    selection_piece_priority: {type_of_piece: 'priority', allow_custom: false, is_aggregative: false},
+	selection_piece_group:     {type_of_piece: 'groups', allow_custom: true, is_aggregative: true},
+    selection_piece_priority:  {type_of_piece: 'priority', allow_custom: false, is_aggregative: false},
     selection_piece_assigneds: {type_of_piece: 'assigneds', allow_custom: false, is_aggregative: true},
-    selection_piece_status: {type_of_piece: 'status', allow_custom: false, is_aggregative: false},
+    selection_piece_status:    {type_of_piece: 'status', allow_custom: false, is_aggregative: false},
 
-    set_ticket_name_error_message_appearence: set_ticket_name_error_message_appearence,
+    set_ticket_name_error_message_appearence:        set_ticket_name_error_message_appearence,
     set_ticket_description_error_message_appearence: set_ticket_description_error_message_appearence,
-    set_loading_icons_appearence: set_loading_icons_appearence,
-    display_success_icon: display_success_icon,
-    set_disabled_status_on_ticket_creation_buttons: set_disabled_status_on_ticket_creation_buttons,
-    aggregatives_formatter: aggregatives_formatter,
-    reset_all_inputs: reset_all_inputs,
-    gather_new_ticket_data: gather_new_ticket_data
+    set_loading_icons_appearence:                    set_loading_icons_appearence,
+    display_success_icon:                            display_success_icon,
+    set_disabled_status_on_ticket_creation_buttons:  set_disabled_status_on_ticket_creation_buttons,
+    aggregatives_formatter:                          aggregatives_formatter,
+    reset_all_inputs:                                reset_all_inputs,
+    gather_new_ticket_data:                          gather_new_ticket_data
 };

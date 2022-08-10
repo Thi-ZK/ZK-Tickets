@@ -40,8 +40,8 @@ router.post('/single', urlencodedParser, async (req, res) => {
 		last_status_update_date: new Date()
 	});
 
-	// await newTicketDocument.save().catch((err) => { error = error ? error.push(err) : [err]; });
-console.log(newTicketDocument);
+	await newTicketDocument.save().catch((err) => { error = error ? error.push(err) : [err]; });
+
 	if ( !error && new_group_name ) { // Add New Ticket ID To Tickets Array In The New Group Created 
 		error = route_midds.update_new_group_with_created_ticket_id(GroupModel, new_group_name, newTicketDocument.id) || error;
 	}

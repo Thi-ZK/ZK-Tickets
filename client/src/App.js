@@ -76,20 +76,20 @@ function App() {
     // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States (The Ones That Used In Many Contexts)
     const allPopulationData = {
         allTickets: allTickets,
-        update_all_tickets: update_all_tickets,
-        userData: userData,
-        updateUserData: updateUserData,
-        usersNamesWithIds: usersNamesWithIds,
-        update_user_names_and_ids: update_user_names_and_ids,
-        language: language,
-        updateLanguage: updateLanguage,
-        ticketActionModalSettings: ticketActionModalSettings,
+        update_all_tickets:              update_all_tickets,
+        userData:                        userData,
+        updateUserData:                  updateUserData,
+        usersNamesWithIds:               usersNamesWithIds,
+        update_user_names_and_ids:       update_user_names_and_ids,
+        language:                        language,
+        updateLanguage:                  updateLanguage,
+        ticketActionModalSettings:       ticketActionModalSettings,
         updateTicketActionModalSettings: updateTicketActionModalSettings,
-        currentBrightnessTheme: currentBrightnessTheme,
-        updateBrightnessTheme: updateBrightnessTheme,
-        ticketGroups: ticketGroups,
-        updateticketGroups: update_ticket_groups,
-        update_user_data: update_user_data
+        currentBrightnessTheme:          currentBrightnessTheme,
+        updateBrightnessTheme:           updateBrightnessTheme,
+        ticketGroups:                    ticketGroups,
+        update_ticket_groups:            update_ticket_groups,
+        update_user_data:                update_user_data
     }
     
     return (

@@ -21,14 +21,14 @@ const add_new_group_to_ticket_and_to_database = async (ticket_data, new_group_na
 
         ticket_data.groups.push(new_group_id);
         ticket_data.groups_names.push(new_group_name);
-    } catch (err) { return err; }
+    } catch (err) { console.log(err); return err; }
 }
 
 // Add New Ticket ID To New Group Created Together Within
 const update_new_group_with_created_ticket_id = async (GroupModel, new_group_name, ticket_id) => {
     try {
         await GroupModel.updateOne({ name: new_group_name }, { tickets: [ticket_id] });
-    } catch (err) { return err; }
+    } catch (err) { console.log(err); return err; }
 }
 
 module.exports = {

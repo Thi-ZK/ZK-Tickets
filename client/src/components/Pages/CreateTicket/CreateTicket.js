@@ -9,11 +9,12 @@ import AF from '../../../components_aux_functions/pages/create_ticket/create_tic
 
 function CreateTicket ({ allPopulationData }) {
     // User Names & IDs Alias / Also Language Alias
-    const usersNamesWithIds  = allPopulationData.usersNamesWithIds;
-    const language           = allPopulationData.language;
-    const userData           = allPopulationData.userData;
-    const update_all_tickets = allPopulationData.update_all_tickets;
-    const ticketGroups       = allPopulationData.ticketGroups;
+    const usersNamesWithIds    = allPopulationData.usersNamesWithIds;
+    const language             = allPopulationData.language;
+    const userData             = allPopulationData.userData;
+    const update_all_tickets   = allPopulationData.update_all_tickets;
+    const ticketGroups         = allPopulationData.ticketGroups;
+    const update_ticket_groups = allPopulationData.update_ticket_groups;
     
     // Meant For Calendar
     const [calAppearence, setCalAppearence] = useState('calendar-closed');
@@ -45,6 +46,11 @@ function CreateTicket ({ allPopulationData }) {
             axios.post('/tickets/create/single', new_ticket).then((res) => { console.log(res.data);
                 AF.set_loading_icons_appearence("off");
                 AF.display_success_icon();
+
+                if ( new_ticket.new_group ) { // If New Group Was Provided Update
+                    update_ticket_groups();
+                }
+
                 AF.reset_all_inputs(setValue); // "setValue" Meant To Reset Calendar
                 AF.set_disabled_status_on_ticket_creation_buttons(false); // Letting Create Ticket Buttons Enabled Again
                 update_all_tickets();

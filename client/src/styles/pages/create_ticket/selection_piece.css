@@ -54,7 +54,8 @@ div[theme='bright'] .TC-SP-new-option-text-input {
 .TC-SP-new-option-text-input[status="on"] {
 	visibility: visible;
 	opacity: 1;
-	margin-top: 30px;
+	margin-top: 24px;
+	margin-bottom: 6px;
 	height: auto;
 }
 
