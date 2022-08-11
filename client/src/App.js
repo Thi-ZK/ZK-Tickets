@@ -1,17 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect }             from "react";
 import axios from './api/axios';
+import AF    from './components_aux_functions/app';
 
-import Login from './components/Pages/Login';
-import TicketView from './components/Pages/TicketView/TicketView';
-import TicketListing from './components/Pages/TicketListing';
-import ErrorPage from './components/Pages/ErrorPage';
-import Profile from './components/Pages/Profile/Profile';
-import HelpAndInfo from './components/Pages/HelpAndInfo';
-import CreateTicket from './components/Pages/CreateTicket/CreateTicket';
-import NotAuthorized from './components/Pages/NotAuthorized';
-import LeftHeader from './components/Header/LeftHeader/LeftHeader';
-import TopHeader from './components/Header/TopHeader';
+import Login             from './components/Pages/Login';
+import TicketView        from './components/Pages/TicketView/TicketView';
+import TicketListing     from './components/Pages/TicketListing';
+import ErrorPage         from './components/Pages/ErrorPage';
+import Profile           from './components/Pages/Profile/Profile';
+import HelpAndInfo       from './components/Pages/HelpAndInfo';
+import CreateTicket      from './components/Pages/CreateTicket/CreateTicket';
+import NotAuthorized     from './components/Pages/NotAuthorized';
+import LeftHeader        from './components/Header/LeftHeader/LeftHeader';
+import TopHeader         from './components/Header/TopHeader';
 import TicketActionModal from './components/Ticket/TicketActionModal';
 
 function App() {
@@ -53,13 +54,13 @@ function App() {
         })
     }
 
-    // All Users Names & IDs State Set. This Is Necessary For Create Ticket (List Of Users To Attach) 
+    // All Users Names With IDs State Set (Object)
     const [usersNamesWithIds, updateUsers] = useState({});
     const update_user_names_and_ids = () => {
         axios.get('/users/get/piece/all_users').then((users) => { updateUsers(users.data.data); console.log(users.data); })
     }
 
-    // All Users Names & IDs State Set. This Is Necessary For Create Ticket (List Of Users To Attach) 
+    // All Ticket Groups Names With IDs State Set (Object)
     const [ticketGroups, updateTicketGroups] = useState({});
     const update_ticket_groups = () => {
         axios.get('/ticket_groups/get/piece/all_groups').then((ticket_groups) => { updateTicketGroups(ticket_groups.data.data); console.log(ticket_groups.data); })
@@ -73,9 +74,9 @@ function App() {
         update_ticket_groups();
     }, []);
 
-    // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States (The Ones That Used In Many Contexts)
+    // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States
     const allPopulationData = {
-        allTickets: allTickets,
+        allTickets:                      allTickets,
         update_all_tickets:              update_all_tickets,
         userData:                        userData,
         updateUserData:                  updateUserData,

@@ -8,11 +8,12 @@ function Home({ allPopulationData }) {
     const update_all_tickets        = allPopulationData.update_all_tickets;
     const update_user_data          = allPopulationData.update_user_data;
     const update_user_names_and_ids = allPopulationData.update_user_names_and_ids;
+    const update_ticket_groups      = allPopulationData.update_ticket_groups;
     const userData                  = allPopulationData.userData;
     const language                  = allPopulationData.language;
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
-    const attemptLogin = (event) => {
+    const attempt_login = (event) => {
         set_error_message_appearence("off");
         event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
         event.preventDefault();
@@ -32,10 +33,11 @@ function Home({ allPopulationData }) {
             event.target.disabled = false;
             AF.set_loading_icon_appearence("off");
             
-            if (res.data.success) { // If User Logged In Successfully
+            if ( res.data.success ) { // If User Logged In Successfully
                 update_all_tickets();
                 update_user_data(true);
                 update_user_names_and_ids();
+                update_ticket_groups();
                 set_error_message_appearence("off", "");
                 AF.vanish_login_form();
                 AF.clean_pass_and_email_inputs();
@@ -82,7 +84,7 @@ function Home({ allPopulationData }) {
                     </div>
                 </div>
                 <div id='LOG-submit-button-direct-container'>
-                    <button type="submit" onClick={attemptLogin}>{texts.login_button[language]}</button>
+                    <button type="submit" onClick={attempt_login}>{texts.login_button[language]}</button>
                 </div>
                 <div id='LOG-forgot-password-button-direct-container'>
                     <button onClick={(event) => AF.prevent_default(event)}>{texts.forgot_password[language]}</button>

@@ -28,7 +28,7 @@ const what_was_requested_obj_map = {
     "/users/update/current/preferred_language":         "Set New User Preferred Language",
     "/users/update/current/preferred_brightness_theme": "Set New User Preferred Brightness Theme",
     "/tickets/create/single":                           "Create New Ticket",
-    "/ticket_groups/get/all":                           "All Ticket Groups",
+    "/ticket_groups/get/all":                           "All Ticket Groups Data",
     "/ticket_groups/get/piece/all_groups":              "All Ticket Groups Names With IDs",
     "/login/auth":                                      "Authenticate User"
 }; 
