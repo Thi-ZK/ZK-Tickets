@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from '../../../api/axios';
 import texts from '../../../languages/Pages/TicketView/PlaceMessage.json';
-import AF from '../../../components_aux_functions/pages/ticket_view/place_message.js'; // Aux Functions
+import AF    from '../../../components_aux_functions/pages/ticket_view/place_message.js'; // Aux Functions
 
 function PlaceMessage({ ticket_id, messages_utils, userData }) {
     // Messages Aliases
@@ -12,6 +12,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
     // Meant For Setting Messages
     const set_message = () => {
         let message = document.querySelector("#TV-PM-message-textarea").innerText;
+        
         if (!message) { return; }
         
         document.querySelector("#TV-PM-message-textarea").innerText = ""; // Clean TextArea
@@ -20,13 +21,14 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
         axios.post('/tickets/update/single/messages/set', { message: message, message_id: new_msg_id, ticket_id: ticket_id })
         .then((res) => {console.log(res.data);
             AF.show_and_fade_success_icon();
+
             updateMessages([...messages, {
                 message_owner_name: userData.name,
-                message_owner: userData.id,
+                message_owner:      userData.id,
                 date_casual_format: String(new Date()),
-                message: message,
-                status: "alive",
-                id: new_msg_id
+                message:            message,
+                status:             "alive",
+                id:                 new_msg_id
             }])
         })
     } 

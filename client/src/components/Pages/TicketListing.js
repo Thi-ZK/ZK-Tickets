@@ -1,7 +1,7 @@
-import React from 'react';
-import TicketBand from '../Ticket/TicketBand';
+import React         from 'react';
+import TicketBand    from '../Ticket/TicketBand';
 import { useParams } from "react-router-dom";
-import AF from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
+import AF            from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
 
 function TicketListing ({ allPopulationData }) {
     // Aliases

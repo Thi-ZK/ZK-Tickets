@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import texts from '../../../languages/Pages/Profile/Profile.json';
-import Switch from '../../IndependentPieces/Switch.js';
-import Preferences from './Preferences';
-import UserInfo from './UserInfo';
-import AF from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
+import texts               from '../../../languages/Pages/Profile/Profile.json';
+import Switch              from '../../IndependentPieces/Switch.js';
+import Preferences         from './Preferences';
+import UserInfo            from './UserInfo';
+import AF                  from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
 function Profile({ allPopulationData }) {
     // Aliases For Language & Population Data
-    const userData   = allPopulationData.userData;
-    const language   = allPopulationData.language;
-    const allTickets = allPopulationData.allTickets;
+    const userData         = allPopulationData.userData;
+    const language         = allPopulationData.language;
+    const allTickets       = allPopulationData.allTickets;
     const update_user_data = allPopulationData.update_user_data;
 
     // State Declaration For Which Main Content To Be Displayed 

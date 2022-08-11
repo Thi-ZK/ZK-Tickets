@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect }             from "react";
-import axios from './api/axios';
+import axios                                      from './api/axios';
+
 import AF    from './components_aux_functions/app';
 
 import Login             from './components/Pages/Login';
@@ -19,10 +20,10 @@ function App() {
     // Ticket Action Modal State
     const [ticketActionModalSettings, updateTicketActionModalSettings] = useState({
         is_action_redundant: false,
-        text_thema: "none",
-        status: "closed",
-        ticket_id: "none",
-        which_action: "none"
+        text_thema:    "none",
+        status:        "closed",
+        ticket_id:     "none",
+        which_action:  "none"
     });
 
     // For Language State
@@ -33,45 +34,27 @@ function App() {
 
     // All Tickets State Set
     const [allTickets, updateTickets] = useState([]);
-    const update_all_tickets = async () => {
-        axios.get('/tickets/get/all').then((tickets) => {console.log(tickets.data);
-            if ( tickets.data.success ) { updateTickets(tickets.data.data); }
-        })
-    }
+    const update_all_tickets          = AF.generate_update_all_tickets_function(updateTickets, axios);
     
     // User Data State Set
-    const [userData, updateUserData] = useState(undefined); // Is An Object
-    const update_user_data = (should_update_lang_and_brightness_theme) => {
-        axios.get('/users/get/single/current').then((res) => {console.log(res.data);
-            if ( res.data.success ) {
-                updateUserData(res.data.data);
+    const [userData, updateUserData] = useState(null); // Is An Object
+    const update_user_data           = AF.generate_update_user_data_function(updateUserData, updateBrightnessTheme, updateLanguage, axios);
 
-                if ( should_update_lang_and_brightness_theme ) {
-                    updateBrightnessTheme(res.data.data.preferred_brightness_theme);
-                    updateLanguage(res.data.data.preferred_language);
-                }
-            }
-        })
-    }
-
-    // All Users Names With IDs State Set (Object)
+    // All Users Names With IDs State Set
     const [usersNamesWithIds, updateUsers] = useState({});
-    const update_user_names_and_ids = () => {
-        axios.get('/users/get/piece/all_users').then((users) => { updateUsers(users.data.data); console.log(users.data); })
-    }
+    const update_user_names_and_ids        = AF.generate_update_user_names_and_ids_function(updateUsers, axios);
 
-    // All Ticket Groups Names With IDs State Set (Object)
+    // All Ticket Groups Names With IDs State Set
     const [ticketGroups, updateTicketGroups] = useState({});
-    const update_ticket_groups = () => {
-        axios.get('/ticket_groups/get/piece/all_groups').then((ticket_groups) => { updateTicketGroups(ticket_groups.data.data); console.log(ticket_groups.data); })
-    }
+    const update_ticket_groups               = AF.generate_update_ticket_groups_function(updateTicketGroups, axios);
  
-    // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh Page)
+    // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh Page F5)
     useEffect(() => {
         update_all_tickets();
-        update_user_data(true); // true To Update Lang & Brightness Theme With User Preferences
+        update_user_data(true); // true To Update Lang & Brightness Theme With User Preferences When Called
         update_user_names_and_ids();
         update_ticket_groups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States

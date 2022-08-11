@@ -1,6 +1,6 @@
 import React from 'react';
 import texts from '../../../languages/Pages/TicketView/ManageTicketButtons.json';
-import AF from '../../../components_aux_functions/pages/ticket_view/manage_ticket_buttons.js'; // Aux Functions
+import AF    from '../../../components_aux_functions/pages/ticket_view/manage_ticket_buttons.js'; // Aux Functions
 
 function ManageTicketButtons ({ ticket_data, allPopulationData }) {
     // Aliases For Population Data
@@ -13,10 +13,10 @@ function ManageTicketButtons ({ ticket_data, allPopulationData }) {
 
 		updateTicketActionModalSettings({
 			is_action_redundant: ticket_data.status.toLowerCase().includes(action.substring(0, 8)),
-			text_thema: action,
-			status: "open",
-			ticket_id: ticket_data.id,
-			which_action: action
+			text_thema:          action,
+			status:              "open",
+			ticket_id:           ticket_data.id,
+			which_action:        action
 		});
 	}
 

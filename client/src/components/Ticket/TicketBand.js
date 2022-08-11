@@ -1,16 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import texts from '../../languages/Ticket/TicketBand.json';
-import AF from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
+import texts           from '../../languages/Ticket/TicketBand.json';
+import AF              from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
 
 const Ticket = ({ ticket_data, allPopulationData }) => {
-	// Language Alias
-	const language = allPopulationData.language;
-
-	// Alias For Ticket Action Modal
+	// Aliases
+	const language                        = allPopulationData.language;
 	const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
 
 	// Meant For When User Clicks And Select To View A Ticket From The List
-	let navigate = useNavigate();
+	let navigate           = useNavigate();
 	let navigate_to_ticket = (event) => {
 		let elem_class = event.target.className;
 		if (elem_class !== "TB-action-options-button") {
@@ -24,10 +22,10 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 
 		updateTicketActionModalSettings({
 			is_action_redundant: ticket_data.status.toLowerCase().includes(action.substring(0, 8)),
-			text_thema: action,
-			status: "open",
-			ticket_id: ticket_data.id,
-			which_action: action
+			text_thema:          action,
+			status:              "open",
+			ticket_id:           ticket_data.id,
+			which_action:        action
 		});
 	}
 

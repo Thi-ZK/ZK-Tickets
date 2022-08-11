@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import texts from '../../../languages/Pages/CreateTicket/SelectionPiece.json';
-import AF from '../../../components_aux_functions/pages/create_ticket/selection_piece.js'; // Aux Functions
+import texts               from '../../../languages/Pages/CreateTicket/SelectionPiece.json';
+import AF                  from '../../../components_aux_functions/pages/create_ticket/selection_piece.js'; // Aux Functions
 
 function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
     // Aliases
@@ -13,14 +13,14 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
 
     // Meant For Add Aggregative Option (User Or Group)
     const add_aggregative = (event) => {
-        if ((current_piece !== "assigneds") && (current_piece !== "groups")) {return;}
+        if ((current_piece !== "assigneds") && (current_piece !== "groups")) { return; }
         event.target.querySelector(".TC-SP-aux-filling-option").disabled = true; // Prevent Several Commands Before Finishing Last
 
         let option_chosen = event.target.options[event.target.selectedIndex];
         
         if (!currentAggregatives.names.includes(option_chosen.value)) {
             updateAggregatives({
-                ids: [...currentAggregatives.ids, option_chosen.id],
+                ids:   [...currentAggregatives.ids, option_chosen.id],
                 names: [...currentAggregatives.names, option_chosen.value]
             })
         }
@@ -32,7 +32,7 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
         let elem_id   = event.target.getAttribute("aggregative-id");
 
         updateAggregatives({
-            ids: currentAggregatives.ids.filter((elem) => { return elem !== elem_id }),
+            ids:   currentAggregatives.ids.filter((elem) => { return elem !== elem_id }),
             names: currentAggregatives.names.filter((elem) => { return elem !== elem_name })
         });
     }

@@ -1,10 +1,9 @@
-// import React, { useState, useEffect } from 'react';
 import React from 'react';
 import axios from '../../../api/axios';
-import AF from '../../../components_aux_functions/pages/ticket_view/message.js'; // Aux Functions
+import AF    from '../../../components_aux_functions/pages/ticket_view/message.js'; // Aux Functions
 import texts from '../../../languages/Pages/TicketView/Message.json';
 
-function Message({ type, message_data, ticket_id, messages_utils, userData}) {
+function Message({ type, message_data, ticket_id, messages_utils, userData }) {
     // Aliases
     const messages       = messages_utils.messages;
     const updateMessages = messages_utils.updateMessages; 

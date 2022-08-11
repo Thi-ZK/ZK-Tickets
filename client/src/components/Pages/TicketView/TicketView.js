@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import texts from '../../../languages/Pages/TicketView/TicketView.json';
+import { useParams }                  from "react-router-dom";
+import texts                          from '../../../languages/Pages/TicketView/TicketView.json';
 
-import AttachmentBlock from '../../IndependentPieces/AttachmentBlock';
-import Message from './Message';
-import ManageTicketButtons from "./ManageTicketButtons";
-import PlaceMessage from "./PlaceMessage";
+import AttachmentBlock           from '../../IndependentPieces/AttachmentBlock';
+import Message                   from './Message';
+import ManageTicketButtons       from "./ManageTicketButtons";
+import PlaceMessage              from "./PlaceMessage";
 import TicketOverviewInformation from "./TicketOverviewInformation";
 
 function TicketView({ allPopulationData }) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from '../../../api/axios';
-import AF from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
+import AF    from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
 import texts from '../../../languages/Pages/Profile/Preferences.json';
 
 function Preferences ({ userData, update_user_data, language }) {

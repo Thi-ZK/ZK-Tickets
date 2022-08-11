@@ -1,6 +1,6 @@
 import axios from '../../api/axios';
 import texts from '../../languages/Ticket/TicketActionModal.json';
-import AF from '../../components_aux_functions/ticket/ticket_action_modal'; // Aux Functions
+import AF    from '../../components_aux_functions/ticket/ticket_action_modal'; // Aux Functions
 
 const TicketActionModal = ({ allPopulationData }) => {
     // General Aliases
@@ -15,7 +15,7 @@ const TicketActionModal = ({ allPopulationData }) => {
 
     // Meant For Updating The Ticket In The Server -> Database
     const update_ticket = () => {
-        let ticket_id = ticketActionModalSettings.ticket_id;
+        let ticket_id  = ticketActionModalSettings.ticket_id;
         let new_status = {conclude: "Concluded", block: "Blocked", homologate: "Homologation", delete: "Deleted"}[ticketActionModalSettings.which_action];
         
         axios.post('/tickets/update/single/status', { new_status: new_status, ticket_id: ticket_id })

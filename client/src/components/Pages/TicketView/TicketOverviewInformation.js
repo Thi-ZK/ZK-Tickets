@@ -1,6 +1,6 @@
 import axios from '../../../api/axios';
 import texts from '../../../languages/Pages/TicketView/TicketOverViewInformation.json';
-import AF from '../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
+import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
 function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWithIds }) {
     // Aliases For Assigneds
@@ -31,14 +31,14 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
     // Unassign User Function
     const unassign_user = (event) => {
         let unassigned_name = event.target.innerText;
-        let unassigned_id = Number(document.querySelector("option[assigned-name='" + unassigned_name + "']").id);
+        let unassigned_id   = Number(document.querySelector("option[assigned-name='" + unassigned_name + "']").id);
 
         let data = {
-            assigned_id: unassigned_id,
-            assigned_name: unassigned_name, 
-            ticket_creator: ticket_creator,
+            assigned_id:         unassigned_id,
+            assigned_name:       unassigned_name, 
+            ticket_creator:      ticket_creator,
             ticket_creator_name: ticket_creator_name,
-            ticket_id: ticket_data.id
+            ticket_id:           ticket_data.id
         }
         
         axios.post('/tickets/update/single/assigneds/delete', data)
