@@ -23,41 +23,58 @@ div[theme='bright'] #TV-ticket-info-container p span {
 	color: rgb(60, 60, 60);
 }
 
-.TV-INF-line-info-key {
+.TV-INF-line-info-key, .TV-INF-line-info-key-aggregative {
 	width: 55%;
 }
 
-p[class='TV-INF-line-info-key rectangle-span-selected_pieces'] span {
+p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span {
 	margin-right: 6px;
 }
 
-#TV-INF-assumers-text-key {
+.TV-INF-line-info-key-aggregative {
+	padding: 4px 0px 0px 0px !important;
+}
+
+#TV-INF-assumers-text-key, #TV-INF-groups-text-key {
 	margin-right: 4px;
 }
 
-.TV-INF-line-info-value {
+.TV-INF-line-info-value, .TV-INF-line-info-value-aggregatives {
 	width: 40%;
 }
 
-.TV-INF-line-info-value, .TV-INF-info-line-direct-container {
+.TV-INF-line-info-value, .TV-INF-line-info-value-aggregatives, .TV-INF-info-line-direct-container {
 	display: flex;
 	justify-content: space-between;
 }
 
-#TV-INF-assigneds-selector {
+#TV-INF-aggregatives-container {
+	padding-top: 7px;
+}
+
+.TV-INF-line-info-value-aggregatives {
+	align-items: center;
+	max-height: 33px;
+	padding-bottom: 4px !important;
+}
+
+#TV-INF-groups-p {
+	padding-top: 6px !important;
+}
+
+#TV-INF-assigneds-selector, #TV-INF-groups-selector {
 	border: 1px solid rgb(200,200,200);
 	color: rgb(230, 230, 230);
-	padding: 5px;
+	padding: 0px 2px 0px 4px;
 	background-color: rgb(30, 30, 30);
-	margin-top: 3px;
-	height: 30px;
+	height: 22px;
 }
-div[theme='bright'] #TV-INF-assigneds-selector {
+div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-groups-selector {
 	color: rgb(50, 50, 50);
 	background-color: white;
 	border: 1px solid rgb(180,180,180);
 }
 
-.TV-INF-assigneds-rectangle-span {
+.TV-INF-assigneds-rectangle-span, .TV-INF-assigneds-groups-span {
 	line-height: 27px;
 }

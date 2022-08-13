@@ -2,15 +2,15 @@ import axios from '../../../api/axios';
 import texts from '../../../languages/Pages/TicketView/TicketOverViewInformation.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
-function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWithIds }) {
+function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language }) {
     // Aliases For Assigneds
-    const assigneds       = assigneds_utils.assigneds;
-    const updateAssigneds = assigneds_utils.updateAssigneds;
+    const assigneds       = aggregatives_utils.assigneds;
+    const updateAssigneds = aggregatives_utils.updateAssigneds;
+    const groups          = aggregatives_utils.groups;
 
     // Aliases For Population Data
-    const language    = assigneds_utils.language;
-    const users_names = Object.values(usersNamesWithIds);
-    const users_ids   = Object.keys(usersNamesWithIds);
+    const users_names = Object.values(aggregatives_utils.usersNamesWithIds);
+    const users_ids   = Object.keys(aggregatives_utils.usersNamesWithIds);
 
     // Aliases For Ticket Data
     const ticket_creator      = ticket_data.creator;
@@ -21,8 +21,8 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
         let assigned_id   = AF.get_assigned_id(event.target);
         let assigned_name = AF.get_assigned_name(event.target);
 
-        document.querySelector("#TV-INF-no-assigment-aux-option").disabled = true; // To Prevent Several Requests Before The Last Is Over
-        if (assigneds.includes(assigned_name)) { return; }
+        AF.should_disable_aux_assigned_option(true); // Disables Double Dash Option "--"
+        if (assigneds.includes(assigned_name)) { return; } // If Assigned Chosen Is Already An Assigned
 
         axios.post('/tickets/update/single/assigneds/set', { assigned_id: assigned_id, assigned_name: assigned_name, ticket_id: ticket_data.id })
         .then((res) => { updateAssigneds([...assigneds, assigned_name]); console.log(res.data); })
@@ -42,7 +42,7 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
         }
         
         axios.post('/tickets/update/single/assigneds/delete', data)
-        .then((res) => { updateAssigneds(assigneds.filter((assigned) => {return assigned !== unassigned_name})); console.log(res.data); })
+        .then((res) => { updateAssigneds(assigneds.filter((assigned) => { return assigned !== unassigned_name })); console.log(res.data); })
     }
     
   return (
@@ -60,24 +60,42 @@ function TicketOverviewInformation ({ ticket_data, assigneds_utils, usersNamesWi
             <p className='TV-INF-line-info-value'>{texts.concluded_date[language]}: <span>{ticket_data.status === "Concluded" ? AF.date_formater(ticket_data.last_status_update_date) : "--"}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key'>{texts.groups[language]}: <span>{ticket_data.groups_names.join(", ")}</span></p>
+            <p className='TV-INF-line-info-key'>{texts.priority[language]}: <span>{texts[ticket_data.priority][language]}</span></p>
             <p className='TV-INF-line-info-value'>{texts.priority[language]}: <span>{texts[ticket_data.priority][language]}</span></p>
         </div>
-        <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key rectangle-span-selected_pieces'>
-                <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
-                {assigneds.map((assumer, index) => (
-                    <span className='TV-INF-assigneds-rectangle-span' onClick={unassign_user} key={index}>{assumer}</span>
-                ))}
-            </p>
-            <p className='TV-INF-line-info-value'>{texts.add_assigneds[language]}:
-                <select onChange={assign_user} id='TV-INF-assigneds-selector'>
-                    <option id="TV-INF-no-assigment-aux-option" assigned-name="none">--</option>
-                    {users_names.map((option, index) => (
-                        <option id={users_ids[index]} assigned-name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>
+        <div id='TV-INF-aggregatives-container'>
+            <div className='TV-INF-info-line-direct-container'>
+                <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-p'>
+                    <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
+                    {groups.map((group, index) => (
+                        <span className='TV-INF-groups-rectangle-span' onClick={unassign_user} key={index}>{group}</span>
                     ))}
-                </select>
-            </p>
+                </p>
+                <p className='TV-INF-line-info-value-aggregatives'>{texts.add_assigneds[language]}:
+                    <select onChange={assign_user} id='TV-INF-groups-selector'>
+                        <option id="TV-INF-no-assigment-aux-option" assigned-name="none">--</option>
+                        {users_names.map((option, index) => (
+                            <option id={users_ids[index]} assigned-name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>
+                        ))}
+                    </select>
+                </p>
+            </div>
+            <div className='TV-INF-info-line-direct-container'>
+                <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'>
+                    <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
+                    {assigneds.map((assumer, index) => (
+                        <span className='TV-INF-assigneds-rectangle-span' onClick={unassign_user} key={index}>{assumer}</span>
+                    ))}
+                </p>
+                <p className='TV-INF-line-info-value-aggregatives'>{texts.add_assigneds[language]}:
+                    <select onChange={assign_user} id='TV-INF-assigneds-selector'>
+                        <option id="TV-INF-no-assigment-aux-option" assigned-name="none">--</option>
+                        {users_names.map((option, index) => (
+                            <option id={users_ids[index]} assigned-name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>
+                        ))}
+                    </select>
+                </p>
+            </div>
         </div>
     </div>
   )

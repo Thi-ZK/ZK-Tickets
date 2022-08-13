@@ -26,9 +26,15 @@ const get_assigned_name = (option_elem) => {
     return get_which_assigned_option(option_elem).getAttribute("assigned-name");
 }
 
+// Set Assign User Aux Option (Two Dashes "--" Option) Disabled Status (Receives Boolean)
+const should_disable_aux_assigned_option = (status) => {
+    document.querySelector("#TV-INF-no-assigment-aux-option").disabled = status;
+}
+
 module.exports = {
-    date_formater: date_formater,
-    get_which_assigned_option: get_which_assigned_option,
-    get_assigned_id: get_assigned_id,
-    get_assigned_name: get_assigned_name
+    date_formater:                      date_formater,
+    get_which_assigned_option:          get_which_assigned_option,
+    get_assigned_id:                    get_assigned_id,
+    get_assigned_name:                  get_assigned_name,
+    should_disable_aux_assigned_option: should_disable_aux_assigned_option
 };

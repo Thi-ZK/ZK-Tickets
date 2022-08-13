@@ -50,7 +50,7 @@ div[theme='bright'] .TV-line-breaker p{
 /* Ticket Description */
 
 #TV-description-container{
-	padding: 24px 1em 16px 1em;
+	padding: 28px 1em 16px 1em;
 }
 
 #TV-description-container #TV-description-title-direct-container h3{
@@ -65,7 +65,7 @@ div[theme='bright'] #TV-description-container #TV-description-title-direct-conta
 
 #TV-description-direct-container {
 	font-size: 13.5px;
-	padding: 20px 17px 17px 17px;
+	padding: 20px 17px 17px 13px;
 	line-height: 21px;
 	color: white;
 }

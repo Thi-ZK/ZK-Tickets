@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams }                  from "react-router-dom";
 import texts                          from '../../../languages/Pages/TicketView/TicketView.json';
+import AF                             from '../../../components_aux_functions/pages/ticket_view/ticket_view.js'; // Aux Functions
 
 import AttachmentBlock           from '../../IndependentPieces/AttachmentBlock';
 import Message                   from './Message';
@@ -8,31 +9,37 @@ import ManageTicketButtons       from "./ManageTicketButtons";
 import PlaceMessage              from "./PlaceMessage";
 import TicketOverviewInformation from "./TicketOverviewInformation";
 
+// Assigneds, Messages & Groups States Are Only Meant For Faster Responsiveness In Client (Already Updating State While Real Data Is Being Fetched In DB)
 function TicketView({ allPopulationData }) {
 	// Population Data Alias
 	const allTickets         = allPopulationData.allTickets;
 	const update_all_tickets = allPopulationData.update_all_tickets;
 	const userData           = allPopulationData.userData;
 	const language           = allPopulationData.language;
-	const usersNamesWithIds  = allPopulationData.usersNamesWithIds;
 
 	// Aliases For Specific Ticket Being Viewed Data
 	const { ticket_id } = useParams();
-	const ticket_data = allTickets.filter((elem) => {return elem.id === Number(ticket_id)})[0];
+	const ticket_data   = allTickets.filter((elem) => { return elem.id === Number(ticket_id) })[0];
 
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
-	const messages_utils = {messages: messages, updateMessages: updateMessages, language: language};
+	const messages_utils = { messages: messages, updateMessages: updateMessages, language: language };
 
 	// Assigneds State Declaration | assigneds and assumers are the same thing.
 	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
-	const assigneds_utils = {assigneds: assigneds, updateAssigneds: updateAssigneds, language: language};
+
+	// Groups State Declaration - The Ticket Bound Groups
+	const [groups, updateGroups] = useState(ticket_data.groups_names);
+
+	// Alias For Aggregatives => Assigneds & Groups 
+	const aggregatives_utils = AF.generate_aggregatives_utils_obj(assigneds, groups, updateAssigneds, updateGroups, allPopulationData);
 	
-	if (ticket_id > 5000) { window.location.href = "/ticket_does_not_exist";}
+	// Checks If Ticket ID Is Above 5000 And If Yes, Redirect User To 404 Page
+	AF.handle_too_high_id_ticket_search(ticket_id);
 	
 	// Brings Tickets From DB To Update Messages & Assigneds - Whenever User Performs Action.
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	useEffect(() => { update_all_tickets(); }, [messages, assigneds]);
+	useEffect(() => { update_all_tickets(); }, [messages, assigneds, groups]);
 
   	return (
     <>
@@ -43,7 +50,7 @@ function TicketView({ allPopulationData }) {
 					<h2>{ticket_data.name}</h2>
 					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 				</div>
-				<TicketOverviewInformation usersNamesWithIds={usersNamesWithIds} assigneds_utils={assigneds_utils} ticket_data={ticket_data}></TicketOverviewInformation>
+				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language}/>
 			</div>
 			<div className='TV-line-breaker'>
 				<div className='TV-line-breaker-centrelizer'>
