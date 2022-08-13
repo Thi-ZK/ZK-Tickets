@@ -13,7 +13,8 @@ const ticketCreateRouter = require('./routes/tickets/create');
 const ticketGetRouter    = require('./routes/tickets/get');
 const userGetRouter      = require('./routes/users/get');
 const userUpdateRouter   = require('./routes/users/update');
-const ticketGroupRouter  = require('./routes/ticket_groups/get');
+const GroupGetRouter     = require('./routes/ticket_groups/get');    // Ticket Group
+const GroupUpdateRouter  = require('./routes/ticket_groups/update'); // Ticket Group
 const loginAuthRouter    = require('./routes/login');
 
 const app = express();
@@ -66,7 +67,8 @@ app.use('/tickets/create', ticketCreateRouter);
 app.use('/tickets/get', ticketGetRouter);
 app.use('/users/get', userGetRouter);
 app.use('/users/update', userUpdateRouter);
-app.use('/ticket_groups/get', ticketGroupRouter);
+app.use('/ticket_groups/get', GroupGetRouter);
+app.use('/ticket_groups/get', GroupUpdateRouter);
 app.use('/login', loginAuthRouter);
 
 // Server Start After Successful Connection With DB

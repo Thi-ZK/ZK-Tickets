@@ -17,7 +17,7 @@ router.get('/piece/all_groups', urlencodedParser, async (req, res) => {
 	let all_ticket_groups            = await GroupModel.find();
 	let ticket_groups_names_with_ids = {};
 
-	for (let i = 0; i < all_ticket_groups.length; i++) {
+	for (let i = 0; i < all_ticket_groups.length; i++) { // PASS TO MIDS
 		ticket_groups_names_with_ids[all_ticket_groups[i].id] = all_ticket_groups[i].name;
 	}
 

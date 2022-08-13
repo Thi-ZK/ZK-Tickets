@@ -54,12 +54,13 @@ p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span 
 
 .TV-INF-line-info-value-aggregatives {
 	align-items: center;
-	max-height: 33px;
+	max-height: 28px;
 	padding-bottom: 4px !important;
 }
 
-#TV-INF-groups-p {
+#TV-INF-groups-rectangles-span-direct-container {
 	padding-top: 6px !important;
+	line-height: 25px !important;
 }
 
 #TV-INF-assigneds-selector, #TV-INF-groups-selector {
@@ -68,6 +69,7 @@ p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span 
 	padding: 0px 2px 0px 4px;
 	background-color: rgb(30, 30, 30);
 	height: 22px;
+	width: 100px;
 }
 div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-groups-selector {
 	color: rgb(50, 50, 50);
