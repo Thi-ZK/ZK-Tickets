@@ -39,11 +39,11 @@ p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span 
 	margin-right: 4px;
 }
 
-.TV-INF-line-info-value, .TV-INF-line-info-value-aggregatives {
+.TV-INF-line-info-value, .TV-INF-line-info-value-aggregative {
 	width: 40%;
 }
 
-.TV-INF-line-info-value, .TV-INF-line-info-value-aggregatives, .TV-INF-info-line-direct-container {
+.TV-INF-line-info-value, .TV-INF-line-info-value-aggregative, .TV-INF-info-line-direct-container {
 	display: flex;
 	justify-content: space-between;
 }
@@ -52,7 +52,7 @@ p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span 
 	padding-top: 7px;
 }
 
-.TV-INF-line-info-value-aggregatives {
+.TV-INF-line-info-value-aggregative {
 	align-items: center;
 	max-height: 28px;
 	padding-bottom: 4px !important;

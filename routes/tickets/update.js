@@ -59,7 +59,7 @@ router.post('/single/status', urlencodedParser, async (req, res) => {
 // NEW ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
 router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
 	let ticket_id        = req.body.ticket_id;
-	let new_assumer      = req.body.assigne_id;
+	let new_assumer      = req.body.assigned_id;
 	let new_assumer_name = req.body.assigned_name;
 	let error            = false;
 

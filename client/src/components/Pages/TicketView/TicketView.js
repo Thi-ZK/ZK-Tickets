@@ -37,7 +37,7 @@ function TicketView({ allPopulationData }) {
 	// Checks If Ticket ID Is Above 5000 And If Yes, Redirect User To 404 Page
 	AF.handle_too_high_id_ticket_search(ticket_id);
 	
-	// Brings Tickets From DB To Update Messages & Assigneds - Whenever User Performs Action.
+	// Brings Fresh Tickets From DB To Update Messages & Assigneds - Whenever User Performs Action.
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => { update_all_tickets(); }, [messages, assigneds, groups]);
 
