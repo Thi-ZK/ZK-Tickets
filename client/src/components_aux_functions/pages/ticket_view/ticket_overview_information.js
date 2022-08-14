@@ -78,7 +78,7 @@ const update_aggregative_state = (action, aggregatives_utils, aggregative_name, 
     }
 }
 
-module.exports = {
+const AF = {
     date_formater:                              date_formater,
     get_which_selected_option:                  get_which_selected_option,
     get_aggregative_id:                         get_aggregative_id,
@@ -89,3 +89,5 @@ module.exports = {
     generate_ticket_update_data_obj:            generate_ticket_update_data_obj,
     update_aggregative_state:                   update_aggregative_state
 };
+
+export default AF;
