@@ -35,6 +35,8 @@ const what_was_requested_obj_map = {
     "/tickets/create/single":                           "Create New Ticket",
     "/ticket_groups/get/all":                           "All Ticket Groups Data",
     "/ticket_groups/get/piece/all_groups":              "All Ticket Groups Names With IDs",
+    "/tickets/update/single/ticket_groups/set":         "Set Ticket Group To Single Ticket",
+    "/tickets/update/single/ticket_groups/delete":      "Remove Ticket Group From Single Ticket",
     "/login/auth":                                      "Authenticate User"
 }; 
 

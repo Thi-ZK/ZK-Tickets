@@ -78,8 +78,8 @@ router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
 // REMOVING ASSIGNED USER - Meant For Deleting A Assigned User For A Single Ticket
 router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
 	let ticket_id           = req.body.ticket_id;
-	let assumer         = req.body.aggregative_id;
-	let assumer_name    = req.body.aggregative_name;
+	let assumer             = req.body.aggregative_id;
+	let assumer_name        = req.body.aggregative_name;
 	let ticket_creator      = req.body.ticket_creator;
 	let ticket_creator_name = req.body.ticket_creator_name;
 	let error               = false;
@@ -91,6 +91,39 @@ router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
 			assumers_names:      assumer_name,
 			related_users:       ticket_creator === assumer ? undefined : assumer,
 			related_users_names: ticket_creator_name === assumer_name ? undefined : assumer_name,
+		}}).catch((err) => { error = err; });
+
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+});
+
+// NEW TICKET GROUP ASSIGNED - Meant For Setting A New Assigned Ticket Group For A Single Ticket
+router.post('/single/ticket_groups/set', urlencodedParser, async (req, res) => {
+	let ticket_id       = req.body.ticket_id;
+	let new_group       = req.body.aggregative_id;
+	let new_group_name  = req.body.aggregative_name;
+	let error           = false;
+
+	await TicketModel.updateOne({ id: ticket_id }, {
+		$addToSet: {
+			groups:       new_group,
+			groups_names: new_group_name
+		}}).catch((err) => { error = err; });
+	
+	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+});
+
+// REMOVING ASSIGNED TICKET GROUP - Meant For Deleting An Assigned Ticket Group For A Single Ticket
+router.post('/single/ticket_groups/delete', urlencodedParser, async (req, res) => {
+	let ticket_id  = req.body.ticket_id;
+	let group      = req.body.aggregative_id;
+	let group_name = req.body.aggregative_name;
+	let error      = false;
+
+	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off From The Array Of Related Users.
+	await TicketModel.updateOne({ id: ticket_id }, {
+		$pull: {
+			groups:       group,
+			groups_names: group_name
 		}}).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));

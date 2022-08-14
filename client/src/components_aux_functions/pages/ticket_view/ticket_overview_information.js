@@ -26,6 +26,11 @@ const get_aggregative_name = (select_elem) => {
     return get_which_selected_option(select_elem).getAttribute("name");
 }
 
+// Get Aggregative ID (For Unassign Function)
+const get_aggregative_id_for_unassign = (aggregative_name, aggregative_type) => {
+    return Number(document.querySelector("select[aggregative-type='" + aggregative_type + "'] option[name='" + aggregative_name.trim() + "']").id);
+}
+
 // Set Assign User Aux Option (Two Dashes "--" Option) Disabled Status
 const set_aux_aggregative_option_disabled_status = (status, event) => {
     event.target.querySelector("option[id*='TV-INF'][id*='aux-option']").disabled = status;
@@ -33,7 +38,12 @@ const set_aux_aggregative_option_disabled_status = (status, event) => {
 
 // Generate Update Request URL For Assign
 const gen_assign_req_url = (aggregative_type) => {
-    return aggregative_type === "group" ? "TBD" : "/tickets/update/single/assigneds/set";
+    return aggregative_type === "group" ? "/tickets/update/single/ticket_groups/set" : "/tickets/update/single/assigneds/set";
+}
+
+// Generate Update Request URL For Unassign
+const gen_unassign_req_url = (aggregative_type) => {
+    return aggregative_type === "group" ? "/tickets/update/single/ticket_groups/delete" : "/tickets/update/single/assigneds/delete";
 }
 
 // Is Aggregative Already Set
@@ -74,7 +84,9 @@ const AF = {
     gen_assign_req_url:                         gen_assign_req_url,
     update_aggregative_state_with_added:        update_aggregative_state_with_added,
     update_aggregative_state_with_removed:      update_aggregative_state_with_removed,
-    is_aggregative_already_set:                 is_aggregative_already_set
+    is_aggregative_already_set:                 is_aggregative_already_set,
+    get_aggregative_id_for_unassign:            get_aggregative_id_for_unassign,
+    gen_unassign_req_url:                       gen_unassign_req_url
 };
 
 export default AF;

@@ -11,7 +11,7 @@ const add_new_group_to_ticket_and_to_database = async (ticket_data, new_group_na
             new_group_id   = last_group[0].id + 1;
 
             await new GroupModel({ // Add New Group To Database
-                name:         new_group_name,
+                name:         new_group_name.trim(),
                 id:           new_group_id,
                 creator_name: user_data.name,
                 creator:      user_data.id,

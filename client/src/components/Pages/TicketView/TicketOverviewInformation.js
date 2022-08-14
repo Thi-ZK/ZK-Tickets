@@ -4,8 +4,8 @@ import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_ov
 
 function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language }) {
     // Aliases For Aggregatives States
-    const assigneds       = aggregatives_utils.assigneds;
-    const groups          = aggregatives_utils.groups;
+    const assigneds = aggregatives_utils.assigneds;
+    const groups    = aggregatives_utils.groups;
 
     // Aliases For Selections Elements Population Data
     const users_names      = Object.values(aggregatives_utils.usersNamesWithIds);
@@ -30,7 +30,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
             aggregative_name: aggregative_name,
             ticket_id:        ticket_data.id
         }
-        console.log(req_data);
+        
         axios.post(AF.gen_assign_req_url(aggregative_type), req_data)
         .then((res) => { console.log(res.data);
             AF.update_aggregative_state_with_added(aggregative_name, aggregatives_utils, aggregative_type);
@@ -41,8 +41,8 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
     const unassign_user = (event) => {
         let aggregative_type = event.target.getAttribute("aggregative-type");
         let aggregative_name = event.target.innerText;
-        let aggregative_id   = Number(document.querySelector("option[name='" + aggregative_name + "']").id);
-
+        let aggregative_id   = AF.get_aggregative_id_for_unassign(aggregative_name, aggregative_type);
+    
         let req_data = {
             aggregative_id:      aggregative_id,
             aggregative_name:    aggregative_name,
@@ -51,7 +51,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
             ticket_id:           ticket_data.id
         }
         
-        axios.post('/tickets/update/single/assigneds/delete', req_data)
+        axios.post(AF.gen_unassign_req_url(aggregative_type), req_data)
         .then((res) => { console.log(res.data);
             AF.update_aggregative_state_with_removed(aggregative_name, aggregatives_utils, aggregative_type);
         })
@@ -78,12 +78,12 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
         <div id='TV-INF-aggregatives-container'>
             <div className='TV-INF-info-line-direct-container'>
                 <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-rectangles-span-direct-container'>
-                    <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
+                    <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.groups_plural[language] : texts.groups[language]}:</small>
                     {groups.map((group, index) => (
                         <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_user} key={index}>{group}</span>
                     ))}
                 </p>
-                <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
+                <p className='TV-INF-line-info-value-aggregative'>{texts.add_groups[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-groups-selector' aggregative-type="group">
                         <option id="TV-INF-no-group-aux-option" name="none">--</option>
                         {all_groups_names.map((option, index) => (

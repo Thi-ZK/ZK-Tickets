@@ -30,10 +30,16 @@
         "spanish": "Concluido en"
     },
     "groups": {
-        "english": "Groups",
-        "german": "Gruppen",
-        "portuguese": "Grupos",
-        "spanish": "Grupos"
+        "english": "Ticket Group",
+        "german": "Ticket Gruppe",
+        "portuguese": "Grupo Do Ticket",
+        "spanish": "Grupo Del Ticket"
+    },
+    "groups_plural": {
+        "english": "Ticket Groups",
+        "german": "Ticket Gruppen",
+        "portuguese": "Grupos Do Ticket",
+        "spanish": "Grupos Del Ticket"
     },
     "priority": {
         "english": "Priority",
@@ -52,6 +58,12 @@
         "german": "Ticket zugewiesene",
         "portuguese": "Responsáveis Pelo Ticket",
         "spanish": "Responsables Del Ticket"
+    },
+    "add_groups": {
+        "english": "Add Groups",
+        "german": "Gruppen hinzufügen",
+        "portuguese": "Adicionar Grupos",
+        "spanish": "Añadir Grupos"
     },
     "add_assigneds": {
         "english": "Add Assgineds",
