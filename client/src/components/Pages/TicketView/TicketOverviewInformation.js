@@ -19,15 +19,18 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
     const ticket_creator_name = ticket_data.creator_name;
 
     // Set Aggregative Function (Add Assigned Or Groups)
-    const assign_user = (event) => {
-        let aggregative_id   = AF.get_aggregative_id(event.target);
-        let aggregative_name = AF.get_aggregative_name(event.target);
+    const assign_new_aggregative = (event) => {
+        let ticket_update_url = AF.get_ticket_update_url(event.target);
+        let aggregative_id    = AF.get_aggregative_id(event.target);
+        let aggregative_name  = AF.get_aggregative_name(event.target);
 
         AF.set_aux_aggregative_option_disabled_status(true, event); // Disables Double Dash Option "--"
         if ( AF.is_aggregative_already_set(aggregative_name, event, assigneds, groups) ) { return; }
 
-        axios.post('/tickets/update/single/assigneds/set', { assigned_id: aggregative_id, assigned_name: aggregative_name, ticket_id: ticket_data.id })
-        .then((res) => { updateAssigneds([...assigneds, aggregative_name]); console.log(res.data); })
+        axios.post(ticket_update_url, AF.generate_ticket_update_data_obj(aggregative_name, aggregative_id, ticket_data.id, event.target))
+        .then((res) => { console.log(res.data);
+            AF.update_aggregative_state("added", aggregatives_utils, aggregative_name, event.target);
+        })
     }
 
     // Unassign User Function
@@ -74,7 +77,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                     ))}
                 </p>
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
-                    <select onChange={assign_user} id='TV-INF-groups-selector'>
+                    <select onChange={assign_new_aggregative} id='TV-INF-groups-selector'>
                         <option id="TV-INF-no-group-aux-option" name="none">--</option>
                         {all_groups_names.map((option, index) => (
                             <option id={all_groups_ids[index]} name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>
@@ -90,7 +93,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                     ))}
                 </p>
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
-                    <select onChange={assign_user} id='TV-INF-assigneds-selector'>
+                    <select onChange={assign_new_aggregative} id='TV-INF-assigneds-selector'>
                         <option id="TV-INF-no-assigment-aux-option" name="none">--</option>
                         {users_names.map((option, index) => (
                             <option id={users_ids[index]} name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>

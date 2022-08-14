@@ -1,18 +1,23 @@
 // Generate Response Object - "error" Is Boolean, "data" Is Object, "req_path" Is Text String Of Request Path
 const generate_response_object = (error, data, req_original_path) => {
 	let res_obj = {
-		data: data,
-		success: true,
+		data:      data,
+		success:   true,
 		requested: what_was_requested_obj_map[req_original_path] || req_original_path,
-        error: null
+        error:     null
 	};
 
     if ( error ) {
         res_obj.success = false;
-        res_obj.error = error;
+        res_obj.error   = error;
     }
 
 	return res_obj;
+}
+
+// Generate Random ID | Format => <Timestamp>.<Random Number>
+const generate_random_id = () => {
+    return String(Date.now()) + "." + String(Math.floor(Math.random() * 100000));
 }
 
 // Object Map Of Requests From Client To Know What Was Requested
@@ -34,6 +39,7 @@ const what_was_requested_obj_map = {
 }; 
 
 module.exports = {
-    generate_response_object: generate_response_object,
-    what_was_requested_obj_map: what_was_requested_obj_map
+    generate_response_object:   generate_response_object,
+    what_was_requested_obj_map: what_was_requested_obj_map,
+    generate_random_id:         generate_random_id
 };
