@@ -51,16 +51,17 @@ router.post('/single/status', urlencodedParser, async (req, res) => {
 	let new_status = req.body.new_status;
 	let error      = false;
 	
-	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status}).catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status})
+	.catch((err) => { error = err; });
 	
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
-// NEW ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
+// NEW USER ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
 router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
 	let ticket_id        = req.body.ticket_id;
-	let new_assumer      = req.body.assigned_id;
-	let new_assumer_name = req.body.assigned_name;
+	let new_assumer      = req.body.aggregative_id;
+	let new_assumer_name = req.body.aggregative_name;
 	let error            = false;
 
 	await TicketModel.updateOne({ id: ticket_id }, {
@@ -74,11 +75,11 @@ router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
 });
 
-// DELETING ASSIGNED - Meant For Deleting A Assigned User For A Single Ticket
+// REMOVING ASSIGNED USER - Meant For Deleting A Assigned User For A Single Ticket
 router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
 	let ticket_id           = req.body.ticket_id;
-	let new_assumer         = req.body.assigne_id;
-	let new_assumer_name    = req.body.assigned_name;
+	let assumer         = req.body.aggregative_id;
+	let assumer_name    = req.body.aggregative_name;
 	let ticket_creator      = req.body.ticket_creator;
 	let ticket_creator_name = req.body.ticket_creator_name;
 	let error               = false;
@@ -86,10 +87,10 @@ router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
 	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off From The Array Of Related Users.
 	await TicketModel.updateOne({ id: ticket_id }, {
 		$pull: {
-			assumers:            new_assumer,
-			assumers_names:      new_assumer_name,
-			related_users:       ticket_creator === new_assumer ? undefined : new_assumer,
-			related_users_names: ticket_creator_name === new_assumer_name ? undefined : new_assumer_name,
+			assumers:            assumer,
+			assumers_names:      assumer_name,
+			related_users:       ticket_creator === assumer ? undefined : assumer,
+			related_users_names: ticket_creator_name === assumer_name ? undefined : assumer_name,
 		}}).catch((err) => { error = err; });
 
 	res.send(midds.generate_response_object(error, req.body, req.originalUrl));

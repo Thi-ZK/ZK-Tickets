@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Switch ( props ) {
     const condition = props.currentDisplayedContent;
     const children = props.children;

@@ -5,7 +5,6 @@ import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_ov
 function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language }) {
     // Aliases For Aggregatives States
     const assigneds       = aggregatives_utils.assigneds;
-    const updateAssigneds = aggregatives_utils.updateAssigneds;
     const groups          = aggregatives_utils.groups;
 
     // Aliases For Selections Elements Population Data
@@ -14,40 +13,48 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
     const all_groups_names = Object.values(aggregatives_utils.ticketGroups);
     const all_groups_ids   = Object.keys(aggregatives_utils.ticketGroups);
 
-    // Aliases For Ticket Data
-    const ticket_creator      = ticket_data.creator;
-    const ticket_creator_name = ticket_data.creator_name;
-
-    // Set Aggregative Function (Add Assigned Or Groups)
-    const assign_new_aggregative = (event) => {
-        let ticket_update_url = AF.get_ticket_update_url(event.target);
-        let aggregative_id    = AF.get_aggregative_id(event.target);
-        let aggregative_name  = AF.get_aggregative_name(event.target);
+    // Assign Aggregative Handler
+    const assign_aggregative = (event) => {
+        let aggregative_type = event.target.getAttribute("aggregative-type");
+        let aggregative_id   = AF.get_aggregative_id(event.target);
+        let aggregative_name = AF.get_aggregative_name(event.target);
 
         AF.set_aux_aggregative_option_disabled_status(true, event); // Disables Double Dash Option "--"
-        if ( AF.is_aggregative_already_set(aggregative_name, event, assigneds, groups) ) { return; }
 
-        axios.post(ticket_update_url, AF.generate_ticket_update_data_obj(aggregative_name, aggregative_id, ticket_data.id, event.target))
+        if (AF.is_aggregative_already_set(aggregative_name, aggregatives_utils, aggregative_type)) {
+            return; 
+        }
+
+        let req_data = {
+            aggregative_id:   aggregative_id,
+            aggregative_name: aggregative_name,
+            ticket_id:        ticket_data.id
+        }
+        console.log(req_data);
+        axios.post(AF.gen_assign_req_url(aggregative_type), req_data)
         .then((res) => { console.log(res.data);
-            AF.update_aggregative_state("added", aggregatives_utils, aggregative_name, event.target);
+            AF.update_aggregative_state_with_added(aggregative_name, aggregatives_utils, aggregative_type);
         })
     }
 
-    // Unassign User Function
+    // Unassign Aggregative Handler
     const unassign_user = (event) => {
-        let unassigned_name = event.target.innerText;
-        let unassigned_id   = Number(document.querySelector("option[assigned-name='" + unassigned_name + "']").id);
+        let aggregative_type = event.target.getAttribute("aggregative-type");
+        let aggregative_name = event.target.innerText;
+        let aggregative_id   = Number(document.querySelector("option[name='" + aggregative_name + "']").id);
 
-        let data = {
-            assigned_id:         unassigned_id,
-            assigned_name:       unassigned_name, 
-            ticket_creator:      ticket_creator,
-            ticket_creator_name: ticket_creator_name,
+        let req_data = {
+            aggregative_id:      aggregative_id,
+            aggregative_name:    aggregative_name,
+            ticket_creator:      ticket_data.creator,
+            ticket_creator_name: ticket_data.creator_name,
             ticket_id:           ticket_data.id
         }
         
-        axios.post('/tickets/update/single/assigneds/delete', data)
-        .then((res) => { updateAssigneds(assigneds.filter((assigned) => { return assigned !== unassigned_name })); console.log(res.data); })
+        axios.post('/tickets/update/single/assigneds/delete', req_data)
+        .then((res) => { console.log(res.data);
+            AF.update_aggregative_state_with_removed(aggregative_name, aggregatives_utils, aggregative_type);
+        })
     }
     
   return (
@@ -73,11 +80,11 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                 <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-rectangles-span-direct-container'>
                     <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
                     {groups.map((group, index) => (
-                        <span className='TV-INF-groups-rectangle-span' onClick={unassign_user} key={index}>{group}</span>
+                        <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_user} key={index}>{group}</span>
                     ))}
                 </p>
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
-                    <select onChange={assign_new_aggregative} id='TV-INF-groups-selector'>
+                    <select onChange={assign_aggregative} id='TV-INF-groups-selector' aggregative-type="group">
                         <option id="TV-INF-no-group-aux-option" name="none">--</option>
                         {all_groups_names.map((option, index) => (
                             <option id={all_groups_ids[index]} name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>
@@ -89,11 +96,11 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                 <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'>
                     <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
                     {assigneds.map((assumer, index) => (
-                        <span className='TV-INF-assigneds-rectangle-span' onClick={unassign_user} key={index}>{assumer}</span>
+                        <span className='TV-INF-assigneds-rectangle-span' aggregative-type="assumer" onClick={unassign_user} key={index}>{assumer}</span>
                     ))}
                 </p>
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
-                    <select onChange={assign_new_aggregative} id='TV-INF-assigneds-selector'>
+                    <select onChange={assign_aggregative} id='TV-INF-assigneds-selector' aggregative-type="assumer">
                         <option id="TV-INF-no-assigment-aux-option" name="none">--</option>
                         {users_names.map((option, index) => (
                             <option id={users_ids[index]} name={option} key={index}>{option.length <= 15 ? option : option.substring(0, 10) + "."}</option>

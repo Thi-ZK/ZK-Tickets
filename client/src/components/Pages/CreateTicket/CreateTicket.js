@@ -29,7 +29,7 @@ function CreateTicket ({ allPopulationData }) {
         
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
     const create_ticket = () => {
-        AF.set_disabled_status_on_ticket_creation_buttons(true); // True to disable.
+        AF.set_disabled_status_on_ticket_creation_buttons(true); // True To disable.
         AF.set_loading_icons_appearence("on");
 
         // Getting All Inputs & New Ticket Data
