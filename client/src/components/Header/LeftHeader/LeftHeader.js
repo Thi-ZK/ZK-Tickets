@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link }            from "react-router-dom";
 import React, { useState } from 'react';
-import texts from '../../../languages/Header/LeftHeader.json';
-import ListLink from './ListLink';
+import texts               from '../../../languages/Header/LeftHeader.json';
+import ListLink            from './ListLink';
 
 const Header = ({ language }) => {
     // Arrow Images Source URL Aliases
     const left_arrow_src  = '/imgs/headers/arrow_down.png';
     const right_arrow_src = '/imgs/headers/arrow_up.png';
+
+    const [searchBarTerm, updateSearchBarTerm] = useState("");
     
     // Meant For Standard Groups Tickets Opening (Nested Standards)
     const [stdGroupsOpeningStatus, setNewStdGroupsOpeningStatus] = useState({arrow_src: left_arrow_src, status: 'closed'});
@@ -15,7 +17,7 @@ const Header = ({ language }) => {
 
         setNewStdGroupsOpeningStatus({
             arrow_src: is_group_closed ? right_arrow_src : left_arrow_src,
-            status: is_group_closed ? "opened" : "closed"
+            status:    is_group_closed ? "opened" : "closed"
         });
     }
 
@@ -26,7 +28,7 @@ const Header = ({ language }) => {
 
         setNewMtGroupsOpeningStatus({
             arrow_src: is_group_closed ? right_arrow_src : left_arrow_src,
-            status: is_group_closed ? "opened" : "closed"
+            status:    is_group_closed ? "opened" : "closed"
         });
     }
 
@@ -38,7 +40,21 @@ const Header = ({ language }) => {
         </div>
         <div id="LH-search-container">
             <div>
-                <input type="" name="" placeholder="Search a ticket..." />
+                <input type="text" name="" placeholder="Search a ticket by ID or name..." />
+            </div>
+        </div>
+        <div id="LH-filtered-mini-ticket-bands-direct-container">
+            <div className="LH-filtered-mini-ticket-band" css-marker="FTB">
+                <div className="LH-FTB-title-direct-container">
+                    <h3>FastShop - GA4 Migration - Full Implementation</h3>
+                    <p>ID: <span>#4</span></p>
+                </div>
+                <div className="LH-FTB-general-infos-container">
+                    <div>
+                        Assumers:
+                        <span> Hien Vu, Lucas Furio Franco, Nadine Eppel</span>
+                    </div>
+                </div>
             </div>
         </div>
         <nav id="LH-navigation-links-container">

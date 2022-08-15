@@ -136,3 +136,49 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 	align-items: center;
 	width: 100%;
 }
+
+/* Filtered Ticket Bands */
+
+.LH-filtered-mini-ticket-band {
+	position: absolute;
+	padding: 10px;
+	width: 246px;
+	margin: 15px 0px 10px 0px;
+	border:solid 1px rgb(90, 90, 90);
+	z-index: 2;
+	/* background-image: linear-gradient(to right, #2193b0, #6dd5ed); */
+	/* background-image: linear-gradient(to right, #eb3349, #f45c43); */
+	/* background-image: linear-gradient(to right, #56ab2f, #a8e063); */
+	/* background-image: linear-gradient(to right, #B09B12, #FFD400); */
+	background-image: linear-gradient(to right,#861657,#FFA69E);
+	cursor: pointer;
+	color: white;
+	line-height: 14.5px;
+}
+
+.LH-FTB-title-direct-container {
+	font-size: 12px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.LH-FTB-title-direct-container h3 {
+	width: 85%;
+}
+
+.LH-FTB-title-direct-container p {
+	width: 15%;
+}
+
+.LH-FTB-title-direct-container p span {
+	font-weight: bold;
+}
+
+.LH-FTB-general-infos-container {
+	font-size: 11.5px;
+	padding-top: 5px;
+}
+
+.LH-FTB-general-infos-container span {
+	font-weight: bold;
+}
