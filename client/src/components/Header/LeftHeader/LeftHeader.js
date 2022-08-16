@@ -2,14 +2,19 @@ import { Link }            from "react-router-dom";
 import React, { useState } from 'react';
 import texts               from '../../../languages/Header/LeftHeader.json';
 import ListLink            from './ListLink';
+import MiniTicketBand      from './MiniTicketBand';
 
-const Header = ({ language }) => {
+const Header = ({ language, allTickets }) => {
     // Arrow Images Source URL Aliases
     const left_arrow_src  = '/imgs/headers/arrow_down.png';
     const right_arrow_src = '/imgs/headers/arrow_up.png';
 
-    const [searchBarTerm, updateSearchBarTerm] = useState("");
-    
+    // Search State & onChange Handler
+    const [searchBarTerm, updateSearchBarTerm] = useState(null);
+    const update_search_bar_state = (event) => {
+        updateSearchBarTerm(event.target.value);
+    }
+
     // Meant For Standard Groups Tickets Opening (Nested Standards)
     const [stdGroupsOpeningStatus, setNewStdGroupsOpeningStatus] = useState({arrow_src: left_arrow_src, status: 'closed'});
     const manage_standard_filters_status = () => {
@@ -40,22 +45,20 @@ const Header = ({ language }) => {
         </div>
         <div id="LH-search-container">
             <div>
-                <input type="text" name="" placeholder="Search a ticket by ID or name..." />
+                <input type="text" name="" placeholder="Search a ticket by ID or name..." onChange={update_search_bar_state}/>
             </div>
         </div>
         <div id="LH-filtered-mini-ticket-bands-direct-container">
-            <div className="LH-filtered-mini-ticket-band" css-marker="FTB">
-                <div className="LH-FTB-title-direct-container">
-                    <h3>FastShop - GA4 Migration - Full Implementation</h3>
-                    <p>ID: <span>#4</span></p>
-                </div>
-                <div className="LH-FTB-general-infos-container">
-                    <div>
-                        Assumers:
-                        <span> Hien Vu, Lucas Furio Franco, Nadine Eppel</span>
-                    </div>
-                </div>
-            </div>
+            {allTickets.filter((ticket) => {
+                let name = ticket.name.toLowerCase();
+                let id   = ticket.id.toString();
+                
+                if (searchBarTerm && ((name.includes(searchBarTerm)) || (id.includes(searchBarTerm)))) {
+                    return ticket;
+                }
+            }).map((ticket, index) => {
+                return <MiniTicketBand key={index} ticket_data={ticket}/>
+            })}
         </div>
         <nav id="LH-navigation-links-container">
             <ul>

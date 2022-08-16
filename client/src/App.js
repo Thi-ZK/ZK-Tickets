@@ -81,7 +81,7 @@ function App() {
         <div className="App" theme={currentBrightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
             <TicketActionModal allPopulationData={allPopulationData}></TicketActionModal>
-            <LeftHeader language={language}></LeftHeader>
+            <LeftHeader language={language} allTickets={allTickets}></LeftHeader>
             <div className="main-content-container">
                 <TopHeader allPopulationData={allPopulationData}></TopHeader>
                 <div id="top-header-space-auxiliary"></div>
