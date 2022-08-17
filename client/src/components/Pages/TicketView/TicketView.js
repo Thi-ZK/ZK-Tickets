@@ -41,6 +41,12 @@ function TicketView({ allPopulationData }) {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => { update_all_tickets(); }, [messages, assigneds, groups]);
 
+	useEffect(() => {
+		updateMessages(ticket_data.messages);
+		updateAssigneds(ticket_data.assumers_names);
+		updateGroups(ticket_data.groups_names);
+	 }, [ticket_id]);
+
   	return (
     <>
 	<div id="ticket-view-container" css-marker="TV" ticket-id={ticket_id}>

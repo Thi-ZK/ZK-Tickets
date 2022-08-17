@@ -20,9 +20,16 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
 
         AF.set_loading_icon_appearence("on", msg_id);
 
-        axios.post('/tickets/update/single/messages/delete', { message_id: msg_id, message_owner: msg_owner, ticket_id: ticket_id })
-        .then((res) => {console.log(res.data);
+        let data = {
+            message_id:    msg_id,
+            message_owner: msg_owner,
+            ticket_id:     ticket_id
+        };
+
+        axios.post('/tickets/update/single/messages/delete', data)
+        .then((res) => { console.log(res.data);
             AF.set_loading_icon_appearence("off", msg_id);
+            
             updateMessages(messages.map((msg) => { 
                 if (msg.id === msg_id) { msg.status = "deleted";}
                 return msg;
