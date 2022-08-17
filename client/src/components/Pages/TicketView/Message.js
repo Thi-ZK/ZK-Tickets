@@ -14,7 +14,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
         let msg_id    = message_data.id;
         let msg_owner = message_data.message_owner;
 
-        if ((userData.id !== msg_owner) && (userData.user_power < 4)) { 
+        if ( (userData.id !== msg_owner) && (userData.user_power < 4) ) { 
             return AF.display_not_enough_power_deletion_message(msg_id);
         }
 
@@ -29,9 +29,10 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
         axios.post('/tickets/update/single/messages/delete', data)
         .then((res) => { console.log(res.data);
             AF.set_loading_icon_appearence("off", msg_id);
+            window.__was_ticket_interacted = true;
             
             updateMessages(messages.map((msg) => { 
-                if (msg.id === msg_id) { msg.status = "deleted";}
+                if ( msg.id === msg_id ) { msg.status = "deleted"; }
                 return msg;
             }));
         });

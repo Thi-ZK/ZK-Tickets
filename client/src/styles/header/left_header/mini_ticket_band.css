@@ -1,0 +1,64 @@
+#LH-filtered-mini-ticket-bands-direct-container {
+	position: absolute;
+}
+
+.LH-filtered-mini-ticket-band {
+	padding: 10px;
+	width: 246px;
+	margin: 15px 0px 10px 0px;
+	border:solid 1px rgb(90, 90, 90);
+	z-index: 2;
+	cursor: pointer;
+	color: white;
+	line-height: 14.5px;
+	transition-duration: 0.1s;
+	height: 60px;
+}
+.LH-filtered-mini-ticket-band:hover {
+	box-shadow: 0 1px 10px 2px rgba(220,220,220,0.42);
+}
+
+div[status='open'] {
+	background-image: linear-gradient(to right,#861657,#FFA69E);
+}
+div[status='blocked'] {
+	background-image: linear-gradient(to right, #B09B12, #FFD400);
+}
+div[status='concluded'] {
+	background-image: linear-gradient(to right, #56ab2f, #a8e063);
+}
+div[status='deleted'] {
+	background-image: linear-gradient(to right, #eb3349, #f45c43);
+}
+div[status='homologation'] {
+	background-image: linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+
+
+.LH-FTB-title-direct-container {
+	font-size: 12px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.LH-FTB-title-direct-container h3 {
+	width: 85%;
+}
+
+.LH-FTB-title-direct-container p {
+	width: 15%;
+}
+
+.LH-FTB-title-direct-container p span {
+	font-weight: bold;
+}
+
+.LH-FTB-general-infos-container {
+	font-size: 11.5px;
+	padding-top: 5px;
+}
+
+.LH-FTB-general-infos-container span {
+	font-weight: bold;
+}

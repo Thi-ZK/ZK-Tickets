@@ -163,7 +163,8 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 }
 
 /* Header Styles */
-@import "./styles/header/left_header.css";
+@import "./styles/header/left_header/mini_ticket_band.css";
+@import "./styles/header/left_header/left_header.css";
 @import "./styles/header/top_header.css";
 
 /* Ticket Styles */

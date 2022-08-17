@@ -16,7 +16,7 @@ function TicketView({ allPopulationData }) {
 	const update_all_tickets = allPopulationData.update_all_tickets;
 	const userData           = allPopulationData.userData;
 	const language           = allPopulationData.language;
-
+	
 	// Aliases For Specific Ticket Being Viewed Data
 	const { ticket_id } = useParams();
 	const ticket_data   = allTickets.filter((elem) => { return elem.id === Number(ticket_id) })[0];
@@ -25,8 +25,8 @@ function TicketView({ allPopulationData }) {
 	const [messages, updateMessages] = useState(ticket_data.messages);
 	const messages_utils = { messages: messages, updateMessages: updateMessages, language: language };
 
-	// Assigneds State Declaration | assigneds and assumers are the same thing.
-	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
+	// Assigneds State Declaration
+	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names); // assigneds and assumers are the same thing.
 
 	// Groups State Declaration - The Ticket Bound Groups
 	const [groups, updateGroups] = useState(ticket_data.groups_names);
@@ -38,14 +38,17 @@ function TicketView({ allPopulationData }) {
 	AF.handle_too_high_id_ticket_search(ticket_id);
 	
 	// Brings Fresh Tickets From DB To Update Messages & Assigneds - Whenever User Performs Action.
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	useEffect(() => { update_all_tickets(); }, [messages, assigneds, groups]);
+	useEffect(() => {
+		if ( window.__was_ticket_interacted ) { update_all_tickets(); }
+		window.__was_ticket_interacted = false; // eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [messages, assigneds, groups]);
 
+	// Meant For When User Goes From One Ticket To Another Directly (Bcz Component Is Not Rerendered) (Occurs In Search)
 	useEffect(() => {
 		updateMessages(ticket_data.messages);
 		updateAssigneds(ticket_data.assumers_names);
-		updateGroups(ticket_data.groups_names);
-	 }, [ticket_id]);
+		updateGroups(ticket_data.groups_names); // eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ticket_id]);
 
   	return (
     <>
