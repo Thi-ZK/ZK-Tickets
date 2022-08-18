@@ -88,7 +88,7 @@ function App() {
                 <Routes>
                     {userData && allTickets.length ? (
                     <> 
-                    <Route path='/ticket_listing/:listing/:listing_2' element={<TicketListing allPopulationData={allPopulationData}/>}/>
+                    <Route path='/ticket_listing/:listing/:nested_listing' element={<TicketListing allPopulationData={allPopulationData}/>}/>
                     <Route path='/ticket_listing/:listing' element={<TicketListing allPopulationData={allPopulationData}/>}/>
                     <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
                     <Route path='/create_ticket' element={<CreateTicket allPopulationData={allPopulationData}/>}/>

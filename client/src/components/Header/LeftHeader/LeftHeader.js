@@ -76,8 +76,8 @@ const Header = ({ language, allTickets, ticketGroups }) => {
         <nav id="LH-navigation-links-container">
             <ul>
                 <ListLink link_url="/create_ticket" img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}></ListLink>
-                <ListLink link_url="/ticket_listing/all_tickets" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
-                <ListLink link_url="/ticket_listing/my_created_tickets" img_src_url="tickets/tag_icon" link_text={texts.my_created_tickets[language]}></ListLink>
+                <ListLink link_url="/ticket_listing/all" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
+                <ListLink link_url="/ticket_listing/created_by_me" img_src_url="tickets/tag_icon" link_text={texts.my_created_tickets[language]}></ListLink>
                 <div className="LH-links-grouper-container">
                     <div onClick={manage_standard_filters_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
@@ -87,12 +87,12 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                         </div>
                     </div>
                     <div status={stdGroupsOpeningStatus.status} className="LH-tickets-grouper-direct-container">
-                        <ListLink link_url="/ticket_listing/all_tickets_iaa" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/open_tickets_iaa" img_src_url="tickets/tag_icon" link_text={texts.open_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/all_deleted_tickets_iaa" img_src_url="tickets/red_tag" link_text={texts.deleted_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/concluded_tickets_iaa" img_src_url="tickets/green_tag" link_text={texts.concluded_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/blocked_tickets_iaa" img_src_url="tickets/yellow_tag" link_text={texts.blocked_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/homologated_tickets_iaa" img_src_url="tickets/blue_tag" link_text={texts.homologated_tickets[language]}></ListLink>
+                        <ListLink link_url="/ticket_listing/i_am_assigned/all" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
+                        <ListLink link_url="/ticket_listing/i_am_assigned/open" img_src_url="tickets/tag_icon" link_text={texts.open_tickets[language]}></ListLink>
+                        <ListLink link_url="/ticket_listing/i_am_assigned/deleted" img_src_url="tickets/red_tag" link_text={texts.deleted_tickets[language]}></ListLink>
+                        <ListLink link_url="/ticket_listing/i_am_assigned/concluded" img_src_url="tickets/green_tag" link_text={texts.concluded_tickets[language]}></ListLink>
+                        <ListLink link_url="/ticket_listing/i_am_assigned/blocked" img_src_url="tickets/yellow_tag" link_text={texts.blocked_tickets[language]}></ListLink>
+                        <ListLink link_url="/ticket_listing/i_am_assigned/homologation" img_src_url="tickets/blue_tag" link_text={texts.homologated_tickets[language]}></ListLink>
                     </div>
                 </div>
                 <div className="LH-links-grouper-container">
@@ -105,7 +105,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                     </div>
                     <div status={mtGroupsOpeningStatus.status} className="LH-tickets-grouper-direct-container">
                         {ticket_groups_names.map((group_name, index) => {
-                            return <ListLink key={index} link_url={"/ticket_listing/ticket_groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}></ListLink>
+                            return <ListLink key={index} link_url={"/ticket_listing/groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}></ListLink>
                         })}
                     </div>
                 </div>
