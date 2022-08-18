@@ -1,7 +1,7 @@
-import React from "react";
-import axios from '../../api/axios';
+import React    from "react";
+import axios    from '../../api/axios';
 import { Link } from "react-router-dom";
-import texts from '../../languages/Header/TopHeader.json';
+import texts    from '../../languages/Header/TopHeader.json';
 
 const TopHeader = ({ allPopulationData }) => {
     // Aliases For Language Related

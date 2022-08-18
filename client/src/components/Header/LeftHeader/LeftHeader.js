@@ -1,14 +1,16 @@
-import { Link }            from "react-router-dom";
 import React, { useState } from 'react';
 import texts               from '../../../languages/Header/LeftHeader.json';
 
 import ListLink            from './ListLink';
 import MiniTicketBand      from './MiniTicketBand';
 
-const Header = ({ language, allTickets }) => {
+const Header = ({ language, allTickets, ticketGroups }) => {
     // Arrow Images Source URL Aliases
     const left_arrow_src  = '/imgs/headers/arrow_down.png';
     const right_arrow_src = '/imgs/headers/arrow_up.png';
+
+    // Ticket Groups Alias
+    const ticket_groups_names = Object.values(ticketGroups);
 
     // Search State & onChange Handler
     const [searchBarTerm, updateSearchBarTerm] = useState("");
@@ -52,7 +54,7 @@ const Header = ({ language, allTickets }) => {
         </div>
         <div id="LH-search-container">
             <div>
-                <input type="text" name="" placeholder="Search a ticket by ID or name..." onChange={update_search_bar_state}/>
+                <input type="text" name="" placeholder={texts.search_a_ticket[language]} onChange={update_search_bar_state}/>
                 <img onClick={clean_search} className='TV-MSG-delete-icon' alt="delete red icon on search" src='/imgs/general/red_x_delete_icon.png'/>
             </div>
         </div>
@@ -102,12 +104,9 @@ const Header = ({ language, allTickets }) => {
                         </div>
                     </div>
                     <div status={mtGroupsOpeningStatus.status} className="LH-tickets-grouper-direct-container">
-                        <li>
-                            <Link to="/ticket_listing/my_tickets_iaa">
-                                <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
-                                <p>Fastshop</p>
-                            </Link>
-                        </li>
+                        {ticket_groups_names.map((group_name, index) => {
+                            return <ListLink key={index} link_url={"/ticket_listing/ticket_groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}></ListLink>
+                        })}
                     </div>
                 </div>
                 <ListLink link_url="/profile" img_src_url="profile" link_text={texts.profile_and_settings[language]}></ListLink>

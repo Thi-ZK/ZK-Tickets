@@ -80,15 +80,16 @@ function App() {
     <Router>
         <div className="App" theme={currentBrightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
-            <TicketActionModal allPopulationData={allPopulationData}></TicketActionModal>
-            <LeftHeader language={language} allTickets={allTickets}></LeftHeader>
+            <TicketActionModal allPopulationData={allPopulationData}/>
+            <LeftHeader language={language} allTickets={allTickets} ticketGroups={ticketGroups}/>
             <div className="main-content-container">
-                <TopHeader allPopulationData={allPopulationData}></TopHeader>
+                <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
                 <Routes>
                     {userData && allTickets.length ? (
                     <> 
-                    <Route path='/ticket_listing/:specific_listing' element={<TicketListing allPopulationData={allPopulationData}/>}/>
+                    <Route path='/ticket_listing/:listing/:listing_2' element={<TicketListing allPopulationData={allPopulationData}/>}/>
+                    <Route path='/ticket_listing/:listing' element={<TicketListing allPopulationData={allPopulationData}/>}/>
                     <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
                     <Route path='/create_ticket' element={<CreateTicket allPopulationData={allPopulationData}/>}/>
                     <Route path='/profile' element={<Profile allPopulationData={allPopulationData}/>}/>

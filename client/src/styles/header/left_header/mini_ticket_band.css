@@ -19,19 +19,19 @@
 	box-shadow: 0 1px 10px 2px rgba(220,220,220,0.42);
 }
 
-div[status='open'] {
+.LH-filtered-mini-ticket-band[status='open'] {
 	background-image: linear-gradient(to right,#861657,#FFA69E);
 }
-div[status='blocked'] {
+.LH-filtered-mini-ticket-band[status='blocked'] {
 	background-image: linear-gradient(to right, #B09B12, #FFD400);
 }
-div[status='concluded'] {
+.LH-filtered-mini-ticket-band[status='concluded'] {
 	background-image: linear-gradient(to right, #56ab2f, #a8e063);
 }
-div[status='deleted'] {
+.LH-filtered-mini-ticket-band[status='deleted'] {
 	background-image: linear-gradient(to right, #eb3349, #f45c43);
 }
-div[status='homologation'] {
+.LH-filtered-mini-ticket-band[status='homologation'] {
 	background-image: linear-gradient(to right, #2193b0, #6dd5ed);
 }
 

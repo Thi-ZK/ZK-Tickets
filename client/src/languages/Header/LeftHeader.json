@@ -18,10 +18,10 @@
         "spanish": "Tickets En Los Que Soy Responsable"
     },
     "my_ticket_groups": {
-        "english": "My Ticket Groups",
-        "german": "Meine Ticketgruppen",
-        "portuguese": "Meus Grupos De Ticket",
-        "spanish": "Mis Grupos De Ticket"
+        "english": "Ticket Groups",
+        "german": "Ticketgruppen",
+        "portuguese": "Grupos De Ticket",
+        "spanish": "Grupos De Ticket"
     },
     "profile_and_settings": {
         "english": "Profile & Settings",
@@ -70,5 +70,11 @@
         "german": "Meine erstellten Tickets",
         "portuguese": "Tickets Criados Por Mim",
         "spanish": "Tickets Creados Por Mí"
+    },
+    "search_a_ticket": {
+        "english": "Search by ID or name",
+        "german": "Suchen Sie nach ID oder Name",
+        "portuguese": "Procure pelo ID ou nome",
+        "spanish": "Procura por ID o nombre"
     }
 }
