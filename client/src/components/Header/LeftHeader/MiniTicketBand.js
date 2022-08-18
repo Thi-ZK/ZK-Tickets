@@ -1,7 +1,8 @@
 import React           from 'react';
 import { useNavigate } from "react-router-dom";
+import texts           from '../../../languages/Header/MiniTicketBand.json';
 
-function MiniTicketBand({ ticket_data }) {
+function MiniTicketBand({ ticket_data, language }) {
     const navigate = useNavigate();
     const navigate_to_ticket = () => {
         navigate('/ticket_view/' + ticket_data.id);
@@ -15,8 +16,8 @@ function MiniTicketBand({ ticket_data }) {
         </div>
         <div className="LH-FTB-general-infos-container">
             <div>
-                Assumers:
-                <span>{ticket_data.assumers_names.join(", ")}</span>
+                {ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:
+                <span>{" " + ticket_data.assumers_names.join(", ")}</span>
             </div>
         </div>
     </div>

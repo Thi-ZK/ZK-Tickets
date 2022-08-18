@@ -136,3 +136,18 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 	align-items: center;
 	width: 100%;
 }
+
+#LH-search-container img {
+	position: absolute;
+	padding-top: 16px;
+	color: white;
+	right: 42px;
+	visibility: hidden;
+	opacity: 0;
+	transition-duration: 0.22s;
+}
+
+#LH-search-container input:not(:placeholder-shown) + img {
+	visibility: visible;
+	opacity: 1;
+}

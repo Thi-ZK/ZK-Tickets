@@ -13,6 +13,7 @@
 	line-height: 14.5px;
 	transition-duration: 0.1s;
 	height: 60px;
+	
 }
 .LH-filtered-mini-ticket-band:hover {
 	box-shadow: 0 1px 10px 2px rgba(220,220,220,0.42);

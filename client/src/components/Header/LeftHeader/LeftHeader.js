@@ -1,6 +1,7 @@
 import { Link }            from "react-router-dom";
 import React, { useState } from 'react';
 import texts               from '../../../languages/Header/LeftHeader.json';
+
 import ListLink            from './ListLink';
 import MiniTicketBand      from './MiniTicketBand';
 
@@ -10,7 +11,7 @@ const Header = ({ language, allTickets }) => {
     const right_arrow_src = '/imgs/headers/arrow_up.png';
 
     // Search State & onChange Handler
-    const [searchBarTerm, updateSearchBarTerm] = useState(null);
+    const [searchBarTerm, updateSearchBarTerm] = useState("");
     const update_search_bar_state = (event) => {
         updateSearchBarTerm(event.target.value);
     }
@@ -37,6 +38,12 @@ const Header = ({ language, allTickets }) => {
         });
     }
 
+    // Search Handler - Cleans The Search
+    const clean_search = () => {
+        document.querySelector("#LH-search-container input").value = "";
+        updateSearchBarTerm("");
+    }
+
   return (
     <header id="left-header-container" css-marker="LH">
         <div id="LH-title-direct-container">
@@ -46,18 +53,22 @@ const Header = ({ language, allTickets }) => {
         <div id="LH-search-container">
             <div>
                 <input type="text" name="" placeholder="Search a ticket by ID or name..." onChange={update_search_bar_state}/>
+                <img onClick={clean_search} className='TV-MSG-delete-icon' alt="delete red icon on search" src='/imgs/general/red_x_delete_icon.png'/>
             </div>
         </div>
         <div id="LH-filtered-mini-ticket-bands-direct-container">
             {allTickets.filter((ticket) => {
                 let name = ticket.name.toLowerCase();
                 let id   = ticket.id.toString();
+                let term = searchBarTerm.toLowerCase();
                 
-                if (searchBarTerm && ((name.includes(searchBarTerm)) || (id.includes(searchBarTerm)))) {
+                if (term && ((name.includes(term)) || (id.includes(term)))) {
                     return ticket;
                 }
+
+                return false;
             }).map((ticket, index) => {
-                return <MiniTicketBand key={index} ticket_data={ticket}/>
+                return <MiniTicketBand key={index} ticket_data={ticket} language={language}/>
             })}
         </div>
         <nav id="LH-navigation-links-container">

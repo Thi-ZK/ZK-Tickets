@@ -1,0 +1,14 @@
+{
+    "assigneds": {
+        "english": "Ticket Assigned",
+        "german": "Ticket zugewiesen",
+        "portuguese": "Responsável Pelo Ticket",
+        "spanish": "Responsable Del Ticket"
+    },
+    "assigneds_plural": {
+        "english": "Ticket Assigneds",
+        "german": "Ticket zugewiesene",
+        "portuguese": "Responsáveis Pelo Ticket",
+        "spanish": "Responsables Del Ticket"
+    }
+}
