@@ -10,7 +10,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
     const right_arrow_src = '/imgs/headers/arrow_up.png';
 
     // Ticket Groups Alias
-    const ticket_groups_names = Object.values(ticketGroups);
+    const ticket_groups_names = ticketGroups ? Object.values(ticketGroups) : [];
 
     // Search State & onChange Handler
     const [searchBarTerm, updateSearchBarTerm] = useState("");
