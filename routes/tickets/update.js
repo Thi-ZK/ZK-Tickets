@@ -1,8 +1,8 @@
 const express     = require('express');
+const TicketModel = require('../../models/ticket');
 const router      = express.Router();
 const bodyParser  = require('body-parser');
-const TicketModel = require('../../models/ticket');
-const midds       = require('../../middlewares/general_utils'); 
+const AF          = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
@@ -15,15 +15,15 @@ router.post('/single/messages/set', urlencodedParser, async (req, res) => {
 		message:            req.body.message,
 		date:               new Date(),
 		date_casual_format: Date(),
-		id:                 req.body.message_id || midds.generate_random_id(),
+		id:                 req.body.message_id || AF.generate_random_id(),
 		message_owner:      req.session.user.id,
 		message_owner_name: req.session.user.name,
-		status: "alive"
+		status:             "alive"
 	}
 
 	await TicketModel.updateOne({ id: ticket_id}, {$push: {messages: new_message} }).catch((err) => { error = err; });
 
-	res.send(midds.generate_response_object(error, new_message, req.originalUrl));
+	res.send(AF.generate_response_object(error, new_message, req.originalUrl));
 });
 
 // DELETING MESSAGE - Meant For Deleting A Message For A Single Ticket
@@ -33,16 +33,16 @@ router.post('/single/messages/delete/', urlencodedParser, async (req, res) => {
 	let message_owner = req.body.message_owner;
 	let error         = false;
 
-	if (!(message_owner === req.session.user.id) && (req.session.user.user_power <= 3)) { // Middleware Later
+	if ( !(message_owner === req.session.user.id) && (req.session.user.user_power <= 3) ) { // Middleware Later
 		return res.send("Not Allowed");
 	}
 
 	await TicketModel.findOneAndUpdate({
-		id: ticket_id,
+		id:            ticket_id,
 		'messages.id': message_id
 	}, {'messages.$.status': "deleted"}).catch((err) => { error = err; });
 
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // NEW TICKET STATUS - Meant For Setting A New Status For A Single Ticket
@@ -54,7 +54,7 @@ router.post('/single/status', urlencodedParser, async (req, res) => {
 	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status})
 	.catch((err) => { error = err; });
 	
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // NEW USER ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
@@ -72,7 +72,7 @@ router.post('/single/assigneds/set', urlencodedParser, async (req, res) => {
 			related_users_names: new_assumer_name
 		}}).catch((err) => { error = err; });
 	
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // REMOVING ASSIGNED USER - Meant For Deleting A Assigned User For A Single Ticket
@@ -93,7 +93,7 @@ router.post('/single/assigneds/delete', urlencodedParser, async (req, res) => {
 			related_users_names: ticket_creator_name === assumer_name ? undefined : assumer_name,
 		}}).catch((err) => { error = err; });
 
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // NEW TICKET GROUP ASSIGNED - Meant For Setting A New Assigned Ticket Group For A Single Ticket
@@ -109,7 +109,7 @@ router.post('/single/ticket_groups/set', urlencodedParser, async (req, res) => {
 			groups_names: new_group_name
 		}}).catch((err) => { error = err; });
 	
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // REMOVING ASSIGNED TICKET GROUP - Meant For Deleting An Assigned Ticket Group For A Single Ticket
@@ -126,7 +126,7 @@ router.post('/single/ticket_groups/delete', urlencodedParser, async (req, res) =
 			groups_names: group_name
 		}}).catch((err) => { error = err; });
 
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 module.exports = router;

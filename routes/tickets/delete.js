@@ -1,8 +1,8 @@
 const express     = require('express');
+const TicketModel = require('../../models/ticket');
 const router      = express.Router();
 const bodyParser  = require('body-parser');
-const TicketModel = require('../../models/ticket');
-const midds       = require('../../middlewares/general_utils');
+const AF          = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
 var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
@@ -12,7 +12,7 @@ router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
 	
 	await TicketModel.deleteOne({id: ticket_id}).catch((err) => { error = err; });
 
-	res.send(midds.generate_response_object(error, ticket_id, "Delete Single Ticket"));
+	res.send(AF.generate_response_object(error, ticket_id, "Delete Single Ticket"));
 });
 
 module.exports = router;

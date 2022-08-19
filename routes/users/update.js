@@ -1,10 +1,10 @@
 const express    = require('express');
+const UserModel  = require('../../models/user');
 const router     = express.Router();
 const bodyParser = require('body-parser');
-const UserModel  = require('../../models/user');
-const midds      = require('../../middlewares/general_utils');
+const AF         = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
-let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false } );
+let urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
 // Update Current User Preferred Language
 router.post('/current/preferred_language', urlencodedParser, async (req, res) => {
@@ -12,10 +12,10 @@ router.post('/current/preferred_language', urlencodedParser, async (req, res) =>
     let user_id            = Number(req.session.user.id);
     let error              = false;
 
-    await UserModel.updateOne({ id: user_id }, { preferred_language: preferred_language }).catch((error) => { error = error; });
+    await UserModel.updateOne({ id: user_id }, { preferred_language: preferred_language }).catch((err) => { error = err; });
     req.session.user.preferred_language = preferred_language;
 
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 // Update Current User Preferred Brightness Theme
@@ -24,10 +24,10 @@ router.post('/current/preferred_brightness_theme', urlencodedParser, async (req,
     let user_id         = Number(req.session.user.id);
     let error           = false;
 
-    await UserModel.updateOne({ id: user_id }, { preferred_brightness_theme: preferred_theme }).catch((error) => { error = error; });
+    await UserModel.updateOne({ id: user_id }, { preferred_brightness_theme: preferred_theme }).catch((err) => { error = err; });
     req.session.user.preferred_brightness_theme = preferred_theme;
 
-	res.send(midds.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 module.exports = router;

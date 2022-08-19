@@ -1,16 +1,16 @@
 const express     = require('express');
+const TicketModel = require('../../models/ticket');
 const router      = express.Router();
 const bodyParser  = require('body-parser');
-const TicketModel = require('../../models/ticket');
-const midds       = require('../../middlewares/general_utils');
+const AF          = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
-let urlencodedParser = bodyParser.urlencoded( { limit: '10mb', extended: false } );
+let urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
 
 router.get('/all', urlencodedParser, async (req, res) => {
 	let error       = false;
 	let all_tickets = await TicketModel.find().catch((err) => { error = err; });
 
-	res.send(midds.generate_response_object(error, all_tickets, req.originalUrl));
+	res.send(AF.generate_response_object(error, all_tickets, req.originalUrl));
 });
 
 router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
@@ -18,11 +18,11 @@ router.get('/single/:ticket_id', urlencodedParser, async (req, res) => {
 	let error     = false;
 	let ticket    = await TicketModel.findOne({id: ticket_id}).select().catch((err) => { error = err; });
 
-	if (!ticket) {
+	if ( !ticket ) {
 		error = "Ticket Not Found";
 	}
 	
-	res.send(midds.generate_response_object(error, ticket, req.originalUrl));
+	res.send(AF.generate_response_object(error, ticket, req.originalUrl));
 });
 
 module.exports = router;

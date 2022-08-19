@@ -1,10 +1,10 @@
 const express    = require('express');
 const cors       = require('cors');
-const mongoose   = require('mongoose');
 const session    = require('express-session');
+const mongoose   = require('mongoose');
 const MongoStore = require('connect-mongo');
 const path       = require('path');
-const midds      = require('./middlewares/general_utils');
+const midds      = require('./routes_aux/general_utils');
 
 // Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
@@ -32,7 +32,7 @@ const DB_URI = process.env.DB_URI;
 
 // Session Store Configuration Creation
 const sessionStore = MongoStore.create({
-    mongoUrl: DB_URI,
+    mongoUrl:    DB_URI,
     collection: 'sessions'
 });
 
@@ -40,23 +40,23 @@ const sessionStore = MongoStore.create({
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000", "https://zktickets.herokuapp.com"],
-    method: ["GET", "POST"],
+    origin:      ["http://localhost:3000", "https://zktickets.herokuapp.com"],
+    method:      ["GET", "POST"],
     credentials: true
 }));
 
 // Session Configurations Settage
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
+    secret:            process.env.SESSION_SECRET,
+    resave:            false,
     saveUninitialized: false,
-    store: sessionStore,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 2 } // Two Days
+    store:             sessionStore,
+    cookie:            { maxAge: 1000 * 60 * 60 * 24 * 2 } // Two Days
 }));
 
 // Middleware To Restrict User Access To Content Unless He / She Is Logged In
 app.use((req, res, next) => {
-    if (req.path === "/login/auth") {return next();}
+    if (req.path === "/login/auth") { return next(); }
     !req.session.user ? res.send(midds.generate_response_object("Not Authenticated", null, req.path)) : next();
 });
 
