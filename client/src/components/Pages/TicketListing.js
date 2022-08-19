@@ -3,7 +3,7 @@ import TicketBand    from '../Ticket/TicketBand';
 import { useParams } from "react-router-dom";
 import AF            from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
 
-function TicketListing ({ allPopulationData }) { console.log("AAAAAAAaa")
+function TicketListing ({ allPopulationData }) {
     // Aliases
     const { listing, nested_listing } = useParams();
     const is_list_i_am_assigned_child = listing.includes("i_am_assigned");

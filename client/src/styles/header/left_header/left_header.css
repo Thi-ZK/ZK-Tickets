@@ -52,6 +52,12 @@
 	margin-top: 3.5em;
 	height: 65vh;
 	padding-right: 12px;
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+	overflow-y: auto;
+}
+#LH-navigation-links-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 #LH-navigation-links-container ul li{
