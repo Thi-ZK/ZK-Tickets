@@ -82,9 +82,10 @@ function App() {
             <div status="off" id="universal-overlay"></div>
             <TicketActionModal allPopulationData={allPopulationData}/>
             <LeftHeader language={language} allTickets={allTickets} ticketGroups={ticketGroups}/>
-            <div className="main-content-container">
+            <div id="main-content-container" eye-helper="MAIN CONTENT CONTAINER">
                 <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
+                <button id="left-header-mob-opener"><img alt="menu icon" src="/imgs/headers/menu_icon.png"/></button>
                 <Routes>
                     {userData && allTickets.length ? (
                     <> 

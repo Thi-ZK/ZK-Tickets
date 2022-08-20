@@ -114,3 +114,14 @@ div[theme='bright'] #TH-languages-direct-container button {
 		display: none;
 	}
 }
+
+@media(max-width: 1000px){
+	#main-content-container {
+		margin-left: 0px;
+		width: 100vw;
+	}
+
+	#top-header-container {
+		width: 100vw;
+	}
+}

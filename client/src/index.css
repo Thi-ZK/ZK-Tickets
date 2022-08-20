@@ -80,12 +80,12 @@ div[theme='bright'] #home-content-title {
 	min-height: 100vh;
 }
 
-.main-content-container {
+#main-content-container {
 	background-color: rgb(55, 55, 55);
 	width: calc(100vw - 318px);
 	margin-left: 318px;
 }
-div[theme='bright'] .main-content-container {
+div[theme='bright'] #main-content-container {
 	background-color: rgb(240, 240, 240);
 }
 
@@ -160,6 +160,30 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	background-color: rgba(187, 49, 49, 0.95);
 	border: 1px solid rgb(187, 49, 49, 0.95);
 	color: white !important;
+}
+
+#left-header-mob-opener {
+	display: none;
+	border: none;
+	background: none;
+	margin: 6px 0px 6px 0px;
+	cursor: pointer;
+}
+
+#left-header-mob-opener img {
+	width: 40px;
+	height: 40px;
+}
+
+@media(max-width: 1000px){
+	#main-content-container {
+		margin-left: 0px;
+		width: 100vw;
+	}
+
+	#left-header-mob-opener {
+		display: inline-block;
+	}
 }
 
 /* Header Styles */

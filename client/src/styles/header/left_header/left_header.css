@@ -157,3 +157,29 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 	visibility: visible;
 	opacity: 1;
 }
+
+@media(max-width: 1000px){
+	#left-header-container {
+		display: block;
+		margin-top: 100px;
+		width: 350px;
+		position: fixed;
+		z-index: 100;
+		box-shadow: 2px 2px 3px -2px black;
+		height: 450px;
+		min-height: auto;
+	}
+
+	#LH-title-direct-container {
+		display: none;
+	}
+
+	#LH-search-container {
+		padding-top: 1em;
+	}
+
+	#LH-navigation-links-container {
+		margin-top: 2.2em;
+		height: 320px;
+	}
+}
