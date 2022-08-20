@@ -47,7 +47,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
     }
 
   return (
-    <header id="left-header-container" css-marker="LH">
+    <header id="left-header-container" css-marker="LH" mob-status="closed">
         <div id="LH-title-direct-container">
             <h1><span>Thiago Dominicheli</span></h1>
             <p>Tickets Manager</p>
@@ -55,7 +55,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
         <div id="LH-search-container">
             <div>
                 <input type="text" name="" placeholder={texts.search_a_ticket[language]} onChange={update_search_bar_state}/>
-                <img onClick={clean_search} className='TV-MSG-delete-icon' alt="delete red icon on search" src='/imgs/general/red_x_delete_icon.png'/>
+                <img onClick={clean_search} className='LH-delete-icon' alt="delete red icon on search" src='/imgs/general/red_x_delete_icon.png'/>
             </div>
         </div>
         <div id="LH-filtered-mini-ticket-bands-direct-container">

@@ -85,7 +85,9 @@ function App() {
             <div id="main-content-container" eye-helper="MAIN CONTENT CONTAINER">
                 <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
-                <button id="left-header-mob-opener"><img alt="menu icon" src="/imgs/headers/menu_icon.png"/></button>
+                <button onClick={AF.mobile_header_appearence_toggler} id="left-header-mob-opener">
+                    <img alt="menu icon" src="/imgs/headers/menu_icon.png"/>
+                </button>
                 <Routes>
                     {userData && allTickets.length ? (
                     <> 

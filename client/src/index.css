@@ -175,6 +175,13 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	height: 40px;
 }
 
+@media(max-width: 1320px){
+	#main-content-container {
+		width: calc(100vw - 288px);
+		margin-left: 288px;
+	}
+}
+
 @media(max-width: 1000px){
 	#main-content-container {
 		margin-left: 0px;
@@ -183,6 +190,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 
 	#left-header-mob-opener {
 		display: inline-block;
+		position: fixed;
 	}
 }
 

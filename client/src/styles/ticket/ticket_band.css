@@ -168,6 +168,12 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	color: rgb(30, 30, 30);
 }
 
+@media(max-width: 1320px){
+	.ticket-band-container {
+		width: calc(100vw - 288px - 56px);
+	}
+}
+
 @media(max-width: 1000px){
 	.ticket-band-container {
 		width: calc(100vw - 56px);

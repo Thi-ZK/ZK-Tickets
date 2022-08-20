@@ -48,6 +48,20 @@
 	color: white;
 }
 
+#LH-search-container img {
+	position: absolute;
+	padding-top: 16px;
+	color: white;
+	right: 42px;
+	visibility: hidden;
+	opacity: 0;
+	transition-duration: 0.22s;
+	width: 13px !important;
+    height: 13px !important;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
 #LH-navigation-links-container{
 	margin-top: 3.5em;
 	height: 65vh;
@@ -143,31 +157,54 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 	width: 100%;
 }
 
-#LH-search-container img {
-	position: absolute;
-	padding-top: 16px;
-	color: white;
-	right: 42px;
-	visibility: hidden;
-	opacity: 0;
-	transition-duration: 0.22s;
-}
-
 #LH-search-container input:not(:placeholder-shown) + img {
 	visibility: visible;
 	opacity: 1;
+}
+
+@media(max-width: 1320px){
+	#left-header-container {
+		width: 250px;
+	}
+
+	#LH-title-direct-container h1{
+		font-size: 1.5em;
+	}
+
+	#LH-search-container input {
+		font-size: 13.5px;
+		width: 200px;
+	}
+
+	#LH-search-container img {
+		right: 32px;
+	}
+
+	#LH-navigation-links-container ul li p, .LH-links-grouper-expander-direct-container p {
+		font-size: 13px;
+	}
+
+	#LH-navigation-links-container ul li, .LH-links-grouper-expander-container {
+		padding-left: 1em;
+	}
 }
 
 @media(max-width: 1000px){
 	#left-header-container {
 		display: block;
 		margin-top: 100px;
-		width: 350px;
+		width: 0px;
 		position: fixed;
 		z-index: 100;
 		box-shadow: 2px 2px 3px -2px black;
 		height: 450px;
 		min-height: auto;
+		padding: 0.5em 0px 0px 0px;
+		transition-duration: 0.7s;
+	}
+	#left-header-container[mob-status='open'] {
+		width: 280px;
+		padding: 0.5em 8px 0px 16px;
 	}
 
 	#LH-title-direct-container {
@@ -181,5 +218,37 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 	#LH-navigation-links-container {
 		margin-top: 2.2em;
 		height: 320px;
+	}
+
+	#LH-search-container input {
+		width: 220px;
+		transition-delay: 0.25s;
+		visibility: hidden;
+		opacity: 0;
+	}
+	#left-header-container[mob-status='open'] #LH-search-container input {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	#LH-navigation-links-container ul li img, .LH-links-grouper-expander-container > img {
+		width: 20px;
+		height: 20px;
+	}
+
+	#LH-navigation-links-container ul > li p, .LH-links-grouper-container p,
+	#LH-navigation-links-container ul > li img, .LH-links-grouper-container img {
+		transition-duration: 0.25s;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	#left-header-container[mob-status='open'] #LH-navigation-links-container ul > li p, 
+	#left-header-container[mob-status='open'] .LH-links-grouper-container p,
+	#left-header-container[mob-status='open'] #LH-navigation-links-container ul > li img, 
+	#left-header-container[mob-status='open'] .LH-links-grouper-container img {
+		visibility: visible;
+		opacity: 1;
+		transition-duration: 2s;
 	}
 }

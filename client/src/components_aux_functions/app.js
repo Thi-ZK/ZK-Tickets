@@ -41,9 +41,21 @@ const generate_update_all_tickets_function = (updateTickets, axios) => {
     }
 }
 
+// Handler For The Opening & Closing Of Header In Mobile
+const mobile_header_appearence_toggler = () => {
+    let left_header = document.querySelector("#left-header-container");
+
+    if (left_header.getAttribute("mob-status") === "closed") {
+        left_header.setAttribute("mob-status", "open");
+    } else {
+        left_header.setAttribute("mob-status", "closed");
+    }
+}
+
 module.exports = {
-    generate_update_ticket_groups_function      : generate_update_ticket_groups_function,
-    generate_update_user_names_and_ids_function : generate_update_user_names_and_ids_function,
-    generate_update_user_data_function          : generate_update_user_data_function,
-    generate_update_all_tickets_function        : generate_update_all_tickets_function
+    generate_update_ticket_groups_function:      generate_update_ticket_groups_function,
+    generate_update_user_names_and_ids_function: generate_update_user_names_and_ids_function,
+    generate_update_user_data_function:          generate_update_user_data_function,
+    generate_update_all_tickets_function:        generate_update_all_tickets_function,
+    mobile_header_appearence_toggler:            mobile_header_appearence_toggler           
 };
