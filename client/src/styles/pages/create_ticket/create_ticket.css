@@ -345,7 +345,7 @@ div[theme='bright'] #TC-description-direct-container textarea {
 	}
 
 	.TC-create-button-direct-container[screen-type='mob'] {
-		display: flex;
+		display: flex !important;
 		align-items: center;
 		margin-bottom: 20px;
 	}

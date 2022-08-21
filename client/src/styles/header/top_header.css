@@ -138,8 +138,12 @@ div[theme='bright'] #TH-languages-direct-container button {
 		align-items: center;
 	}
 
-	#TH-login-and-brightness-direct-container {
-		margin-bottom: 11px;
+	#TH-languages-direct-container {
+		padding-right: 0px;
+	}
+
+	#TH-login-and-brightness-direct-container, .TC-selection-input-direct-container {
+		margin-bottom: 15px;
 	}
 
 	#TH-brightness-theme-direct-container img, #TH-login-and-brightness-direct-container img {

@@ -31,13 +31,13 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 
     return (
 	<div onClick={navigate_to_ticket} className="ticket-band-container" css-marker="TB">
-		<div id="TB-header">
+		<div className="TB-header">
 			<div className="TB-title-container">
 				<p>{ticket_data.name}</p>
 				<p className="TB-ticket_id">&nbsp;-&nbsp;</p>
 				<img alt="ticket status icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 			</div>
-			<div id="TB-intitle-ticket-management-options">
+			<div className="TB-intitle-ticket-management-options">
 				<span onClick={() => open_ticket_action_modal("delete")} id="TB-ticket-delete" className="TB-action-options-button">{texts.delete[language]}</span>
 				<span onClick={() => open_ticket_action_modal("conclude")} id="TB-ticket-conclude" className="TB-action-options-button">{texts.conclude[language]}</span>
 				<span onClick={() => open_ticket_action_modal("block")} id="TB-ticket-block" className="TB-action-options-button">{texts.block[language]}</span>
@@ -45,7 +45,7 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 			</div>
 		</div>
 		<div className="TB-content-block-container">
-			<div id="TB-photo-and-personal-identification-container">
+			<div className="TB-photo-and-personal-identification-container">
 				<img alt="person / user pic" src={"/imgs/general/users_photos/" + AF.generate_ticket_creator_img_src(ticket_data) + ".jpg"} onError={AF.set_anonymous_picture}/>
 				<div className="TB-name-and-person-info-direct-container">
 					<p className="TB-name">{texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
@@ -59,7 +59,7 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 			<div className="TB-description-container">
 				<div className="TB-description-direct-container">
 					<h2>{texts.ticket_description[language]}:</h2>
-					<p className="TB-description">{ticket_data.description}</p>
+					<p className="TB-description">{ticket_data.description.length > 200 ? (ticket_data.description.substr(0, 200) + "...") : ticket_data.description}</p>
 				</div>
 			</div>
 			<div className="TB-statuses-and-dates-container">
@@ -70,6 +70,12 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 					<p className="TB-status-or-date">Status: <span>{texts[ticket_data.status][language]}</span></p>
 					<p className="TB-status-or-date">{texts.priority[language]}: <span>{texts[ticket_data.priority][language]}</span></p>
 				</div>
+			</div>
+		</div>
+		<div className="TB-description-container" screen-type="mob">
+			<div className="TB-description-direct-container">
+				<h2>{texts.ticket_description[language]}:</h2>
+				<p className="TB-description">{ticket_data.description.length > 200 ? (ticket_data.description.substr(0, 200) + "...") : ticket_data.description}</p>
 			</div>
 		</div>
 	</div>

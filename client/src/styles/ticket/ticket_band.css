@@ -1,4 +1,3 @@
-/*FIRST BLOCK ITSELF*/
 .ticket-band-container {
 	margin: 16px 0px 12px 22px;
 	background-color: rgb(30, 30, 30);
@@ -7,6 +6,7 @@
 	transition-duration: 0.3s;
 	border: 1px solid rgb(90, 90, 90);
 	font-family: 'Quicksand', sans-serif;
+	height: 193px;
 }
 div[theme='bright'] .ticket-band-container {
 	background-color: white;
@@ -19,8 +19,7 @@ div[theme='bright'] .ticket-band-container:hover {
 	box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
 }
 
-#TB-header{
-	align-items: center;
+.TB-header{
 	padding: 16px 0px 0px 20px;
 }
 
@@ -41,16 +40,16 @@ div[theme='bright'] .TB-title-container {
 	height: 19px;
 }
 
-#TB-intitle-ticket-management-options{
+.TB-intitle-ticket-management-options{
 	padding-right: 2em;
 }
 
-#TB-intitle-ticket-management-options span{
+.TB-intitle-ticket-management-options span{
 	padding: 0px 4px 0px 4px;
 	font-size: 0.9em;
 	cursor: pointer;
 }
-#TB-intitle-ticket-management-options span:hover{
+.TB-intitle-ticket-management-options span:hover{
 	text-decoration: underline;
 }
 
@@ -59,7 +58,7 @@ div[theme='bright'] .TB-title-container {
 	font-size: 0.95em;
 }
 
-#TB-header, .TB-content-block-container, .TB-name-and-person-info-direct-container {
+.TB-header, .TB-content-block-container, .TB-name-and-person-info-direct-container {
 	display: flex;
 	justify-content: space-between;
 }
@@ -80,13 +79,13 @@ div[theme='bright'] .TB-title-container {
 	color: rgb(45, 176, 175);
 }
 
-#TB-photo-and-personal-identification-container{
+.TB-photo-and-personal-identification-container{
 	display: flex;
 	padding-right: 18px;
 	max-width: 35%;
 }
 
-#TB-photo-and-personal-identification-container img{
+.TB-photo-and-personal-identification-container img{
 	width: 110px;
 	height: 110px;
 	border-radius: 100%;
@@ -99,7 +98,7 @@ div[theme='bright'] .TB-title-container {
 .TB-name-and-person-info-direct-container{
 	flex-direction: column;
 	height: 110px;
-	font-size: 14px;
+	font-size: 13.5px;
 	padding-left: 35px;
 }
 
@@ -123,7 +122,7 @@ div[theme='bright'] .TB-name-and-person-info-direct-container p span {
 .TB-statuses-and-dates-container{
 	display: flex;
 	padding-right: 3em;
-	font-size: 14px;
+	font-size: 13.5px;
 }
 
 .TB-status-or-date {
@@ -158,7 +157,7 @@ div[theme='bright'] .TB-status-or-date span {
 	padding-bottom: 16px;
 	letter-spacing: 0.3px;
 	line-height: 135%;
-	font-size: 14px;
+	font-size: 13.5px;
 	color: white;
 }
 .TB-description-container h2 {
@@ -166,6 +165,56 @@ div[theme='bright'] .TB-status-or-date span {
 }
 div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-description-container h2 {
 	color: rgb(30, 30, 30);
+}
+
+.TB-description-container[screen-type='mob'] {
+	display: none;
+}
+
+@media(max-width: 1500px){
+	.TB-photo-and-personal-identification-container img {
+		width: 82px;
+		height: 82px;
+	}
+
+	.TB-title-container p {
+		font-size: 16px;
+	}
+
+	.TB-content-block-container {
+		padding-top: 1.2em;
+	}
+
+	.TB-name-and-person-info-direct-container, .TB-description-container p, .TB-description-container h2,
+	.TB-intitle-ticket-management-options span,
+	.TB-statuses-and-dates-container {
+		font-size: 13px !important;
+	}
+
+	.TB-name-and-person-info-direct-container {
+		padding-left: 25px;
+	}
+}
+
+@media(max-width: 1400px){
+	.ticket-band-container {
+		height: 300px;
+	}
+
+	.TB-description-container {
+		display: none;
+	}
+
+	.TB-photo-and-personal-identification-container {
+		max-width: 60%;
+	}
+
+	.TB-description-container[screen-type='mob'] {
+		display: flex;
+		justify-content: center;
+		width: auto;
+		padding: 10px 20px 0px 20px;
+	}
 }
 
 @media(max-width: 1320px){
@@ -177,5 +226,35 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 @media(max-width: 1000px){
 	.ticket-band-container {
 		width: calc(100vw - 56px);
+	}
+}
+
+@media(max-width: 950px){
+	.TB-header {
+		display: block;
+	}
+
+	.TB-intitle-ticket-management-options {
+		padding-top: 6px;
+	}
+
+	#TB-ticket-delete {
+		padding-left: 0px;
+	}
+}
+
+@media(max-width: 750px){
+	.ticket-band-container {
+		height: 500px;
+	}
+
+	.TB-content-block-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.TB-photo-and-personal-identification-container {
+		max-width: 100%;
+		padding-bottom: 30px;
 	}
 }
