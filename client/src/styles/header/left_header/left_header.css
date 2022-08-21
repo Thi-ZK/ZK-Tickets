@@ -236,17 +236,18 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 		height: 20px;
 	}
 
-	#LH-navigation-links-container ul > li p, .LH-links-grouper-container p,
-	#LH-navigation-links-container ul > li img, .LH-links-grouper-container img {
+	#LH-navigation-links-container ul > li p, .LH-links-grouper-expander-direct-container p,
+	#LH-navigation-links-container ul > li img, .LH-links-grouper-expander-direct-container img, .LH-links-grouper-expander-container > img {
 		transition-duration: 0.25s;
 		visibility: hidden;
 		opacity: 0;
 	}
 
 	#left-header-container[mob-status='open'] #LH-navigation-links-container ul > li p, 
-	#left-header-container[mob-status='open'] .LH-links-grouper-container p,
+	#left-header-container[mob-status='open'] .LH-links-grouper-expander-direct-container p,
 	#left-header-container[mob-status='open'] #LH-navigation-links-container ul > li img, 
-	#left-header-container[mob-status='open'] .LH-links-grouper-container img {
+	#left-header-container[mob-status='open'] .LH-links-grouper-expander-direct-container img,
+	#left-header-container[mob-status='open'] .LH-links-grouper-expander-container > img {
 		visibility: visible;
 		opacity: 1;
 		transition-duration: 2s;

@@ -7,6 +7,10 @@
 	font-family: 'Quicksand', sans-serif;
 }
 
+#create-ticket-container *[screen-type='mob'] {
+	display: none;
+}
+
 #TC-container-centrelizer{
 	width: 70%;
 	background-color: rgb(30, 30, 30);
@@ -296,4 +300,53 @@ div[theme='bright'] #TC-description-direct-container textarea {
 .TC-attachment-blocks-direct-container, .TC-create-button-direct-container{
 	display: flex;
 	flex-direction: column;
+}
+
+@media(max-width: 1600px){
+	#TC-container-centrelizer {
+		width: 85%;
+	}
+}
+
+@media(max-width: 1360px){
+	#TC-container-centrelizer {
+		width: 94%;
+	}
+}
+
+@media(max-width: 860px){
+	.TC-create-button-direct-container{
+		display: none;
+	}
+
+	#TC-title-container {
+		justify-content: center;
+	}
+
+	.TC-inputs-block-container, #TC-name-and-date-container, #TC-attachments-and-description-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#TC-name-direct-container, .TC-selection-input-direct-container, #TC-due-date-direct-container, #TC-attachments-and-description-container > div {
+		width: 90% !important;
+	}
+
+	#TC-name-direct-container {
+		margin-bottom: 26px;
+	}
+
+	#TC-attachments-and-description-container {
+		padding-top: 0px;
+	}
+
+	.TC-attachment-blocks-direct-container {
+		margin-bottom: 30px;
+	}
+
+	.TC-create-button-direct-container[screen-type='mob'] {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+	}
 }

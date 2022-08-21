@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import SelectionPiece      from './SelectionPiece';
-import AttachmentBlock     from '../../IndependentPieces/AttachmentBlock';
-import Calendar            from 'react-calendar';
 import axios               from '../../../api/axios';
 import texts               from '../../../languages/Pages/CreateTicket/CreateTicket.json';
 import AF                  from '../../../components_aux_functions/pages/create_ticket/create_ticket.js'; // Aux Functions
-import                     'react-calendar/dist/Calendar.css';
+
+import                 'react-calendar/dist/Calendar.css';
+import SelectionPiece  from './SelectionPiece';
+import AttachmentBlock from '../../IndependentPieces/AttachmentBlock';
+import Calendar        from 'react-calendar';
 
 function CreateTicket ({ allPopulationData }) {
     // User Names & IDs Alias / Also Language Alias
@@ -135,6 +136,9 @@ function CreateTicket ({ allPopulationData }) {
                         onFocus={() => { return AF.set_ticket_description_error_message_appearence("off");}}>
                     </textarea> 
                 </div>
+            </div>
+            <div className='TC-create-button-direct-container' screen-type="mob">
+                <button onClick={create_ticket}>{texts.create_ticket[language]}</button>
             </div>
         </div>
     </div>

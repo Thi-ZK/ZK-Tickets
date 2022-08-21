@@ -131,3 +131,24 @@ div[theme='bright'] #TH-languages-direct-container button {
 		width: 100vw;
 	}
 }
+
+@media(max-width: 720px){
+	#top-header-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#TH-login-and-brightness-direct-container {
+		margin-bottom: 11px;
+	}
+
+	#TH-brightness-theme-direct-container img, #TH-login-and-brightness-direct-container img {
+		width: 23px;
+		height: 23px;
+	}
+
+	.TH-language-direct-container img {
+		width: 18px;
+		height: 12px;
+	}
+}
