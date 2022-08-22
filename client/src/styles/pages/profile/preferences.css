@@ -5,7 +5,7 @@
 }
 
 #PFL-preferences-container {
-    padding: 8px 190px 0px 190px;
+    padding: 8px 157px 0px 190px;
 }
 
 #PFL-PRE-languages-direct-container, #PFL-PRE-brightness-themes-direct-container {
@@ -83,4 +83,33 @@ div[theme='bright'] .PFL-PRE-language-label, div[theme='bright'] .PFL-PRE-bright
     width: 22px;
     height: 22px;
     padding-left: 5px;
+}
+
+@media(max-width: 1600px){
+	#PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
+        font-size: 14.5px;
+    }
+
+    .PFL-PRE-language-label, .PFL-PRE-brightness-theme-label {
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 1500px){
+	#PFL-preferences-container {
+        padding: 8px 35px 0px 190px;
+    }
+}
+
+@media(max-width: 750px){
+	#PFL-preferences-container {
+        padding-left: 15px !important;
+    }
+}
+
+@media(max-width: 450px){
+	.PFL-PRE-content-line-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -38,6 +38,7 @@ div[theme='bright'] .TB-title-container {
 .TB-title-container img{
 	width: 19px;
 	height: 19px;
+	padding-right: 20px;
 }
 
 .TB-intitle-ticket-management-options{

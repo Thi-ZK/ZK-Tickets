@@ -126,3 +126,40 @@ div[theme='bright'] #PFL-section-choices-direct-container p {
 div[theme='bright'] .PFL-long-line-splitter {
     border-bottom: 1px solid rgb(220, 220, 220);
 }
+
+@media(max-width: 1500px){
+	.PFL-PI-person-info-direct-container {
+        margin-right: calc(30px + 40px) !important;
+    }
+
+    .PFL-long-line-splitter {
+        margin-right: calc(30px + 40px) !important;
+    }
+}
+
+@media(max-width: 1300px){
+	#PFL-container-centrelizer {
+		width: 85%;
+	}
+}
+
+@media(max-width: 750px){
+    #PFL-container-centrelizer {
+		width: 95%;
+	}
+
+    #PFL-picture-direct-container img {
+        width: 90px;
+        height: 90px;
+    }
+
+    #PFL-person-info-container, #PFL-section-splitter-and-option-choice-container {
+        padding-left: 15px !important;
+    }
+}
+
+@media(max-width: 450px){
+	.PFL-PI-person-info-direct-container {
+        margin-right: 40px !important;
+    }
+}
