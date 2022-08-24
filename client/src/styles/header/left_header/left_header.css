@@ -252,4 +252,9 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
 		opacity: 1;
 		transition-duration: 2s;
 	}
+
+	#LH-navigation-links-container ul > li, 
+	.LH-links-grouper-container {
+		min-width: 260px;
+	}
 }

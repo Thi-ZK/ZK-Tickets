@@ -34,11 +34,11 @@ function TicketListing ({ allPopulationData }) {
     }
     
     return (
-        <>
+        <div id="ticket-listing-container">
             {tickets_to_be_displayed.map((ticket, index) => (
                 <TicketBand key={index} ticket_data={ticket} allPopulationData={allPopulationData}></TicketBand>
             ))}
-        </>
+        </div>
     )
 }
 

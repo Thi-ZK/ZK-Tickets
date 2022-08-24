@@ -247,6 +247,8 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 @media(max-width: 750px){
 	.ticket-band-container {
 		height: 500px;
+		width: calc(100vw - 25px);
+		margin-left: 12px;
 	}
 
 	.TB-content-block-container {
@@ -257,5 +259,11 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	.TB-photo-and-personal-identification-container {
 		max-width: 100%;
 		padding-bottom: 30px;
+	}
+}
+
+@media(max-width: 720px){
+	#ticket-listing-container {
+		margin-top: 45px;
 	}
 }
