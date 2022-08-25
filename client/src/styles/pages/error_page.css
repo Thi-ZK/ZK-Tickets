@@ -7,3 +7,18 @@
     height: 750px;
     width: 750px;
 }
+
+@media(max-width: 850px){
+	#error-page-container img {
+        margin-top: 50px;
+		width: 550px;
+        height: 550px;
+	}
+}
+
+@media(max-width: 550px){
+	#error-page-container img {
+		width: 420px;
+        height: 420px;
+	}
+}

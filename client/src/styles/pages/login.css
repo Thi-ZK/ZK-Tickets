@@ -182,3 +182,22 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container button{
 div[theme='bright'] #LOG-new-account-request-button-direct-container span {
     color: rgb(42, 127, 170);
 }
+
+@media(max-width: 600px){
+	#LOG-form-container {
+		width: 350px;
+        height: 480px;
+	}
+
+    .LOG-inputs-direct-container input {
+        width: 260px;
+    }
+
+    #LOG-submit-button-direct-container button {
+        width: 280px;
+    }
+
+    #LOG-new-account-request-button-direct-container {
+        width: calc(350px - 40px);
+    }
+}

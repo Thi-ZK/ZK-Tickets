@@ -153,8 +153,17 @@ div[theme='bright'] .PFL-long-line-splitter {
         height: 90px;
     }
 
+    #PFL-total-linked-tickets-direct-container {
+        line-height: 18px;
+        padding-top: 16px;
+    }
+
     #PFL-person-info-container, #PFL-section-splitter-and-option-choice-container {
-        padding-left: 15px !important;
+        padding-left: 0px !important;
+    }
+
+    .PFL-long-line-splitter {
+        margin-right: calc(30px + 10px) !important;
     }
 }
 
