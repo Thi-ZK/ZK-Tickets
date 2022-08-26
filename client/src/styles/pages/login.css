@@ -185,8 +185,8 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container span {
 
 @media(max-width: 600px){
 	#LOG-form-container {
-		width: 350px;
-        height: 480px;
+		width: 320px;
+        height: 450px;
 	}
 
     .LOG-inputs-direct-container input {

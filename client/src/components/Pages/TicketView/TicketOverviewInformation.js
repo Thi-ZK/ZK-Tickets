@@ -79,12 +79,14 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
         </div>
         <div id='TV-INF-aggregatives-container'>
             <div className='TV-INF-info-line-direct-container'>
-                <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-rectangles-span-direct-container'>
+                <div className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-rectangles-span-direct-container'>
                     <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.groups_plural[language] : texts.groups[language]}:</small>
-                    {groups.map((group, index) => (
-                        <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_user} key={index}>{group}</span>
-                    ))}
-                </p>
+                    <div>
+                        {groups.map((group, index) => (
+                            <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_user} key={index}>{group}</span>
+                        ))}
+                    </div>
+                </div>
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_groups[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-groups-selector' aggregative-type="group">
                         <option id="TV-INF-no-group-aux-option" name="none">--</option>
@@ -95,12 +97,14 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                 </p>
             </div>
             <div className='TV-INF-info-line-direct-container'>
-                <p className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'>
+                <div className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'>
                     <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
-                    {assigneds.map((assumer, index) => (
-                        <span className='TV-INF-assigneds-rectangle-span' aggregative-type="assumer" onClick={unassign_user} key={index}>{assumer}</span>
-                    ))}
-                </p>
+                    <div>
+                        {assigneds.map((assumer, index) => (
+                            <span className='TV-INF-assigneds-rectangle-span' aggregative-type="assumer" onClick={unassign_user} key={index}>{assumer}</span>
+                        ))}
+                    </div>
+                </div>
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-assigneds-selector' aggregative-type="assumer">
                         <option id="TV-INF-no-assigment-aux-option" name="none">--</option>

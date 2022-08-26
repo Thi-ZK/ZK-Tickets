@@ -170,6 +170,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	cursor: pointer;
 	bottom: 0px;
 	right: 2px;
+	z-index: 3;
 }
 
 #left-header-mob-opener img {

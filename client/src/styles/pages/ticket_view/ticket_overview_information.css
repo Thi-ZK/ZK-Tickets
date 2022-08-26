@@ -15,11 +15,12 @@ div[theme='bright'] #TV-ticket-info-container p {
 	color: rgb(95, 95, 95);
 }
 
-#TV-ticket-info-container p span {
+#TV-ticket-info-container p span, #TV-ticket-info-container > div span {
 	color: rgb(230, 230, 230);
 	font-weight: bold;
 }
-div[theme='bright'] #TV-ticket-info-container p span {
+div[theme='bright'] #TV-ticket-info-container p span, div[theme='bright'] #TV-ticket-info-container > div span,
+div[theme='bright'] #TV-INF-groups-text-key, div[theme='bright'] #TV-INF-assumers-text-key {
 	color: rgb(60, 60, 60);
 }
 
@@ -27,8 +28,12 @@ div[theme='bright'] #TV-ticket-info-container p span {
 	width: 55%;
 }
 
-p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span {
+div[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span {
 	margin-right: 6px;
+}
+
+div[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] > div {
+	display: inline;
 }
 
 .TV-INF-line-info-key-aggregative {
@@ -37,6 +42,7 @@ p[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] span 
 
 #TV-INF-assumers-text-key, #TV-INF-groups-text-key {
 	margin-right: 4px;
+	min-width: 30px;
 }
 
 .TV-INF-line-info-value, .TV-INF-line-info-value-aggregative {
@@ -79,4 +85,35 @@ div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-grou
 
 .TV-INF-assigneds-rectangle-span, .TV-INF-assigneds-groups-span {
 	line-height: 27px;
+}
+
+@media(max-width: 720px) {
+	#ticket-view-container {
+		margin-top: 3em;
+	}
+}
+
+@media(max-width: 680px) {
+	.TV-INF-info-line-direct-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#TV-ticket-info-container p, .TV-INF-line-info-key-aggregative  {
+		width: 100%;
+	}
+
+	.TV-INF-line-info-key, .TV-INF-line-info-value {
+		justify-content: space-between;
+		display: flex;
+	}
+
+	.TV-INF-line-info-value-aggregative {
+		padding-top: 10px;
+		justify-content: flex-start;
+	}
+
+	.TV-INF-line-info-value-aggregative select {
+		margin-left: 6px;
+	}
 }

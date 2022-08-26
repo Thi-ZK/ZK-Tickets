@@ -168,7 +168,15 @@ div[theme='bright'] .PFL-long-line-splitter {
 }
 
 @media(max-width: 450px){
+    #PFL-all-content-info-container {
+        padding-right: 10px;
+    }
+
 	.PFL-PI-person-info-direct-container {
         margin-right: 40px !important;
+    }
+
+    .PFL-PI-person-info-direct-container p {
+        font-size: 13.5px !important;
     }
 }

@@ -101,15 +101,3 @@ div[theme='bright'] #TV-PM-submit-button-direct-container button:hover {
 	background-color: rgb(60, 60, 60) !important;
 	color: white !important;
 }
-
-@media(max-height: 790px) {
-	#TV-PM-title-direct-container{
-		padding-top: 0.5em;
-	}
-}
-
-@media(max-width: 1700px){
-	#TV-PM-message-textarea{
-		min-height: 190px;
-	}
-}
