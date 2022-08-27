@@ -1,7 +1,10 @@
-
 .PFL-PRE-content-line-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 #PFL-preferences-container {
@@ -13,8 +16,12 @@
 }
 
 .PFL-PRE-title-and-success-icon-direct-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 30px;
 }
 
@@ -30,7 +37,9 @@ div[theme='bright'] #PFL-PRE-languages-direct-container h3, div[theme='bright'] 
 .PFL-PRE-success-gif {
     visibility: hidden;
     opacity: 0;
-    transition-duration: 0.32s;
+    -webkit-transition-duration: 0.32s;
+         -o-transition-duration: 0.32s;
+            transition-duration: 0.32s;
     padding-left: 8px;
     width: 25px;
     height: 25px;
@@ -46,8 +55,12 @@ div[theme='bright'] #PFL-PRE-languages-direct-container h3, div[theme='bright'] 
 
 .PFL-PRE-language-direct-container, .PFL-PRE-brightness-theme-direct-container {
     padding-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .PFL-PRE-brightness-theme-direct-container {
@@ -56,7 +69,9 @@ div[theme='bright'] #PFL-PRE-languages-direct-container h3, div[theme='bright'] 
 
 .PFL-PRE-language-label, .PFL-PRE-brightness-theme-label {
     padding-left: 17px;
-    transition-duration: 0.25s;
+    -webkit-transition-duration: 0.25s;
+         -o-transition-duration: 0.25s;
+            transition-duration: 0.25s;
     font-size: 14.2px;
     color: rgb(235, 235, 235);
 }
@@ -109,7 +124,12 @@ div[theme='bright'] .PFL-PRE-language-label, div[theme='bright'] .PFL-PRE-bright
 
 @media(max-width: 450px){
 	.PFL-PRE-content-line-container {
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 }

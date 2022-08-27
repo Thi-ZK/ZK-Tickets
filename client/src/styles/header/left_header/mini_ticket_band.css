@@ -11,36 +11,51 @@
 	cursor: pointer;
 	color: white;
 	line-height: 14.5px;
-	transition-duration: 0.1s;
+	-webkit-transition-duration: 0.1s;
+	     -o-transition-duration: 0.1s;
+	        transition-duration: 0.1s;
 	height: 60px;
 	
 }
 .LH-filtered-mini-ticket-band:hover {
-	box-shadow: 0 1px 10px 2px rgba(220,220,220,0.42);
+	-webkit-box-shadow: 0 1px 10px 2px rgba(220,220,220,0.42);
+	        box-shadow: 0 1px 10px 2px rgba(220,220,220,0.42);
 }
 
 .LH-filtered-mini-ticket-band[status='open'] {
+	background-image: -webkit-gradient(linear,left top, right top,from(#861657),to(#FFA69E));
+	background-image: -o-linear-gradient(left,#861657,#FFA69E);
 	background-image: linear-gradient(to right,#861657,#FFA69E);
 }
 .LH-filtered-mini-ticket-band[status='blocked'] {
+	background-image: -webkit-gradient(linear, left top, right top, from(#B09B12), to(#FFD400));
+	background-image: -o-linear-gradient(left, #B09B12, #FFD400);
 	background-image: linear-gradient(to right, #B09B12, #FFD400);
 }
 .LH-filtered-mini-ticket-band[status='concluded'] {
+	background-image: -webkit-gradient(linear, left top, right top, from(#56ab2f), to(#a8e063));
+	background-image: -o-linear-gradient(left, #56ab2f, #a8e063);
 	background-image: linear-gradient(to right, #56ab2f, #a8e063);
 }
 .LH-filtered-mini-ticket-band[status='deleted'] {
+	background-image: -webkit-gradient(linear, left top, right top, from(#eb3349), to(#f45c43));
+	background-image: -o-linear-gradient(left, #eb3349, #f45c43);
 	background-image: linear-gradient(to right, #eb3349, #f45c43);
 }
 .LH-filtered-mini-ticket-band[status='homologation'] {
+	background-image: -webkit-gradient(linear, left top, right top, from(#2193b0), to(#6dd5ed));
+	background-image: -o-linear-gradient(left, #2193b0, #6dd5ed);
 	background-image: linear-gradient(to right, #2193b0, #6dd5ed);
 }
 
-
-
 .LH-FTB-title-direct-container {
 	font-size: 12px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 .LH-FTB-title-direct-container h3 {
@@ -51,15 +66,11 @@
 	width: 15%;
 }
 
-.LH-FTB-title-direct-container p span {
-	font-weight: bold;
-}
-
 .LH-FTB-general-infos-container {
 	font-size: 11.5px;
 	padding-top: 5px;
 }
 
-.LH-FTB-general-infos-container span {
+.LH-FTB-general-infos-container span, .LH-FTB-title-direct-container p span {
 	font-weight: bold;
 }

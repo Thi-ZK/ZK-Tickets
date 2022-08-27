@@ -4,8 +4,12 @@
 
 .ATT-input-direct-container {
 	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 } 
 
 .ATT-input-direct-container .ATT-input-status-text {
@@ -14,6 +18,8 @@
 	background: #2e3836;
 	color: #fff;
 	font-size: 14px;
+	-webkit-transition: all .4s;
+	-o-transition: all .4s;
 	transition: all .4s;
 	cursor: pointer;
 	text-align: center;
@@ -66,8 +72,12 @@ div[theme='bright'] .ATT-file-path-text {
 }
 
 #ATT-file-name-and-delete-button-direct-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 #ATT-file-name-and-delete-button-direct-container img {
@@ -80,4 +90,16 @@ div[theme='bright'] .ATT-file-path-text {
 
 #ATT-file-name-and-delete-button-direct-container img.open {
 	visibility: visible;
+}
+
+@media(max-width: 1320px){
+	.attachment-container * {
+		font-size: 13px !important;
+	}
+}
+
+@media(max-width: 720px){
+	.attachment-container * {
+		font-size: 12px !important;
+	}
 }

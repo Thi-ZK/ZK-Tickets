@@ -1,8 +1,13 @@
 #TV-ticket-info-container {
 	padding-top: 20px;
 	letter-spacing: 0.3px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	font-size: 13px;
 }
 
@@ -50,8 +55,12 @@ div[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] > d
 }
 
 .TV-INF-line-info-value, .TV-INF-line-info-value-aggregative, .TV-INF-info-line-direct-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 #TV-INF-aggregatives-container {
@@ -59,7 +68,9 @@ div[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] > d
 }
 
 .TV-INF-line-info-value-aggregative {
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	max-height: 28px;
 	padding-bottom: 4px !important;
 }
@@ -95,8 +106,13 @@ div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-grou
 
 @media(max-width: 680px) {
 	.TV-INF-info-line-direct-container {
-		flex-direction: column;
-		align-items: center;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 	#TV-ticket-info-container p, .TV-INF-line-info-key-aggregative  {
@@ -104,13 +120,19 @@ div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-grou
 	}
 
 	.TV-INF-line-info-key, .TV-INF-line-info-value {
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 	}
 
 	.TV-INF-line-info-value-aggregative {
 		padding-top: 10px;
-		justify-content: flex-start;
+		-webkit-box-pack: start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
 	}
 
 	.TV-INF-line-info-value-aggregative select {
@@ -118,7 +140,8 @@ div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-grou
 	}
 
 	#TV-INF-aggregatives-container .TV-INF-info-line-direct-container {
-		box-shadow: 0px 0px 3px 0px rgb(135, 135, 135);
+		-webkit-box-shadow: 0px 0px 3px 0px rgb(135, 135, 135);
+		        box-shadow: 0px 0px 3px 0px rgb(135, 135, 135);
 		padding: 8px;
 		margin-bottom: 16px;
 	}

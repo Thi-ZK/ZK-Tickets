@@ -1,4 +1,6 @@
 #ticket-view-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin: 1.2em 1.5em 1.5em 1.5em;
 }
@@ -10,6 +12,8 @@
 }
 
 #TV-title-direct-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	background-color: rgb(75,75,75);
 	padding: 12px;
@@ -31,11 +35,17 @@ div[theme='bright'] #TV-title-direct-container{
 
 /* Ticket Description */
 .TV-line-breaker-centrelizer {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 
 .TV-line-breaker p {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	padding: 8px;
 	border-bottom: 1px solid rgb(202,202,202);
@@ -110,24 +120,36 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 }
 
 #TV-attachment-blocks-direct-container{
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	margin-top: 20px;
 }
 
 #TV-place-message-and-ticket-management-options-container{
 	padding-left: 0.75em;
 	width: calc(50% - 1em);
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 #TV-place-message-and-ticket-management-options-container, #TV-attachment-blocks-direct-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 @media(max-width: 1500px) {
 	#ticket-view-container {
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 
 	#TV-description-attachments-and-info-container, #TV-place-message-and-ticket-management-options-container {
@@ -142,7 +164,10 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 
 @media(max-width: 600px) {
 	#ticket-view-container {
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 		margin: 1.2em 0.8em 1.5em 0.8em;
 	}
 }

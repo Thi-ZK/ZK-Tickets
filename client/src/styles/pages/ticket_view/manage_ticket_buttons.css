@@ -19,18 +19,23 @@ div[theme='bright'] #TV-status-action-buttons-container {
 }
 
 #TV-SAB-button-groups-container, .TV-SAB-buttons-group {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-around;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 }
 
 /* Buttons Effects */
 html *:before, html *:after {
+	-webkit-transition: 0.55s ease-in-out;
+	-o-transition: 0.55s ease-in-out;
 	transition: 0.55s ease-in-out;
 	z-index: -1;
 }
 
 .TV-SAB-buttons-group div{
-	position: relative; box-sizing: border-box; float: left; width: 35%;
+	position: relative; -webkit-box-sizing: border-box; box-sizing: border-box; float: left; width: 35%;
 	background-color: rgb(30, 30, 30);
 }
 div[theme='bright'] .TV-SAB-buttons-group div {
@@ -135,12 +140,16 @@ div[theme='bright'] #TV-SAB-delete-ticket, div[theme='bright'] #TV-SAB-conclude-
 
 .TV-SAB-buttons-group button:hover span{
 	color: white;
-	transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	     -o-transition-duration: 0.4s;
+	        transition-duration: 0.4s;
 }
 
 .TV-SAB-buttons-group button:hover:before, .TV-SAB-buttons-group button:hover:after, .TV-SAB-buttons-group button:hover span:before, .TV-SAB-buttons-group button:hover span:after {
   height: 100%;
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+       -o-transition-duration: 0.4s;
+          transition-duration: 0.4s;
   color: white;
 }
 /* Buttons Effects */
@@ -152,7 +161,10 @@ div[theme='bright'] #TV-SAB-delete-ticket, div[theme='bright'] #TV-SAB-conclude-
 	}
 
 	#TV-SAB-button-groups-container{
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 
 	.TV-SAB-buttons-group{

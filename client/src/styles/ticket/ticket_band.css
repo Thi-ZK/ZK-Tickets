@@ -3,7 +3,9 @@
 	background-color: rgb(30, 30, 30);
     width: calc(100vw - 318px - 56px);
     cursor: pointer;
-	transition-duration: 0.3s;
+	-webkit-transition-duration: 0.3s;
+	     -o-transition-duration: 0.3s;
+	        transition-duration: 0.3s;
 	border: 1px solid rgb(90, 90, 90);
 	font-family: 'Quicksand', sans-serif;
 	height: 193px;
@@ -13,10 +15,12 @@ div[theme='bright'] .ticket-band-container {
 	border: 1px solid rgb(220, 220, 220);
 }
 .ticket-band-container:hover{
-	box-shadow: 0 1px 30px 4px rgba(220,220,220,0.42);
+	-webkit-box-shadow: 0 1px 30px 4px rgba(220,220,220,0.42);
+	        box-shadow: 0 1px 30px 4px rgba(220,220,220,0.42);
 }
 div[theme='bright'] .ticket-band-container:hover {
-	box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
+	-webkit-box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
+	        box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
 }
 
 .TB-header{
@@ -25,6 +29,8 @@ div[theme='bright'] .ticket-band-container:hover {
 
 .TB-title-container {
 	color: white;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 div[theme='bright'] .TB-title-container {
@@ -60,8 +66,12 @@ div[theme='bright'] .TB-title-container {
 }
 
 .TB-header, .TB-content-block-container, .TB-name-and-person-info-direct-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 #TB-ticket-delete {
@@ -81,6 +91,8 @@ div[theme='bright'] .TB-title-container {
 }
 
 .TB-photo-and-personal-identification-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	padding-right: 18px;
 	max-width: 35%;
@@ -97,7 +109,10 @@ div[theme='bright'] .TB-title-container {
 }
 
 .TB-name-and-person-info-direct-container{
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	height: 110px;
 	font-size: 13.5px;
 	padding-left: 35px;
@@ -121,6 +136,8 @@ div[theme='bright'] .TB-name-and-person-info-direct-container p span {
 }
 
 .TB-statuses-and-dates-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	padding-right: 3em;
 	font-size: 13.5px;
@@ -144,6 +161,8 @@ div[theme='bright'] .TB-status-or-date span {
 }
 
 .TB-description-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 35%;
 	padding-right: 12px;
@@ -211,8 +230,12 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	}
 
 	.TB-description-container[screen-type='mob'] {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		justify-content: center;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
 		width: auto;
 		padding: 10px 20px 0px 20px;
 	}
@@ -236,7 +259,7 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	}
 
 	.TB-intitle-ticket-management-options {
-		padding-top: 6px;
+		padding-top: 12px;
 	}
 
 	#TB-ticket-delete {
@@ -246,24 +269,51 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 
 @media(max-width: 750px){
 	.ticket-band-container {
-		height: 500px;
+		height: auto;
 		width: calc(100vw - 25px);
 		margin-left: 12px;
 	}
 
 	.TB-content-block-container {
-		flex-direction: column;
-		align-items: center;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 	.TB-photo-and-personal-identification-container {
 		max-width: 100%;
 		padding-bottom: 30px;
 	}
+
+	.TB-statuses-and-dates-container {
+		width: 90%;
+		padding: 20px 15px 15px 15px;
+	}
+
+	.TB-statuses-and-dates-direct-container {
+		width: 90%;
+	}
+
+	.TB-status-or-date {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+	}
 }
 
 @media(max-width: 720px){
 	#ticket-listing-container {
 		margin-top: 45px;
+	}
+
+	.TB-title-container p {
+		line-height: 21px;
 	}
 }

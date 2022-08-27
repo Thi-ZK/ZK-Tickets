@@ -4,8 +4,12 @@
 
 .PFL-PI-person-info-direct-container {
     margin-right: calc(150px + 40px);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .PFL-PI-person-key-info {

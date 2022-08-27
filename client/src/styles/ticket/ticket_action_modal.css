@@ -5,12 +5,15 @@
 	left: 50%;
 	margin: -100px 0px 0px -250px;
 	top: 50%;
-	box-shadow: 0px 0px 5px 0px black;
+	-webkit-box-shadow: 0px 0px 5px 0px black;
+	        box-shadow: 0px 0px 5px 0px black;
 	border-radius: 6px;
 	background-color: rgb(60, 60, 60);
 	visibility: hidden;
 	height: 0px;
-	transition-duration: 0.55s;
+	-webkit-transition-duration: 0.55s;
+	     -o-transition-duration: 0.55s;
+	        transition-duration: 0.55s;
 	font-family: 'Quicksand', sans-serif;
 }
 div[theme='bright'] #ticket-action-modal-container {
@@ -20,17 +23,23 @@ div[theme='bright'] #ticket-action-modal-container {
 #ticket-action-modal-container[status*="closed"] * {
 	visibility: hidden;
 	height: 0px;
-	transition-duration: 0s;
+	-webkit-transition-duration: 0s;
+	     -o-transition-duration: 0s;
+	        transition-duration: 0s;
 }
 
 #ticket-action-modal-container[status*="open"] * {
-	transition-duration: 0s;
+	-webkit-transition-duration: 0s;
+	     -o-transition-duration: 0s;
+	        transition-duration: 0s;
 }
 
 #ticket-action-modal-container[status*="open"] {
 	visibility: visible !important;
 	height: 200px;
-	transition-duration: 0.55s;
+	-webkit-transition-duration: 0.55s;
+	     -o-transition-duration: 0.55s;
+	        transition-duration: 0.55s;
 }
 
 #TAM-confirmation-message-container{
@@ -43,9 +52,15 @@ div[theme='bright'] #TAM-confirmation-message-container{
 }
 
 #TAM-title-and-close-icon-direct-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	padding-bottom: 1.5em;
 }
 #TAM-title-and-close-icon-direct-container h2{
@@ -78,10 +93,16 @@ div[theme='bright'] #TAM-confirmation-message-container p {
 
 #TAM-action-buttons-container{
 	height: calc(45% - 1.5em);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: flex-end;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
 	padding-right: 1em;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 #TAM-action-buttons-direct-container button{
