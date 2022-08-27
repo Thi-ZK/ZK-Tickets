@@ -28,11 +28,11 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
         let req_data = {
             aggregative_id:   aggregative_id,
             aggregative_name: aggregative_name,
-            ticket_id:        ticket_data.id
+            ticket_id:        ticket_data.id,
+            ticket_creator:   ticket_data.creator
         }
         
-        axios.post(AF.gen_assign_req_url(aggregative_type), req_data)
-        .then((res) => { console.log(res.data);
+        axios.post(AF.gen_assign_req_url(aggregative_type), req_data).then((res) => { console.log(res.data);
             AF.update_aggregative_state_with_added(aggregative_name, aggregatives_utils, aggregative_type);
             window.__was_ticket_interacted = true;
         })
@@ -52,8 +52,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
             ticket_id:           ticket_data.id
         }
         
-        axios.post(AF.gen_unassign_req_url(aggregative_type), req_data)
-        .then((res) => { console.log(res.data);
+        axios.post(AF.gen_unassign_req_url(aggregative_type), req_data).then((res) => { console.log(res.data);
             AF.update_aggregative_state_with_removed(aggregative_name, aggregatives_utils, aggregative_type);
             window.__was_ticket_interacted = true;
         })

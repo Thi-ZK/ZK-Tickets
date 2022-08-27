@@ -14,7 +14,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
         let msg_id    = message_data.id;
         let msg_owner = message_data.message_owner;
 
-        if ( (userData.id !== msg_owner) && (userData.user_power < 4) ) { 
+        if ( (userData.id !== msg_owner) && (userData.user_power < 4) ) { // AUX FUNC AND ADD CONDITION POSSIBILITY FOR USER BEING THE CREATOR OF THE TICKET TOO
             return AF.display_not_enough_power_deletion_message(msg_id);
         }
 
