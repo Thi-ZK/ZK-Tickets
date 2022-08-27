@@ -198,6 +198,6 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container span {
     }
 
     #LOG-new-account-request-button-direct-container {
-        width: calc(350px - 40px);
+        width: calc(320px - 40px);
     }
 }

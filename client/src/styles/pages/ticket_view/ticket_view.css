@@ -139,3 +139,10 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 		padding-left:0px ;
 	}
 }
+
+@media(max-width: 600px) {
+	#ticket-view-container {
+		flex-direction: column;
+		margin: 1.2em 0.8em 1.5em 0.8em;
+	}
+}

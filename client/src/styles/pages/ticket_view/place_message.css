@@ -101,3 +101,9 @@ div[theme='bright'] #TV-PM-submit-button-direct-container button:hover {
 	background-color: rgb(60, 60, 60) !important;
 	color: white !important;
 }
+
+@media(max-width: 600px) {
+	#TV-PM-title-direct-container p {
+		font-size: 15px;
+	}
+}

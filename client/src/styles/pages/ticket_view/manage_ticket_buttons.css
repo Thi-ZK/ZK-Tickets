@@ -145,21 +145,12 @@ div[theme='bright'] #TV-SAB-delete-ticket, div[theme='bright'] #TV-SAB-conclude-
 }
 /* Buttons Effects */
 
-
-@media(max-width: 818px){
-	#TV-SAB-button-groups-container button{
-		font-size: 0.9em;
-	}
-}
-
 @media(max-width: 600px){
 	#TV-SAB-button-groups-container button{
 		font-size: 0.88em;
 		padding: 0px 3px 0px 3px;
 	}
-}
 
-@media(max-width: 450px){
 	#TV-SAB-button-groups-container{
 		flex-direction: column;
 	}

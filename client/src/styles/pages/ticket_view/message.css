@@ -77,3 +77,27 @@ div[theme='bright'] .TV-MSG-text {
 .TV-MSG-deleting-gif[status='on']{
     display: inline-block;
 }
+
+@media(max-width: 720px) {
+	.TV-MSG-text {
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 600px) {
+	.TV-MSG-title-direct-container {
+        flex-direction: column;
+    }
+    
+    .TV-MSG-date {
+        padding: 12px 0px 4px 0px;
+    }
+
+    .TV-MSG-owner-name {
+        line-height: 16px;
+    }
+
+    .TV-MSG-date {
+        font-size: 11px;
+    }
+}
