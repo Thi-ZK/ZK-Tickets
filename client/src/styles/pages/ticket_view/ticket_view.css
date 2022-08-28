@@ -33,7 +33,22 @@ div[theme='bright'] #TV-title-direct-container{
 	padding: 1em;
 }
 
-/* Ticket Description */
+#TV-aggregatives-legitimacy-error-direct-container {
+	visibility: hidden;
+	opacity: 0;
+	transition-duration: 0.28s;
+}
+#TV-aggregatives-legitimacy-error-direct-container[status='on'] {
+	visibility: visible;
+	opacity: 1;
+}
+
+#TV-aggregatives-legitimacy-error-direct-container p {
+	font-size: 12px;
+	text-align: center;
+	color: rgb(199, 47, 53);
+}
+
 .TV-line-breaker-centrelizer {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -57,7 +72,6 @@ div[theme='bright'] #TV-title-direct-container{
 div[theme='bright'] .TV-line-breaker p{
 	border-bottom: 1px solid rgb(200,200,200);
 }
-/* Ticket Description */
 
 #TV-description-container{
 	padding: 28px 1em 16px 1em;

@@ -2,7 +2,7 @@ import axios from '../../../api/axios';
 import texts from '../../../languages/Pages/TicketView/TicketOverViewInformation.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
-function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language }) {
+function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language, userData }) {
     // Aliases For Aggregatives States
     const assigneds = aggregatives_utils.assigneds;
     const groups    = aggregatives_utils.groups;
@@ -21,8 +21,12 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
 
         AF.set_aux_aggregative_option_disabled_status(true, event); // Disables Double Dash Option "--"
 
-        if (AF.is_aggregative_already_set(aggregative_name, aggregatives_utils, aggregative_type)) {
+        if ( AF.is_aggregative_already_set(aggregative_name, aggregatives_utils, aggregative_type) ) {
             return; 
+        }
+
+        if ( !AF.is_user_legit_max_strict(userData, ticket_data.creator) ) {
+            return AF.display_assignment_legitimacy_error();
         }
 
         let req_data = {
@@ -39,10 +43,14 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
     }
 
     // Unassign Aggregative Handler
-    const unassign_user = (event) => {
+    const unassign_aggregative = (event) => {
         let aggregative_type = event.target.getAttribute("aggregative-type");
         let aggregative_name = event.target.innerText;
         let aggregative_id   = AF.get_aggregative_id_for_unassign(aggregative_name, aggregative_type);
+
+        if ( !AF.is_user_legit_max_strict(userData, ticket_data.creator) ) {
+            return AF.display_assignment_legitimacy_error();
+        }
     
         let req_data = {
             aggregative_id:      aggregative_id,
@@ -82,7 +90,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                     <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.groups_plural[language] : texts.groups[language]}:</small>
                     <div>
                         {groups.map((group, index) => (
-                            <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_user} key={index}>{group}</span>
+                            <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_aggregative} key={index}>{group}</span>
                         ))}
                     </div>
                 </div>
@@ -100,7 +108,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language 
                     <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
                     <div>
                         {assigneds.map((assumer, index) => (
-                            <span className='TV-INF-assigneds-rectangle-span' aggregative-type="assumer" onClick={unassign_user} key={index}>{assumer}</span>
+                            <span className='TV-INF-assigneds-rectangle-span' aggregative-type="assumer" onClick={unassign_aggregative} key={index}>{assumer}</span>
                         ))}
                     </div>
                 </div>

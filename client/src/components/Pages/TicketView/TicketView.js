@@ -59,7 +59,10 @@ function TicketView({ allPopulationData }) {
 					<h2>{ticket_data.name}</h2>
 					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 				</div>
-				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language}/>
+				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language} userData={userData}/>
+			</div>
+			<div id="TV-aggregatives-legitimacy-error-direct-container" status="off">
+				<p>You Are Not Allowed To Do That</p>
 			</div>
 			<div className='TV-line-breaker'>
 				<div className='TV-line-breaker-centrelizer'>

@@ -36,6 +36,26 @@ const set_aux_aggregative_option_disabled_status = (status, event) => {
     event.target.querySelector("option[id*='TV-INF'][id*='aux-option']").disabled = status;
 }
 
+// Check If User Is Creator Of The Ticket Or Admin (If Not, He / She Is Not Legit To Assign Users Or Delete)
+const is_user_legit_max_strict = (userData, ticket_creator) => {
+    if ( (userData.id === ticket_creator) || (userData.user_power === 4) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Displays Assign Or Unassign Error Messages Due To Lack Of Power
+const display_assignment_legitimacy_error = () => {
+    let error_elem = document.querySelector("#TV-aggregatives-legitimacy-error-direct-container");
+
+    error_elem.setAttribute("status", "on");
+
+    setTimeout(() => {
+        error_elem.setAttribute("status", "off");
+    }, 2500);
+}
+
 // Generate Update Request URL For Assign
 const gen_assign_req_url = (aggregative_type) => {
     return aggregative_type === "group" ? "/tickets/update/single/ticket_groups/set" : "/tickets/update/single/assigneds/set";
@@ -86,7 +106,9 @@ const AF = {
     update_aggregative_state_with_removed:      update_aggregative_state_with_removed,
     is_aggregative_already_set:                 is_aggregative_already_set,
     get_aggregative_id_for_unassign:            get_aggregative_id_for_unassign,
-    gen_unassign_req_url:                       gen_unassign_req_url
+    gen_unassign_req_url:                       gen_unassign_req_url,
+    is_user_legit_max_strict:                   is_user_legit_max_strict,
+    display_assignment_legitimacy_error:        display_assignment_legitimacy_error
 };
 
 export default AF;
