@@ -1,5 +1,5 @@
 // Display Error Message For Not Enough Power
-const display_not_enough_power_deletion_message = (message_id) => {
+const display_not_enough_power_error_message = (message_id) => {
     let message_id_escaped = message_id.replace(".", "\\."); // For CSS Selection
     let error_message_elem = document.querySelector("#TV-message-container-" + message_id_escaped + " span.TV-MSG-not-enough-power-error-message");
 
@@ -28,9 +28,20 @@ const set_anonymous_picture = (event) => {
     img.src = "/imgs/general/users_photos/anonymous.jpg";
 }
 
+// Check If User Is Ticket Creator OR Admin OR Message Creator (If Not, He / She Is Not Legit Delete The Message)
+const is_user_legit_strict = (ticket_creator, userData, msg_owner) => {
+    if ( (userData.id === ticket_creator) || (userData.user_power === 4) || (msg_owner === userData.id) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 module.exports = {
-    display_not_enough_power_deletion_message: display_not_enough_power_deletion_message,
-    set_loading_icon_appearence: set_loading_icon_appearence,
-    generate_ticket_creator_img_src: generate_ticket_creator_img_src,
-    set_anonymous_picture: set_anonymous_picture
+    display_not_enough_power_error_message: display_not_enough_power_error_message,
+    set_loading_icon_appearence:               set_loading_icon_appearence,
+    generate_ticket_creator_img_src:           generate_ticket_creator_img_src,
+    set_anonymous_picture:                     set_anonymous_picture,
+    is_user_legit_strict:                      is_user_legit_strict
 };

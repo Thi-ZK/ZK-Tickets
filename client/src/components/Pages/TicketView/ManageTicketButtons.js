@@ -12,11 +12,12 @@ function ManageTicketButtons ({ ticket_data, allPopulationData }) {
 		AF.turn_overlay_on();
 
 		updateTicketActionModalSettings({
-			is_action_redundant: ticket_data.status.toLowerCase().includes(action.substring(0, 8)),
-			text_thema:          action,
-			status:              "open",
-			ticket_id:           ticket_data.id,
-			which_action:        action
+			is_action_redundant:  ticket_data.status.toLowerCase().includes(action.substring(0, 8)),
+			text_thema:           action,
+			status:               "open",
+			ticket_id:            ticket_data.id,
+			which_action:         action,
+            ticket_related_users: ticket_data.related_users
 		});
 	}
 

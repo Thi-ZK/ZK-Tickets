@@ -25,14 +25,10 @@ function TicketView({ allPopulationData }) {
 	const [messages, updateMessages] = useState(ticket_data.messages);
 	const messages_utils = { messages: messages, updateMessages: updateMessages, language: language };
 
-	// Assigneds State Declaration | assigneds and assumers are the same thing.
+	// Aggregative States Declaration | assigneds and assumers are the same thing.
 	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
-
-	// Groups State Declaration - The Ticket Bound Groups
-	const [groups, updateGroups] = useState(ticket_data.groups_names);
-
-	// Alias For Aggregatives => Assigneds & Groups 
-	const aggregatives_utils = AF.generate_aggregatives_utils_obj(assigneds, groups, updateAssigneds, updateGroups, allPopulationData);
+	const [groups, updateGroups]       = useState(ticket_data.groups_names); 
+	const aggregatives_utils           = AF.generate_aggregatives_utils_obj(assigneds, groups, updateAssigneds, updateGroups, allPopulationData);
 	
 	// Checks If Ticket ID Is Above 5000 And If Yes, Redirect User To 404 Page
 	AF.handle_too_high_id_ticket_search(ticket_id);
@@ -62,7 +58,7 @@ function TicketView({ allPopulationData }) {
 				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language} userData={userData}/>
 			</div>
 			<div id="TV-aggregatives-legitimacy-error-direct-container" status="off">
-				<p>You Are Not Allowed To Do That</p>
+				<p>{texts.not_allowed[language]}</p>
 			</div>
 			<div className='TV-line-breaker'>
 				<div className='TV-line-breaker-centrelizer'>
@@ -94,7 +90,7 @@ function TicketView({ allPopulationData }) {
 		<div id="TV-place-message-and-ticket-management-options-container" eye-helper="SECOND-RIGHT-BLOCK">
 			<div id="TV-messages-direct-container" css-marker="MSG">
 				{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
-					<Message userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
+					<Message userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id} ticket_creator={ticket_data.creator} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
 				))}
 			</div>
 			<div id="TV-place-message-and-manage-ticket-buttons">

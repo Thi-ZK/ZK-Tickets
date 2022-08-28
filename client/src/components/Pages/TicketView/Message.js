@@ -3,7 +3,7 @@ import axios from '../../../api/axios';
 import AF    from '../../../components_aux_functions/pages/ticket_view/message.js'; // Aux Functions
 import texts from '../../../languages/Pages/TicketView/Message.json';
 
-function Message({ type, message_data, ticket_id, messages_utils, userData }) {
+function Message({ type, message_data, ticket_id, messages_utils, userData, ticket_creator }) {
     // Aliases
     const messages       = messages_utils.messages;
     const updateMessages = messages_utils.updateMessages; 
@@ -11,20 +11,19 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
 
     // Delete Message
     const delete_message = () => {
-        let msg_id    = message_data.id;
-        let msg_owner = message_data.message_owner;
+        let msg_id = message_data.id;
+        let data   = {
+            message_id:     msg_id,
+            message_owner:  message_data.message_owner,
+            ticket_id:      ticket_id,
+            ticket_creator: ticket_creator
+        };
 
-        if ( (userData.id !== msg_owner) && (userData.user_power < 4) ) { // AUX FUNC AND ADD CONDITION POSSIBILITY FOR USER BEING THE CREATOR OF THE TICKET TOO
-            return AF.display_not_enough_power_deletion_message(msg_id);
+        if ( !AF.is_user_legit_strict(ticket_creator, userData, data.message_owner) ) {
+            return AF.display_not_enough_power_error_message(msg_id);
         }
 
         AF.set_loading_icon_appearence("on", msg_id);
-
-        let data = {
-            message_id:    msg_id,
-            message_owner: msg_owner,
-            ticket_id:     ticket_id
-        };
 
         axios.post('/tickets/update/single/messages/delete', data).then((res) => { console.log(res.data);
             AF.set_loading_icon_appearence("off", msg_id);

@@ -29,13 +29,11 @@ const check_user_legitimacy_strict = (req, res, next) => {
 
 // (SERVES ALL) Check If User Is Legit To Perform The Desired Action (Must Be Generally Related To The Ticket OR Admin)
 const check_user_legitimacy = (req, res, next) => {
-    let user_data  = req.session.user;
-    let user_power = req.session.user.user_power;
-    let ticket_id  = req.body.ticket_id;
-    
-    return next(); // UNTIL RELATED TICKETS ARE FINISHED
+    let user                 = req.session.user.id;
+    let user_power           = req.session.user.user_power;
+    let ticket_related_users = req.body.ticket_related_users;
 
-    if ( (user_data.related_ticket.includes(ticket_id)) || (user_power === 4) ) {
+    if ( (ticket_related_users.includes(user)) || (user_power === 4) ) {
 		return next();
 	}
 

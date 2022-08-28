@@ -10,5 +10,11 @@
         "german": "Anhänge",
         "portuguese": "Anexos",
         "spanish": "Archivos Adjuntos"
+    },
+    "not_allowed": {
+        "english": "You are not allowed to do that",
+        "german": "Sie sind nicht erlaubt, das zu tun",
+        "portuguese": "Você não pode realizar esta ação",
+        "spanish": "Usted no puedes hacer esta acción"
     }
 }
