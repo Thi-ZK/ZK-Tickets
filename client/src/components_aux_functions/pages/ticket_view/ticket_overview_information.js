@@ -27,8 +27,8 @@ const get_aggregative_name = (select_elem) => {
 }
 
 // Get Aggregative ID (For Unassign Function)
-const get_aggregative_id_for_unassign = (aggregative_name, aggregative_type) => {
-    return Number(document.querySelector("select[aggregative-type='" + aggregative_type + "'] option[name='" + aggregative_name.trim() + "']").id);
+const get_aggregative_id_for_unassign = (data) => {
+    return Number(document.querySelector("select[aggregative-type='" + data.aggregative_type + "'] option[name='" + data.aggregative_name.trim() + "']").id);
 }
 
 // Set Assign User Aux Option (Two Dashes "--" Option) Disabled Status
@@ -67,31 +67,31 @@ const gen_unassign_req_url = (aggregative_type) => {
 }
 
 // Is Aggregative Already Set
-const is_aggregative_already_set = (aggregative_name, aggregatives_utils, aggregative_type) => {
-    let data_array_to_be_checked = aggregative_type === "group" ? aggregatives_utils.groups : aggregatives_utils.assigneds;
-    return data_array_to_be_checked.includes(aggregative_name);
+const is_aggregative_already_set = (data, aggregatives_utils) => {
+    let data_array_to_be_checked = data.aggregative_type === "group" ? aggregatives_utils.groups : aggregatives_utils.assigneds;
+    return data_array_to_be_checked.includes(data.aggregative_name);
 }
 
 // Update Aggregative State For Assigning
-const update_aggregative_state_with_added = (aggregative_name, aggregatives_utils, aggregative_type) => {
-    if ( aggregative_type === "group" ) {
-        aggregatives_utils.updateGroups([...aggregatives_utils.groups, aggregative_name]);
+const update_aggregative_state_with_added = (data, aggregatives_utils) => {
+    if ( data.aggregative_type === "group" ) {
+        aggregatives_utils.updateGroups([...aggregatives_utils.groups, data.aggregative_name]);
     } else {
-        aggregatives_utils.updateAssigneds([...aggregatives_utils.assigneds, aggregative_name]);
+        aggregatives_utils.updateAssigneds([...aggregatives_utils.assigneds, data.aggregative_name]);
     }
 }
 
 // Update Aggregative State For Unassigning
-const update_aggregative_state_with_removed = (aggregative_name, aggregatives_utils, aggregative_type) => {
+const update_aggregative_state_with_removed = (data, aggregatives_utils) => {
     let groups          = aggregatives_utils.groups;
     let assigneds       = aggregatives_utils.assigneds;
     let updateGroups    = aggregatives_utils.updateGroups;
     let updateAssigneds = aggregatives_utils.updateAssigneds;
 
-    if ( aggregative_type === "group" ) {
-        updateGroups(groups.filter((group) => { return group !== aggregative_name }));
+    if ( data.aggregative_type === "group" ) {
+        updateGroups(groups.filter((group) => { return group !== data.aggregative_name }));
     } else {
-        updateAssigneds(assigneds.filter((assigned) => { return assigned !== aggregative_name }));
+        updateAssigneds(assigneds.filter((assigned) => { return assigned !== data.aggregative_name }));
     }
 }
 

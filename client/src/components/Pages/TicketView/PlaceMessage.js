@@ -16,7 +16,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
         
         if ( !message ) { return; }
         
-        document.querySelector("#TV-PM-message-textarea").innerText = ""; // Clean TextArea
+        AF.clean_message_text_area();
         
         let data ={
             message:    message,

@@ -15,53 +15,48 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
 
     // Assign Aggregative Handler
     const assign_aggregative = (event) => {
-        let aggregative_type = event.target.getAttribute("aggregative-type");
-        let aggregative_id   = AF.get_aggregative_id(event.target);
-        let aggregative_name = AF.get_aggregative_name(event.target);
+        let data = {
+            aggregative_id:   AF.get_aggregative_id(event.target),
+            aggregative_name: AF.get_aggregative_name(event.target),
+            ticket_id:        ticket_data.id,
+            ticket_creator:   ticket_data.creator,
+            aggregative_type: event.target.getAttribute("aggregative-type")
+        };
 
         AF.set_aux_aggregative_option_disabled_status(true, event); // Disables Double Dash Option "--"
 
-        if ( AF.is_aggregative_already_set(aggregative_name, aggregatives_utils, aggregative_type) ) {
+        if ( AF.is_aggregative_already_set(data, aggregatives_utils) ) {
             return; 
         }
 
         if ( !AF.is_user_legit_max_strict(userData, ticket_data.creator) ) {
             return AF.display_assignment_legitimacy_error();
         }
-
-        let req_data = {
-            aggregative_id:   aggregative_id,
-            aggregative_name: aggregative_name,
-            ticket_id:        ticket_data.id,
-            ticket_creator:   ticket_data.creator
-        }
         
-        axios.post(AF.gen_assign_req_url(aggregative_type), req_data).then((res) => { console.log(res.data);
-            AF.update_aggregative_state_with_added(aggregative_name, aggregatives_utils, aggregative_type);
+        axios.post(AF.gen_assign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
+            AF.update_aggregative_state_with_added(data, aggregatives_utils);
             window.__was_ticket_interacted = true;
         })
     }
 
     // Unassign Aggregative Handler
     const unassign_aggregative = (event) => {
-        let aggregative_type = event.target.getAttribute("aggregative-type");
-        let aggregative_name = event.target.innerText;
-        let aggregative_id   = AF.get_aggregative_id_for_unassign(aggregative_name, aggregative_type);
+        let data = {
+            aggregative_id:      null,
+            aggregative_name:    event.target.innerText,
+            ticket_creator:      ticket_data.creator,
+            ticket_creator_name: ticket_data.creator_name,
+            ticket_id:           ticket_data.id,
+            aggregative_type:    event.target.getAttribute("aggregative-type")
+        }
+        data.id = AF.get_aggregative_id_for_unassign(data);
 
         if ( !AF.is_user_legit_max_strict(userData, ticket_data.creator) ) {
             return AF.display_assignment_legitimacy_error();
         }
-    
-        let req_data = {
-            aggregative_id:      aggregative_id,
-            aggregative_name:    aggregative_name,
-            ticket_creator:      ticket_data.creator,
-            ticket_creator_name: ticket_data.creator_name,
-            ticket_id:           ticket_data.id
-        }
         
-        axios.post(AF.gen_unassign_req_url(aggregative_type), req_data).then((res) => { console.log(res.data);
-            AF.update_aggregative_state_with_removed(aggregative_name, aggregatives_utils, aggregative_type);
+        axios.post(AF.gen_unassign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
+            AF.update_aggregative_state_with_removed(data, aggregatives_utils);
             window.__was_ticket_interacted = true;
         })
     }
@@ -86,6 +81,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
         </div>
         <div id='TV-INF-aggregatives-container'>
             <div className='TV-INF-info-line-direct-container'>
+                {/* Rectangle Blocks Of Groups */}
                 <div className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-rectangles-span-direct-container'>
                     <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.groups_plural[language] : texts.groups[language]}:</small>
                     <div>
@@ -94,6 +90,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
                         ))}
                     </div>
                 </div>
+                {/* List (Selection) Of Ticket Groups To Be Assigned */}
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_groups[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-groups-selector' aggregative-type="group">
                         <option id="TV-INF-no-group-aux-option" name="none">--</option>
@@ -104,6 +101,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
                 </p>
             </div>
             <div className='TV-INF-info-line-direct-container'>
+                {/* Rectangle Blocks Of Assigned Users */}
                 <div className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'>
                     <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
                     <div>
@@ -112,6 +110,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
                         ))}
                     </div>
                 </div>
+                {/* List (Selection) Of Users To Be Assigned */}
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-assigneds-selector' aggregative-type="assumer">
                         <option id="TV-INF-no-assigment-aux-option" name="none">--</option>

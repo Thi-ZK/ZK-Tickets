@@ -33,12 +33,34 @@ const set_error_message_appearence = ( updateErrorMessage, status, message ) => 
     if ( message ) { updateErrorMessage(message); }
 }
 
+// Prevent Default Action From Handler & Disables Login Button
+const prevent_default_and_disable_login_button = (event) => {
+    event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
+    event.preventDefault();
+}
+
+// Enable Login Button
+const enable_login_button = (event) => {
+    event.target.disabled = false;
+}
+
+// Loads (From DB) Tickets Data, User Data, Etc.
+const load_all_application_to_be_used_data = (allPopulationData) => {
+    allPopulationData.update_all_tickets();
+    allPopulationData.update_user_data(true);
+    allPopulationData.update_user_names_and_ids();
+    allPopulationData.update_ticket_groups();
+}
+
 module.exports = {
-    clean_pass_and_email_inputs:  clean_pass_and_email_inputs,
-    get_email:                    get_email,
-    get_password:                 get_password,
-    vanish_login_form:            vanish_login_form,
-    set_loading_icon_appearence:  set_loading_icon_appearence,
-    prevent_default:              prevent_default,
-    set_error_message_appearence: set_error_message_appearence
+    clean_pass_and_email_inputs:              clean_pass_and_email_inputs,
+    get_email:                                get_email,
+    get_password:                             get_password,
+    vanish_login_form:                        vanish_login_form,
+    set_loading_icon_appearence:              set_loading_icon_appearence,
+    prevent_default:                          prevent_default,
+    set_error_message_appearence:             set_error_message_appearence,
+    prevent_default_and_disable_login_button: prevent_default_and_disable_login_button,
+    enable_login_button:                      enable_login_button,
+    load_all_application_to_be_used_data:     load_all_application_to_be_used_data
 };

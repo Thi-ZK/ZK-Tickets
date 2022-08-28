@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import texts from '../../languages/IndependentPieces/Attachment.json';
+import AF                  from '../../components_aux_functions/independent_pieces/attachments';
+import texts               from '../../languages/IndependentPieces/Attachment.json';
 
 function AttachmentBlock ({ language }) {
-    // State Declaration & Managing Functions
-    const [attachments, updateAttachments] = useState([{ id: 'attachment1', downloadPath: '', desc: 'Select a File', index: 1 }]);
+    // Attachments State
+    const [attachments, updateAttachments] = useState([AF.generate_attachment_obj(1)]);
+
+    // Meant For Add New Attachment
 	const update_path_and_add_new_att = (event) => {
-		let current_elem_id = event.target.id;
-		let last_attachment = attachments[attachments.length -1];
+		let current_elem_id   = event.target.id;
+		let last_attachment   = attachments[attachments.length -1];
 		let is_new_attachment = current_elem_id === last_attachment.id;
 
-		for (let i = 0; i < attachments.length; i++) {
-			if ( current_elem_id === attachments[i].id ) {
-				attachments[i].downloadPath = event.target.value;
-				attachments[i].desc = 'File Chosen';
-			}
-		}
+        AF.update_download_path_and_desc(attachments, event, current_elem_id);
 
-        let newAttachment = {id: 'attachment' + (last_attachment.index + 1), downloadPath: '', desc: 'Select a File', index: last_attachment.index + 1};
+        let newAttachment = AF.generate_attachment_obj((last_attachment.index + 1)); // ID & Index (Are Same)
 		is_new_attachment ? updateAttachments([...attachments, newAttachment]) : updateAttachments([...attachments]);
 	}
 
-	const deleteAttachment = (id) => {
+    // Meant For Deleting Attachment
+	const delete_attachment = (id) => {
 		updateAttachments(attachments.filter((elem) => {
 			return !(elem.id === id);
 		}));
@@ -43,7 +42,7 @@ function AttachmentBlock ({ language }) {
         <div id="ATT-file-name-and-delete-button-direct-container">
             <p className="ATT-file-path-text">{attachment.downloadPath}</p>
             <img 
-                onClick={(e) => {deleteAttachment(attachment.id)}}
+                onClick={(e) => {delete_attachment(attachment.id)}}
                 className={attachment.downloadPath ? "open" : "closed"}
                 alt="delete-icon"
                 src='/imgs/general/red_x_delete_icon.png'

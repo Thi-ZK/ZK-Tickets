@@ -58,6 +58,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                 <img onClick={clean_search} className='LH-delete-icon' alt="delete red icon on search" src='/imgs/general/red_x_delete_icon.png'/>
             </div>
         </div>
+        {/* Search Logic */}
         <div id="LH-filtered-mini-ticket-bands-direct-container">
             {allTickets.filter((ticket) => {
                 let name = ticket.name.toLowerCase();
@@ -78,6 +79,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                 <ListLink link_url="/create_ticket" img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}></ListLink>
                 <ListLink link_url="/ticket_listing/all" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
                 <ListLink link_url="/ticket_listing/created_by_me" img_src_url="tickets/tag_icon" link_text={texts.my_created_tickets[language]}></ListLink>
+                {/* "Tickets I Am Assigned" */}
                 <div className="LH-links-grouper-container">
                     <div onClick={manage_standard_filters_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
@@ -95,6 +97,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                         <ListLink link_url="/ticket_listing/i_am_assigned/homologation" img_src_url="tickets/blue_tag" link_text={texts.homologated_tickets[language]}></ListLink>
                     </div>
                 </div>
+                {/* "Ticket Groups" */}
                 <div className="LH-links-grouper-container">
                     <div onClick={manage_my_groups_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>

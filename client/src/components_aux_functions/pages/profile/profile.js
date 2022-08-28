@@ -21,8 +21,16 @@ const set_anonymous_picture = (event) => {
     img.src = "/imgs/general/users_photos/anonymous.jpg";
 }
 
+// Get Number Of Total Linked (Related) Tickets To The User
+const get_total_linked_tickets_number = (allTickets, userData) => {
+    return allTickets.filter((ticket) => {
+        return ticket.related_users.includes(userData.id) ? ticket : undefined;
+    }).length;
+}
+
 module.exports = {
     set_content_display_p_elems_status: set_content_display_p_elems_status,
-    generate_ticket_creator_img_src: generate_ticket_creator_img_src,
-    set_anonymous_picture: set_anonymous_picture
+    generate_ticket_creator_img_src:    generate_ticket_creator_img_src,
+    set_anonymous_picture:              set_anonymous_picture,
+    get_total_linked_tickets_number:    get_total_linked_tickets_number
 };

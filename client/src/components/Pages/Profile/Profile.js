@@ -15,16 +15,14 @@ function Profile({ allPopulationData }) {
     // State Declaration For Which Main Content To Be Displayed 
     const [currentDisplayedContent, updateDisplayedContent] = useState("user_info");
 
-    // Updates Displayed Content State & Sets <p> Attributes For Styles
+    // Updates Displayed Content State And Sets <p> Attributes For Styles
     const switch_displayed_content = (event) => {
         AF.set_content_display_p_elems_status(event.target);
         updateDisplayedContent(event.target.getAttribute("which_content"));
     }
 
     // Total Linked Tickets Number
-    const total_linked_tickets = allTickets.filter((ticket) => {
-        return ticket.related_users.includes(userData.id) ? ticket : undefined;
-    }).length;
+    const total_linked_tickets = AF.get_total_linked_tickets_number(allTickets, userData);
 
     return (
     <div id="profile-container" css-marker="PFL">

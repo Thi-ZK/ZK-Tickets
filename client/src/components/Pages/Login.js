@@ -5,28 +5,23 @@ import AF                  from '../../components_aux_functions/pages/login.js';
 
 function Home({ allPopulationData }) {
     // Aliases For Population Data
-    const update_all_tickets        = allPopulationData.update_all_tickets;
-    const update_user_data          = allPopulationData.update_user_data;
-    const update_user_names_and_ids = allPopulationData.update_user_names_and_ids;
-    const update_ticket_groups      = allPopulationData.update_ticket_groups;
-    const userData                  = allPopulationData.userData;
-    const language                  = allPopulationData.language;
+    const userData = allPopulationData.userData;
+    const language = allPopulationData.language;
 
     // Meant For Displaying Or Hiding Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
     const [errorMessage, updateErrorMessage] = useState("none");
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
     const attempt_login = (event) => {
-        AF.set_error_message_appearence(updateErrorMessage, "off");
-        event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
-        event.preventDefault();
+        AF.set_error_message_appearence(updateErrorMessage, "off"); // Meant For Cleaning Previous Possible Login Errors
+        AF.prevent_default_and_disable_login_button(event);
 
         let email    = AF.get_email();
         let password = AF.get_password();
         
         if ( !email || !password ) {
             AF.set_error_message_appearence(updateErrorMessage, "on", "what_is_your_plan"); // Text Matches Language File
-            event.target.disabled = false;
+            AF.enable_login_button(event);
             return;
         }
         
@@ -37,10 +32,7 @@ function Home({ allPopulationData }) {
             AF.set_loading_icon_appearence("off");
             
             if ( res.data.success ) { // If User Logged In Successfully
-                update_all_tickets();
-                update_user_data(true);
-                update_user_names_and_ids();
-                update_ticket_groups();
+                AF.load_all_application_to_be_used_data(allPopulationData);
                 AF.set_error_message_appearence(updateErrorMessage, "off", "");
                 AF.vanish_login_form();
                 AF.clean_pass_and_email_inputs();

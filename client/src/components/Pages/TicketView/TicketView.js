@@ -23,7 +23,7 @@ function TicketView({ allPopulationData }) {
 
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
-	const messages_utils = { messages: messages, updateMessages: updateMessages, language: language };
+	const messages_utils             = { messages: messages, updateMessages: updateMessages, language: language };
 
 	// Aggregative States Declaration | assigneds and assumers are the same thing.
 	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
