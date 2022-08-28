@@ -25,8 +25,8 @@ function TicketView({ allPopulationData }) {
 	const [messages, updateMessages] = useState(ticket_data.messages);
 	const messages_utils = { messages: messages, updateMessages: updateMessages, language: language };
 
-	// Assigneds State Declaration
-	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names); // assigneds and assumers are the same thing.
+	// Assigneds State Declaration | assigneds and assumers are the same thing.
+	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
 
 	// Groups State Declaration - The Ticket Bound Groups
 	const [groups, updateGroups] = useState(ticket_data.groups_names);

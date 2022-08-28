@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import texts from '../../languages/IndependentPieces/Attachment.json';
 
 function AttachmentBlock ({ language }) {
-
     // State Declaration & Managing Functions
     const [attachments, updateAttachments] = useState([{ id: 'attachment1', downloadPath: '', desc: 'Select a File', index: 1 }]);
 	const update_path_and_add_new_att = (event) => {
@@ -11,7 +10,7 @@ function AttachmentBlock ({ language }) {
 		let is_new_attachment = current_elem_id === last_attachment.id;
 
 		for (let i = 0; i < attachments.length; i++) {
-			if (current_elem_id === attachments[i].id) {
+			if ( current_elem_id === attachments[i].id ) {
 				attachments[i].downloadPath = event.target.value;
 				attachments[i].desc = 'File Chosen';
 			}

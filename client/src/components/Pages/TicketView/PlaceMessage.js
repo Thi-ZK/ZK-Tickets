@@ -11,15 +11,20 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
 
     // Meant For Setting Messages
     const set_message = () => {
-        let message = document.querySelector("#TV-PM-message-textarea").innerText;
+        let message    = document.querySelector("#TV-PM-message-textarea").innerText;
+        let new_msg_id = AF.generate_random_id();
         
         if ( !message ) { return; }
         
         document.querySelector("#TV-PM-message-textarea").innerText = ""; // Clean TextArea
-        let new_msg_id = AF.generate_random_id();
+        
+        let data ={
+            message:    message,
+            message_id: new_msg_id,
+            ticket_id:  ticket_id
+        };
 
-        axios.post('/tickets/update/single/messages/set', { message: message, message_id: new_msg_id, ticket_id: ticket_id })
-        .then((res) => { console.log(res.data);
+        axios.post('/tickets/update/single/messages/set', data).then((res) => { console.log(res.data);
             AF.show_and_fade_success_icon();
             window.__was_ticket_interacted = true;
 

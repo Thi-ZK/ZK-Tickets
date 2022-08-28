@@ -12,9 +12,12 @@ function Home({ allPopulationData }) {
     const userData                  = allPopulationData.userData;
     const language                  = allPopulationData.language;
 
+    // Meant For Displaying Or Hiding Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
+    const [errorMessage, updateErrorMessage] = useState("none");
+
     // Login Function. The Request To /login/auth Returns The User Data If Successful
     const attempt_login = (event) => {
-        set_error_message_appearence("off");
+        AF.set_error_message_appearence(updateErrorMessage, "off");
         event.target.disabled = true; // Prevent User From Clicking Many Times And Submit Tons Of Requests
         event.preventDefault();
 
@@ -22,7 +25,7 @@ function Home({ allPopulationData }) {
         let password = AF.get_password();
         
         if ( !email || !password ) {
-            set_error_message_appearence("on", "what_is_your_plan"); // Text Matches Language File
+            AF.set_error_message_appearence(updateErrorMessage, "on", "what_is_your_plan"); // Text Matches Language File
             event.target.disabled = false;
             return;
         }
@@ -38,21 +41,13 @@ function Home({ allPopulationData }) {
                 update_user_data(true);
                 update_user_names_and_ids();
                 update_ticket_groups();
-                set_error_message_appearence("off", "");
+                AF.set_error_message_appearence(updateErrorMessage, "off", "");
                 AF.vanish_login_form();
                 AF.clean_pass_and_email_inputs();
             } else {
-                set_error_message_appearence("on", res.data.error);
+                AF.set_error_message_appearence(updateErrorMessage, "on", res.data.error);
             }
         });
-    }
-
-    // Meant For Displaying Or Hiding Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
-    const [errorMessage, updateErrorMessage] = useState("none");
-    
-    const set_error_message_appearence = ( status, message ) => {
-        document.querySelector("#LOG-error-display-direct-container").setAttribute("status", status);
-        if ( message ) { updateErrorMessage(message); }
     }
 
     return (
@@ -65,7 +60,7 @@ function Home({ allPopulationData }) {
                 <div id='LOG-inputs-container'>
                     <div className='LOG-inputs-direct-container'>
                         <input
-                            onFocus={() => {return set_error_message_appearence("off")}}
+                            onFocus={() => { return AF.set_error_message_appearence(updateErrorMessage, "off") }}
                             id='LOG-email'
                             placeholder='Email'
                             autoComplete="on" 
@@ -74,7 +69,7 @@ function Home({ allPopulationData }) {
                     </div>
                     <div className='LOG-inputs-direct-container'>
                         <input 
-                            onFocus={() => {return set_error_message_appearence("off")}}
+                            onFocus={() => { return AF.set_error_message_appearence(updateErrorMessage, "off") }}
                             id='LOG-password'
                             type="password"
                             placeholder={texts.password[language]}

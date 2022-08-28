@@ -18,8 +18,9 @@ const TicketActionModal = ({ allPopulationData }) => {
         let ticket_id  = ticketActionModalSettings.ticket_id;
         let new_status = {conclude: "Concluded", block: "Blocked", homologate: "Homologation", delete: "Deleted"}[ticketActionModalSettings.which_action];
         
-        axios.post('/tickets/update/single/status', { new_status: new_status, ticket_id: ticket_id })
-        .then((res) => { update_all_tickets(); console.log(res.data); })
+        axios.post('/tickets/update/single/status', { new_status: new_status, ticket_id: ticket_id }).then((res) => { console.log(res.data);
+            update_all_tickets();
+        })
 
         AF.close_modal(updateTicketActionModalSettings);
     }

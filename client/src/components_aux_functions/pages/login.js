@@ -27,11 +27,18 @@ const prevent_default = (event) => {
     event.preventDefault();
 }
 
+// Set Error Message Appearence 
+const set_error_message_appearence = ( updateErrorMessage, status, message ) => {
+    document.querySelector("#LOG-error-display-direct-container").setAttribute("status", status);
+    if ( message ) { updateErrorMessage(message); }
+}
+
 module.exports = {
-    clean_pass_and_email_inputs: clean_pass_and_email_inputs,
-    get_email: get_email,
-    get_password: get_password,
-    vanish_login_form: vanish_login_form,
-    set_loading_icon_appearence: set_loading_icon_appearence,
-    prevent_default: prevent_default
+    clean_pass_and_email_inputs:  clean_pass_and_email_inputs,
+    get_email:                    get_email,
+    get_password:                 get_password,
+    vanish_login_form:            vanish_login_form,
+    set_loading_icon_appearence:  set_loading_icon_appearence,
+    prevent_default:              prevent_default,
+    set_error_message_appearence: set_error_message_appearence
 };

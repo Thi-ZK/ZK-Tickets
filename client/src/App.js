@@ -20,10 +20,10 @@ function App() {
     // Ticket Action Modal State
     const [ticketActionModalSettings, updateTicketActionModalSettings] = useState({
         is_action_redundant: false,
-        text_thema:   "none",
-        status:       "closed",
-        ticket_id:    "none",
-        which_action: "none"
+        text_thema:          "none",
+        status:              "closed",
+        ticket_id:           "none",
+        which_action:        "none"
     });
 
     // For Language State

@@ -9,7 +9,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
     const updateMessages = messages_utils.updateMessages; 
     const language       = messages_utils.language;
 
-    // Delete Message. Obs: Messages Aren't Really Deleted, But Just Set As "Deleted" And Hidden
+    // Delete Message
     const delete_message = () => {
         let msg_id    = message_data.id;
         let msg_owner = message_data.message_owner;
@@ -26,8 +26,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData }) {
             ticket_id:     ticket_id
         };
 
-        axios.post('/tickets/update/single/messages/delete', data)
-        .then((res) => { console.log(res.data);
+        axios.post('/tickets/update/single/messages/delete', data).then((res) => { console.log(res.data);
             AF.set_loading_icon_appearence("off", msg_id);
             window.__was_ticket_interacted = true;
             
