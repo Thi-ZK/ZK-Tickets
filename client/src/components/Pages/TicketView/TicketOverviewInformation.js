@@ -29,7 +29,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
             return; 
         }
 
-        if ( !AF.is_user_legit_max_strict(userData, ticket_data.creator) ) {
+        if ( !AF.is_user_legit(userData, ticket_data.creator) ) { // Max Strict
             return AF.display_assignment_legitimacy_error();
         }
         
@@ -49,9 +49,9 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
             ticket_id:           ticket_data.id,
             aggregative_type:    event.target.getAttribute("aggregative-type")
         }
-        data.id = AF.get_aggregative_id_for_unassign(data);
+        data["aggregative_id"] = AF.get_aggregative_id_for_unassign(data);
 
-        if ( !AF.is_user_legit_max_strict(userData, ticket_data.creator) ) {
+        if ( !AF.is_user_legit(userData, ticket_data.creator, data.aggregative_id) ) { // Strict
             return AF.display_assignment_legitimacy_error();
         }
         
