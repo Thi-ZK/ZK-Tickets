@@ -11,6 +11,7 @@ const set_ticket_description_error_message_appearence = (status) => {
 // Ticket Creation Loading Icon Appearence Controller
 const set_loading_icons_appearence = (status) => {
     let loading_icons = document.querySelectorAll(".TC-loading-gif");
+    
     loading_icons[0].setAttribute("status", status);
     loading_icons[1].setAttribute("status", status);
 }
@@ -18,8 +19,10 @@ const set_loading_icons_appearence = (status) => {
 // Ticket Creation Loading Icon Appearence Controller
 const display_success_icon = () => {
     let success_icon = document.querySelectorAll(".TC-success-gif");
+
     success_icon[0].setAttribute("status", "on");
     success_icon[1].setAttribute("status", "on");
+
     setTimeout(() => {
         success_icon[0].setAttribute("status", "off");
         success_icon[1].setAttribute("status", "off");
@@ -38,6 +41,38 @@ const set_disabled_status_on_ticket_creation_buttons = (status) => { // Receives
 const aggregatives_formatter = ( source, which_data_string ) => {
     let aggregative = source.getAttribute(which_data_string);
     return aggregative ? aggregative.split(",") : [];
+}
+
+// Generates Validation Data Object (That Is Used In Other Functions)
+const generate_validations_data_object = (new_ticket) => {
+    let name_validation_regex = /[a-zA-Z]{3,30}.*\s.*[a-zA-Z]{3,30}/;
+
+    return  {
+        is_name_too_long:        !(new_ticket.name.length < 200),
+        is_name_substantial:     name_validation_regex.test(new_ticket.name),
+        is_description_too_long: !(new_ticket.description.length < 4000)
+    };
+}
+
+// Check If Name is Substancial (Regex), Not Too Long And If Description Is Not Too Long
+const is_creation_submission_valid = (new_ticket) => {
+    let val_data = generate_validations_data_object(new_ticket);
+
+    return (val_data.is_name_substantial && !val_data.is_name_too_long && !val_data.is_description_too_long);
+}
+
+// Check What Errors Exactly Happened And Displays The Correspondent Messages
+const handle_feedback_error_messages = (new_ticket, updateTicketNameError) => {
+    let val_data = generate_validations_data_object(new_ticket);
+
+    if ( !val_data.is_name_substantial || val_data.is_name_too_long ) {
+        set_ticket_name_error_message_appearence("on");
+        updateTicketNameError(!val_data.is_name_substantial ? "write_substantial_name" : "name_is_too_long");
+    }
+
+    if ( val_data.is_description_too_long ) {
+        set_ticket_description_error_message_appearence("on");
+    }
 }
 
 // Reset All Fields
@@ -103,5 +138,7 @@ module.exports = {
     set_disabled_status_on_ticket_creation_buttons:  set_disabled_status_on_ticket_creation_buttons,
     aggregatives_formatter:                          aggregatives_formatter,
     reset_all_inputs:                                reset_all_inputs,
-    gather_new_ticket_data:                          gather_new_ticket_data
+    gather_new_ticket_data:                          gather_new_ticket_data,
+    is_creation_submission_valid:                    is_creation_submission_valid,
+    handle_feedback_error_messages:                  handle_feedback_error_messages
 };

@@ -16,7 +16,7 @@ router.post('/single', urlencodedParser, async (req, res) => {
 
 	// If New Group Was Provided, Then Check If Exists (If Not, New ID Given) And Add It 
 	if ( new_group_name ) {
-		error = await R_AF.add_new_group_to_ticket_and_to_database(ticket_data, new_group_name, GroupModel, req.session.user) || error;
+		await R_AF.add_new_group_to_ticket_and_to_database(ticket_data, new_group_name, GroupModel, req.session.user).catch((err) => { error = err });
 	}
 
 	const newTicketDocument = new TicketModel({
@@ -43,7 +43,7 @@ router.post('/single', urlencodedParser, async (req, res) => {
 	await newTicketDocument.save().catch((err) => { error = error ? error.push(err) : [err]; });
 
 	if ( !error && new_group_name ) { // Add New Created Ticket ID To Tickets Array In The New Group Created 
-		error = R_AF.update_new_group_with_created_ticket_id(GroupModel, new_group_name, newTicketDocument.id) || error;
+		await GroupModel.updateOne({ name: new_group_name }, { tickets: [newTicketDocument.id] }).catch((err) => { error = err });
 	}
 	
 	res.send(AF.generate_response_object(error, newTicketDocument, req.originalUrl));

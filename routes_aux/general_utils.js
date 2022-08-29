@@ -8,8 +8,8 @@ const generate_response_object = (error, data, req_original_path) => {
 	};
 
     if ( error ) {
-        res_obj.success = false;
-        res_obj.error   = error;
+        res_obj["success"] = false;
+        res_obj["error"]   = String(error);
     }
 
 	return res_obj;

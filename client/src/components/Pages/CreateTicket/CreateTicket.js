@@ -20,7 +20,7 @@ function CreateTicket ({ allPopulationData }) {
     // Meant For Calendar
     const [calAppearence, setCalAppearence] = useState('calendar-closed');
     const [value, setValue] = useState(undefined);
-    const onChange = (nextValue) => {
+    const update_calendar = (nextValue) => {
         setValue(nextValue);
         setCalAppearence('calendar-closed');
     }
@@ -30,20 +30,13 @@ function CreateTicket ({ allPopulationData }) {
         
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
     const create_ticket = () => {
-        AF.set_disabled_status_on_ticket_creation_buttons(true); // True To disable.
+        AF.set_disabled_status_on_ticket_creation_buttons(true);
         AF.set_loading_icons_appearence("on");
 
-        // Getting All Inputs & New Ticket Data
         let new_ticket = AF.gather_new_ticket_data(userData);
         
-        // Validations Variables Declaration
-        let name_validation_regex   = /[a-zA-Z]{3,30}.*\s.*[a-zA-Z]{3,30}/;
-        let is_name_too_long        = !(new_ticket.name.length < 200);
-        let is_name_substantial     = name_validation_regex.test(new_ticket.name);
-        let is_description_too_long = !(new_ticket.description.length < 4000);
-        
         // Checking Name Validity & Length Of Description
-        if (is_name_substantial && !is_name_too_long && !is_description_too_long) {
+        if ( AF.is_creation_submission_valid(new_ticket) ) {
             axios.post('/tickets/create/single', new_ticket).then((res) => { console.log(res.data);
                 AF.set_loading_icons_appearence("off");
                 AF.display_success_icon();
@@ -57,16 +50,7 @@ function CreateTicket ({ allPopulationData }) {
                 update_all_tickets();
             });
         } else {
-            // Error Feedbacks Handling Below
-            if ( !is_name_substantial || is_name_too_long ) {
-                AF.set_ticket_name_error_message_appearence("on");
-                updateTicketNameError(!is_name_substantial ? "write_substantial_name" : "name_is_too_long");
-            }
-
-            if ( is_description_too_long ) {
-                AF.set_ticket_description_error_message_appearence("on");
-            }
-
+            AF.handle_feedback_error_messages(new_ticket, updateTicketNameError);
             AF.set_loading_icons_appearence("off");
             AF.set_disabled_status_on_ticket_creation_buttons(false); // Letting Create Ticket Buttons Enabled Again
         }
@@ -119,7 +103,7 @@ function CreateTicket ({ allPopulationData }) {
                         onClick={() => {setCalAppearence('calendar-open')}}
                         >{value ? value.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
                     </div>
-                    <Calendar className={calAppearence} onChange={onChange} value={value}/>
+                    <Calendar className={calAppearence} update_calendar={update_calendar} value={value}/>
                 </div>
             </div>
             <div id='TC-attachments-and-description-container'>
