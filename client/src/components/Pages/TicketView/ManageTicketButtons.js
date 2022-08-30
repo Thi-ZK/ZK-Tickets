@@ -5,11 +5,16 @@ import AF    from '../../../components_aux_functions/pages/ticket_view/manage_ti
 function ManageTicketButtons ({ ticket_data, allPopulationData }) {
     // Aliases For Population Data
     const language                        = allPopulationData.language;
+    const userData                        = allPopulationData.userData;
     const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
 
     // Meant For Opening Ticket Action Modal
 	const open_ticket_action_modal = (action) => {
-		AF.turn_overlay_on();
+        if (!AF.is_user_legit(ticket_data.related_users, userData)) {
+            return AF.display_legitimacy_error();
+        }
+
+        AF.turn_overlay_on();
 
 		updateTicketActionModalSettings({
 			is_action_redundant:  ticket_data.status.toLowerCase().includes(action.substring(0, 8)),

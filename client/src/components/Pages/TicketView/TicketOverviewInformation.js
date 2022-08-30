@@ -30,7 +30,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
         }
 
         if ( !AF.is_user_legit(userData, ticket_data.creator) ) { // Max Strict
-            return AF.display_assignment_legitimacy_error();
+            return AF.display_legitimacy_error();
         }
         
         axios.post(AF.gen_assign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
@@ -52,7 +52,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
         data["aggregative_id"] = AF.get_aggregative_id_for_unassign(data);
 
         if ( !AF.is_user_legit(userData, ticket_data.creator, data.aggregative_id) ) { // Strict
-            return AF.display_assignment_legitimacy_error();
+            return AF.display_legitimacy_error();
         }
         
         axios.post(AF.gen_unassign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);

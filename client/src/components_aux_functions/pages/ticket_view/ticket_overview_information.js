@@ -46,7 +46,7 @@ const is_user_legit = (userData, ticket_creator, aggregative_id) => {
 }
 
 // Displays Assign Or Unassign Error Messages Due To Lack Of Power
-const display_assignment_legitimacy_error = () => {
+const display_legitimacy_error = () => {
     let error_elem = document.querySelector("#TV-aggregatives-legitimacy-error-direct-container");
 
     error_elem.setAttribute("status", "on");
@@ -108,7 +108,7 @@ const AF = {
     get_aggregative_id_for_unassign:            get_aggregative_id_for_unassign,
     gen_unassign_req_url:                       gen_unassign_req_url,
     is_user_legit:                   is_user_legit,
-    display_assignment_legitimacy_error:        display_assignment_legitimacy_error
+    display_legitimacy_error:        display_legitimacy_error
 };
 
 export default AF;
