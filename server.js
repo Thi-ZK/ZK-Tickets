@@ -28,7 +28,7 @@ if ( IRL ) {
 // When Client Page Is Visited, Client Must Be Serverd Instead Of A Standard Server Route
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 !IRL ? app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 }) : null;
 
 // Declaration Of Enviroment Variables
