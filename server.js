@@ -25,12 +25,6 @@ if ( IRL ) {
 	require('dotenv').config();
 }
 
-// When Client Page Is Visited, Client Must Be Serverd Instead Of A Standard Server Route
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-!IRL ? app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-}) : null;
-
 // Declaration Of Enviroment Variables
 const PORT   = process.env.PORT;
 const DB_URI = process.env.DB_URI;
@@ -75,6 +69,12 @@ app.use('/users/update', userUpdateRouter);
 app.use('/ticket_groups/get', GroupGetRouter);
 app.use('/ticket_groups/get', GroupUpdateRouter);
 app.use('/login', loginAuthRouter);
+
+// When Client Page Is Visited, Client Must Be Serverd Instead Of A Standard Server Route
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+!IRL ? app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+}) : null;
 
 // Server Start After Successful Connection With DB
 mongoose.connect(DB_URI)
