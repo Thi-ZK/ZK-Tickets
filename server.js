@@ -18,14 +18,18 @@ const GroupUpdateRouter  = require('./routes/ticket_groups/update'); // Ticket G
 const loginAuthRouter    = require('./routes/login');
 
 const app = express();
+const IRL = process.env.NODE_ENV !== 'production'; // IRL Is An Alias For => Is Running Locally?
 
-if (process.env.NODE_ENV !== 'production') {
+// Load Enviroment Variables & Resources In Case Not Production (Running On Localhost)
+if ( IRL ) {
 	require('dotenv').config();
 }
 
 // When Client Page Is Visited, Client Must Be Serverd Instead Of A Standard Server Route
-// app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use(express.static(path.join(__dirname, 'client', 'build')));
+!IRL ? app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+}) : null;
 
 // Declaration Of Enviroment Variables
 const PORT   = process.env.PORT;
@@ -57,7 +61,7 @@ app.use(session({
 
 // Middleware To Restrict User Access To Content Unless He / She Is Logged In
 app.use((req, res, next) => {
-    if (req.path === "/login/auth") { return next(); }
+    if ( req.path === "/login/auth" ) { return next(); }
     !req.session.user ? res.send(midds.generate_response_object("Not Authenticated", null, req.path)) : next();
 });
 
