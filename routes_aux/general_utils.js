@@ -40,8 +40,12 @@ const what_was_requested_obj_map = {
     "/login/auth":                                      "Authenticate User"
 }; 
 
+// Array Containing All Possible Server Routes Paths (Used In Middleware Check Of Logged In Status (server.js))
+const all_server_routes_paths = Object.keys(what_was_requested_obj_map);
+
 module.exports = {
     generate_response_object:   generate_response_object,
     what_was_requested_obj_map: what_was_requested_obj_map,
-    generate_random_id:         generate_random_id
+    generate_random_id:         generate_random_id,
+    all_server_routes_paths:    all_server_routes_paths
 };

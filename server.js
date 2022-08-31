@@ -5,6 +5,7 @@ const mongoose   = require('mongoose');
 const MongoStore = require('connect-mongo');
 const path       = require('path');
 const midds      = require('./routes_aux/general_utils');
+const AF         = require('./routes_aux/general_utils'); // AF => Aux Functions
 
 // Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
@@ -55,7 +56,7 @@ app.use(session({
 
 // Middleware To Restrict User Access To Content Unless He / She Is Logged In
 app.use((req, res, next) => {
-    if ( req.path === "/login/auth" ) { return next(); }
+    if ( !AF.all_server_routes_paths.includes(req.path) || (req.path === "/login/auth") ) { return next(); }
     !req.session.user ? res.send(midds.generate_response_object("Not Authenticated", null, req.path)) : next();
 });
 
