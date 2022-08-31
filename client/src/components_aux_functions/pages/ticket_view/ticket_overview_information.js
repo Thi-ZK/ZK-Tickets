@@ -36,9 +36,12 @@ const set_aux_aggregative_option_disabled_status = (status, event) => {
     event.target.querySelector("option[id*='TV-INF'][id*='aux-option']").disabled = status;
 }
 
-// Check If User Is Legit To Perform Desired Action
-const is_user_legit = (userData, ticket_creator, aggregative_id) => {
-    if ( (userData.id === ticket_creator) || (userData.id === aggregative_id) ||  (userData.user_power === 4) ) {
+// Check If User Is Legit To Perform Desired Action * Obs: Can Be Used As "Strict" & "Max Strict". Second () Condition Can Be Ignored With Third Param Not Passed
+const is_user_legit = (userData, data) => {
+    // In Case Group Was Attempted To Be Unassigned, Disconsider Second Check (Bcz User & Group Could Happen To Have Same ID, Then The Check Would Wrongly Pass)
+    let aggregative_id = data.aggregative_type === "group" ? null : data.aggregative_id;
+
+    if ( (userData.id === data.ticket_creator) || (userData.id === aggregative_id) ||  (userData.user_power === 4) ) {
         return true;
     } else {
         return false;

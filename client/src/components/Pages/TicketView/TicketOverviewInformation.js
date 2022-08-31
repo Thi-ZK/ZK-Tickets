@@ -29,7 +29,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
             return; 
         }
 
-        if ( !AF.is_user_legit(userData, ticket_data.creator) ) { // Max Strict
+        if ( !AF.is_user_legit(userData, data) ) { // Max Strict
             return AF.display_legitimacy_error();
         }
         
@@ -51,7 +51,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
         }
         data["aggregative_id"] = AF.get_aggregative_id_for_unassign(data);
 
-        if ( !AF.is_user_legit(userData, ticket_data.creator, data.aggregative_id) ) { // Strict
+        if ( !AF.is_user_legit(userData, data) ) { // Strict
             return AF.display_legitimacy_error();
         }
         
