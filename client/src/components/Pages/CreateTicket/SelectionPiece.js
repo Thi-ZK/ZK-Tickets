@@ -13,10 +13,10 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
 
     // Meant For Add Aggregative Option (User Or Group)
     const add_aggregative = (event) => {
-        if ((current_piece !== "assigneds") && (current_piece !== "groups")) { return; }
-        event.target.querySelector(".TC-SP-aux-filling-option").disabled = true; // Prevent Several Commands Before Finishing Last
+        if (!AF.is_selection_piece_an_aggregative(current_piece)) { return; }
+        AF.disable_select_aux_value_filler(event);
 
-        let option_chosen = event.target.options[event.target.selectedIndex];
+        let option_chosen = AF.get_selected_option(event);
         
         if (!currentAggregatives.names.includes(option_chosen.value)) {
             updateAggregatives({
