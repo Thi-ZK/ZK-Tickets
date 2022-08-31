@@ -5,6 +5,7 @@ import AF              from '../../components_aux_functions/ticket/ticket_band.j
 const Ticket = ({ ticket_data, allPopulationData }) => {
 	// Aliases
 	const language                        = allPopulationData.language;
+	const userData                        = allPopulationData.userData;
 	const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
 
 	// Meant For When User Clicks And Select To View A Ticket From The List
@@ -18,7 +19,11 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 	};
 
 	// Meant To Open Ticket Action Modal
-	const open_ticket_action_modal = (action) => {
+	const open_ticket_action_modal = (event, action) => {
+		if (!AF.is_user_legit(ticket_data.related_users, userData)) {
+            return AF.display_legitimacy_error(event);
+        }
+
 		AF.turn_overlay_on();
 
 		updateTicketActionModalSettings({
@@ -39,11 +44,16 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 				<p className="TB-ticket_id">&nbsp;-&nbsp;</p>
 				<img alt="ticket status icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
 			</div>
-			<div className="TB-intitle-ticket-management-options">
-				<span onClick={() => open_ticket_action_modal("delete")} id="TB-ticket-delete" className="TB-action-options-button">{texts.delete[language]}</span>
-				<span onClick={() => open_ticket_action_modal("conclude")} id="TB-ticket-conclude" className="TB-action-options-button">{texts.conclude[language]}</span>
-				<span onClick={() => open_ticket_action_modal("block")} id="TB-ticket-block" className="TB-action-options-button">{texts.block[language]}</span>
-				<span onClick={() => open_ticket_action_modal("homologate")} id="TB-ticket-homologate" className="TB-action-options-button">{texts.homologate[language]}</span>
+			<div>
+				<div className="TB-intitle-management-options-direct-container">
+					<span onClick={(ev) => open_ticket_action_modal(ev, "delete")} id="TB-ticket-delete" className="TB-action-options-button">{texts.delete[language]}</span>
+					<span onClick={(ev) => open_ticket_action_modal(ev, "conclude")} id="TB-ticket-conclude" className="TB-action-options-button">{texts.conclude[language]}</span>
+					<span onClick={(ev) => open_ticket_action_modal(ev, "block")} id="TB-ticket-block" className="TB-action-options-button">{texts.block[language]}</span>
+					<span onClick={(ev) => open_ticket_action_modal(ev, "homologate")} id="TB-ticket-homologate" className="TB-action-options-button">{texts.homologate[language]}</span>
+				</div>
+				<div className="TB-intitle-legitimacy-error-direct-container">
+					<span>{texts.not_allowed[language]}</span>
+				</div>
 			</div>
 		</div>
 		<div className="TB-content-block-container">

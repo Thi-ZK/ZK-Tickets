@@ -22,9 +22,31 @@ const set_anonymous_picture = (event) => {
     img.src = "/imgs/general/users_photos/anonymous.jpg";
 }
 
+// Check If User Is Legit To Perform Desired Action
+const is_user_legit = (related_users, userData) => {
+    if ( (related_users.includes(userData.id)) || (userData.user_power === 4) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Displays Assign Or Unassign Error Messages Due To Lack Of Power
+const display_legitimacy_error = (event) => {
+    let error_elem = event.target.parentElement.parentElement.querySelector(".TB-intitle-legitimacy-error-direct-container");
+
+    error_elem.setAttribute("status", "on");
+
+    setTimeout(() => {
+        error_elem.setAttribute("status", "off");
+    }, 2500);
+}
+
 module.exports = {
-    date_formatter: date_formatter,
-    turn_overlay_on: turn_overlay_on,
+    date_formatter:                  date_formatter,
+    turn_overlay_on:                 turn_overlay_on,
     generate_ticket_creator_img_src: generate_ticket_creator_img_src,
-    set_anonymous_picture: set_anonymous_picture
+    set_anonymous_picture:           set_anonymous_picture,
+    is_user_legit:                   is_user_legit,
+    display_legitimacy_error:        display_legitimacy_error
 };

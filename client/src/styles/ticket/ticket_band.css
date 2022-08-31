@@ -47,21 +47,37 @@ div[theme='bright'] .TB-title-container {
 	padding-right: 20px;
 }
 
-.TB-intitle-ticket-management-options{
+.TB-intitle-management-options-direct-container{
 	padding-right: 2em;
 }
 
-.TB-intitle-ticket-management-options span{
+.TB-intitle-management-options-direct-container span{
 	padding: 0px 4px 0px 4px;
 	font-size: 0.9em;
 	cursor: pointer;
 }
-.TB-intitle-ticket-management-options span:hover{
+.TB-intitle-management-options-direct-container span:hover{
 	text-decoration: underline;
 }
 
+.TB-intitle-legitimacy-error-direct-container {
+	padding: 6px 0px 0px 3px;
+	visibility: hidden;
+	opacity: 0;
+	transition-duration: 0.3s;
+}
+.TB-intitle-legitimacy-error-direct-container[status="on"] {
+	visibility: visible;
+	opacity: 1;
+}
+
+.TB-intitle-legitimacy-error-direct-container span {
+	font-size: 12px;
+	color: rgb(199, 47, 53);
+}
+
 .TB-content-block-container{
-	padding: 2em 0px 16px 20px;
+	padding: 0.8em 0px 16px 20px;
 	font-size: 0.95em;
 }
 
@@ -206,7 +222,7 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	}
 
 	.TB-name-and-person-info-direct-container, .TB-description-container p, .TB-description-container h2,
-	.TB-intitle-ticket-management-options span,
+	.TB-intitle-management-options-direct-container span,
 	.TB-statuses-and-dates-container {
 		font-size: 13px !important;
 	}
@@ -254,11 +270,15 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 }
 
 @media(max-width: 950px){
+	.ticket-band-container {
+		height: auto;
+	}
+
 	.TB-header {
 		display: block;
 	}
 
-	.TB-intitle-ticket-management-options {
+	.TB-intitle-management-options-direct-container {
 		padding-top: 12px;
 	}
 
@@ -269,7 +289,6 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 
 @media(max-width: 750px){
 	.ticket-band-container {
-		height: auto;
 		width: calc(100vw - 25px);
 		margin-left: 12px;
 	}
@@ -296,6 +315,10 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 
 	.TB-statuses-and-dates-direct-container {
 		width: 90%;
+	}
+
+	.TB-photo-and-personal-identification-container {
+		padding-top: 20px;
 	}
 
 	.TB-status-or-date {
