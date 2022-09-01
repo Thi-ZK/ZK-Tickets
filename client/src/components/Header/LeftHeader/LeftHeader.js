@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import texts               from '../../../languages/Header/LeftHeader.json';
+import AF                  from '../../../components_aux_functions/headers/left_header.js'; // Aux Functions
 
 import ListLink            from './ListLink';
 import MiniTicketBand      from './MiniTicketBand';
 
 const Header = ({ language, allTickets, ticketGroups }) => {
-    // Arrow Images Source URL Aliases
-    const left_arrow_src  = '/imgs/headers/arrow_down.png';
-    const right_arrow_src = '/imgs/headers/arrow_up.png';
-
     // Ticket Groups Alias
     const ticket_groups_names = ticketGroups ? Object.values(ticketGroups) : [];
 
@@ -16,28 +13,6 @@ const Header = ({ language, allTickets, ticketGroups }) => {
     const [searchBarTerm, updateSearchBarTerm] = useState("");
     const update_search_bar_state = (event) => {
         updateSearchBarTerm(event.target.value);
-    }
-
-    // Meant For Standard Groups Tickets Opening (Nested Standards)
-    const [stdGroupsOpeningStatus, setNewStdGroupsOpeningStatus] = useState({arrow_src: left_arrow_src, status: 'closed'});
-    const manage_standard_filters_status = () => {
-        let is_group_closed = stdGroupsOpeningStatus.status === "closed";
-
-        setNewStdGroupsOpeningStatus({
-            arrow_src: is_group_closed ? right_arrow_src : left_arrow_src,
-            status:    is_group_closed ? "opened" : "closed"
-        });
-    }
-
-    // Meant For Specific (Nested My Groups) Tickets Opening
-    const [mtGroupsOpeningStatus, setNewMtGroupsOpeningStatus] = useState({arrow_src: left_arrow_src, status: 'closed'});
-    const manage_my_groups_status = () => {
-        let is_group_closed = mtGroupsOpeningStatus.status === "closed";
-
-        setNewMtGroupsOpeningStatus({
-            arrow_src: is_group_closed ? right_arrow_src : left_arrow_src,
-            status:    is_group_closed ? "opened" : "closed"
-        });
     }
 
     // Search Handler - Cleans The Search
@@ -74,6 +49,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                 return <MiniTicketBand key={index} ticket_data={ticket} language={language}/>
             })}
         </div>
+        {/* Search Logic */}
         <nav id="LH-navigation-links-container">
             <ul>
                 <ListLink link_url="/create_ticket" img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}></ListLink>
@@ -81,14 +57,14 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                 <ListLink link_url="/ticket_listing/created_by_me" img_src_url="tickets/tag_icon" link_text={texts.my_created_tickets[language]}></ListLink>
                 {/* "Tickets I Am Assigned" */}
                 <div className="LH-links-grouper-container">
-                    <div onClick={manage_standard_filters_status} className="LH-links-grouper-expander-container">
+                    <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
                         <div className="LH-links-grouper-expander-direct-container">
                             <p>{texts.standard_ticket_groups[language]}</p>
-                            <img alt="lever-left" src={stdGroupsOpeningStatus.arrow_src}/>
+                            <img alt="lever-left" src='/imgs/headers/arrow_down.png'/>
                         </div>
                     </div>
-                    <div status={stdGroupsOpeningStatus.status} className="LH-tickets-grouper-direct-container">
+                    <div status="closed" className="LH-tickets-grouper-direct-container">
                         <ListLink link_url="/ticket_listing/i_am_assigned/all" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
                         <ListLink link_url="/ticket_listing/i_am_assigned/open" img_src_url="tickets/tag_icon" link_text={texts.open_tickets[language]}></ListLink>
                         <ListLink link_url="/ticket_listing/i_am_assigned/deleted" img_src_url="tickets/red_tag" link_text={texts.deleted_tickets[language]}></ListLink>
@@ -99,14 +75,14 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                 </div>
                 {/* "Ticket Groups" */}
                 <div className="LH-links-grouper-container">
-                    <div onClick={manage_my_groups_status} className="LH-links-grouper-expander-container">
+                    <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
                         <div className="LH-links-grouper-expander-direct-container">
                             <p>{texts.my_ticket_groups[language]}</p>
-                            <img alt="lever-left" src={mtGroupsOpeningStatus.arrow_src}/>
+                            <img alt="lever-left" src='/imgs/headers/arrow_down.png'/>
                         </div>
                     </div>
-                    <div status={mtGroupsOpeningStatus.status} className="LH-tickets-grouper-direct-container">
+                    <div status="closed" className="LH-tickets-grouper-direct-container">
                         {ticket_groups_names.map((group_name, index) => {
                             return <ListLink key={index} link_url={"/ticket_listing/groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}></ListLink>
                         })}

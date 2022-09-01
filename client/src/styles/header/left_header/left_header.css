@@ -152,7 +152,7 @@
 	visibility: hidden;
 	height: 0px;
 }
-div[class='LH-tickets-grouper-direct-container'][status='opened'] {
+div[class='LH-tickets-grouper-direct-container'][status='open'] {
 	visibility: visible !important;
 	height: auto !important;
 }
@@ -160,7 +160,7 @@ div[class='LH-tickets-grouper-direct-container'][status='opened'] {
 div[class='LH-tickets-grouper-direct-container'] li {
 	opacity: 0;
 }
-div[class='LH-tickets-grouper-direct-container'][status='opened'] li {
+div[class='LH-tickets-grouper-direct-container'][status='open'] li {
 	opacity: 1;
 	-webkit-transition-duration: 0.6s;
 	     -o-transition-duration: 0.6s;
