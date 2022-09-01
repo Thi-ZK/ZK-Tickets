@@ -4,8 +4,7 @@ const session    = require('express-session');
 const mongoose   = require('mongoose');
 const MongoStore = require('connect-mongo');
 const path       = require('path');
-const midds      = require('./routes_aux/general_utils');
-const AF         = require('./routes_aux/general_utils'); // AF => Aux Functions
+const midds      = require('./middlewares/server.js');
 
 // Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
@@ -55,27 +54,22 @@ app.use(session({
 }));
 
 // Middleware To Restrict User Access To Content Unless He / She Is Logged In
-app.use((req, res, next) => {
-    if ( !AF.all_server_routes_paths.includes(req.path) || (req.path === "/login/auth") ) { return next(); }
-    !req.session.user ? res.send(midds.generate_response_object("Not Authenticated", null, req.path)) : next();
-});
+app.use(midds.check_user_logged_state_and_restrict_access_if_not_logged_in);
 
 // Routes
-app.use('/tickets/delete', ticketDeleteRouter);
-app.use('/tickets/update', ticketUpdateRouter);
-app.use('/tickets/create', ticketCreateRouter);
-app.use('/tickets/get', ticketGetRouter);
-app.use('/users/get', userGetRouter);
-app.use('/users/update', userUpdateRouter);
+app.use('/tickets/delete',    ticketDeleteRouter);
+app.use('/tickets/update',    ticketUpdateRouter);
+app.use('/tickets/create',    ticketCreateRouter);
+app.use('/tickets/get',       ticketGetRouter);
+app.use('/users/get',         userGetRouter);
+app.use('/users/update',      userUpdateRouter);
 app.use('/ticket_groups/get', GroupGetRouter);
 app.use('/ticket_groups/get', GroupUpdateRouter);
-app.use('/login', loginAuthRouter);
+app.use('/login',             loginAuthRouter);
 
-// When Client Page Is Visited, Client Must Be Serverd Instead Of A Standard Server Route
+// Serving All Pages From Client
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-!IRL ? app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-}) : null;
+!IRL ? app.get("*", (req, res) => { res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); }) : null;
 
 // Server Start After Successful Connection With DB
 mongoose.connect(DB_URI)
