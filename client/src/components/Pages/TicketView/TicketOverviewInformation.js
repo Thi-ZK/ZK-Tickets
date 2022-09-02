@@ -16,11 +16,12 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
     // Assign Aggregative Handler
     const assign_aggregative = (event) => {
         let data = {
-            aggregative_id:   AF.get_aggregative_id(event.target),
-            aggregative_name: AF.get_aggregative_name(event.target),
-            ticket_id:        ticket_data.id,
-            ticket_creator:   ticket_data.creator,
-            aggregative_type: event.target.getAttribute("aggregative-type")
+            aggregative_id:       AF.get_aggregative_id(event.target),
+            aggregative_name:     AF.get_aggregative_name(event.target),
+            aggregative_type:     event.target.getAttribute("aggregative-type"),
+            ticket_id:            ticket_data.id,
+            ticket_creator:       ticket_data.creator,
+            ticket_related_users: ticket_data.related_users
         };
 
         AF.set_aux_aggregative_option_disabled_status(true, event); // Disables Double Dash Option "--"
@@ -29,35 +30,34 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
             return; 
         }
 
-        if ( !AF.is_user_legit(userData, data) ) { // Max Strict
+        if ( !AF.is_user_legit(userData, data, "max_strict") ) {
             return AF.display_legitimacy_error();
         }
         
         axios.post(AF.gen_assign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
             AF.update_aggregative_state_with_added(data, aggregatives_utils);
-            window.__was_ticket_interacted = true;
         })
     }
 
     // Unassign Aggregative Handler
     const unassign_aggregative = (event) => {
         let data = {
-            aggregative_id:      null,
-            aggregative_name:    event.target.innerText,
-            ticket_creator:      ticket_data.creator,
-            ticket_creator_name: ticket_data.creator_name,
-            ticket_id:           ticket_data.id,
-            aggregative_type:    event.target.getAttribute("aggregative-type")
+            aggregative_id:       null,
+            aggregative_name:     event.target.innerText,
+            aggregative_type:     event.target.getAttribute("aggregative-type"),
+            ticket_creator:       ticket_data.creator,
+            ticket_creator_name:  ticket_data.creator_name,
+            ticket_id:            ticket_data.id,
+            ticket_related_users: ticket_data.related_users
         }
         data["aggregative_id"] = AF.get_aggregative_id_for_unassign(data);
 
-        if ( !AF.is_user_legit(userData, data) ) { // Strict
+        if ( !AF.is_user_legit(userData, data, "strict") ) { 
             return AF.display_legitimacy_error();
         }
         
         axios.post(AF.gen_unassign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
             AF.update_aggregative_state_with_removed(data, aggregatives_utils);
-            window.__was_ticket_interacted = true;
         })
     }
     
@@ -90,7 +90,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
                         ))}
                     </div>
                 </div>
-                {/* List (Selection) Of Ticket Groups To Be Assigned */}
+                {/* List (Select) Of Ticket Groups To Be Assigned */}
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_groups[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-groups-selector' aggregative-type="group">
                         <option id="TV-INF-no-group-aux-option" name="none">--</option>
@@ -110,7 +110,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
                         ))}
                     </div>
                 </div>
-                {/* List (Selection) Of Users To Be Assigned */}
+                {/* List (Select) Of Users To Be Assigned */}
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-assigneds-selector' aggregative-type="assumer">
                         <option id="TV-INF-no-assigment-aux-option" name="none">--</option>

@@ -36,12 +36,21 @@ const set_aux_aggregative_option_disabled_status = (status, event) => {
     event.target.querySelector("option[id*='TV-INF'][id*='aux-option']").disabled = status;
 }
 
-// Check If User Is Legit To Perform Desired Action * Obs: Can Be Used As "Strict" & "Max Strict". Second () Condition Can Be Ignored With Third Param Not Passed
-const is_user_legit = (userData, data) => {
+// Check If User Is Legit To Perform Desired Action
+const is_user_legit = (userData, data, strictness) => {
     // In Case Group Was Attempted To Be Unassigned, Disconsider Second Check (Bcz User & Group Could Happen To Have Same ID, Then The Check Would Wrongly Pass)
-    let aggregative_id = data.aggregative_type === "group" ? null : data.aggregative_id;
+    let aggregative_id       = data.aggregative_type === "group" ? null : data.aggregative_id;
+    let ticket_related_users = data.ticket_related_users;
 
-    if ( (userData.id === data.ticket_creator) || (userData.id === aggregative_id) ||  (userData.user_power === 4) ) {
+    if ( strictness === "max_strict" ) { // Disconsider Second Check
+        aggregative_id = null;
+    }
+
+    if ( strictness.includes("strict") ) { // Disconsider First Check
+        ticket_related_users = [];
+    }
+    
+    if ( (ticket_related_users.includes(userData.id)) || (userData.id === data.ticket_creator) || (userData.id === aggregative_id) ||  (userData.user_power === 4) ) {
         return true;
     } else {
         return false;
@@ -82,6 +91,8 @@ const update_aggregative_state_with_added = (data, aggregatives_utils) => {
     } else {
         aggregatives_utils.updateAssigneds([...aggregatives_utils.assigneds, data.aggregative_name]);
     }
+
+    window.__was_ticket_interacted = true;
 }
 
 // Update Aggregative State For Unassigning
@@ -96,6 +107,8 @@ const update_aggregative_state_with_removed = (data, aggregatives_utils) => {
     } else {
         updateAssigneds(assigneds.filter((assigned) => { return assigned !== data.aggregative_name }));
     }
+
+    window.__was_ticket_interacted = true;
 }
 
 const AF = {
@@ -110,8 +123,8 @@ const AF = {
     is_aggregative_already_set:                 is_aggregative_already_set,
     get_aggregative_id_for_unassign:            get_aggregative_id_for_unassign,
     gen_unassign_req_url:                       gen_unassign_req_url,
-    is_user_legit:                   is_user_legit,
-    display_legitimacy_error:        display_legitimacy_error
+    is_user_legit:                              is_user_legit,
+    display_legitimacy_error:                   display_legitimacy_error
 };
 
 export default AF;
