@@ -18,12 +18,7 @@ function CreateTicket ({ allPopulationData }) {
     const update_ticket_groups = allPopulationData.update_ticket_groups;
     
     // Meant For Calendar
-    const [calAppearence, setCalAppearence] = useState('calendar-closed');
-    const [value, setValue] = useState(undefined);
-    const update_calendar = (nextValue) => {
-        setValue(nextValue);
-        setCalAppearence('calendar-closed');
-    }
+    const [calendarValue, updateCalendarValue] = useState(null);
 
     // Ticket Name Error State Declaration (State Used Because Of Dynamicity Of Language)
     const [ticketNameError, updateTicketNameError] = useState("none");
@@ -45,7 +40,7 @@ function CreateTicket ({ allPopulationData }) {
                     update_ticket_groups();
                 }
 
-                AF.reset_all_inputs(setValue); // "setValue" Meant To Reset Calendar
+                AF.reset_all_inputs(updateCalendarValue);
                 AF.set_disabled_status_on_ticket_creation_buttons(false); // Letting Create Ticket Buttons Enabled Again
                 update_all_tickets();
             });
@@ -99,11 +94,10 @@ function CreateTicket ({ allPopulationData }) {
                 </div>
                 <div id='TC-due-date-direct-container'>
                     <div id='TC-due-date-title'>{texts.select_a[language]} <span>{texts.due_date[language]}</span></div>
-                    <div id='TC-due-date-chosen'
-                        onClick={() => {setCalAppearence('calendar-open')}}
-                        >{value ? value.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
+                    <div id='TC-due-date-chosen' onClick={AF.switch_calendar_appearence}
+                        >{calendarValue ? calendarValue.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
                     </div>
-                    <Calendar className={calAppearence} update_calendar={update_calendar} value={value}/>
+                    <Calendar className="closed" onChange={updateCalendarValue} value={calendarValue}/>
                 </div>
             </div>
             <div id='TC-attachments-and-description-container'>

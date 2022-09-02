@@ -124,6 +124,17 @@ const gather_new_ticket_data = (userData) => {
     return new_ticket_data;
 }
 
+// Sets Open Status Of Calendar
+const switch_calendar_appearence = () => {
+    let calendar = document.querySelector(".react-calendar");
+
+    if (calendar.className.includes("closed")) {
+        calendar.className = "react-calendar open"; 
+    } else {
+        calendar.className = "react-calendar closed";
+    }
+}
+
 module.exports = {
     // Meant For The Selection Pieces Inputs
 	selection_piece_group:     {type_of_piece: 'groups', allow_custom: true, is_aggregative: true},
@@ -140,5 +151,6 @@ module.exports = {
     reset_all_inputs:                                reset_all_inputs,
     gather_new_ticket_data:                          gather_new_ticket_data,
     is_creation_submission_valid:                    is_creation_submission_valid,
-    handle_feedback_error_messages:                  handle_feedback_error_messages
+    handle_feedback_error_messages:                  handle_feedback_error_messages,
+    switch_calendar_appearence:                      switch_calendar_appearence
 };

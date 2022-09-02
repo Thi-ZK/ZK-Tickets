@@ -299,14 +299,14 @@ div[theme='bright'] .TC-create-button-direct-container button:hover {
 
 .react-calendar {
 	position: absolute !important;
-	top: 24%;
+	top: 20%;
+}
+.react-calendar[class*='closed'] {
+	display: none;
 }
 
 .react-calendar__month-view__weekdays__weekday {
 	color: black;
-}
-div[theme='bright'] .react-calendar__month-view__weekdays__weekday {
-	color: white;
 }
 
 #TC-description-direct-container {
