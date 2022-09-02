@@ -1,3 +1,5 @@
+const http = require('http');
+
 // Generate Response Object - "error" Is Boolean, "data" Is Object, "req_path" Is Text String Of Request Path
 const generate_response_object = (error, data, req_original_path) => {
 	let res_obj = {
@@ -43,9 +45,17 @@ const what_was_requested_obj_map = {
 // Array Containing All Possible Server Routes Paths (Used In Middleware Check Of Logged In Status (server.js))
 const all_server_routes_paths = Object.keys(what_was_requested_obj_map);
 
+// Prevents Heroku From Sleeping - Makes A Simple Light Request Every X Minutes To Own Website
+const prevent_heroku_from_sleeping = (minutes) => {
+    setInterval(() => {
+        http.get("http://zktickets.herokuapp.com/imgs/headers/arrow_down.png");
+    }, 1000 * 60 * minutes);
+}
+
 module.exports = {
-    generate_response_object:   generate_response_object,
-    what_was_requested_obj_map: what_was_requested_obj_map,
-    generate_random_id:         generate_random_id,
-    all_server_routes_paths:    all_server_routes_paths
+    generate_response_object:     generate_response_object,
+    what_was_requested_obj_map:   what_was_requested_obj_map,
+    generate_random_id:           generate_random_id,
+    all_server_routes_paths:      all_server_routes_paths,
+    prevent_heroku_from_sleeping: prevent_heroku_from_sleeping
 };

@@ -5,6 +5,7 @@ const mongoose   = require('mongoose');
 const MongoStore = require('connect-mongo');
 const path       = require('path');
 const midds      = require('./middlewares/server.js');
+const AF         = require('./routes_aux/general_utils'); // AF => Aux Functions
 
 // Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
@@ -72,6 +73,8 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 !IRL ? app.get("*", (req, res) => { res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); }) : null;
 
 // Server Start After Successful Connection With DB
-mongoose.connect(DB_URI)
-    .then( () => { app.listen( PORT, () => { console.log(`Server Running On ${PORT}`); }); })
-    .catch( (error) => { console.log(error); } );
+mongoose.connect(DB_URI).then(() => {
+    app.listen(PORT, () => { console.log(`Server Running On ${PORT}`);
+        AF.prevent_heroku_from_sleeping(29);
+    });
+}).catch( (error) => { console.log(error); } );
