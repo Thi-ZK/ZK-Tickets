@@ -36,18 +36,18 @@ function CreateTicket ({ allPopulationData }) {
                 AF.set_loading_icons_appearence("off");
                 AF.display_success_icon();
 
-                if ( new_ticket.new_group ) { // If New Group Was Provided Update
+                if ( new_ticket.new_group ) {
                     update_ticket_groups();
                 }
 
                 AF.reset_all_inputs(updateCalendarValue);
-                AF.set_disabled_status_on_ticket_creation_buttons(false); // Letting Create Ticket Buttons Enabled Again
+                AF.set_disabled_status_on_ticket_creation_buttons(false);
                 update_all_tickets();
             });
         } else {
             AF.handle_feedback_error_messages(new_ticket, updateTicketNameError);
             AF.set_loading_icons_appearence("off");
-            AF.set_disabled_status_on_ticket_creation_buttons(false); // Letting Create Ticket Buttons Enabled Again
+            AF.set_disabled_status_on_ticket_creation_buttons(false);
         }
     }
     

@@ -111,6 +111,32 @@ const update_aggregative_state_with_removed = (data, aggregatives_utils) => {
     window.__was_ticket_interacted = true;
 }
 
+// Generate Aggregative Names Text (Checks For Singular Or Plural Text, Ex: "Assumer" or "Assumers")
+const generate_text_for_aggregative_names = (agg_data, which_aggregative, texts) => {
+    return agg_data.ticket_data[which_aggregative + "_names"].length > 1 ? texts[which_aggregative + "_plural"] : texts[which_aggregative];
+}
+
+// Get Aggregative Totals To Be Used (aggregatives_utils.groups or aggregatives_utils.assigneds)
+const get_aggregative_blocks = (which_aggregative, agg_data) => {
+    return which_aggregative === "groups" ? agg_data.aggregatives_utils.groups : agg_data.aggregatives_utils.assigneds;
+}
+
+// Generate Data Object For Unassign Aggregative Function
+const generate_data_obj_for_unassign_aggregative = (event, agg_data) => {
+    let data = {
+        aggregative_id:       null,
+        aggregative_name:     event.target.innerText,
+        aggregative_type:     event.target.getAttribute("aggregative-type"),
+        ticket_creator:       agg_data.ticket_data.creator,
+        ticket_creator_name:  agg_data.ticket_data.creator_name,
+        ticket_id:            agg_data.ticket_data.id,
+        ticket_related_users: agg_data.ticket_data.related_users
+    }
+    data["aggregative_id"] = get_aggregative_id_for_unassign(data);
+
+    return data;
+}
+
 const AF = {
     date_formater:                              date_formater,
     get_which_selected_option:                  get_which_selected_option,
@@ -124,7 +150,10 @@ const AF = {
     get_aggregative_id_for_unassign:            get_aggregative_id_for_unassign,
     gen_unassign_req_url:                       gen_unassign_req_url,
     is_user_legit:                              is_user_legit,
-    display_legitimacy_error:                   display_legitimacy_error
+    display_legitimacy_error:                   display_legitimacy_error,
+    generate_text_for_aggregative_names:        generate_text_for_aggregative_names,
+    get_aggregative_blocks:                     get_aggregative_blocks,
+    generate_data_obj_for_unassign_aggregative: generate_data_obj_for_unassign_aggregative
 };
 
 export default AF;

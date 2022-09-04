@@ -7,9 +7,8 @@ import AttachmentBlock           from '../../IndependentPieces/AttachmentBlock';
 import Message                   from './Message';
 import ManageTicketButtons       from "./ManageTicketButtons";
 import PlaceMessage              from "./PlaceMessage";
-import TicketOverviewInformation from "./TicketOverviewInformation";
+import TicketOverviewInformation from "./TicketOverviewInformation/TicketOverviewInformation";
 
-// Assigneds, Messages & Groups States Are Only Meant For Faster Responsiveness In Client (Already Updating State While Real Data Is Being Fetched In DB)
 function TicketView({ allPopulationData }) {
 	// Population Data Alias
 	const allTickets         = allPopulationData.allTickets;
@@ -33,7 +32,7 @@ function TicketView({ allPopulationData }) {
 	// Checks If Ticket ID Is Above 5000 And If Yes, Redirect User To 404 Page
 	AF.handle_too_high_id_ticket_search(ticket_id);
 	
-	// Brings Fresh Tickets From DB To Update Messages & Assigneds - Whenever User Performs Action.
+	// Brings Fresh Tickets From DB To Update Messages & Assigneds Whenever User Performs Action.
 	useEffect(() => {
 		if ( window.__was_ticket_interacted ) { update_all_tickets(); }
 		window.__was_ticket_interacted = false; // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,7 +48,7 @@ function TicketView({ allPopulationData }) {
   	return (
     <>
 	<div id="ticket-view-container" css-marker="TV" ticket-id={ticket_id}>
-		<div id="TV-description-attachments-and-info-container" eye-helper="FIRST-LEFT-BLOCK">
+		<div id="TV-description-attachments-and-info-container">
 			<div id="TV-title-and-info-container">
 				<div id="TV-title-direct-container">
 					<h2>{ticket_data.name}</h2>
@@ -87,7 +86,7 @@ function TicketView({ allPopulationData }) {
 				</div>
 			</div>
 		</div>
-		<div id="TV-place-message-and-ticket-management-options-container" eye-helper="SECOND-RIGHT-BLOCK">
+		<div id="TV-place-message-and-ticket-management-options-container">
 			<div id="TV-messages-direct-container" css-marker="MSG">
 				{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
 					<Message userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id} ticket_creator={ticket_data.creator} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>

@@ -84,7 +84,7 @@ function App() {
             <div status="on" id="loading-screen"><img alt="menu icon" src="/imgs/general/loading_mew.gif"/></div>
             <TicketActionModal allPopulationData={allPopulationData}/>
             <LeftHeader language={language} allTickets={allTickets} ticketGroups={ticketGroups}/>
-            <div id="main-content-container" eye-helper="MAIN CONTENT CONTAINER">
+            <div id="main-content-container">
                 <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
                 <button onClick={AF.mobile_header_appearence_toggler} id="left-header-mob-opener">

@@ -1,17 +1,23 @@
-import axios from '../../../api/axios';
-import texts from '../../../languages/Pages/TicketView/TicketOverViewInformation.json';
-import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
+import axios from '../../../../api/axios';
+import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
+import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux 
+
+import AggregativeBlocks from './AggregativesBlocks';
 
 function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language, userData }) {
-    // Aliases For Aggregatives States
-    const assigneds = aggregatives_utils.assigneds;
-    const groups    = aggregatives_utils.groups;
-
     // Aliases For Selections Elements Population Data
     const users_names      = Object.values(aggregatives_utils.usersNamesWithIds);
     const users_ids        = Object.keys(aggregatives_utils.usersNamesWithIds);
     const all_groups_names = Object.values(aggregatives_utils.ticketGroups);
     const all_groups_ids   = Object.keys(aggregatives_utils.ticketGroups);
+
+    // Alias For Aggregative Blocks Components Props
+    const agg_data = {
+        ticket_data:        ticket_data,
+        aggregatives_utils: aggregatives_utils,
+        language:           language,
+        userData:           userData
+    };
 
     // Assign Aggregative Handler
     const assign_aggregative = (event) => {
@@ -38,28 +44,6 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
             AF.update_aggregative_state_with_added(data, aggregatives_utils);
         })
     }
-
-    // Unassign Aggregative Handler
-    const unassign_aggregative = (event) => {
-        let data = {
-            aggregative_id:       null,
-            aggregative_name:     event.target.innerText,
-            aggregative_type:     event.target.getAttribute("aggregative-type"),
-            ticket_creator:       ticket_data.creator,
-            ticket_creator_name:  ticket_data.creator_name,
-            ticket_id:            ticket_data.id,
-            ticket_related_users: ticket_data.related_users
-        }
-        data["aggregative_id"] = AF.get_aggregative_id_for_unassign(data);
-
-        if ( !AF.is_user_legit(userData, data, "strict") ) { 
-            return AF.display_legitimacy_error();
-        }
-        
-        axios.post(AF.gen_unassign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
-            AF.update_aggregative_state_with_removed(data, aggregatives_utils);
-        })
-    }
     
   return (
     <div id='TV-ticket-info-container' css-marker="INF">
@@ -81,15 +65,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
         </div>
         <div id='TV-INF-aggregatives-container'>
             <div className='TV-INF-info-line-direct-container'>
-                {/* Rectangle Blocks Of Groups */}
-                <div className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces' id='TV-INF-groups-rectangles-span-direct-container'>
-                    <small id="TV-INF-groups-text-key">{ticket_data.groups_names.length > 1 ? texts.groups_plural[language] : texts.groups[language]}:</small>
-                    <div>
-                        {groups.map((group, index) => (
-                            <span className='TV-INF-groups-rectangle-span' aggregative-type="group" onClick={unassign_aggregative} key={index}>{group}</span>
-                        ))}
-                    </div>
-                </div>
+                <AggregativeBlocks which_aggregative="groups" agg_data={agg_data}/>
                 {/* List (Select) Of Ticket Groups To Be Assigned */}
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_groups[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-groups-selector' aggregative-type="group">
@@ -101,15 +77,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
                 </p>
             </div>
             <div className='TV-INF-info-line-direct-container'>
-                {/* Rectangle Blocks Of Assigned Users */}
-                <div className='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'>
-                    <small id="TV-INF-assumers-text-key">{ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:</small>
-                    <div>
-                        {assigneds.map((assumer, index) => (
-                            <span className='TV-INF-assigneds-rectangle-span' aggregative-type="assumer" onClick={unassign_aggregative} key={index}>{assumer}</span>
-                        ))}
-                    </div>
-                </div>
+                <AggregativeBlocks which_aggregative="assumers" agg_data={agg_data}/>
                 {/* List (Select) Of Users To Be Assigned */}
                 <p className='TV-INF-line-info-value-aggregative'>{texts.add_assigneds[language]}:
                     <select onChange={assign_aggregative} id='TV-INF-assigneds-selector' aggregative-type="assumer">

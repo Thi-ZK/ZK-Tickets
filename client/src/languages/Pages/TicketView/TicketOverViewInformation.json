@@ -47,13 +47,13 @@
         "portuguese": "Prioridade",
         "spanish": "Prioridad"
     },
-    "assigneds": {
+    "assumers": {
         "english": "Ticket Assigned",
         "german": "Ticket zugewiesen",
         "portuguese": "Responsável Pelo Ticket",
         "spanish": "Responsable Del Ticket"
     },
-    "assigneds_plural": {
+    "assumers_plural": {
         "english": "Ticket Assigneds",
         "german": "Ticket zugewiesene",
         "portuguese": "Responsáveis Pelo Ticket",
