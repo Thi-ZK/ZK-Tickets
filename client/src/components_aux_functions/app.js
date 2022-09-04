@@ -20,6 +20,8 @@ const generate_update_user_names_and_ids_function = (updateUsers, axios) => {
 const generate_update_user_data_function = (updateUserData, updateBrightnessTheme, updateLanguage, axios) => {
     return (should_update_lang_and_brightness_theme) => {
         axios.get('/users/get/single/current').then((res) => { console.log(res.data);
+            window.__is_user_data_call_finished = true;
+
             if ( res.data.success ) {
                 updateUserData(res.data.data);
     
@@ -27,6 +29,10 @@ const generate_update_user_data_function = (updateUserData, updateBrightnessThem
                     updateBrightnessTheme(res.data.data.preferred_brightness_theme);
                     updateLanguage(res.data.data.preferred_language);
                 }
+            }
+
+            if ( window.__are_tickets_call_finished ) {
+                set_loading_screen_status("off");
             }
         })
     }
@@ -36,7 +42,15 @@ const generate_update_user_data_function = (updateUserData, updateBrightnessThem
 const generate_update_all_tickets_function = (updateTickets, axios) => {
     return () => {
         axios.get('/tickets/get/all').then((tickets) => { console.log(tickets.data);
-            if ( tickets.data.success ) { updateTickets(tickets.data.data); }
+            window.__are_tickets_call_finished = true;
+
+            if ( tickets.data.success ) {
+                updateTickets(tickets.data.data);
+            }
+
+            if ( window.__is_user_data_call_finished ) {
+                set_loading_screen_status("off");
+            }
         })
     }
 }
@@ -52,10 +66,20 @@ const mobile_header_appearence_toggler = () => {
     }
 }
 
+// Set Loading Screen Status (On or Off)
+const set_loading_screen_status = (status) => {
+    let loading_screen_elem = document.querySelector("#loading-screen");
+
+    if ( loading_screen_elem ) {
+        loading_screen_elem.setAttribute("status", status);
+    }
+}
+
 module.exports = {
     generate_update_ticket_groups_function:      generate_update_ticket_groups_function,
     generate_update_user_names_and_ids_function: generate_update_user_names_and_ids_function,
     generate_update_user_data_function:          generate_update_user_data_function,
     generate_update_all_tickets_function:        generate_update_all_tickets_function,
-    mobile_header_appearence_toggler:            mobile_header_appearence_toggler           
+    mobile_header_appearence_toggler:            mobile_header_appearence_toggler,
+    set_loading_screen_status:                   set_loading_screen_status        
 };

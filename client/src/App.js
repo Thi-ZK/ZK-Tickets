@@ -81,6 +81,7 @@ function App() {
     <Router>
         <div className="App" theme={currentBrightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
+            <div status="on" id="loading-screen"><img alt="menu icon" src="/imgs/general/loading_mew.gif"/></div>
             <TicketActionModal allPopulationData={allPopulationData}/>
             <LeftHeader language={language} allTickets={allTickets} ticketGroups={ticketGroups}/>
             <div id="main-content-container" eye-helper="MAIN CONTENT CONTAINER">

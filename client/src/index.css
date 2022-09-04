@@ -58,6 +58,8 @@ input[type='radio'] {
 }
 
 #all-content-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 
@@ -76,6 +78,8 @@ div[theme='bright'] #home-content-title {
 }
 
 .App {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	min-height: 100vh;
 }
@@ -100,6 +104,41 @@ div[theme='bright'] #main-content-container {
 	display: none;
 	z-index: 99;
 	background-color: rgba(0, 0, 0, 0.55);
+}
+
+#loading-screen {
+	background-image: linear-gradient(to right, #0F2027 , #203A43, #2C5364);
+	position: fixed;
+	/* width: 100vw; */
+	width: calc(100vw - 318px);
+	margin-left: 318px;
+
+	height: 100vh;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 99;
+	/* background-color: rgba(0, 0, 0, 0.49); */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-transition-duration: 0.3s;
+	     -o-transition-duration: 0.3s;
+	        transition-duration: 0.3s;
+}
+#loading-screen[status='on'] {
+	visibility: visible;
+	opacity: 0.90;
+}
+
+#loading-screen img {
+	width: 110px;
+	height: 110px;
 }
 
 #universal-overlay[status*='on'] {
@@ -143,7 +182,9 @@ div[theme='bright'] #main-content-container {
 	padding: 2px 4px 2px 4px;
 	border: 1px solid rgb(90,90,90);
 	cursor: pointer;
-	transition-duration: 0.25s;
+	-webkit-transition-duration: 0.25s;
+	     -o-transition-duration: 0.25s;
+	        transition-duration: 0.25s;
 }
 
 div[theme='bright'] .rectangle-span-selected_pieces span {
@@ -197,16 +238,16 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	}
 }
 
-/* Header Styles */
+/* Headers Styles */
 @import "./styles/header/left_header/mini_ticket_band.css";
 @import "./styles/header/left_header/left_header.css";
 @import "./styles/header/top_header.css";
 
-/* Ticket Styles */
+/* Ticket Band & Action Modal Styles */
 @import "./styles/ticket/ticket_band.css";
 @import "./styles/ticket/ticket_action_modal.css";
 
-/* Simple Page Styles */
+/* Simple Generic Page Styles */
 @import "./styles/pages/login.css";
 @import "./styles/pages/not_authorized.css";
 @import "./styles/pages/help_and_info.css";
