@@ -20,6 +20,11 @@ function TicketView({ allPopulationData }) {
 	const { ticket_id } = useParams();
 	const ticket_data   = allTickets.filter((elem) => { return elem.id === Number(ticket_id) })[0];
 
+	// Checks Ticket Legibility
+	if ( !ticket_data || ticket_id > 5000 ) {
+		window.location.href = "/ticket_does_not_exist";
+	}
+
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
 	const messages_utils             = { messages: messages, updateMessages: updateMessages, language: language };
@@ -28,9 +33,6 @@ function TicketView({ allPopulationData }) {
 	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
 	const [groups, updateGroups]       = useState(ticket_data.groups_names); 
 	const aggregatives_utils           = AF.generate_aggregatives_utils_obj(assigneds, groups, updateAssigneds, updateGroups, allPopulationData);
-	
-	// Checks If Ticket ID Is Above 5000 And If Yes, Redirect User To 404 Page
-	AF.handle_too_high_id_ticket_search(ticket_id);
 	
 	// Brings Fresh Tickets From DB To Update Messages & Assigneds Whenever User Performs Action.
 	useEffect(() => {

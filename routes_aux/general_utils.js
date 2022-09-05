@@ -52,10 +52,16 @@ const prevent_heroku_from_sleeping = (minutes) => {
     }, 1000 * 60 * minutes);
 }
 
+// Serves All Client Pages
+const serve_client_page = (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+}
+
 module.exports = {
     generate_response_object:     generate_response_object,
     what_was_requested_obj_map:   what_was_requested_obj_map,
     generate_random_id:           generate_random_id,
     all_server_routes_paths:      all_server_routes_paths,
-    prevent_heroku_from_sleeping: prevent_heroku_from_sleeping
+    prevent_heroku_from_sleeping: prevent_heroku_from_sleeping,
+    serve_client_page:            serve_client_page
 };

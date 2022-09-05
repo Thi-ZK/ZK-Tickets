@@ -27,11 +27,11 @@ function Home({ allPopulationData }) {
         
         AF.set_loading_icon_appearence("on");
 
-        axios.post('/login/auth', {email: email, password: password}).then(( res ) => {console.log(res.data);
+        axios.post('/login/auth', {email: email, password: password}).then(( res ) => { console.log(res.data);
             event.target.disabled = false;
             AF.set_loading_icon_appearence("off");
             
-            if ( res.data.success ) { // If User Logged In Successfully
+            if ( res.data.success ) {
                 AF.load_all_application_to_be_used_data(allPopulationData);
                 AF.set_error_message_appearence(updateErrorMessage, "off", "");
                 AF.vanish_login_form();
@@ -90,7 +90,7 @@ function Home({ allPopulationData }) {
             </form>
         </div>
     </div>
-  )
+    )
 }
 
 export default Home;
