@@ -70,7 +70,11 @@ app.use('/ticket_groups/get', GroupUpdateRouter);
 app.use('/login',             loginAuthRouter);
 
 // Serving All Pages From Client
-!IRL ? app.get("*", AF.serve_client_page) : null;
+if ( !IRL ) {
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 // Server Start After Successful Connection With DB
 mongoose.connect(DB_URI).then(() => {
