@@ -3,20 +3,20 @@ import axios from '../../../../api/axios';
 import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
 import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
-function AggregativeBlocks ({ which_aggregative, agg_data }) {
+function AggregativeBlocks ({ which_aggregative, data_for_aggregatives }) {
     // Population Data Aliases
-    const aggregative_blocks = AF.get_aggregative_blocks(which_aggregative, agg_data);
-    const userData           = agg_data.userData;
-    const language           = agg_data.language;
-    const aggregatives_utils = agg_data.aggregatives_utils;
+    const aggregative_blocks = AF.get_aggregative_blocks(which_aggregative, data_for_aggregatives);
+    const userData           = data_for_aggregatives.userData;
+    const language           = data_for_aggregatives.language;
+    const aggregatives_utils = data_for_aggregatives.aggregatives_utils;
 
     // Text Aliases
-    const texts_for_aggregative_names = AF.generate_text_for_aggregative_names(agg_data, which_aggregative, texts);
+    const texts_for_aggregative_names = AF.generate_text_for_aggregative_names(data_for_aggregatives, which_aggregative, texts);
     const which_aggregative_singular  = which_aggregative.substring(0, which_aggregative.length -1);
 
     // Unassign Aggregative Handler
     const unassign_aggregative = (event) => {
-        let data = AF.generate_data_obj_for_unassign_aggregative(event, agg_data);
+        let data = AF.generate_data_obj_for_unassign_aggregative(event, data_for_aggregatives);
 
         if ( !AF.is_user_legit(userData, data, "strict") ) { 
             return AF.display_legitimacy_error();

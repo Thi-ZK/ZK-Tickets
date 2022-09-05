@@ -80,7 +80,7 @@ div[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] > d
 	line-height: 25px !important;
 }
 
-#TV-INF-assigneds-selector, #TV-INF-groups-selector {
+#TV-INF-assumers-selector, #TV-INF-groups-selector {
 	border: 1px solid rgb(200,200,200);
 	color: rgb(230, 230, 230);
 	padding: 0px 2px 0px 4px;
@@ -88,7 +88,7 @@ div[class='TV-INF-line-info-key-aggregative rectangle-span-selected_pieces'] > d
 	height: 22px;
 	width: 100px;
 }
-div[theme='bright'] #TV-INF-assigneds-selector, div[theme='bright'] #TV-INF-groups-selector {
+div[theme='bright'] #TV-INF-assumers-selector, div[theme='bright'] #TV-INF-groups-selector {
 	color: rgb(50, 50, 50);
 	background-color: white;
 	border: 1px solid rgb(180,180,180);
