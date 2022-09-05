@@ -37,6 +37,7 @@ const sessionStore = MongoStore.create({
 });
 
 // Middlewares For Structure / Infra
+app.use(express.static(path.join(__dirname, 'client', 'build'))); // Meant For Client Serving
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors({
@@ -69,7 +70,6 @@ app.use('/ticket_groups/get', GroupUpdateRouter);
 app.use('/login',             loginAuthRouter);
 
 // Serving All Pages From Client
-app.use(express.static(path.join(__dirname, 'client', 'build')));
 !IRL ? app.get("*", AF.serve_client_page) : null;
 
 // Server Start After Successful Connection With DB
