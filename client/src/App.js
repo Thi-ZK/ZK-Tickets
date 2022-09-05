@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect }             from "react";
 import axios                                      from './api/axios';
+import AF                                         from './components_aux_functions/app';
 
-import AF    from './components_aux_functions/app';
-
+import Home              from './components/Pages/Home';
 import Login             from './components/Pages/Login';
 import TicketView        from './components/Pages/TicketView/TicketView';
 import TicketListing     from './components/Pages/TicketListing';
@@ -106,6 +106,7 @@ function App() {
                     </>
                     )}
                     <Route path='/login' element={<Login allPopulationData={allPopulationData}/>}/>
+                    <Route path='/' element={<Home/>}/>
                     <Route path='*' element={<ErrorPage/>}/>
                 </Routes>
             </div>

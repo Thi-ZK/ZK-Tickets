@@ -43,7 +43,7 @@ function Home({ allPopulationData }) {
     }
 
     return (
-    <div style={{backgroundImage: 'url(/imgs/login/planet_background.jpg)'}} id='login-container' css-marmker="LOG">
+    <div style={{backgroundImage: 'url(/imgs/general/fantasy_ice_giant.jpg)'}} id='login-container' css-marmker="LOG">
         <div id='LOG-centralizer'>
             <form id='LOG-form-container' login-status={userData ? "logged-in" : "logged-out"}>
                 <div id='LOG-title-direct-container'>

@@ -249,6 +249,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 @import "./styles/pages/not_authorized.css";
 @import "./styles/pages/help_and_info.css";
 @import "./styles/pages/error_page.css";
+@import "./styles/pages/home.css";
 
 /* Profile Page Styles */
 @import "./styles/pages/profile/profile.css";
