@@ -28,7 +28,7 @@ const prevent_default = (event) => {
 }
 
 // Set Error Message Appearence 
-const set_error_message_appearence = ( updateErrorMessage, status, message ) => {
+const set_error_message_appearence = ( status, updateErrorMessage, message ) => {
     document.querySelector("#LOG-error-display-direct-container").setAttribute("status", status);
     if ( message ) { updateErrorMessage(message); }
 }
@@ -52,15 +52,33 @@ const load_all_application_to_be_used_data = (allPopulationData) => {
     allPopulationData.update_ticket_groups();
 }
 
+// Display Forgotten Password Recovery Modal
+const switch_display_of_recovery_password_modal = (event) => {
+    event.preventDefault();
+
+    let recovery_modal_elem = document.querySelector("#LOG-password-forgotten-recovery-modal-direct-container");
+    let is_modal_closed     = recovery_modal_elem.getAttribute("status") === "off";
+
+    set_error_message_appearence("off");
+    recovery_modal_elem.setAttribute("status", is_modal_closed ? "on" : "off");
+}
+
+// Hide Forgotten Password Recovery Modal
+const hide_recovery_password_modal = () => {
+    document.querySelector("#LOG-password-forgotten-recovery-modal-direct-container").setAttribute("status", "off");
+}
+
 module.exports = {
-    clean_pass_and_email_inputs:              clean_pass_and_email_inputs,
-    get_email:                                get_email,
-    get_password:                             get_password,
-    vanish_login_form:                        vanish_login_form,
-    set_loading_icon_appearence:              set_loading_icon_appearence,
-    prevent_default:                          prevent_default,
-    set_error_message_appearence:             set_error_message_appearence,
-    prevent_default_and_disable_login_button: prevent_default_and_disable_login_button,
-    enable_login_button:                      enable_login_button,
-    load_all_application_to_be_used_data:     load_all_application_to_be_used_data
+    clean_pass_and_email_inputs:               clean_pass_and_email_inputs,
+    get_email:                                 get_email,
+    get_password:                              get_password,
+    vanish_login_form:                         vanish_login_form,
+    set_loading_icon_appearence:               set_loading_icon_appearence,
+    prevent_default:                           prevent_default,
+    set_error_message_appearence:              set_error_message_appearence,
+    prevent_default_and_disable_login_button:  prevent_default_and_disable_login_button,
+    enable_login_button:                       enable_login_button,
+    load_all_application_to_be_used_data:      load_all_application_to_be_used_data,
+    switch_display_of_recovery_password_modal: switch_display_of_recovery_password_modal,
+    hide_recovery_password_modal:              hide_recovery_password_modal
 };

@@ -13,14 +13,15 @@ function Home({ allPopulationData }) {
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
     const attempt_login = (event) => {
-        AF.set_error_message_appearence(updateErrorMessage, "off"); // Meant For Cleaning Previous Possible Login Errors
+        AF.set_error_message_appearence("off"); // Meant For Cleaning Previous Possible Login Errors
+        AF.hide_recovery_password_modal();
         AF.prevent_default_and_disable_login_button(event);
 
         let email    = AF.get_email();
         let password = AF.get_password();
         
         if ( !email || !password ) {
-            AF.set_error_message_appearence(updateErrorMessage, "on", "what_is_your_plan"); // Text Matches Language File
+            AF.set_error_message_appearence("on", updateErrorMessage, "what_is_your_plan"); // Text Matches Language File
             AF.enable_login_button(event);
             return;
         }
@@ -33,11 +34,11 @@ function Home({ allPopulationData }) {
             
             if ( res.data.success ) {
                 AF.load_all_application_to_be_used_data(allPopulationData);
-                AF.set_error_message_appearence(updateErrorMessage, "off", "");
+                AF.set_error_message_appearence("off");
                 AF.vanish_login_form();
                 AF.clean_pass_and_email_inputs();
             } else {
-                AF.set_error_message_appearence(updateErrorMessage, "on", res.data.error);
+                AF.set_error_message_appearence("on", updateErrorMessage, res.data.error);
             }
         });
     }
@@ -52,7 +53,7 @@ function Home({ allPopulationData }) {
                 <div id='LOG-inputs-container'>
                     <div className='LOG-inputs-direct-container'>
                         <input
-                            onFocus={() => { return AF.set_error_message_appearence(updateErrorMessage, "off") }}
+                            onFocus={() => { return AF.set_error_message_appearence("off") }}
                             id='LOG-email'
                             placeholder='Email'
                             autoComplete="on" 
@@ -61,7 +62,7 @@ function Home({ allPopulationData }) {
                     </div>
                     <div className='LOG-inputs-direct-container'>
                         <input 
-                            onFocus={() => { return AF.set_error_message_appearence(updateErrorMessage, "off") }}
+                            onFocus={() => { return AF.set_error_message_appearence("off") }}
                             id='LOG-password'
                             type="password"
                             placeholder={texts.password[language]}
@@ -74,7 +75,7 @@ function Home({ allPopulationData }) {
                     <button type="submit" onClick={attempt_login}>{texts.login_button[language]}</button>
                 </div>
                 <div id='LOG-forgot-password-button-direct-container'>
-                    <button onClick={(event) => AF.prevent_default(event)}>{texts.forgot_password[language]}</button>
+                    <button onClick={(event) => AF.switch_display_of_recovery_password_modal(event)}>{texts.forgot_password[language]}</button>
                 </div>
                 <div>
                     <div id='LOG-loading-gif-direct-container' status="off">
@@ -82,6 +83,13 @@ function Home({ allPopulationData }) {
                     </div>
                     <div id='LOG-error-display-direct-container' status='off'>
                         <p>{texts[errorMessage][language]}</p>
+                    </div>
+                    <div id='LOG-password-forgotten-recovery-modal-direct-container' status="off">
+                        <div id='LOG-password-forgotten-recovery-modal-title-direct-container'>
+                            <h4>Your password will be sent to email below:</h4>
+                            <img alt='user' src='/imgs/general/send_icon.png'/>
+                        </div>
+                        <input placeholder='Type the account email'></input>
                     </div>
                 </div>
                 <div id='LOG-new-account-request-button-direct-container'>
