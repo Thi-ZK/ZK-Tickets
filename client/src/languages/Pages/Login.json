@@ -53,7 +53,37 @@
         "portuguese": "Qual É A Sua Ideia?",
         "spanish": "¿Cual Es Tu Idea?"
     },
+    "recovery_password_title": {
+        "english": "Password will be sent to your email:",
+        "german": "Passwort wird an ihrer Email gesendet",
+        "portuguese": "A senha será enviada para seu email",
+        "spanish": "La contraseña será enviada su email"
+    },
+    "type_email_here": {
+        "english": "Type the account email",
+        "german": "Geben Sie das Konto Email ein",
+        "portuguese": "Digite o email da conta",
+        "spanish": "Escriba el email de la cuenta"
+    },
+    "password_sent": {
+        "english": "Password sent!",
+        "german": "Password wurde gesendet!",
+        "portuguese": "A senha foi enviada!",
+        "spanish": "La contraseña fue enviada!"
+    },
+    "password_recovery_error": {
+        "english": "An error ocurred. Make sure the email exists.",
+        "german": "Ein fehler ist passiert. Überprüfen Sie die Email.",
+        "portuguese": "Ocorreu um erro. Verifique se o email existe.",
+        "spanish": "Ha ocorrido un error. Asegúrese de que el email existe."
+    },
     "none": {
+        "english": "",
+        "german": "",
+        "portuguese": "",
+        "spanish": ""
+    },
+    "": {
         "english": "",
         "german": "",
         "portuguese": "",

@@ -149,7 +149,7 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
 }
 
 #LOG-error-display-direct-container {
-    padding-top: 20px;
+    padding-top: 16px;
 }
 
 #LOG-error-display-direct-container p {
@@ -245,6 +245,9 @@ div[theme='bright'] #LOG-password-recovery-modal-direct-container input {
     color: #34C18E;
     padding-top: 1px;
 }
+#LOG-password-recovery-modal-feedback-message[error-status='unsuccessful'] {
+    color: red;
+}
 
 #LOG-new-account-request-button-direct-container {
     position: absolute;
@@ -318,7 +321,7 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container span {
 
 @media(max-width: 600px){
 	#LOG-form-container {
-		width: 320px;
+		width: 340px;
 	}
 
     .LOG-inputs-direct-container input {
@@ -329,12 +332,24 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container span {
         width: 280px;
     }
 
+    #LOG-forgot-password-button-direct-container {
+        padding-top: 14px;
+    }
+
+    #LOG-error-display-direct-container {
+        padding-top: 15px;
+    }
+
+    #LOG-error-display-direct-container p {
+        font-size: 12px;
+    }
+
     #LOG-new-account-request-button-direct-container {
-        width: calc(320px - 40px);
+        width: calc(340px - 40px);
     }
 
     #LOG-password-recovery-modal-direct-container {
         margin-left: 15px;
-        width: 290px;
+        width: 310px;
     }
 }

@@ -23,13 +23,15 @@ router.post('/auth', async (req, res) => {
 });
 
 router.post('/password_recovery', async (req, res) => {
-	let error    = false;
+	let email             = req.body.email;
+	let error             = false;
+	let does_email_exists = await UserModel.findOne({ email }).select().catch((err) => { error = err; }) ? true : false;
 
-	setTimeout(() => {
-		res.send(AF.generate_response_object(error, req.body, req.originalUrl));
-	}, 2000);
+	if ( !does_email_exists ) {
+		error = "Email Does Not Exist";
+	}
 
-	// res.send(AF.generate_response_object(error, req.body, req.originalUrl));
+	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
 router.get('/logout', (req, res) => {

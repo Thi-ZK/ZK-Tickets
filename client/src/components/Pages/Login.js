@@ -8,7 +8,7 @@ function Home({ allPopulationData }) {
     const userData = allPopulationData.userData;
     const language = allPopulationData.language;
 
-    // Meant For Displaying Or Hiding Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
+    // Meant For Displaying Or Hiding Login Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
     const [errorMessage, updateErrorMessage] = useState("none");
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
@@ -43,6 +43,9 @@ function Home({ allPopulationData }) {
         });
     }
 
+    // Password Recovery Feedback Message State (State Used Due To Language Dynamicity)
+    const [passRecoveryFeedbackMsg, updatePassRecoveryFeedbackMsg] = useState("");
+
     // Lost Password Handler
     const recover_password = () => {
         AF.set_recovery_password_loading_icon_appearence("on");
@@ -52,9 +55,9 @@ function Home({ allPopulationData }) {
         axios.post('/login/password_recovery', { email: email }).then(( res ) => { console.log(res.data);
             AF.set_recovery_password_loading_icon_appearence("off");
             AF.clean_recovery_password_input();
-            AF.display_recovery_password_submission_feedback(res.data.success);
+            AF.display_recovery_password_submission_feedback(res.data.success, updatePassRecoveryFeedbackMsg);
         });
-    } 
+    }
 
     return (
     <div style={{backgroundImage: 'url(/imgs/general/fantasy_ice_giant.jpg)'}} id='login-container' css-marmker="LOG">
@@ -66,7 +69,7 @@ function Home({ allPopulationData }) {
                 <div id='LOG-inputs-container'>
                     <div className='LOG-inputs-direct-container'>
                         <input
-                            onFocus={() => { return AF.set_error_message_appearence("off") }}
+                            onFocus={() => AF.set_error_message_appearence("off")}
                             id='LOG-email'
                             placeholder='Email'
                             autoComplete="on" 
@@ -75,7 +78,7 @@ function Home({ allPopulationData }) {
                     </div>
                     <div className='LOG-inputs-direct-container'>
                         <input 
-                            onFocus={() => { return AF.set_error_message_appearence("off") }}
+                            onFocus={() => AF.set_error_message_appearence("off")}
                             id='LOG-password'
                             type="password"
                             placeholder={texts.password[language]}
@@ -99,14 +102,14 @@ function Home({ allPopulationData }) {
                     </div>
                     <div id='LOG-password-recovery-modal-direct-container' status="off">
                         <div id='LOG-password-recovery-modal-title-direct-container'>
-                            <h4>Your password will be sent to your email:</h4>
+                            <h4>{texts.recovery_password_title[language]}</h4>
                             <div>
                                 <img status="off" id='LOG-password-recovery-modal-loading-icon' alt='loading blue circle' src='/imgs/general/loading_blue_icon.gif'/>
                                 <img onClick={recover_password} id='LOG-password-recovery-modal-send-icon' alt='send blue icon' src='/imgs/general/send_icon.png'/>
                             </div>
                         </div>
-                        <p status="off" id='LOG-password-recovery-modal-feedback-message'>Password sent!</p>
-                        <input required placeholder='Type the account email'></input>
+                        <p status="off" id='LOG-password-recovery-modal-feedback-message'>{texts[passRecoveryFeedbackMsg][language]}</p>
+                        <input required placeholder={texts.type_email_here[language]}></input>
                     </div>
                 </div>
                 <div id='LOG-new-account-request-button-direct-container'>

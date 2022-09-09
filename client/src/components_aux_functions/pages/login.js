@@ -79,17 +79,14 @@ const set_recovery_password_loading_icon_appearence = (status) => {
 }
 
 // Display Recovery Password Feedback Message
-const display_recovery_password_submission_feedback = (was_submission_successful) => {
+const display_recovery_password_submission_feedback = (was_submission_successful, updatePassRecoveryFeedbackMsg) => {
     let feedback_message_elem = document.querySelector("#LOG-password-recovery-modal-feedback-message");
 
-    if ( was_submission_successful ) {
-    
-    } else {
-
-    }
+    feedback_message_elem.setAttribute("error-status", was_submission_successful ? "successful" : "unsuccessful");
+    updatePassRecoveryFeedbackMsg(was_submission_successful ? "password_sent" : "password_recovery_error"); // Matches Language JSON
 
     feedback_message_elem.setAttribute("status", "on");
-    setTimeout(() => { feedback_message_elem.setAttribute("status", "off"); }, 1500);
+    setTimeout(() => { feedback_message_elem.setAttribute("status", "off"); }, 3000);
 }
 
 // Clean Recovery Password Email Input
