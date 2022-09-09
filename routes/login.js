@@ -22,6 +22,16 @@ router.post('/auth', async (req, res) => {
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
+router.post('/password_recovery', async (req, res) => {
+	let error    = false;
+
+	setTimeout(() => {
+		res.send(AF.generate_response_object(error, req.body, req.originalUrl));
+	}, 2000);
+
+	// res.send(AF.generate_response_object(error, req.body, req.originalUrl));
+});
+
 router.get('/logout', (req, res) => {
 	req.session.destroy();
 	res.clearCookie('connect.sid');

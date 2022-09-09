@@ -13,7 +13,7 @@ function Home({ allPopulationData }) {
 
     // Login Function. The Request To /login/auth Returns The User Data If Successful
     const attempt_login = (event) => {
-        AF.set_error_message_appearence("off"); // Meant For Cleaning Previous Possible Login Errors
+        AF.set_error_message_appearence("off");
         AF.hide_recovery_password_modal();
         AF.prevent_default_and_disable_login_button(event);
 
@@ -28,7 +28,7 @@ function Home({ allPopulationData }) {
         
         AF.set_loading_icon_appearence("on");
 
-        axios.post('/login/auth', {email: email, password: password}).then(( res ) => { console.log(res.data);
+        axios.post('/login/auth', { email: email, password: password }).then(( res ) => { console.log(res.data);
             event.target.disabled = false;
             AF.set_loading_icon_appearence("off");
             
@@ -42,6 +42,19 @@ function Home({ allPopulationData }) {
             }
         });
     }
+
+    // Lost Password Handler
+    const recover_password = () => {
+        AF.set_recovery_password_loading_icon_appearence("on");
+
+        let email = AF.get_recovery_password_email();
+
+        axios.post('/login/password_recovery', { email: email }).then(( res ) => { console.log(res.data);
+            AF.set_recovery_password_loading_icon_appearence("off");
+            AF.clean_recovery_password_input();
+            AF.display_recovery_password_submission_feedback(res.data.success);
+        });
+    } 
 
     return (
     <div style={{backgroundImage: 'url(/imgs/general/fantasy_ice_giant.jpg)'}} id='login-container' css-marmker="LOG">
@@ -79,17 +92,21 @@ function Home({ allPopulationData }) {
                 </div>
                 <div>
                     <div id='LOG-loading-gif-direct-container' status="off">
-                        <img alt='user' src='/imgs/general/loading_mew.gif'/>
+                        <img alt='loading mew' src='/imgs/general/loading_mew.gif'/>
                     </div>
                     <div id='LOG-error-display-direct-container' status='off'>
                         <p>{texts[errorMessage][language]}</p>
                     </div>
-                    <div id='LOG-password-forgotten-recovery-modal-direct-container' status="off">
-                        <div id='LOG-password-forgotten-recovery-modal-title-direct-container'>
-                            <h4>Your password will be sent to email below:</h4>
-                            <img alt='user' src='/imgs/general/send_icon.png'/>
+                    <div id='LOG-password-recovery-modal-direct-container' status="off">
+                        <div id='LOG-password-recovery-modal-title-direct-container'>
+                            <h4>Your password will be sent to your email:</h4>
+                            <div>
+                                <img status="off" id='LOG-password-recovery-modal-loading-icon' alt='loading blue circle' src='/imgs/general/loading_blue_icon.gif'/>
+                                <img onClick={recover_password} id='LOG-password-recovery-modal-send-icon' alt='send blue icon' src='/imgs/general/send_icon.png'/>
+                            </div>
                         </div>
-                        <input placeholder='Type the account email'></input>
+                        <p status="off" id='LOG-password-recovery-modal-feedback-message'>Password sent!</p>
+                        <input required placeholder='Type the account email'></input>
                     </div>
                 </div>
                 <div id='LOG-new-account-request-button-direct-container'>

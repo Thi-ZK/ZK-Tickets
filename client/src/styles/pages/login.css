@@ -1,17 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 #login-container {
     width: 100%;
     height: calc(100vh - 48px);
@@ -31,9 +17,6 @@
 	border: 1px solid rgb(90, 90, 90);
 	overflow-y: auto;
 	height: 500px;
-    -webkit-transition-duration:0.32s;
-         -o-transition-duration:0.32s;
-            transition-duration:0.32s;
 }
 div[theme='bright'] #LOG-form-container {
 	background-color: white;
@@ -43,8 +26,6 @@ div[theme='bright'] #LOG-form-container {
     -webkit-transition-duration: 1s !important;
          -o-transition-duration: 1s !important;
             transition-duration: 1s !important;
-    opacity: 0;
-    visibility: hidden;
 }
 
 #LOG-title-direct-container {
@@ -86,7 +67,7 @@ div[theme='bright'] #LOG-title-direct-container {
     padding-bottom: 20px;
 }
 
-.LOG-inputs-direct-container input{
+.LOG-inputs-direct-container input {
     padding: 11px 11px 11px 0px;
 	font-size: 14.5px;
 	width: 295px;
@@ -96,9 +77,6 @@ div[theme='bright'] #LOG-title-direct-container {
 	border: none;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.59);
 	letter-spacing: 0.025em;
-	-webkit-transition-duration: 0.4s;
-	     -o-transition-duration: 0.4s;
-	        transition-duration: 0.4s;
 }
 div[theme='bright'] .LOG-inputs-direct-container input {
 	color: rgb(30, 30, 30);
@@ -143,7 +121,8 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     color: rgb(42, 127, 170);
 }
 
-#LOG-forgot-password-button-direct-container button:hover {
+#LOG-forgot-password-button-direct-container button:hover,
+#LOG-new-account-request-button-direct-container span:hover {
     text-decoration: underline;
 }
 
@@ -160,20 +139,17 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     height: 70px;
 }
 
-#LOG-error-display-direct-container[status='on'] {
-    visibility: visible;
-    opacity: 1;
-}
-#LOG-error-display-direct-container[status='off'] {
+#LOG-error-display-direct-container[status='off'],
+#LOG-password-recovery-modal-direct-container,
+#LOG-password-recovery-modal-loading-icon,
+#LOG-form-container[login-status*='logged-in'],
+#LOG-password-recovery-modal-feedback-message {
     visibility: hidden;
     opacity: 0;
 }
 
 #LOG-error-display-direct-container {
     padding-top: 20px;
-    -webkit-transition-duration: 0.32s;
-         -o-transition-duration: 0.32s;
-            transition-duration: 0.32s;
 }
 
 #LOG-error-display-direct-container p {
@@ -182,7 +158,19 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     font-size: 13px;
 }
 
-#LOG-password-forgotten-recovery-modal-direct-container {
+#LOG-password-recovery-modal-direct-container,
+#LOG-error-display-direct-container,
+#LOG-password-recovery-modal-feedback-message,
+#LOG-password-recovery-modal-direct-container input,
+#LOG-password-recovery-modal-loading-icon,
+#LOG-form-container,
+.LOG-inputs-direct-container input {
+    -webkit-transition-duration: 0.35s;
+         -o-transition-duration: 0.35s;
+            transition-duration: 0.35s;
+}
+
+#LOG-password-recovery-modal-direct-container {
     position: absolute;
     width: 400px;
     margin-left: 50px; /* half of form width */
@@ -197,28 +185,26 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition-duration: 0.31s;
-         -o-transition-duration: 0.31s;
-            transition-duration: 0.31s;
 }
-#LOG-password-forgotten-recovery-modal-direct-container[status='on'] {
+#LOG-password-recovery-modal-direct-container[status='on'],
+#LOG-password-recovery-modal-loading-icon[status='on'],
+#LOG-error-display-direct-container[status='on'],
+#LOG-password-recovery-modal-feedback-message[status='on']  {
     visibility: visible;
     opacity: 1;
 }
 
-#LOG-password-forgotten-recovery-modal-direct-container h4 {
+#LOG-password-recovery-modal-direct-container h4 {
     font-size: 13px;
     font-weight: normal;
     color: rgb(240, 240, 240);
 }
-div[theme='bright'] #LOG-password-forgotten-recovery-modal-direct-container h4,
-div[theme='bright'] #LOG-password-forgotten-recovery-modal-direct-container input {
+div[theme='bright'] #LOG-password-recovery-modal-direct-container h4,
+div[theme='bright'] #LOG-password-recovery-modal-direct-container input {
     color: rgb(30, 30, 30);
 }
 
-#LOG-password-forgotten-recovery-modal-title-direct-container {
+#LOG-password-recovery-modal-title-direct-container {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -230,24 +216,34 @@ div[theme='bright'] #LOG-password-forgotten-recovery-modal-direct-container inpu
             justify-content: space-between;
 }
 
-#LOG-password-forgotten-recovery-modal-direct-container img {
+#LOG-password-recovery-modal-send-icon {
     width: 22px;
     height: 22px;
     cursor: pointer;
 }
 
-#LOG-password-forgotten-recovery-modal-direct-container input {
+#LOG-password-recovery-modal-loading-icon {
+    width: 19px;
+    height: 19px;
+    margin-right: 6px;
+}
+
+#LOG-password-recovery-modal-direct-container input {
     font-size: 13px;
     background: none;
     border: none; border-bottom: 1px solid rgb(175, 175, 175);
     padding: 5px 5px 5px 0px;
-    -webkit-transition-duration: 0.3s;
-         -o-transition-duration: 0.3s;
-            transition-duration: 0.3s;
     color: rgb(240, 240, 240);
+    margin-top: 3px;
 }
-#LOG-password-forgotten-recovery-modal-direct-container input:focus {
+#LOG-password-recovery-modal-direct-container input:focus {
     border-bottom: 1px solid rgb(135, 135, 135);
+}
+
+#LOG-password-recovery-modal-feedback-message {
+    font-size: 12px;
+    color: #34C18E;
+    padding-top: 1px;
 }
 
 #LOG-new-account-request-button-direct-container {
@@ -269,9 +265,6 @@ div[theme='bright'] #LOG-password-forgotten-recovery-modal-direct-container inpu
 #LOG-new-account-request-button-direct-container span {
     cursor: pointer;
     color: rgb(172, 233, 223);
-}
-#LOG-new-account-request-button-direct-container span:hover {
-    text-decoration: underline;
 }
 
 div[theme='bright'] #LOG-new-account-request-button-direct-container {
@@ -317,7 +310,7 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container span {
         font-size: 14.5px;
     }
 
-    #LOG-password-forgotten-recovery-modal-direct-container {
+    #LOG-password-recovery-modal-direct-container {
         margin-left: 25px;
         height: 52px;
     }
@@ -340,7 +333,7 @@ div[theme='bright'] #LOG-new-account-request-button-direct-container span {
         width: calc(320px - 40px);
     }
 
-    #LOG-password-forgotten-recovery-modal-direct-container {
+    #LOG-password-recovery-modal-direct-container {
         margin-left: 15px;
         width: 290px;
     }

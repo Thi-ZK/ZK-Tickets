@@ -39,7 +39,8 @@ const what_was_requested_obj_map = {
     "/ticket_groups/get/piece/all_groups":              "All Ticket Groups Names With IDs",
     "/tickets/update/single/ticket_groups/set":         "Set Ticket Group To Single Ticket",
     "/tickets/update/single/ticket_groups/delete":      "Remove Ticket Group From Single Ticket",
-    "/login/auth":                                      "Authenticate User"
+    "/login/auth":                                      "Authenticate User",
+    "/login/password_recovery":                         "Recover User Password"
 }; 
 
 // Array Containing All Possible Server Routes Paths (Used In Middleware Check Of Logged In Status (server.js))
