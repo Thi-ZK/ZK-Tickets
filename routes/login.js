@@ -30,7 +30,7 @@ router.post('/password_recovery', async (req, res) => {
 	if ( !does_email_exists ) {
 		error = "Email Does Not Exist";
 	}
-
+	
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 

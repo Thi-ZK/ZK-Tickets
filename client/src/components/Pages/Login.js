@@ -48,9 +48,13 @@ function Home({ allPopulationData }) {
 
     // Lost Password Handler
     const recover_password = () => {
-        AF.set_recovery_password_loading_icon_appearence("on");
-
         let email = AF.get_recovery_password_email();
+
+        if ( !email ) {
+            return;
+        }
+
+        AF.set_recovery_password_loading_icon_appearence("on");
 
         axios.post('/login/password_recovery', { email: email }).then(( res ) => { console.log(res.data);
             AF.set_recovery_password_loading_icon_appearence("off");
@@ -112,8 +116,9 @@ function Home({ allPopulationData }) {
                         <input required placeholder={texts.type_email_here[language]}></input>
                     </div>
                 </div>
-                <div id='LOG-new-account-request-button-direct-container'>
-                    <button onClick={(event) => AF.prevent_default(event)}>{texts.have_no_account_yet[language]} <span>{texts.ask_one[language]}</span></button>
+                <div id='LOG-new-account-request-link-direct-container'>
+                        {texts.have_no_account_yet[language]}
+                        <a href="mailto:alyx.graham102@gmail.com"><span>{texts.ask_one[language]}</span></a>
                 </div>
             </form>
         </div>
