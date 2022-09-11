@@ -55,7 +55,7 @@ const Header = ({ allPopulationData }) => {
             <ul>
                 <ListLink link_url="/create_ticket"  img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}/>
                 <ListLink link_url="/ticket_listing" img_src_url="ticket_listing" link_text={texts.ticket_listing[language]}/>
-                {/* "Tickets I Am Assigned" */}
+                {/* Listing Filters */}
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                         <img alt="filter icon" src="/imgs/headers/filter_icon.png"/>
@@ -65,16 +65,16 @@ const Header = ({ allPopulationData }) => {
                         </div>
                     </div>
                     <div status="closed" className="LH-tickets-grouper-direct-container">
-                        <FilterCheckbox which_filter={"My Created"}       li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="tree-main"/>
-                        <FilterCheckbox which_filter={"'Assigned To Me'"} li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="tree-main"/>
-                        <FilterCheckbox which_filter={"Open"}             li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
-                        <FilterCheckbox which_filter={"Deleted"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
-                        <FilterCheckbox which_filter={"Concluded"}        li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
-                        <FilterCheckbox which_filter={"Blocked"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
-                        <FilterCheckbox which_filter={"Homologation"}     li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"My Created"}       language={language} listing_filters_utils={listing_filters_utils} type="tree-main"/>
+                        <FilterCheckbox which_filter={"'Assigned To Me'"} language={language} listing_filters_utils={listing_filters_utils} type="tree-main"/>
+                        <FilterCheckbox which_filter={"Open"}             language={language} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Deleted"}          language={language} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Concluded"}        language={language} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Blocked"}          language={language} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Homologation"}     language={language} listing_filters_utils={listing_filters_utils} type="status"/>
                     </div>
                 </div>
-                {/* "Ticket Groups" */}
+                {/* Groups Filters */}
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                     <img alt="filter icon" src="/imgs/headers/filter_icon.png"/>
@@ -85,7 +85,7 @@ const Header = ({ allPopulationData }) => {
                     </div>
                     <div status="closed" className="LH-tickets-grouper-direct-container">
                         {ticket_groups_names.map((group_name, index) => {
-                            return <ListLink key={index} link_url={"/ticket_listing/groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}/>
+                            return <FilterCheckbox which_filter={group_name} language={language} listing_filters_utils={listing_filters_utils} type="group" key={index}/>
                         })}
                     </div>
                 </div>

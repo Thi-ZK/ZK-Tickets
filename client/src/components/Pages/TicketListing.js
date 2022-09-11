@@ -31,6 +31,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
         tree_main_filtered_tickets = allTickets;
     }
 
+    // Auxiliary Variables For Statuses Filtering
     const filter_for_ticket_status     = AF.generate_filter_for_ticket_status_func(tree_main_filtered_tickets);
     let was_any_status_filter_filtered = false;
 
@@ -42,14 +43,14 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
         } 
     }
 
-    final_tickets_to_be_displayed = was_any_status_filter_filtered ? status_filtered_tickets : tree_main_filtered_tickets;
-
-    // Filter Apply For "Ticket Groups"
+    //Groups Filtering
     // if ( is_list_a_ticket_group ) {
     //     tickets_to_be_displayed = tickets_to_be_displayed.filter((elem) => { 
     //         return elem.groups_names.includes(nested_listing);
     //     });
     // }
+
+    final_tickets_to_be_displayed = was_any_status_filter_filtered ? status_filtered_tickets : tree_main_filtered_tickets;
     
     return (
         <div id="ticket-listing-container">

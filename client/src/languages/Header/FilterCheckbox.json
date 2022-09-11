@@ -1,0 +1,44 @@
+{
+    "'assigned-to-me'": {
+        "english": "'Assigned To Me' Tickets",
+        "german": "'Mir zugewiesen' Tickets",
+        "portuguese": "Tickets Atribuídos a Mim",
+        "spanish": "Tickets Asignados a Mí"
+    },
+    "my-created": {
+        "english": "My Created Tickets",
+        "german": "Meine erstellte Tickets",
+        "portuguese": "Tickets Criados Por Mim",
+        "spanish": "Tickets Creados Por Mí"
+    },
+    "open": {
+        "english": "Open Tickets",
+        "german": "Offene Tickets",
+        "portuguese": "Tickets Abertos",
+        "spanish": "Tickets Abiertos"
+    },
+    "deleted": {
+        "english": "Deleted Tickets",
+        "german": "Gelöschte Tickets",
+        "portuguese": "Tickets Criados Por Mim",
+        "spanish": "Tickets Creados Por Mí"
+    },
+    "concluded": {
+        "english": "Concluded Tickets",
+        "german": "Abgeschlossene Tickets",
+        "portuguese": "Tickets Concluídos",
+        "spanish": "Tickets Concluidos"
+    },
+    "blocked": {
+        "english": "Blocked Tickets",
+        "german": "Blockierte Tickets",
+        "portuguese": "Tickets Bloqueados",
+        "spanish": "Tickets Bloqueados"
+    },
+    "homologation": {
+        "english": "'In Homologation' Tickets",
+        "german": "'In homologation' Tickets",
+        "portuguese": "Tickets Em Homologação",
+        "spanish": "Tickets En Homologación"
+    }
+}

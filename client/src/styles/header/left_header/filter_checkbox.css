@@ -18,6 +18,9 @@
     padding: 6px;
     border-radius: 2px;
 }
+.LH-filter-checkbox-list-item input:checked {
+    background-color: darkorange;
+}
 #LH-FC-ticket-filter-my-created:checked {
     background-color: #723189;
 }

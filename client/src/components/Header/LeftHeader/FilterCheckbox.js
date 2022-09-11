@@ -1,6 +1,7 @@
 import React from 'react';
+import texts from '../../../languages/Header/FilterCheckbox.json';
 
-function FilterCheckbox ({ which_filter, li_class, listing_filters_utils, type }) {
+function FilterCheckbox ({ which_filter, language, listing_filters_utils, type }) {
     // Input Filter ID Formatter
     const which_filter_formatted = which_filter.toLowerCase().replaceAll(" ", "-");
     const input_filter_id        = "LH-FC-ticket-filter-" + which_filter_formatted;
@@ -11,17 +12,17 @@ function FilterCheckbox ({ which_filter, li_class, listing_filters_utils, type }
 
     // Update Filters State (Filter Checkbox Handler)
     const update_listing_filters = (event) => {
-        if ( event.target.checked ) {
+        if ( event.target.checked ) { // Add Filter
             updateListingFilters([...listingFilters, which_filter_formatted]); 
-        } else {
+        } else {                      // Remove Filter
             updateListingFilters(listingFilters.filter(elem => elem !== which_filter_formatted));
         }
     }
-
+    
     return (
-    <li type={type} className={li_class} css-marker="FC">
+    <li type={type} className="LH-filter-checkbox-list-item" css-marker="FC">
         <input onChange={update_listing_filters} id={input_filter_id} type='checkbox' name='ticket-filter'></input>
-        <label htmlFor={input_filter_id}>{which_filter} Tickets</label>
+        <label htmlFor={input_filter_id}>{type === "group" ? which_filter : texts[which_filter_formatted][language]}</label>
     </li>
     )
 }
