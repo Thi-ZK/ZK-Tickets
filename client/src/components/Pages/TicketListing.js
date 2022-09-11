@@ -9,38 +9,38 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     const allTickets     = allPopulationData.allTickets;  
 
     // Filtering Tickets Related Aliases
-    let final_tickets_to_be_displayed  = [];
-    let tree_main_filtered_tickets     = [];
-    let status_filtered_tickets        = [];
+    let final_tickets_to_be_displayed = [];
+    let status_tickets_filtered       = [];
 
     const filter_for_assignment    = AF.generate_filter_for_assignment_func(allTickets, userData);
     const filter_for_user_creation = AF.generate_filter_for_user_creation_func(allTickets, userData);
 
     // 'Assigned To Me' Filtering (No Concat Needed As It Is The First Filtering)
     if ( listingFilters.includes("'assigned-to-me'") ) {
-        tree_main_filtered_tickets = filter_for_assignment();
+        final_tickets_to_be_displayed = filter_for_assignment();
     }
 
     // 'Created By Me' Filtering
     if ( listingFilters.includes("my-created") ) {
-        tree_main_filtered_tickets = tree_main_filtered_tickets.concat(filter_for_user_creation());
+        final_tickets_to_be_displayed = final_tickets_to_be_displayed.concat(filter_for_user_creation());
     }
 
-    // In Case No "Assigned By Me" Or "Created By Me" Was Filtered, Consider Then All Tickets For The Status Filtering
-    if ( !tree_main_filtered_tickets.length ) {
-        tree_main_filtered_tickets = allTickets;
-    }
-
-    // Auxiliary Variables For Statuses Filtering
-    const filter_for_ticket_status     = AF.generate_filter_for_ticket_status_func(tree_main_filtered_tickets);
-    let was_any_status_filter_filtered = false;
+    // Clean Repeated Filtered Tickets
+    final_tickets_to_be_displayed = AF.clean_repeated_repeated_filtered_tickets(final_tickets_to_be_displayed);
 
     // Status Filtering (Concluded, Homologated ...)
+    const filter_for_ticket_status = AF.generate_filter_for_ticket_status_func(final_tickets_to_be_displayed);
+
     for ( let i = 0; i < listingFilters.length; i++ ) {
         if ( AF.status_filters.includes(listingFilters[i]) ) {
-            was_any_status_filter_filtered = true;
-            status_filtered_tickets = status_filtered_tickets.concat(filter_for_ticket_status(listingFilters[i]));   
+            status_tickets_filtered       = status_tickets_filtered.concat(filter_for_ticket_status(listingFilters[i]));
+            final_tickets_to_be_displayed = status_tickets_filtered;
         } 
+    }
+
+    // In Case No Filter Was Applied, Return Full List
+    if ( !listingFilters.length ) {
+        final_tickets_to_be_displayed = allTickets;
     }
 
     //Groups Filtering
@@ -49,8 +49,6 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     //         return elem.groups_names.includes(nested_listing);
     //     });
     // }
-
-    final_tickets_to_be_displayed = was_any_status_filter_filtered ? status_filtered_tickets : tree_main_filtered_tickets;
     
     return (
         <div id="ticket-listing-container">

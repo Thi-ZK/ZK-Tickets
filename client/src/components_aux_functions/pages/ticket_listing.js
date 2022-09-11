@@ -28,13 +28,30 @@ const generate_filter_for_user_creation_func = (allTickets, userData) => {
     }
 }
 
-// Generates A Function That Filters For Statuses (Homologation, Concluded ...)
-const generate_filter_for_ticket_status_func = (tree_main_filtered_tickets) => {
+// Generates A Function That Filters Given A Tickets Source (Array Of Tickets) For Statuses (Homologation, Concluded ...)
+const generate_filter_for_ticket_status_func = (tickets_source) => {
     return (which_filter) => {
-        return tree_main_filtered_tickets.filter((elem) => {
+        return tickets_source.filter((elem) => {
             return status_filters_list_obj[which_filter] === elem.status;
         });
     }
+}
+
+// Clean Repeated Filtered Tickets
+const clean_repeated_repeated_filtered_tickets = (final_tickets_to_be_displayed) => {
+    const unique_ids = [];
+
+    return final_tickets_to_be_displayed.filter(ticket => {
+        const is_repeated_item = unique_ids.includes(ticket.id);
+      
+        if ( !is_repeated_item ) {
+          unique_ids.push(ticket.id);
+      
+          return true;
+        }
+      
+        return false;
+    });
 }
 
     // Important Info: The Tree Main Filters ('Created By Me' & 'Assigned To Me') Are A Group Of Filters. And Statuses Filters Are Another.
@@ -45,7 +62,8 @@ const generate_filter_for_ticket_status_func = (tree_main_filtered_tickets) => {
 module.exports = {
     status_filters_list_obj: status_filters_list_obj,
     status_filters:          status_filters,
-    generate_filter_for_assignment_func:    generate_filter_for_assignment_func,
-    generate_filter_for_user_creation_func: generate_filter_for_user_creation_func,
-    generate_filter_for_ticket_status_func: generate_filter_for_ticket_status_func        
+    generate_filter_for_assignment_func:      generate_filter_for_assignment_func,
+    generate_filter_for_user_creation_func:   generate_filter_for_user_creation_func,
+    generate_filter_for_ticket_status_func:   generate_filter_for_ticket_status_func,
+    clean_repeated_repeated_filtered_tickets: clean_repeated_repeated_filtered_tickets    
 };
