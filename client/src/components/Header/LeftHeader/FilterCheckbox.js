@@ -16,7 +16,6 @@ function FilterCheckbox ({ which_filter, li_class, listing_filters_utils }) {
         } else {
             updateListingFilters(listingFilters.filter(elem => elem !== which_filter_formatted));
         }
-        console.log(listingFilters);
     }
 
     return (
