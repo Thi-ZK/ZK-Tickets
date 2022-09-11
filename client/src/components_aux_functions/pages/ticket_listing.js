@@ -7,6 +7,10 @@ const status_filters_list_obj = {
     homologation: "Homologation"
 };
 
+// Meant For Auxiliary In Checking If Filter Is Status Filter Type
+const status_filters = ["open", "deleted", "concluded", "blocked", "homologation"];
+
 module.exports = {
-    status_filters_list_obj: status_filters_list_obj
+    status_filters_list_obj: status_filters_list_obj,
+    status_filters:          status_filters
 };

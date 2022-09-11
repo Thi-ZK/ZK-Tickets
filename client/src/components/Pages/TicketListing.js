@@ -1,48 +1,63 @@
-import React         from 'react';
-import TicketBand    from '../Ticket/TicketBand';
-import AF            from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
+import React      from 'react';
+import TicketBand from '../Ticket/TicketBand';
+import AF         from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
 
 function TicketListing ({ allPopulationData }) {
-    // Aliases
-    const listingFilters        = allPopulationData.listingFilters;
-    const user_data             = allPopulationData.userData;
-    let tickets_to_be_displayed = allPopulationData.allTickets;
+    // Data Variable Aliases
+    const listingFilters = allPopulationData.listingFilters;
+    const userData       = allPopulationData.userData;
+    const allTickets     = allPopulationData.allTickets;
+
+    // Filtered Tickets Aliases
+    let final_tickets_to_be_displayed = listingFilters.length ? [] : allTickets;
+    let first_main_filtered_tickets   = []; // (Create By Me & Assigned) 
 
     // Function For "I Am Assigned" Filtering
     const filter_for_assignment = () => {
-        tickets_to_be_displayed = tickets_to_be_displayed.filter((elem) => {
-            return elem.assumers.includes(user_data.id);
+        return allTickets.filter((elem) => {
+            return elem.assumers.includes(userData.id);
         });
     }
 
-    // Function For "Only Tickets Created By Me" Filtering
+    // Function For "Tickets Created By Me" Filtering
     const filter_for_user_creation = () => {
-        tickets_to_be_displayed = tickets_to_be_displayed.filter((elem) => {
-            return elem.creator === user_data.id;
+        return allTickets.filter((elem) => {
+            return elem.creator === userData.id;
         });
     }
 
     // Function For Ticket Status Filtering (Concluded, Homologated ...)
     const filter_for_ticket_status = ( which_filter ) => {
-        tickets_to_be_displayed = tickets_to_be_displayed.filter((elem) => {
+        return first_main_filtered_tickets.filter((elem) => {
             return AF.status_filters_list_obj[which_filter] === elem.status;
         });
     }
 
-    const filter_functions_mapped_with_filter_name = {
-        "'assigned-to-me'": filter_for_assignment,
-        "my-created":       filter_for_user_creation,
-        "open":             filter_for_ticket_status,
-        "deleted":          filter_for_ticket_status,
-        "concluded":        filter_for_ticket_status,
-        "blocked":          filter_for_ticket_status,
-        "homologation":     filter_for_ticket_status
-    };
+    // 'Assigned To Me' Filtering (No Concat, As It Is The First Filtering)
+    if ( listingFilters.includes("'assigned-to-me'") ) {
+        first_main_filtered_tickets = filter_for_assignment();
+    }
 
+    // 'Created By Me' Filtering
+    if ( listingFilters.includes("my-created") ) {
+        first_main_filtered_tickets = first_main_filtered_tickets.concat(filter_for_user_creation());
+    }
+
+    // In Case No "Assigned By Me" Or "Created By Me" Was Filtered, Consider Then All Tickets For The Status Filtering
+    if ( !first_main_filtered_tickets.length ) {
+        first_main_filtered_tickets = allTickets;
+    }
+
+    // Status Filtering (Concluded, Homologated ...)
     for ( let i = 0; i < listingFilters.length; i++) {
-        let which_filter = listingFilters[i];
+        if ( AF.status_filters.includes(listingFilters[i]) ) {
+            final_tickets_to_be_displayed = final_tickets_to_be_displayed.concat(filter_for_ticket_status(listingFilters[i]));   
+        } 
+    }
 
-        filter_functions_mapped_with_filter_name[which_filter](which_filter);
+    // In Case No Status Filter Was Done, Display The First Main Filtered Tickets
+    if ( !final_tickets_to_be_displayed.length ) {
+        final_tickets_to_be_displayed = first_main_filtered_tickets;
     }
 
     // Filter Apply For "Ticket Groups"
@@ -54,7 +69,7 @@ function TicketListing ({ allPopulationData }) {
     
     return (
         <div id="ticket-listing-container">
-            {tickets_to_be_displayed.map((ticket_data, index) => (
+            {final_tickets_to_be_displayed.map((ticket_data, index) => (
                 <TicketBand key={index} ticket_data={ticket_data} allPopulationData={allPopulationData}/>
             ))}
         </div>
