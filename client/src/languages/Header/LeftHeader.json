@@ -5,24 +5,6 @@
         "portuguese": "Criar Ticket",
         "spanish": "Crear Ticket"
     },
-    "all_tickets": {
-        "english": "All Tickets",
-        "german": "Alle Tickets",
-        "portuguese": "Todos Os Tickets",
-        "spanish": "Todos Los Tickets"
-    },
-    "standard_ticket_groups": {
-        "english": "Tickets I Am Assgined",
-        "german": "Tickets, die mir zugeteilt wurden",
-        "portuguese": "Tickets Em Que Sou Responsável",
-        "spanish": "Tickets En Los Que Soy Responsable"
-    },
-    "my_ticket_groups": {
-        "english": "Ticket Groups",
-        "german": "Ticketgruppen",
-        "portuguese": "Grupos De Ticket",
-        "spanish": "Grupos De Ticket"
-    },
     "profile_and_settings": {
         "english": "Profile & Settings",
         "german": "Profil & Einstellungen",

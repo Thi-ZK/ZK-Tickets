@@ -27,11 +27,14 @@ function App() {
         ticket_related_users: []
     });
 
-    // For Language State
+    // Language State
     const [language, updateLanguage] = useState("english");
 
     // Dark / Bright Theme
     const [currentBrightnessTheme, updateBrightnessTheme] = useState("bright");
+
+    // Ticket Listing Filters
+    const [listingFilters, updateListingFilters] = useState([]);
 
     // All Tickets State Set
     const [allTickets, updateTickets] = useState([]);
@@ -58,7 +61,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // Utils Variable To Reduce Props Number. Contains Many Population Related Functions & States
+    // Utils Variable To Reduce Props Number. Could Use Contexts, But They Pollute Code Legibility Too Much For A Small Project Like Such
     const allPopulationData = {
         allTickets:                      allTickets,
         update_all_tickets:              update_all_tickets,
@@ -74,16 +77,20 @@ function App() {
         updateBrightnessTheme:           updateBrightnessTheme,
         ticketGroups:                    ticketGroups,
         update_ticket_groups:            update_ticket_groups,
-        update_user_data:                update_user_data
+        update_user_data:                update_user_data,
+        listingFilters:                  listingFilters,
+        updateListingFilters:            updateListingFilters
     }
     
     return (
     <Router>
         <div className="App" theme={currentBrightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
-            <div status="on" id="loading-screen"><img alt="menu icon" src="/imgs/general/loading_mew.gif"/></div>
+            <div status="on"  id="loading-screen">
+                <img alt="menu icon" src="/imgs/general/loading_mew.gif"/>
+            </div>
             <TicketActionModal allPopulationData={allPopulationData}/>
-            <LeftHeader language={language} allTickets={allTickets} ticketGroups={ticketGroups}/>
+            <LeftHeader        allPopulationData={allPopulationData}/>
             <div id="main-content-container">
                 <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
@@ -93,21 +100,20 @@ function App() {
                 <Routes>
                     {userData && allTickets.length ? (
                     <> 
-                    <Route path='/ticket_listing/:listing/:nested_listing' element={<TicketListing allPopulationData={allPopulationData}/>}/>
-                    <Route path='/ticket_listing/:listing' element={<TicketListing allPopulationData={allPopulationData}/>}/>
-                    <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
-                    <Route path='/create_ticket' element={<CreateTicket allPopulationData={allPopulationData}/>}/>
-                    <Route path='/profile' element={<Profile allPopulationData={allPopulationData}/>}/>
-                    <Route path='/help_and_info' element={<HelpAndInfo language={language}/>}/>
+                        <Route path='/ticket_listing'         element={<TicketListing allPopulationData={allPopulationData}/>}/>
+                        <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
+                        <Route path='/create_ticket'          element={<CreateTicket allPopulationData={allPopulationData}/>}/>
+                        <Route path='/profile'                element={<Profile allPopulationData={allPopulationData}/>}/>
+                        <Route path='/help_and_info'          element={<HelpAndInfo language={language}/>}/>
                     </>
                     ) : (
                     <>
-                    <Route path='*' element={<NotAuthorized/>}/>
+                        <Route path='*' element={<NotAuthorized/>}/>
                     </>
                     )}
                     <Route path='/login' element={<Login allPopulationData={allPopulationData}/>}/>
-                    <Route path='/' element={<Home/>}/>
-                    <Route path='*' element={<ErrorPage/>}/>
+                    <Route path='/'      element={<Home/>}/>
+                    <Route path='*'      element={<ErrorPage/>}/>
                 </Routes>
             </div>
         </div>

@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import texts               from '../../../languages/Header/LeftHeader.json';
 import AF                  from '../../../components_aux_functions/headers/left_header.js'; // Aux Functions
 
-import ListLink            from './ListLink';
-import MiniTicketBand      from './MiniTicketBand';
+import ListLink       from './ListLink';
+import FilterCheckbox from './FilterCheckbox';
+import MiniTicketBand from './MiniTicketBand';
 
-const Header = ({ language, allTickets, ticketGroups }) => {
-    // Ticket Groups Alias
-    const ticket_groups_names = ticketGroups ? Object.values(ticketGroups) : [];
+const Header = ({ allPopulationData }) => {
+    // Aliases
+    const language             = allPopulationData.language;
+    const allTickets           = allPopulationData.allTickets;
+    const ticketGroups         = allPopulationData.ticketGroups;
+    const ticket_groups_names  = ticketGroups ? Object.values(ticketGroups) : [];
+
+    // Utils Alias For Filter Checkbox
+    const listing_filters_utils = {
+        listingFilters:       allPopulationData.listingFilters,
+        updateListingFilters: allPopulationData.updateListingFilters
+    };
 
     // Search State & onChange Handler
     const [searchBarTerm, updateSearchBarTerm] = useState("");
@@ -21,7 +31,7 @@ const Header = ({ language, allTickets, ticketGroups }) => {
         updateSearchBarTerm("");
     }
 
-  return (
+    return (
     <header id="left-header-container" css-marker="LH" mob-status="closed">
         <div id="LH-title-direct-container">
             <h1><span>Thiago Dominicheli</span></h1>
@@ -52,25 +62,25 @@ const Header = ({ language, allTickets, ticketGroups }) => {
         {/* Search Logic */}
         <nav id="LH-navigation-links-container">
             <ul>
-                <ListLink link_url="/create_ticket" img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}></ListLink>
-                <ListLink link_url="/ticket_listing/all" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
-                <ListLink link_url="/ticket_listing/created_by_me" img_src_url="tickets/tag_icon" link_text={texts.my_created_tickets[language]}></ListLink>
+                <ListLink link_url="/create_ticket"  img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}/>
+                <ListLink link_url="/ticket_listing" img_src_url="tickets/tag_icon" link_text="Tickets Listing"/>
                 {/* "Tickets I Am Assigned" */}
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
                         <div className="LH-links-grouper-expander-direct-container">
-                            <p>{texts.standard_ticket_groups[language]}</p>
+                            <p>Listing Filters</p>
                             <img alt="lever-left" src='/imgs/headers/arrow_down.png'/>
                         </div>
                     </div>
                     <div status="closed" className="LH-tickets-grouper-direct-container">
-                        <ListLink link_url="/ticket_listing/i_am_assigned/all" img_src_url="tickets/tag_icon" link_text={texts.all_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/i_am_assigned/open" img_src_url="tickets/tag_icon" link_text={texts.open_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/i_am_assigned/deleted" img_src_url="tickets/red_tag" link_text={texts.deleted_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/i_am_assigned/concluded" img_src_url="tickets/green_tag" link_text={texts.concluded_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/i_am_assigned/blocked" img_src_url="tickets/yellow_tag" link_text={texts.blocked_tickets[language]}></ListLink>
-                        <ListLink link_url="/ticket_listing/i_am_assigned/homologation" img_src_url="tickets/blue_tag" link_text={texts.homologated_tickets[language]}></ListLink>
+                        <FilterCheckbox which_filter={"My Created"}       li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"'Assigned To Me'"} li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"Open"}             li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"Deleted"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"Concluded"}        li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"Blocked"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"Homologation"}     li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
                     </div>
                 </div>
                 {/* "Ticket Groups" */}
@@ -78,22 +88,22 @@ const Header = ({ language, allTickets, ticketGroups }) => {
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                         <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
                         <div className="LH-links-grouper-expander-direct-container">
-                            <p>{texts.my_ticket_groups[language]}</p>
+                            <p>Groups Filters</p>
                             <img alt="lever-left" src='/imgs/headers/arrow_down.png'/>
                         </div>
                     </div>
                     <div status="closed" className="LH-tickets-grouper-direct-container">
                         {ticket_groups_names.map((group_name, index) => {
-                            return <ListLink key={index} link_url={"/ticket_listing/groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}></ListLink>
+                            return <ListLink key={index} link_url={"/ticket_listing/groups/" + group_name} img_src_url="tickets/tag_icon" link_text={group_name}/>
                         })}
                     </div>
                 </div>
-                <ListLink link_url="/profile" img_src_url="profile" link_text={texts.profile_and_settings[language]}></ListLink>
-                <ListLink link_url="/help_and_info" img_src_url="help_icon" link_text={texts.help_and_info[language]}></ListLink>
+                <ListLink link_url="/profile"       img_src_url="profile"   link_text={texts.profile_and_settings[language]}/>
+                <ListLink link_url="/help_and_info" img_src_url="help_icon" link_text={texts.help_and_info[language]}/>
             </ul>
         </nav>
     </header>
-  )
+    )
 }
 
-export default Header
+export default Header;
