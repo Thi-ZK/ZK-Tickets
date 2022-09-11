@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.LH-filter-checkbox-list-item[type='tree-main'] {
+    padding-left: 10px !important;
+}
+
 .LH-filter-checkbox-list-item input,
 .LH-filter-checkbox-list-item label {
     cursor: pointer;

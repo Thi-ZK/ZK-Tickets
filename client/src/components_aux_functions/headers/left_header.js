@@ -18,6 +18,20 @@ const switch_grouper_open_status = (event) => {
     }
 }
 
+// Meant For Search Filter (function) Logic
+const is_term_part_of_ticket_id_or_name = (ticket, searchBarTerm) => {
+    let name = ticket.name.toLowerCase();
+    let id   = ticket.id.toString();
+    let term = searchBarTerm.toLowerCase();
+    
+    if (term && ((name.includes(term)) || (id.includes(term)))) {
+        return ticket;
+    }
+
+    return false;
+}
+
 module.exports = {
-    switch_grouper_open_status: switch_grouper_open_status        
+    switch_grouper_open_status:        switch_grouper_open_status,
+    is_term_part_of_ticket_id_or_name: is_term_part_of_ticket_id_or_name 
 };

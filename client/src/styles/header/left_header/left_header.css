@@ -134,7 +134,6 @@
 	padding-left: 2em;
 	letter-spacing: 0.5px;
 	line-height: 19px;
-	max-width: 120px;
 }
 
 .LH-links-grouper-expander-container img {
@@ -174,11 +173,15 @@ div[class='LH-tickets-grouper-direct-container'][status='open'] li {
 	width: 100%;
 }
 
-#LH-search-container input:not(:-moz-placeholder-shown) + img,
-#LH-search-container input:not(:-ms-input-placeholder) + img,
-#LH-search-container input:not(:placeholder-shown) + img {
-	visibility: visible;
-	opacity: 1;
+#LH-search-container input:not(:-moz-placeholder-shown)+img,
+#LH-search-container input:not(:-ms-input-placeholder)+img {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+#LH-search-container input:not(:placeholder-shown)+img {
+	visibility: visible !important;
+	opacity: 1 !important;
 }
 
 @media(max-width: 1320px){

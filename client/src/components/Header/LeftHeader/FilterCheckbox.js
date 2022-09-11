@@ -1,6 +1,6 @@
-import React    from 'react';
+import React from 'react';
 
-function FilterCheckbox ({ which_filter, li_class, listing_filters_utils }) {
+function FilterCheckbox ({ which_filter, li_class, listing_filters_utils, type }) {
     // Input Filter ID Formatter
     const which_filter_formatted = which_filter.toLowerCase().replaceAll(" ", "-");
     const input_filter_id        = "LH-FC-ticket-filter-" + which_filter_formatted;
@@ -19,7 +19,7 @@ function FilterCheckbox ({ which_filter, li_class, listing_filters_utils }) {
     }
 
     return (
-    <li className={li_class} css-marker="FC">
+    <li type={type} className={li_class} css-marker="FC">
         <input onChange={update_listing_filters} id={input_filter_id} type='checkbox' name='ticket-filter'></input>
         <label htmlFor={input_filter_id}>{which_filter} Tickets</label>
     </li>

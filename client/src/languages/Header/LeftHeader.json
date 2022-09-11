@@ -11,6 +11,24 @@
         "portuguese": "Perfil & Configurações",
         "spanish": "Perfil & Configuraciones"
     },
+    "ticket_listing": {
+        "english": "Ticket Listing",
+        "german": "Ticketauflistung",
+        "portuguese": "Listagem De Tickets",
+        "spanish": "Lista De Tickets"
+    },
+    "listing_filters": {
+        "english": "Listing Filters",
+        "german": "Aufslistungfilters",
+        "portuguese": "Filtros De Listagem",
+        "spanish": "Filtros De Lista"
+    },
+    "groups_filters": {
+        "english": "Groups Filters",
+        "german": "Gruppenfilter",
+        "portuguese": "Filtros De Grupos",
+        "spanish": "Filtros De Grupos"
+    },
     "help_and_info": {
         "english": "Help & Info",
         "german": "Hilfe & Info",

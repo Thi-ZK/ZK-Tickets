@@ -46,49 +46,40 @@ const Header = ({ allPopulationData }) => {
         {/* Search Logic */}
         <div id="LH-filtered-mini-ticket-bands-direct-container">
             {allTickets.filter((ticket) => {
-                let name = ticket.name.toLowerCase();
-                let id   = ticket.id.toString();
-                let term = searchBarTerm.toLowerCase();
-                
-                if (term && ((name.includes(term)) || (id.includes(term)))) {
-                    return ticket;
-                }
-
-                return false;
+                return AF.is_term_part_of_ticket_id_or_name(ticket, searchBarTerm);
             }).map((ticket, index) => {
                 return <MiniTicketBand key={index} ticket_data={ticket} language={language}/>
             })}
         </div>
-        {/* Search Logic */}
         <nav id="LH-navigation-links-container">
             <ul>
                 <ListLink link_url="/create_ticket"  img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}/>
-                <ListLink link_url="/ticket_listing" img_src_url="tickets/tag_icon" link_text="Tickets Listing"/>
+                <ListLink link_url="/ticket_listing" img_src_url="ticket_listing" link_text={texts.ticket_listing[language]}/>
                 {/* "Tickets I Am Assigned" */}
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
-                        <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
+                        <img alt="filter icon" src="/imgs/headers/filter_icon.png"/>
                         <div className="LH-links-grouper-expander-direct-container">
-                            <p>Listing Filters</p>
+                            <p>{texts.listing_filters[language]}</p>
                             <img alt="lever-left" src='/imgs/headers/arrow_down.png'/>
                         </div>
                     </div>
                     <div status="closed" className="LH-tickets-grouper-direct-container">
-                        <FilterCheckbox which_filter={"My Created"}       li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
-                        <FilterCheckbox which_filter={"'Assigned To Me'"} li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
-                        <FilterCheckbox which_filter={"Open"}             li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
-                        <FilterCheckbox which_filter={"Deleted"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
-                        <FilterCheckbox which_filter={"Concluded"}        li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
-                        <FilterCheckbox which_filter={"Blocked"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
-                        <FilterCheckbox which_filter={"Homologation"}     li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} />
+                        <FilterCheckbox which_filter={"My Created"}       li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="tree-main"/>
+                        <FilterCheckbox which_filter={"'Assigned To Me'"} li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="tree-main"/>
+                        <FilterCheckbox which_filter={"Open"}             li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Deleted"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Concluded"}        li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Blocked"}          li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
+                        <FilterCheckbox which_filter={"Homologation"}     li_class={"LH-filter-checkbox-list-item"} listing_filters_utils={listing_filters_utils} type="status"/>
                     </div>
                 </div>
                 {/* "Ticket Groups" */}
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
-                        <img alt="ticket icon" src="/imgs/headers/tickets/tag_icon.png"/>
+                    <img alt="filter icon" src="/imgs/headers/filter_icon.png"/>
                         <div className="LH-links-grouper-expander-direct-container">
-                            <p>Groups Filters</p>
+                            <p>{texts.groups_filters[language]}</p>
                             <img alt="lever-left" src='/imgs/headers/arrow_down.png'/>
                         </div>
                     </div>
