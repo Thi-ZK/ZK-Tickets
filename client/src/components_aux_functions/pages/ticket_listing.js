@@ -7,9 +7,6 @@ const status_filters_list_obj = {
     homologation: "Homologation"
 };
 
-// Meant For Auxiliary In Checking If Filter Is Status Filter Type
-const status_filters = ["open", "deleted", "concluded", "blocked", "homologation"];
-
 // Generates A Function That Filters For 'Assigned To Me' Tickets
 const generate_filter_for_assignment_func = (allTickets, userData) => {
     return () => {
@@ -37,6 +34,37 @@ const generate_filter_for_ticket_status_func = (tickets_source) => {
     }
 }
 
+// Generates A Function That Filters Given A Tickets Source (Array Of Tickets) For Groups
+const generate_filter_for_ticket_group_func = (tickets_source) => {
+    return (which_filter) => {
+        return tickets_source.filter((elem) => {
+            return elem.groups_names.includes(which_filter);
+        });
+    }
+}
+
+// Function That Checks If 'Assigned To Me' Filter Was Applied
+const was_assigned_to_me_filter_applied = (listingFilters) => {
+    for ( let i = 0; i < listingFilters.length; i++ ) {
+        if ( listingFilters[i].name.includes("'assigned-to-me'") ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+// Function That Checks If 'Created By Me' Filter Was Applied
+const was_created_by_me_filter_applied = (listingFilters) => {
+    for ( let i = 0; i < listingFilters.length; i++ ) {
+        if ( listingFilters[i].name.includes("my-created") ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 // Clean Repeated Filtered Tickets
 const clean_repeated_repeated_filtered_tickets = (final_tickets_to_be_displayed) => {
     const unique_ids = [];
@@ -60,10 +88,12 @@ const clean_repeated_repeated_filtered_tickets = (final_tickets_to_be_displayed)
     // But Also Checks 'Assigned To Me' Filter, Then Only Blocked & Deleted Tickets That Were 'Assigned To Me' Will Be Displayed.
 
 module.exports = {
-    status_filters_list_obj: status_filters_list_obj,
-    status_filters:          status_filters,
+    status_filters_list_obj:                  status_filters_list_obj,
     generate_filter_for_assignment_func:      generate_filter_for_assignment_func,
     generate_filter_for_user_creation_func:   generate_filter_for_user_creation_func,
     generate_filter_for_ticket_status_func:   generate_filter_for_ticket_status_func,
-    clean_repeated_repeated_filtered_tickets: clean_repeated_repeated_filtered_tickets    
+    clean_repeated_repeated_filtered_tickets: clean_repeated_repeated_filtered_tickets,
+    was_assigned_to_me_filter_applied:        was_assigned_to_me_filter_applied,
+    was_created_by_me_filter_applied:         was_created_by_me_filter_applied,
+    generate_filter_for_ticket_group_func:    generate_filter_for_ticket_group_func
 };
