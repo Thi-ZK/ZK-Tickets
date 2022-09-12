@@ -29,11 +29,10 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
         final_tickets_to_be_displayed = final_tickets_to_be_displayed.concat(filter_for_user_creation());
     }
 
-    // Clean Repeated Filtered Tickets
-    final_tickets_to_be_displayed = AF.clean_repeated_repeated_filtered_tickets(final_tickets_to_be_displayed);
+    // In Case No Tree Main Filter Applied, Consider All Tickets For Child Filters
+    final_tickets_to_be_displayed  = was_any_tree_filter_applied ? final_tickets_to_be_displayed : allTickets;
 
     // Status Filtering (Concluded, Homologated ...) & Groups Filtering
-    final_tickets_to_be_displayed  = was_any_tree_filter_applied ? final_tickets_to_be_displayed : allTickets;
     const filter_for_ticket_status = AF.generate_filter_for_ticket_status_func(final_tickets_to_be_displayed);
 
     for ( let i = 0; i < listingFilters.length; i++ ) {
@@ -58,6 +57,9 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
             final_tickets_to_be_displayed = group_tickets_filtered;
         }
     }
+
+    // Clean Repeated Filtered Tickets
+    final_tickets_to_be_displayed = AF.clean_repeated_repeated_filtered_tickets(final_tickets_to_be_displayed);
 
     // In Case No Filter Was Applied, Return Full List
     if ( !listingFilters.length ) {
