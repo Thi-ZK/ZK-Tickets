@@ -234,6 +234,12 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 
 @media(max-width: 1400px){
 	.ticket-band-container {
+		width: calc(100vw - 278px - 56px);
+	}
+}
+
+@media(max-width: 1350px){
+	.ticket-band-container {
 		height: 300px;
 	}
 

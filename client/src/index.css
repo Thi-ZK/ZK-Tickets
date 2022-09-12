@@ -216,7 +216,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	height: 40px;
 }
 
-@media(max-width: 1320px){
+@media(max-width: 1400px){
 	#main-content-container, #loading-screen {
 		width: calc(100vw - 288px);
 		margin-left: 288px;

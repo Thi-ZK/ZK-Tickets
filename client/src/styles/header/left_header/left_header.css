@@ -184,7 +184,7 @@ div[class='LH-tickets-grouper-direct-container'][status='open'] li {
 	opacity: 1 !important;
 }
 
-@media(max-width: 1320px){
+@media(max-width: 1400px){
 	#left-header-container {
 		width: 250px;
 	}
