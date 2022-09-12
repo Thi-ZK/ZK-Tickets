@@ -13,14 +13,14 @@ function FilterCheckbox ({ which_filter, language, listing_filters_utils, type }
     // Update Filters State (Filter Checkbox Handler)
     const update_listing_filters = (event) => {
         let filter = {
-            name: type === "group" ? which_filter : which_filter_formatted,
+            name: which_filter,
             type: type
         };
 
         if ( event.target.checked ) { // Add Filter
             updateListingFilters([...listingFilters, filter]); 
         } else {                      // Remove Filter
-            updateListingFilters(listingFilters.filter(elem => elem.name !== which_filter_formatted));
+            updateListingFilters(listingFilters.filter(elem => elem.name !== which_filter));
         }
     }
     

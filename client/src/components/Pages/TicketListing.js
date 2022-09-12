@@ -53,9 +53,9 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
         let filter_name = listingFilters[i].name;
         let filter_type = listingFilters[i].type;
         
-        if ( filter_type === "group" ) {console.log(filter_name);
-            group_tickets_filtered        = group_tickets_filtered.concat(filter_for_ticket_group(filter_name)); console.log(group_tickets_filtered);
-            final_tickets_to_be_displayed = group_tickets_filtered;console.log(final_tickets_to_be_displayed);
+        if ( filter_type === "group" ) {
+            group_tickets_filtered        = group_tickets_filtered.concat(filter_for_ticket_group(filter_name));
+            final_tickets_to_be_displayed = group_tickets_filtered;
         }
     }
 

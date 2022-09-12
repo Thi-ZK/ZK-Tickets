@@ -1,12 +1,3 @@
-// Meant For Filtering Which Ticket Status User Wants To See
-const status_filters_list_obj = {
-    open:         "Open",
-    deleted:      "Deleted",
-    concluded:    "Concluded",
-    blocked:      "Blocked",
-    homologation: "Homologation"
-};
-
 // Generates A Function That Filters For 'Assigned To Me' Tickets
 const generate_filter_for_assignment_func = (allTickets, userData) => {
     return () => {
@@ -29,7 +20,7 @@ const generate_filter_for_user_creation_func = (allTickets, userData) => {
 const generate_filter_for_ticket_status_func = (tickets_source) => {
     return (which_filter) => {
         return tickets_source.filter((elem) => {
-            return status_filters_list_obj[which_filter] === elem.status;
+            return which_filter === elem.status;
         });
     }
 }
@@ -46,7 +37,7 @@ const generate_filter_for_ticket_group_func = (tickets_source) => {
 // Function That Checks If 'Assigned To Me' Filter Was Applied
 const was_assigned_to_me_filter_applied = (listingFilters) => {
     for ( let i = 0; i < listingFilters.length; i++ ) {
-        if ( listingFilters[i].name.includes("'assigned-to-me'") ) {
+        if ( listingFilters[i].name.includes("'Assigned To Me'") ) {
             return true;
         }
     }
@@ -57,7 +48,7 @@ const was_assigned_to_me_filter_applied = (listingFilters) => {
 // Function That Checks If 'Created By Me' Filter Was Applied
 const was_created_by_me_filter_applied = (listingFilters) => {
     for ( let i = 0; i < listingFilters.length; i++ ) {
-        if ( listingFilters[i].name.includes("my-created") ) {
+        if ( listingFilters[i].name.includes("My Created") ) {
             return true;
         }
     }
@@ -88,7 +79,6 @@ const clean_repeated_repeated_filtered_tickets = (final_tickets_to_be_displayed)
     // But Also Checks 'Assigned To Me' Filter, Then Only Blocked & Deleted Tickets That Were 'Assigned To Me' Will Be Displayed.
 
 module.exports = {
-    status_filters_list_obj:                  status_filters_list_obj,
     generate_filter_for_assignment_func:      generate_filter_for_assignment_func,
     generate_filter_for_user_creation_func:   generate_filter_for_user_creation_func,
     generate_filter_for_ticket_status_func:   generate_filter_for_ticket_status_func,
