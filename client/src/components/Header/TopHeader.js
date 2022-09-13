@@ -11,12 +11,12 @@ const TopHeader = ({ allPopulationData }) => {
     // Aliases For User Related
     const userData               = allPopulationData.userData;
     const updateUserData         = allPopulationData.updateUserData;
-    const currentBrightnessTheme = allPopulationData.currentBrightnessTheme;
+    const brightnessTheme        = allPopulationData.brightnessTheme;
     const updateBrightnessTheme  = allPopulationData.updateBrightnessTheme;
 
     // Switch The Current Brightness
     const switch_brightness = () => {
-        let theme = (currentBrightnessTheme === "dark") ? "bright" : "dark";
+        let theme = (brightnessTheme === "dark") ? "bright" : "dark";
         updateBrightnessTheme(theme);
     }
 
@@ -30,15 +30,15 @@ const TopHeader = ({ allPopulationData }) => {
     }
     
     return (
-    <header id="top-header-container" css-marker="TH">
+    <header  id="top-header-container" css-marker="TH">
         <div id="TH-login-and-brightness-direct-container">
             <img alt="logout icon" src={ userData ? "/imgs/headers/logout.png" : "/imgs/headers/login.png"}/> 
             <Link to="/login" onClick={ userData ? destroy_session : undefined }>
                 <p>{ userData ? texts.logout[language] : texts.login[language]}</p>
             </Link> 
             <div id="TH-brightness-theme-direct-container">
-                <img alt="brightness-theme"src={ currentBrightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}/>
-                <span onClick={switch_brightness}>{texts[currentBrightnessTheme === "dark" ? "bright" : "dark"][language]}</span>
+                <img alt="brightness-theme"src={ brightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}/>
+                <span onClick={switch_brightness}>{texts[brightnessTheme === "dark" ? "bright" : "dark"][language]}</span>
             </div>
             {userData ? 
                 <div id="TH-logged-in-user-display-direct-container">
@@ -49,19 +49,19 @@ const TopHeader = ({ allPopulationData }) => {
       </div>
       <div id="TH-languages-direct-container">
             <div className="TH-language-direct-container">
-                <img alt="" src="./imgs/general/country_flag_icons/spain.png"/>
+                <img    alt="" src="./imgs/general/country_flag_icons/spain.png"/>
                 <button status={language === "spanish" ? "on" : "off"} onClick={(ev) => updateLanguage('spanish')}>Español</button>
             </div>
             <div className="TH-language-direct-container">
-                <img alt="" src="./imgs/general/country_flag_icons/germany.png"/>
+                <img    alt="" src="./imgs/general/country_flag_icons/germany.png"/>
                 <button status={language === "german" ? "on" : "off"} onClick={(ev) => updateLanguage('german')}>Deutsch</button>
             </div>
             <div className="TH-language-direct-container">
-                <img alt="" src="./imgs/general/country_flag_icons/usa.png"/>
+                <img    alt="" src="./imgs/general/country_flag_icons/usa.png"/>
                 <button status={language === "english" ? "on" : "off"} onClick={(ev) => updateLanguage('english')}>English</button>
             </div>
             <div className="TH-language-direct-container">
-                <img alt="" src="./imgs/general/country_flag_icons/brazil.png"/>
+                <img    alt="" src="./imgs/general/country_flag_icons/brazil.png"/>
                 <button status={language === "portuguese" ? "on" : "off"} onClick={(ev) => updateLanguage('portuguese')}>Português</button>
             </div>
         </div>

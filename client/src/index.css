@@ -84,12 +84,12 @@ div[theme='bright'] #home-content-title {
 	min-height: 100vh;
 }
 
-#main-content-container {
+#top-header-and-main-content-container-direct-container {
 	background-color: rgb(55, 55, 55);
 	width: calc(100vw - 318px);
 	margin-left: 318px;
 }
-div[theme='bright'] #main-content-container {
+div[theme='bright'] #top-header-and-main-content-container-direct-container {
 	background-color: rgb(240, 240, 240);
 }
 
@@ -217,14 +217,19 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 }
 
 @media(max-width: 1400px){
-	#main-content-container, #loading-screen {
+	#top-header-and-main-content-container-direct-container, #loading-screen {
 		width: calc(100vw - 288px);
 		margin-left: 288px;
 	}
 }
 
 @media(max-width: 1000px){
-	#main-content-container, #loading-screen {
+	#top-header-and-main-content-container-direct-container {
+		margin-left: 0px;
+		width: 100vw;
+	}
+
+	#top-header-and-main-content-container-direct-container, #loading-screen {
 		margin-left: 0px;
 		width: 100vw;
 	}

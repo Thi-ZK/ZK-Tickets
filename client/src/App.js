@@ -20,39 +20,34 @@ function App() {
     // Ticket Action Modal State
     const [ticketActionModalSettings, updateTicketActionModalSettings] = useState({
         is_action_redundant:  false,
-        text_thema:           "none",
-        status:               "closed",
-        ticket_id:            "none",
+        ticket_related_users: [],
         which_action:         "none",
-        ticket_related_users: []
+        text_thema:           "none",
+        ticket_id:            "none",
+        status:               "closed"
     });
 
-    // Language State
-    const [language, updateLanguage] = useState("english");
+    // Language State & Dark / Bright Theme
+    const [language, updateLanguage]               = useState("english");
+    const [brightnessTheme, updateBrightnessTheme] = useState("bright");
 
-    // Dark / Bright Theme
-    const [currentBrightnessTheme, updateBrightnessTheme] = useState("bright");
-
-    // Ticket Listing Filters
+    // Ticket Listing Filters State
     const [listingFilters, updateListingFilters] = useState([]);
 
-    // All Tickets State Set
-    const [allTickets, updateTickets] = useState([]);
-    const update_all_tickets          = AF.generate_update_all_tickets_function(updateTickets, axios);
+    // All Data Population States Set
+    const [allTickets, updateTickets]        = useState([]);
+    const update_all_tickets                 = AF.generate_update_all_tickets_function(updateTickets, axios);
     
-    // User Data State Set
-    const [userData, updateUserData] = useState(null); // Is An Object
-    const update_user_data           = AF.generate_update_user_data_function(updateUserData, updateBrightnessTheme, updateLanguage, axios);
+    const [userData, updateUserData]         = useState(null); // Is An Object
+    const update_user_data                   = AF.generate_update_user_data_function(updateUserData, updateBrightnessTheme, updateLanguage, axios);
 
-    // All Users Names With IDs State Set
-    const [usersNamesWithIds, updateUsers] = useState({});
-    const update_user_names_and_ids        = AF.generate_update_user_names_and_ids_function(updateUsers, axios);
+    const [usersNamesWithIds, updateUsers]   = useState({});
+    const update_user_names_and_ids          = AF.generate_update_user_names_and_ids_function(updateUsers, axios);
 
-    // All Ticket Groups Names With IDs State Set
     const [ticketGroups, updateTicketGroups] = useState({});
     const update_ticket_groups               = AF.generate_update_ticket_groups_function(updateTicketGroups, axios);
  
-    // Loading All Tickets & User Data For First Time User Opens The Application Logged In (Or Refresh Page F5)
+    // Loading All Population Data For First Time User Opens The Application Logged In (Or Refresh Page F5)
     useEffect(() => {
         update_all_tickets();
         update_user_data(true); // true To Update Lang & Brightness Theme With User Preferences When Called
@@ -73,7 +68,7 @@ function App() {
         updateLanguage:                  updateLanguage,
         ticketActionModalSettings:       ticketActionModalSettings,
         updateTicketActionModalSettings: updateTicketActionModalSettings,
-        currentBrightnessTheme:          currentBrightnessTheme,
+        brightnessTheme:                 brightnessTheme,
         updateBrightnessTheme:           updateBrightnessTheme,
         ticketGroups:                    ticketGroups,
         update_ticket_groups:            update_ticket_groups,
@@ -84,37 +79,37 @@ function App() {
     
     return (
     <Router>
-        <div className="App" theme={currentBrightnessTheme} language={language}>
+        <div className="App" theme={brightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
             <div status="on"  id="loading-screen">
                 <img alt="menu icon" src="/imgs/general/loading_mew.gif"/>
             </div>
             <TicketActionModal allPopulationData={allPopulationData}/>
             <LeftHeader        allPopulationData={allPopulationData}/>
-            <div id="main-content-container">
+            <div id="top-header-and-main-content-container-direct-container">
                 <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
-                <button onClick={AF.mobile_header_appearence_toggler} id="left-header-mob-opener">
-                    <img alt="menu icon" src="/imgs/headers/menu_icon.png"/>
-                </button>
-                <Routes>
-                    {userData && allTickets.length ? (
-                    <> 
-                        <Route path='/ticket_listing'         element={<TicketListing allPopulationData={allPopulationData}/>}/>
-                        <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
-                        <Route path='/create_ticket'          element={<CreateTicket allPopulationData={allPopulationData}/>}/>
-                        <Route path='/profile'                element={<Profile allPopulationData={allPopulationData}/>}/>
-                        <Route path='/help_and_info'          element={<HelpAndInfo language={language}/>}/>
-                    </>
-                    ) : (
-                    <>
-                        <Route path='*' element={<NotAuthorized/>}/>
-                    </>
-                    )}
-                    <Route path='/login' element={<Login allPopulationData={allPopulationData}/>}/>
-                    <Route path='/'      element={<Home/>}/>
-                    <Route path='*'      element={<ErrorPage/>}/>
-                </Routes>
+                <div id="main-content-container">
+                    <button onClick={AF.mobile_header_appearence_toggler} id="left-header-mob-opener">
+                        <img alt="menu icon" src="/imgs/headers/menu_icon.png"/>
+                    </button>
+                    <Routes>
+                        {userData && allTickets.length ? (
+                        <> 
+                            <Route path='/ticket_listing'         element={<TicketListing allPopulationData={allPopulationData}/>}/>
+                            <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
+                            <Route path='/create_ticket'          element={<CreateTicket allPopulationData={allPopulationData}/>}/>
+                            <Route path='/profile'                element={<Profile allPopulationData={allPopulationData}/>}/>
+                            <Route path='/help_and_info'          element={<HelpAndInfo language={language}/>}/>
+                        </>
+                        ) : (
+                            <Route path='*' element={<NotAuthorized/>}/>
+                        )}
+                        <Route path='/login' element={<Login allPopulationData={allPopulationData}/>}/>
+                        <Route path='/'      element={<Home/>}/>
+                        <Route path='*'      element={<ErrorPage/>}/>
+                    </Routes>
+                </div>
             </div>
         </div>
     </Router>

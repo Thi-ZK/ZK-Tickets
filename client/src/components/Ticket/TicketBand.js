@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import texts           from '../../languages/Ticket/TicketBand.json';
-import AF              from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
+import React, { useState, useEffect } from "react";
+import { useNavigate }                from "react-router-dom";
+import texts                          from '../../languages/Ticket/TicketBand.json';
+import AF                             from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
 
 const Ticket = ({ ticket_data, allPopulationData }) => {
 	// Aliases
@@ -36,8 +37,15 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 		});
 	}
 
+	// Meant For Smooth Appearence Effect Of Component Rendering
+    const [ticketBandStatus, updateTicketBandStatus] = useState("off");
+
+    useEffect(() => {
+        updateTicketBandStatus("on");
+    }, []);
+
     return (
-	<div onClick={navigate_to_ticket} className="ticket-band-container" css-marker="TB">
+	<div status={ticketBandStatus} onClick={navigate_to_ticket} className="ticket-band-container" css-marker="TB">
 		<div className="TB-header">
 			<div className="TB-title-container">
 				<p>{ticket_data.name}</p>

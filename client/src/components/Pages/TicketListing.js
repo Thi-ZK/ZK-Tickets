@@ -1,4 +1,4 @@
-import React      from 'react';
+import React      from "react";
 import TicketBand from '../Ticket/TicketBand';
 import AF         from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
 
@@ -58,14 +58,13 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
         }
     }
 
-    // Clean Repeated Filtered Tickets
-    final_tickets_to_be_displayed = AF.clean_repeated_repeated_filtered_tickets(final_tickets_to_be_displayed);
-
-    // In Case No Filter Was Applied, Return Full List
+    // In Case No Filter Was Applied, Return Full List, Case Yes, Clean Repeated Items
     if ( !listingFilters.length ) {
         final_tickets_to_be_displayed = allTickets;
+    } else {
+        final_tickets_to_be_displayed = AF.clean_repeated_repeated_filtered_tickets(final_tickets_to_be_displayed);
     }
-    
+
     return (
         <div id="ticket-listing-container">
             {final_tickets_to_be_displayed.map((ticket_data, index) => (
