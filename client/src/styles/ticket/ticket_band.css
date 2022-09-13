@@ -24,10 +24,6 @@ div[theme='bright'] .ticket-band-container:hover {
 	-webkit-box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
 	        box-shadow: 0 1px 30px 4px rgba(80,80,80,0.42);
 }
-.ticket-band-container[status='on'] {
-	visibility: visible;
-	opacity: 1;
-}
 
 .TB-header{
 	padding: 16px 0px 0px 20px;
@@ -71,10 +67,6 @@ div[theme='bright'] .TB-title-container {
 	visibility: hidden;
 	opacity: 0;
 	transition-duration: 0.3s;
-}
-.TB-intitle-legitimacy-error-direct-container[status="on"] {
-	visibility: visible;
-	opacity: 1;
 }
 
 .TB-intitle-legitimacy-error-direct-container span {

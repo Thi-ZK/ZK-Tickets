@@ -17,6 +17,7 @@ const TopHeader = ({ allPopulationData }) => {
     // Switch The Current Brightness
     const switch_brightness = () => {
         let theme = (brightnessTheme === "dark") ? "bright" : "dark";
+
         updateBrightnessTheme(theme);
     }
 
@@ -50,19 +51,19 @@ const TopHeader = ({ allPopulationData }) => {
       <div id="TH-languages-direct-container">
             <div className="TH-language-direct-container">
                 <img    alt="" src="./imgs/general/country_flag_icons/spain.png"/>
-                <button status={language === "spanish" ? "on" : "off"} onClick={(ev) => updateLanguage('spanish')}>Español</button>
+                <button status={language === "spanish" ? "active" : "not-active"} onClick={(ev) => updateLanguage('spanish')}>Español</button>
             </div>
             <div className="TH-language-direct-container">
                 <img    alt="" src="./imgs/general/country_flag_icons/germany.png"/>
-                <button status={language === "german" ? "on" : "off"} onClick={(ev) => updateLanguage('german')}>Deutsch</button>
+                <button status={language === "german" ? "active" : "not-active"} onClick={(ev) => updateLanguage('german')}>Deutsch</button>
             </div>
             <div className="TH-language-direct-container">
                 <img    alt="" src="./imgs/general/country_flag_icons/usa.png"/>
-                <button status={language === "english" ? "on" : "off"} onClick={(ev) => updateLanguage('english')}>English</button>
+                <button status={language === "english" ? "active" : "not-active"} onClick={(ev) => updateLanguage('english')}>English</button>
             </div>
             <div className="TH-language-direct-container">
                 <img    alt="" src="./imgs/general/country_flag_icons/brazil.png"/>
-                <button status={language === "portuguese" ? "on" : "off"} onClick={(ev) => updateLanguage('portuguese')}>Português</button>
+                <button status={language === "portuguese" ? "active" : "not-active"} onClick={(ev) => updateLanguage('portuguese')}>Português</button>
             </div>
         </div>
     </header>

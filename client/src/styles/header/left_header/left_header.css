@@ -213,6 +213,7 @@ div[class='LH-tickets-grouper-direct-container'][status='open'] li {
 
 @media(max-width: 1000px){
 	#left-header-container {
+		border-right: none;
 		display: block;
 		margin-top: 100px;
 		width: 0px;
@@ -230,6 +231,7 @@ div[class='LH-tickets-grouper-direct-container'][status='open'] li {
 	#left-header-container[mob-status='open'] {
 		width: 280px;
 		padding: 0.5em 8px 0px 16px;
+		border-right: 1px solid rgb(90, 90, 90);
 	}
 
 	#LH-title-direct-container {

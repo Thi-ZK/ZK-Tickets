@@ -56,10 +56,6 @@ div[theme='bright'] .TV-MSG-title-direct-container {
             transition-duration: 0.35s;
     color: rgb(199, 47, 53);
 }
-.TV-MSG-not-enough-power-error-message[status='on'] {
-    visibility: visible;
-    opacity: 1;
-}
 
 .TV-MSG-text {
     font-size: 14px;

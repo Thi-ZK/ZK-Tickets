@@ -19,27 +19,14 @@
 div[theme='bright'] #ticket-action-modal-container {
 	background-color: rgb(245, 245, 245);
 }
-
 #ticket-action-modal-container[status*="closed"] * {
 	visibility: hidden;
 	height: 0px;
-	-webkit-transition-duration: 0s;
-	     -o-transition-duration: 0s;
-	        transition-duration: 0s;
-}
-
-#ticket-action-modal-container[status*="open"] * {
-	-webkit-transition-duration: 0s;
-	     -o-transition-duration: 0s;
-	        transition-duration: 0s;
 }
 
 #ticket-action-modal-container[status*="open"] {
 	visibility: visible !important;
 	height: 200px;
-	-webkit-transition-duration: 0.55s;
-	     -o-transition-duration: 0.55s;
-	        transition-duration: 0.55s;
 }
 
 #TAM-confirmation-message-container{
@@ -47,32 +34,35 @@ div[theme='bright'] #ticket-action-modal-container {
 	height: 65%;
 	background-color: rgb(30, 30, 30);
 }
-div[theme='bright'] #TAM-confirmation-message-container{
+div[theme='bright'] #TAM-confirmation-message-container {
 	background-color: white;
 }
 
-#TAM-title-and-close-icon-direct-container{
+#TAM-title-and-close-icon-direct-container, #TAM-action-buttons-container {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
+}
+
+#TAM-title-and-close-icon-direct-container {
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	padding-bottom: 1.5em;
 }
-#TAM-title-and-close-icon-direct-container h2{
+#TAM-title-and-close-icon-direct-container h2 {
 	margin-top: 1.5em;
 }
 
-#TAM-title-and-close-icon-direct-container img{
+#TAM-title-and-close-icon-direct-container img {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
 }
-#TAM-confirmation-message-container *{
+#TAM-confirmation-message-container * {
 	line-height: 20px;
 }
 #TAM-confirmation-message-container h2 {
@@ -83,7 +73,7 @@ div[theme='bright'] #TAM-confirmation-message-container h2 {
 	color: rgb(110, 110, 110);
 }
 
-#TAM-confirmation-message-container p{
+#TAM-confirmation-message-container p {
 	font-size: 0.95em;
 	color: rgb(210, 210, 210);
 }
@@ -91,18 +81,12 @@ div[theme='bright'] #TAM-confirmation-message-container p {
 	color: rgb(115, 115, 115);
 }
 
-#TAM-action-buttons-container{
+#TAM-action-buttons-container {
 	height: calc(45% - 1.5em);
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
 	-webkit-box-pack: end;
 	    -ms-flex-pack: end;
 	        justify-content: flex-end;
 	padding-right: 1em;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
 }
 
 #TAM-action-buttons-direct-container button{
@@ -145,7 +129,7 @@ div[theme='bright'] #TAM-confirmation-message-container p {
 	color: rgb(204,204,0) !important;
 }
 
-#ticket-action-modal-container[which-action='homologate'] #TAM-proceed-button{
+#ticket-action-modal-container[which-action='homologate'] #TAM-proceed-button {
 	background-color: rgb(45, 176, 175) !important;
 }
 #ticket-action-modal-container[which-action='homologate'] .TAM-action-text {

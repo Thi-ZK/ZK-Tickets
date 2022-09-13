@@ -139,11 +139,7 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     height: 70px;
 }
 
-#LOG-error-display-direct-container[status='off'],
-#LOG-password-recovery-modal-direct-container,
-#LOG-password-recovery-modal-loading-icon,
-#LOG-form-container[login-status*='logged-in'],
-#LOG-password-recovery-modal-feedback-message {
+#LOG-form-container[login-status*='logged-in'] {
     visibility: hidden;
     opacity: 0;
 }
@@ -186,13 +182,6 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-}
-#LOG-password-recovery-modal-direct-container[status='on'],
-#LOG-password-recovery-modal-loading-icon[status='on'],
-#LOG-error-display-direct-container[status='on'],
-#LOG-password-recovery-modal-feedback-message[status='on']  {
-    visibility: visible;
-    opacity: 1;
 }
 
 #LOG-password-recovery-modal-direct-container h4 {

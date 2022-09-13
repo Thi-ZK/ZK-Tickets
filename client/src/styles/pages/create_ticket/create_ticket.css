@@ -126,15 +126,6 @@ div[theme='bright'] #TC-title-container h1 {
 	max-width: 200px;
 }
 
-#TC-ticket-name-error-message[status='off'], .TC-loading-gif[status='off'], .TC-success-gif[status='off'], #TC-description-error-message[status='off'] {
-	visibility: hidden;
-	opacity: 0;
-}
-#TC-ticket-name-error-message[status='on'], .TC-loading-gif[status='on'], .TC-success-gif[status='on'], #TC-description-error-message[status='on'] {
-	visibility: visible;
-	opacity: 1;
-}
-
 #TC-name-direct-container p {
 	color: white;
 	margin-bottom: 25px;

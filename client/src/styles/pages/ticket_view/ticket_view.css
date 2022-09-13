@@ -38,10 +38,6 @@ div[theme='bright'] #TV-title-direct-container{
 	opacity: 0;
 	transition-duration: 0.28s;
 }
-#TV-aggregatives-legitimacy-error-direct-container[status='on'] {
-	visibility: visible;
-	opacity: 1;
-}
 
 #TV-aggregatives-legitimacy-error-direct-container p {
 	font-size: 12px;

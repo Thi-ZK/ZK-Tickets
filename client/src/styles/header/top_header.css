@@ -100,7 +100,7 @@ div[theme='bright'] #TH-languages-direct-container button {
 	color: rgb(50, 50, 50);
 }
 
-#TH-languages-direct-container button[status='on']{
+#TH-languages-direct-container button[status='active']{
 	font-weight: bold;
 	text-decoration: underline;
 }

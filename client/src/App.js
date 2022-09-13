@@ -81,15 +81,15 @@ function App() {
     <Router>
         <div className="App" theme={brightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
-            <div status="on"  id="loading-screen">
-                <img alt="menu icon" src="/imgs/general/loading_mew.gif"/>
-            </div>
             <TicketActionModal allPopulationData={allPopulationData}/>
             <LeftHeader        allPopulationData={allPopulationData}/>
             <div id="top-header-and-main-content-container-direct-container">
                 <TopHeader allPopulationData={allPopulationData}/>
                 <div id="top-header-space-auxiliary"></div>
                 <div id="main-content-container">
+                    <div status="on" id="loading-screen">
+                        <img alt="menu icon" src="/imgs/general/loading_mew.gif"/>
+                    </div>
                     <button onClick={AF.mobile_header_appearence_toggler} id="left-header-mob-opener">
                         <img alt="menu icon" src="/imgs/headers/menu_icon.png"/>
                     </button>

@@ -3,10 +3,10 @@ const set_content_display_p_elems_status = (clicked_p) => {
     let all_p_elems = document.querySelectorAll("#PFL-section-choices-direct-container > p");
 
     for (let i = 0; i < all_p_elems.length; i++) {
-        all_p_elems[i].setAttribute("status", "off");
+        all_p_elems[i].setAttribute("status", "not-active");
     }
 
-    clicked_p.setAttribute("status", "on");
+    clicked_p.setAttribute("status", "active");
 };
 
 // Generate Ticket Creator Image SRC URL

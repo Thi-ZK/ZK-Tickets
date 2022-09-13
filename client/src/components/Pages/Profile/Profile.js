@@ -18,6 +18,7 @@ function Profile({ allPopulationData }) {
     // Updates Displayed Content State And Sets <p> Attributes For Styles
     const switch_displayed_content = (event) => {
         AF.set_content_display_p_elems_status(event.target);
+
         updateDisplayedContent(event.target.getAttribute("which_content"));
     }
 
@@ -38,7 +39,7 @@ function Profile({ allPopulationData }) {
                     <div id='PFL-name-and-related-info-container'>
                         <div id='PFL-name-and-title-direct-container'>
                             <h3 id='PFL-person-name'>{userData.name}</h3>
-                            <p id='PFL-job-title'>{userData.profession}</p>
+                            <p  id='PFL-job-title'>{userData.profession}</p>
                         </div>
                         <div id='PFL-total-linked-tickets-direct-container'>
                             <p>{texts.total_linked_tickets[language]}: <span>{total_linked_tickets}</span></p>
@@ -47,8 +48,8 @@ function Profile({ allPopulationData }) {
                 </div>
                 <div id='PFL-section-splitter-and-option-choice-container'>
                     <div id='PFL-section-choices-direct-container'>
-                        <p status="on" which_content="user_info" onClick={switch_displayed_content}>{texts.about[language]}</p>
-                        <p status="off" which_content="preferences" onClick={switch_displayed_content}>{texts.preferences[language]}</p>
+                        <p status="active"  which_content="user_info"   onClick={switch_displayed_content}>{texts.about[language]}</p>
+                        <p status="not-active" which_content="preferences" onClick={switch_displayed_content}>{texts.preferences[language]}</p>
                     </div>
                     <div className='PFL-long-line-splitter'></div>
                 </div>

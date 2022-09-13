@@ -130,7 +130,7 @@ div[theme='bright'] #PFL-total-linked-tickets-direct-container {
 div[theme='bright'] #PFL-section-choices-direct-container p {
     color: rgb(29, 109, 109);
 }
-#PFL-section-choices-direct-container p[status='on'] {
+#PFL-section-choices-direct-container p[status='active'] {
     font-weight: bold;
 }
 
