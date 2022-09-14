@@ -18,7 +18,7 @@ function TicketView({ allPopulationData }) {
 	
 	// Aliases For Specific Ticket Being Viewed Data
 	const { ticket_id } = useParams();
-	const ticket_data   = allTickets.filter((elem) => { return elem.id === Number(ticket_id) })[0];
+	const ticket_data   = AF.get_ticket_data(allTickets, ticket_id);
 
 	// Checks Ticket Legibility
 	if ( !ticket_data || ticket_id > 5000 ) {
@@ -37,6 +37,7 @@ function TicketView({ allPopulationData }) {
 	// Brings Fresh Tickets From DB To Update Messages & Assigneds Whenever User Performs Action.
 	useEffect(() => {
 		if ( window.__was_ticket_interacted ) { update_all_tickets(); }
+
 		window.__was_ticket_interacted = false; // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [messages, assigneds, groups]);
 
@@ -47,9 +48,15 @@ function TicketView({ allPopulationData }) {
 		updateGroups(ticket_data.groups_names); // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ticket_id]);
 
+	// Meant For Smooth Appearence Effect Of Component Rendering
+	const [ticketViewContainerStatus, updateTicketViewContainerStatus] = useState("off");
+
+	useEffect(() => {
+		updateTicketViewContainerStatus("on");
+	}, []);
+
   	return (
-    <>
-	<div id="ticket-view-container" css-marker="TV" ticket-id={ticket_id}>
+	<div status={ticketViewContainerStatus} id="ticket-view-container" css-marker="TV" ticket-id={ticket_id}>
 		<div id="TV-description-attachments-and-info-container">
 			<div id="TV-title-and-info-container">
 				<div id="TV-title-direct-container">
@@ -100,7 +107,6 @@ function TicketView({ allPopulationData }) {
 			</div>
 		</div>
 	</div>
-    </>
   	)
 }
 

@@ -293,7 +293,7 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 
 @media(max-width: 750px){
 	.ticket-band-container {
-		width: calc(100vw - 25px);
+		width: calc(100vw - 36px);
 		margin-left: 12px;
 	}
 
@@ -342,5 +342,11 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 
 	.TB-title-container p {
 		line-height: 21px;
+	}
+}
+
+@media(max-width: 460px){
+	.ticket-band-container {
+		width: calc(100vw - 25px);
 	}
 }

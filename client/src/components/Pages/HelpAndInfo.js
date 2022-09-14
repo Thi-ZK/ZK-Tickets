@@ -1,10 +1,17 @@
-import React from 'react';
-import texts from '../../languages/Pages/HelpAndInfo.json';
+import React, { useState, useEffect } from "react";
+import texts                          from '../../languages/Pages/HelpAndInfo.json';
 
 function HelpAndInfo ({ language }) {
-  return (
+    // Meant For Smooth Appearence Effect Of Component Rendering
+    const [helpAndInfoContainerStatus, updateHelpAndInfoContainerStatus] = useState("off");
+
+    useEffect(() => {
+        updateHelpAndInfoContainerStatus("on");
+    }, []);
+
+    return (
     <div id="help-and-info-container" css-marker="HAI">
-        <div id="HAI-container-centrelizer">
+        <div status={helpAndInfoContainerStatus} id="HAI-container-centrelizer">
             <div id="HAI-title-direct-container">
                 <h1>{texts.help_and_informations[language]}</h1>
             </div>
@@ -18,7 +25,7 @@ function HelpAndInfo ({ language }) {
             </div>
         </div>
     </div>
-  )
+    )
 }
 
 export default HelpAndInfo;

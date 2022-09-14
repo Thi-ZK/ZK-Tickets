@@ -12,16 +12,14 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 	// Meant For When User Clicks And Select To View A Ticket From The List
 	let navigate           = useNavigate();
 	let navigate_to_ticket = (event) => {
-		let elem_class = event.target.className;
-		
-		if (elem_class !== "TB-action-options-button") {
+		if ( event.target.className !== "TB-action-options-button" ) {
 			navigate('/ticket_view/' + ticket_data.id);
 		}
 	};
 
 	// Meant To Open Ticket Action Modal
 	const open_ticket_action_modal = (event, action) => {
-		if (!AF.is_user_legit(ticket_data.related_users, userData)) {
+		if ( !AF.is_user_legit(ticket_data.related_users, userData) ) {
             return AF.display_legitimacy_error(event);
         }
 

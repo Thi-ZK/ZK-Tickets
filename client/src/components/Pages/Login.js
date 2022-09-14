@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import axios               from '../../api/axios';
-import texts               from '../../languages/Pages/Login.json';
-import AF                  from '../../components_aux_functions/pages/login.js'; // Aux Functions
+import React, { useState, useEffect } from 'react';
+import axios                          from '../../api/axios';
+import texts                          from '../../languages/Pages/Login.json';
+import AF                             from '../../components_aux_functions/pages/login.js'; // Aux Functions
 
 function Home({ allPopulationData }) {
     // Aliases For Population Data
@@ -63,10 +63,17 @@ function Home({ allPopulationData }) {
         });
     }
 
+    // Meant For Smooth Appearence Effect Of Component Rendering
+    const [loginContainerStatus, updateLoginContainerStatus] = useState("off");
+
+    useEffect(() => {
+        updateLoginContainerStatus("on");
+    }, []);
+
     return (
     <div style={{backgroundImage: 'url(/imgs/general/fantasy_ice_giant.jpg)'}} id='login-container' css-marmker="LOG">
         <div id='LOG-centralizer'>
-            <form id='LOG-form-container' login-status={userData ? "logged-in" : "logged-out"}>
+            <form id='LOG-form-container' login-status={userData ? "logged-in" : "logged-out"} status={loginContainerStatus}>
                 <div id='LOG-title-direct-container'>
                     <p>{texts.sign_in[language]}</p>
                 </div>

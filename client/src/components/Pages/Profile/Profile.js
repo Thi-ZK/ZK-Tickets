@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import texts               from '../../../languages/Pages/Profile/Profile.json';
-import Switch              from '../../IndependentPieces/Switch.js';
-import Preferences         from './Preferences';
-import UserInfo            from './UserInfo';
-import AF                  from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
+import React, { useState, useEffect } from 'react';
+import texts                          from '../../../languages/Pages/Profile/Profile.json';
+import Switch                         from '../../IndependentPieces/Switch.js';
+import Preferences                    from './Preferences';
+import UserInfo                       from './UserInfo';
+import AF                             from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
 function Profile({ allPopulationData }) {
     // Aliases For Language & Population Data
@@ -25,9 +25,16 @@ function Profile({ allPopulationData }) {
     // Total Linked Tickets Number
     const total_linked_tickets = AF.get_total_linked_tickets_number(allTickets, userData);
 
+    // Meant For Smooth Appearence Effect Of Component Rendering
+	const [profileContainerStatus, updateProfileContainerStatus] = useState("off");
+
+	useEffect(() => {
+		updateProfileContainerStatus("on");
+	}, []);
+
     return (
     <div id="profile-container" css-marker="PFL">
-        <div id="PFL-container-centrelizer">
+        <div status={profileContainerStatus} id="PFL-container-centrelizer">
             <div id="PFL-title-direct-container">
                 <h1>{texts.profile[language]}</h1>
             </div>

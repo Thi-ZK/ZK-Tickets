@@ -10,6 +10,12 @@ const generate_aggregatives_utils_obj = (assigneds, groups, updateAssigneds, upd
 	};
 }
 
+// Get Ticket Data
+const get_ticket_data = (allTickets, ticket_id) => {
+	return allTickets.filter((elem) => { return elem.id === Number(ticket_id) })[0];
+}
+
 module.exports = {
-    generate_aggregatives_utils_obj:  generate_aggregatives_utils_obj
+    generate_aggregatives_utils_obj:  generate_aggregatives_utils_obj,
+	get_ticket_data:                  get_ticket_data
 };

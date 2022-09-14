@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import axios               from '../../../api/axios';
-import texts               from '../../../languages/Pages/CreateTicket/CreateTicket.json';
-import AF                  from '../../../components_aux_functions/pages/create_ticket/create_ticket.js'; // Aux Functions
+import React, { useState, useEffect } from 'react';
+import axios                          from '../../../api/axios';
+import texts                          from '../../../languages/Pages/CreateTicket/CreateTicket.json';
+import AF                             from '../../../components_aux_functions/pages/create_ticket/create_ticket.js'; // Aux Functions
 
 import                 'react-calendar/dist/Calendar.css';
 import SelectionPiece  from './SelectionPiece';
@@ -50,10 +50,17 @@ function CreateTicket ({ allPopulationData }) {
             AF.set_disabled_status_on_ticket_creation_buttons(false);
         }
     }
+
+    // Meant For Smooth Appearence Effect Of Component Rendering
+	const [createTicketContainerStatus, updateCreateTicketContainerStatus] = useState("off");
+
+	useEffect(() => {
+		updateCreateTicketContainerStatus("on");
+	}, []);
     
     return (
     <div id="create-ticket-container" css-marker="TC">
-        <div id="TC-container-centrelizer">
+        <div status={createTicketContainerStatus} id="TC-container-centrelizer">
             <div id="TC-title-container">
                 <div className='TC-create-button-direct-container'>
                     <button onClick={create_ticket}>{texts.create_ticket[language]}</button>

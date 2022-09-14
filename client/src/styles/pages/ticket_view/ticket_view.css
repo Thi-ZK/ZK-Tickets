@@ -3,6 +3,9 @@
 	display: -ms-flexbox;
 	display: flex;
 	margin: 1.2em 1.5em 1.5em 1.5em;
+	-webkit-transition-duration: 0.4s;
+	     -o-transition-duration: 0.4s;
+	        transition-duration: 0.4s;
 }
 
 .TV-title-icon {
@@ -36,7 +39,9 @@ div[theme='bright'] #TV-title-direct-container{
 #TV-aggregatives-legitimacy-error-direct-container {
 	visibility: hidden;
 	opacity: 0;
-	transition-duration: 0.28s;
+	-webkit-transition-duration: 0.28s;
+	     -o-transition-duration: 0.28s;
+	        transition-duration: 0.28s;
 }
 
 #TV-aggregatives-legitimacy-error-direct-container p {

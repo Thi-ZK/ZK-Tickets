@@ -140,8 +140,8 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
 }
 
 #LOG-form-container[login-status*='logged-in'] {
-    visibility: hidden;
-    opacity: 0;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 #LOG-error-display-direct-container {
