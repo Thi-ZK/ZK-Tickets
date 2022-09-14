@@ -1,7 +1,7 @@
-import React from 'react'
-import axios from '../../../api/axios';
-import AF    from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
-import texts from '../../../languages/Pages/Profile/Preferences.json';
+import React, { useState, useEffect } from 'react';
+import axios                          from '../../../api/axios';
+import AF                             from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
+import texts                          from '../../../languages/Pages/Profile/Preferences.json';
 
 function Preferences ({ userData, update_user_data, language }) {
     // Aliases
@@ -40,8 +40,15 @@ function Preferences ({ userData, update_user_data, language }) {
         });
     }
 
+    // Meant For Smooth Appearence Effect Of Component Rendering
+    const [preferencesContainerStatus, updatePreferencesContainerStatus] = useState("off");
+
+    useEffect(() => {
+        updatePreferencesContainerStatus("on");
+    }, []);
+
     return (
-    <div id="PFL-preferences-container" css-marker="PRE">
+    <div status={preferencesContainerStatus} id="PFL-preferences-container" css-marker="PRE">
         <div className="PFL-PRE-content-line-container">
             <div id='PFL-PRE-languages-direct-container'>
                 <div className='PFL-PRE-title-and-success-icon-direct-container'>

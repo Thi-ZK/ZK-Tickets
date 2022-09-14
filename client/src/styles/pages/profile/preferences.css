@@ -1,3 +1,10 @@
+#PFL-preferences-container {
+    padding: 8px 157px 0px 190px;
+    -webkit-transition-duration: 0.4s;
+        -o-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+}
+
 .PFL-PRE-content-line-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5,10 +12,6 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-}
-
-#PFL-preferences-container {
-    padding: 8px 157px 0px 190px;
 }
 
 #PFL-PRE-languages-direct-container, #PFL-PRE-brightness-themes-direct-container {
