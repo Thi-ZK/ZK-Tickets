@@ -1,13 +1,10 @@
-const express    = require('express');
-const UserModel  = require('../../models/user');
-const router     = express.Router();
-const bodyParser = require('body-parser');
-const AF         = require('../../routes_aux/general_utils'); // AF => Aux Functions
-
-let urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
+const express   = require('express');
+const UserModel = require('../../models/user');
+const router    = express.Router();
+const AF        = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
 // Update Current User Preferred Language
-router.post('/current/preferred_language', urlencodedParser, async (req, res) => {
+router.post('/current/preferred_language', async (req, res) => {
     let preferred_language = req.body.preferred_language;
     let user_id            = Number(req.session.user.id);
     let error              = false;
@@ -19,7 +16,7 @@ router.post('/current/preferred_language', urlencodedParser, async (req, res) =>
 });
 
 // Update Current User Preferred Brightness Theme
-router.post('/current/preferred_brightness_theme', urlencodedParser, async (req, res) => {
+router.post('/current/preferred_brightness_theme', async (req, res) => {
     let preferred_theme = req.body.preferred_brightness_theme;
     let user_id         = Number(req.session.user.id);
     let error           = false;

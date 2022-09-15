@@ -1,19 +1,16 @@
-const express     = require('express');
-const GroupModel  = require('../../models/ticket_group');
-const router      = express.Router();
-const bodyParser  = require('body-parser');
-const AF          = require('../../routes_aux/general_utils');
+const express    = require('express');
+const GroupModel = require('../../models/ticket_group');
+const router     = express.Router();
+const AF         = require('../../routes_aux/general_utils');
 
-let urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
-
-router.get('/all', urlencodedParser, async (req, res) => {
+router.get('/all', async (req, res) => {
 	let error              = false;
 	let all_tickets_groups = await GroupModel.find().catch((err) => { error = err; });
 
 	res.send(AF.generate_response_object(error, all_tickets_groups, req.originalUrl));
 });
 
-router.get('/piece/all_groups', urlencodedParser, async (req, res) => {
+router.get('/piece/all_groups', async (req, res) => {
 	let all_ticket_groups            = await GroupModel.find();
 	let ticket_groups_names_with_ids = {};
 

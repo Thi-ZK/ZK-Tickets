@@ -38,7 +38,7 @@ const sessionStore = MongoStore.create({
 
 // Middlewares For Structure / Infra
 app.use(express.static(path.join(__dirname, 'client', 'build'))); // Meant For Client Serving
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: false, limit: "2mb" }));
 app.use(express.json());
 app.use(cors({
     origin:      ["http://localhost:3000", "https://zktickets.herokuapp.com"],

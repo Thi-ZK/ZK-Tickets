@@ -1,14 +1,11 @@
 const express     = require('express');
 const TicketModel = require('../../models/ticket');
 const router      = express.Router();
-const bodyParser  = require('body-parser');
 const AF          = require('../../routes_aux/general_utils'); // AF => Aux Functions
 const midds       = require('../../middlewares/tickets/update');
 
-var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
-
 // NEW MESSAGE - Meant For Setting A New Message For A Single Ticket
-router.post('/single/messages/set', urlencodedParser, async (req, res) => {
+router.post('/single/messages/set', async (req, res) => {
 	let ticket_id  = req.body.ticket_id;
 	let error      = false; 
 
@@ -28,7 +25,7 @@ router.post('/single/messages/set', urlencodedParser, async (req, res) => {
 });
 
 // DELETING MESSAGE - Meant For Deleting A Message For A Single Ticket
-router.post('/single/messages/delete/', urlencodedParser, midds.check_user_legitimacy_strict, async (req, res) => {
+router.post('/single/messages/delete/', midds.check_user_legitimacy_strict, async (req, res) => {
 	let ticket_id  = req.body.ticket_id;
 	let message_id = req.body.message_id;
 	let error      = false;
@@ -42,7 +39,7 @@ router.post('/single/messages/delete/', urlencodedParser, midds.check_user_legit
 });
 
 // NEW TICKET STATUS - Meant For Setting A New Status For A Single Ticket
-router.post('/single/status', urlencodedParser, midds.check_user_legitimacy, async (req, res) => {
+router.post('/single/status', midds.check_user_legitimacy, async (req, res) => {
 	let ticket_id  = req.body.ticket_id;
 	let new_status = req.body.new_status;
 	let error      = false;
@@ -54,7 +51,7 @@ router.post('/single/status', urlencodedParser, midds.check_user_legitimacy, asy
 });
 
 // NEW USER ASSIGNED - Meant For Setting A New Assigned User For A Single Ticket
-router.post('/single/assigneds/set', urlencodedParser, midds.check_user_legitimacy_max_strict, async (req, res) => {
+router.post('/single/assigneds/set', midds.check_user_legitimacy_max_strict, async (req, res) => {
 	let ticket_id        = req.body.ticket_id;
 	let new_assumer      = req.body.aggregative_id;
 	let new_assumer_name = req.body.aggregative_name;
@@ -72,7 +69,7 @@ router.post('/single/assigneds/set', urlencodedParser, midds.check_user_legitima
 });
 
 // REMOVING ASSIGNED USER - Meant For Deleting A Assigned User For A Single Ticket
-router.post('/single/assigneds/delete', urlencodedParser, midds.check_user_legitimacy_strict, async (req, res) => {
+router.post('/single/assigneds/delete', midds.check_user_legitimacy_strict, async (req, res) => {
 	let ticket_id           = req.body.ticket_id;
 	let assumer             = req.body.aggregative_id;
 	let assumer_name        = req.body.aggregative_name;
@@ -93,7 +90,7 @@ router.post('/single/assigneds/delete', urlencodedParser, midds.check_user_legit
 });
 
 // NEW TICKET GROUP ASSIGNED - Meant For Setting A New Assigned Ticket Group For A Single Ticket
-router.post('/single/ticket_groups/set', urlencodedParser, midds.check_user_legitimacy_max_strict, async (req, res) => {
+router.post('/single/ticket_groups/set', midds.check_user_legitimacy_max_strict, async (req, res) => {
 	let ticket_id       = req.body.ticket_id;
 	let new_group       = req.body.aggregative_id;
 	let new_group_name  = req.body.aggregative_name;
@@ -109,7 +106,7 @@ router.post('/single/ticket_groups/set', urlencodedParser, midds.check_user_legi
 });
 
 // REMOVING ASSIGNED TICKET GROUP - Meant For Deleting An Assigned Ticket Group For A Single Ticket
-router.post('/single/ticket_groups/delete', urlencodedParser, midds.check_user_legitimacy_max_strict, async (req, res) => {
+router.post('/single/ticket_groups/delete', midds.check_user_legitimacy_max_strict, async (req, res) => {
 	let ticket_id  = req.body.ticket_id;
 	let group      = req.body.aggregative_id;
 	let group_name = req.body.aggregative_name;

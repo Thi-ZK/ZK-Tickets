@@ -1,18 +1,15 @@
-const express    = require('express');
-const UserModel  = require('../../models/user');
-const router     = express.Router();
-const bodyParser = require('body-parser');
-const AF         = require('../../routes_aux/general_utils'); // AF => Aux Functions
-
-let urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
+const express   = require('express');
+const UserModel = require('../../models/user');
+const router    = express.Router();
+const AF        = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
 // Retrieves Current User
-router.get('/single/current', urlencodedParser, (req, res) => {
+router.get('/single/current', (req, res) => {
 	res.send(AF.generate_response_object(false, req.session.user, req.originalUrl));
 });
 
 // Retrieve All Users Names & IDs. (Piece means that it only retrieves a piece of data from the whole User Data)
-router.get('/piece/all_users', urlencodedParser, async (req, res) => {
+router.get('/piece/all_users', async (req, res) => {
 	let all_users            = await UserModel.find();
 	let users_ids_with_names = {};
 

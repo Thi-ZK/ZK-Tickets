@@ -1,14 +1,11 @@
-const express       = require('express');
-const TicketModel   = require('../../models/ticket');
-const GroupModel    = require('../../models/ticket_group');
-const router        = express.Router();
-const bodyParser    = require('body-parser');
-const AF            = require('../../routes_aux/general_utils'); // AF => Aux Functions
-const R_AF          = require('../../routes_aux/tickets/create'); // Specific Current Route Aux | R_AF => Route Aux Functions
+const express     = require('express');
+const TicketModel = require('../../models/ticket');
+const GroupModel  = require('../../models/ticket_group');
+const router      = express.Router();
+const AF          = require('../../routes_aux/general_utils'); // AF => Aux Functions
+const R_AF        = require('../../routes_aux/tickets/create'); // Specific Current Route Aux | R_AF => Route Aux Functions
 
-var urlencodedParser = bodyParser.urlencoded({ limit: '10mb', extended: false });
-
-router.post('/single', urlencodedParser, async (req, res) => {
+router.post('/single', async (req, res) => {
 	let error          = false;
 	let ticket_data    = req.body;
 	let last_ticket    = await TicketModel.find().sort({_id:-1}).limit(1).catch((err) => { error = [err]; });
