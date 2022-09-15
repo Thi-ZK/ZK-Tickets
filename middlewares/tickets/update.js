@@ -1,6 +1,6 @@
 const AF = require('../../routes_aux/general_utils'); // AF => Aux Functions
 
-// (SERVES ALL) Check If User Is Legit To Perform The Desired Action (Must Be Ticket Creator OR Admin)
+// Check If User Is Legit To Perform The Desired Action (Ticket Creator OR Admin)
 const check_user_legitimacy_max_strict = (req, res, next) => {
     let user           = req.session.user.id;
     let ticket_creator = req.body.ticket_creator;
@@ -13,7 +13,7 @@ const check_user_legitimacy_max_strict = (req, res, next) => {
     res.send(AF.generate_response_object("Not Allowed", req.body, req.originalUrl));
 }
 
-// (SERVES ALL) Check If User Is Legit To Perform The Desired Action (Must Be Ticket Creator OR Direct Action Owner OR Admin)
+// Check If User Is Legit To Perform The Desired Action (Ticket Creator OR Direct Action Owner OR Admin)
 const check_user_legitimacy_strict = (req, res, next) => {
     let user           = req.session.user.id;
     let action_owner   = req.body.message_owner || req.body.aggregative_id || undefined;
@@ -27,7 +27,7 @@ const check_user_legitimacy_strict = (req, res, next) => {
     res.send(AF.generate_response_object("Not Allowed", req.body, req.originalUrl));
 }
 
-// (SERVES ALL) Check If User Is Legit To Perform The Desired Action (Must Be Generally Related To The Ticket OR Admin)
+// Check If User Is Legit To Perform The Desired Action (Generally Related To The Ticket OR Admin)
 const check_user_legitimacy = (req, res, next) => {
     let user                 = req.session.user.id;
     let user_power           = req.session.user.user_power;

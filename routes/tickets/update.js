@@ -1,7 +1,7 @@
 const express     = require('express');
 const TicketModel = require('../../models/ticket');
 const router      = express.Router();
-const AF          = require('../../routes_aux/general_utils'); // AF => Aux Functions
+const AF          = require('../../routes_aux/general_utils'); // AF => Generic Aux Functions
 const midds       = require('../../middlewares/tickets/update');
 
 // NEW MESSAGE - Meant For Setting A New Message For A Single Ticket
@@ -82,7 +82,7 @@ router.post('/single/assigneds/delete', midds.check_user_legitimacy_strict, asyn
 		$pull: {
 			assumers:            assumer,
 			assumers_names:      assumer_name,
-			related_users:       ticket_creator === assumer ? undefined : assumer,
+			related_users:       ticket_creator      === assumer      ? undefined : assumer,
 			related_users_names: ticket_creator_name === assumer_name ? undefined : assumer_name,
 		}}).catch((err) => { error = err; });
 

@@ -1,21 +1,18 @@
 const express   = require('express');
 const UserModel = require('../../models/user');
 const router    = express.Router();
-const AF        = require('../../routes_aux/general_utils'); // AF => Aux Functions
+const AF        = require('../../routes_aux/general_utils'); // AF   => Generic Aux Functions
+const R_AF      = require('../../routes_aux/users/get');     // R_AF => Route   Aux Functions (Specific For This Route)
 
 // Retrieves Current User
 router.get('/single/current', (req, res) => {
 	res.send(AF.generate_response_object(false, req.session.user, req.originalUrl));
 });
 
-// Retrieve All Users Names & IDs. (Piece means that it only retrieves a piece of data from the whole User Data)
+// Retrieve All Users Names & IDs (More Info In Documentation)
 router.get('/piece/all_users', async (req, res) => {
 	let all_users            = await UserModel.find();
-	let users_ids_with_names = {};
-
-	for (let i = 0; i < all_users.length; i++) {
-		users_ids_with_names[all_users[i].id] = all_users[i].name;
-	}
+	let users_ids_with_names = R_AF.generate_user_names_with_ids_obj(all_users);
 
 	res.send(AF.generate_response_object(false, users_ids_with_names, req.originalUrl));
 });

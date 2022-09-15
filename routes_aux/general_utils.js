@@ -25,7 +25,7 @@ const generate_random_id = () => {
 // Object Map Of Requests From Client To Know What Was Requested
 const what_was_requested_obj_map = {
     "/tickets/get/all":                                 "All Tickets Data",
-    "/users/get/piece/all_users":                       "All Ticket Names With IDs",
+    "/users/get/piece/all_users":                       "All Users Names With IDs",
     "/users/get/single/current":                        "Authenticated User Data",
     "/tickets/update/single/messages/set":              "Set Message In Single Ticket",
     "/tickets/update/single/messages/delete":           "Kill Message In Single Ticket",

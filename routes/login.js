@@ -1,8 +1,9 @@
 const express   = require('express');
 const UserModel = require('../models/user');
 const router    = express.Router();
-const AF        = require('../routes_aux/general_utils'); // AF => Aux Functions
+const AF        = require('../routes_aux/general_utils'); // AF => Generic Aux Functions
 
+// Authentication Route (Sets Session Cookie)
 router.post('/auth', async (req, res) => {
 	let email    = req.body.email;
 	let password = req.body.password;
@@ -11,7 +12,7 @@ router.post('/auth', async (req, res) => {
 
 	if ( user ) {
 		if ( password === user.password ) {
-			req.session.user = user;
+			req.session.user = user; // This Sets Session Cookie Automatically
 		} else {
 			error = "Password Incorrect";
 		}
@@ -22,6 +23,7 @@ router.post('/auth', async (req, res) => {
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
+// Password Recovery
 router.post('/password_recovery', async (req, res) => {
 	let email             = req.body.email;
 	let error             = false;
@@ -34,6 +36,7 @@ router.post('/password_recovery', async (req, res) => {
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
 
+// Logout (Destroys Session)
 router.get('/logout', (req, res) => {
 	req.session.destroy();
 	res.clearCookie('connect.sid');

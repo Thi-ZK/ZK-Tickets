@@ -12,11 +12,6 @@ const groupSchema = new Schema({
         type: Number
     },
 
-    tickets: {
-        required: true,
-        type: Array
-    },
-
     creator: {
         required: true,
         type: Number

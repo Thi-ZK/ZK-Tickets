@@ -1,4 +1,4 @@
-const AF = require('../routes_aux/general_utils'); // AF => Aux Functions
+const AF = require('../routes_aux/general_utils'); // AF => Generic Aux Functions
 
 // Restrict User Access To Content Unless He / She Is Logged In
 const check_user_logged_state_and_restrict_access_if_not_logged_in = (req, res, next) => {
