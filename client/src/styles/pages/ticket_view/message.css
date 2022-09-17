@@ -12,6 +12,9 @@ div[theme='bright'] #TV-messages-direct-container {
 
 .TV-message-container {
     padding: 10px 10px 13px 10px;
+    -webkit-transition-duration: 0.4s;
+	     -o-transition-duration: 0.4s;
+	        transition-duration: 0.4s;
 }
 
 div[class='TV-message-container'][type='2'] {

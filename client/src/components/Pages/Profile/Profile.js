@@ -6,11 +6,12 @@ import UserInfo                       from './UserInfo';
 import AF                             from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
 function Profile({ allPopulationData }) {
-    // Aliases For Language & Population Data
-    const userData         = allPopulationData.userData;
-    const language         = allPopulationData.language;
-    const allTickets       = allPopulationData.allTickets;
-    const update_user_data = allPopulationData.update_user_data;
+    // Aliases
+    const userData             = allPopulationData.userData;
+    const language             = allPopulationData.language;
+    const allTickets           = allPopulationData.allTickets;
+    const update_user_data     = allPopulationData.update_user_data;
+    const total_linked_tickets = AF.get_total_linked_tickets_number(allTickets, userData);
 
     // State Declaration For Which Main Content To Be Displayed 
     const [currentDisplayedContent, updateDisplayedContent] = useState("user_info");
@@ -21,9 +22,6 @@ function Profile({ allPopulationData }) {
 
         updateDisplayedContent(event.target.getAttribute("which_content"));
     }
-
-    // Total Linked Tickets Number
-    const total_linked_tickets = AF.get_total_linked_tickets_number(allTickets, userData);
 
     // Meant For Smooth Appearence Effect Of Component Rendering
 	const [profileContainerStatus, updateProfileContainerStatus] = useState("off");
@@ -55,14 +53,14 @@ function Profile({ allPopulationData }) {
                 </div>
                 <div id='PFL-section-splitter-and-option-choice-container'>
                     <div id='PFL-section-choices-direct-container'>
-                        <p status="active"  which_content="user_info"   onClick={switch_displayed_content}>{texts.about[language]}</p>
+                        <p status="active"     which_content="user_info"   onClick={switch_displayed_content}>{texts.about[language]}</p>
                         <p status="not-active" which_content="preferences" onClick={switch_displayed_content}>{texts.preferences[language]}</p>
                     </div>
                     <div className='PFL-long-line-splitter'></div>
                 </div>
                 <Switch currentDisplayedContent={currentDisplayedContent}>
-                    <UserInfo switch_case="user_info" texts={texts} userData={userData} language={language}/>
-                    <Preferences switch_case="preferences" userData={userData} update_user_data={update_user_data} language={language}/>
+                    <UserInfo    switch_case="user_info"   userData={userData} language={language} texts={texts}/>
+                    <Preferences switch_case="preferences" userData={userData} language={language} update_user_data={update_user_data}/>
                 </Switch>
             </div>
         </div>

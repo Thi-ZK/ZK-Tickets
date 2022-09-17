@@ -11,7 +11,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
 
     // Meant For Setting Messages
     const set_message = () => {
-        let message    = document.querySelector("#TV-PM-message-textarea").innerText;
+        let message    = AF.get_message();
         let new_msg_id = AF.generate_random_id();
         
         if ( !message ) { return; }
@@ -26,6 +26,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
 
         axios.post('/tickets/update/single/messages/set', data).then((res) => { console.log(res.data);
             AF.show_and_fade_success_icon();
+
             window.__was_ticket_interacted = true;
 
             updateMessages([...messages, {
@@ -37,9 +38,9 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
                 id:                 new_msg_id
             }])
         })
-    } 
+    }
     
-  return (
+    return (
     <div id="TV-place-message-container" css-marker="PM">
         <div id="TV-PM-title-direct-container">
             <p>{texts.place_a_message_below[language]}</p>
@@ -56,7 +57,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
             </div>
         </div>
     </div>
-  )
+    )
 }
 
 export default PlaceMessage

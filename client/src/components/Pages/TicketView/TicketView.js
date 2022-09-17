@@ -10,20 +10,16 @@ import PlaceMessage              from "./PlaceMessage";
 import TicketOverviewInformation from "./TicketOverviewInformation/TicketOverviewInformation";
 
 function TicketView({ allPopulationData }) {
-	// Population Data Alias
+	// Aliases
 	const allTickets         = allPopulationData.allTickets;
 	const update_all_tickets = allPopulationData.update_all_tickets;
 	const userData           = allPopulationData.userData;
 	const language           = allPopulationData.language;
-	
-	// Aliases For Specific Ticket Being Viewed Data
-	const { ticket_id } = useParams();
-	const ticket_data   = AF.get_ticket_data(allTickets, ticket_id);
+	const { ticket_id }      = useParams();
+	const ticket_data        = AF.get_ticket_data(allTickets, ticket_id);
 
-	// Checks Ticket Legibility
-	if ( !ticket_data || ticket_id > 5000 ) {
-		window.location.href = "/ticket_does_not_exist";
-	}
+	// Checks Ticket Legitimacy (If Not, Then Send To 404 Page)
+	AF.check_ticket_legitimacy(ticket_data, ticket_id);
 
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
@@ -34,19 +30,19 @@ function TicketView({ allPopulationData }) {
 	const [groups, updateGroups]       = useState(ticket_data.groups_names); 
 	const aggregatives_utils           = AF.generate_aggregatives_utils_obj(assigneds, groups, updateAssigneds, updateGroups, allPopulationData);
 	
-	// Brings Fresh Tickets From DB To Update Messages & Assigneds Whenever User Performs Action.
+	// Brings Fresh Tickets From DB Whenever User Performs Action (Updates The Ticket).
 	useEffect(() => {
 		if ( window.__was_ticket_interacted ) { update_all_tickets(); }
 
-		window.__was_ticket_interacted = false; // eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [messages, assigneds, groups]);
+		window.__was_ticket_interacted = false; 
+	}, [messages, assigneds, groups, update_all_tickets]);
 
 	// Meant For When User Goes From One Ticket To Another Directly (Bcz Component Is Not Rerendered) (Occurs In Search)
 	useEffect(() => {
 		updateMessages(ticket_data.messages);
 		updateAssigneds(ticket_data.assumers_names);
-		updateGroups(ticket_data.groups_names); // eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ticket_id]);
+		updateGroups(ticket_data.groups_names);
+	}, [ticket_id, ticket_data]);
 
 	// Meant For Smooth Appearence Effect Of Component Rendering
 	const [ticketViewContainerStatus, updateTicketViewContainerStatus] = useState("off");

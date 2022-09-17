@@ -78,8 +78,8 @@ function CreateTicket ({ allPopulationData }) {
             </div>
             <div id="TC-inputs-container">
                 <div id="TC-inputs-first-block-container" className='TC-inputs-block-container'>
-                    <SelectionPiece usersNamesWithIds={usersNamesWithIds} data={AF.selection_piece_assigneds} language={language} /*Users To Be Assigned*//>
-                    <SelectionPiece ticketGroups={ticketGroups} language={language} data={AF.selection_piece_group} /*Groups To Be Chosen*//>
+                    <SelectionPiece language={language} data={AF.selection_piece_assigneds} usersNamesWithIds={usersNamesWithIds} /*Users To Be Assigned*//>
+                    <SelectionPiece language={language} data={AF.selection_piece_group}     ticketGroups={ticketGroups}           /*Groups To Be Chosen*//>
                 </div>
                 <div id="TC-inputs-second-block-container" className='TC-inputs-block-container'>
                     <SelectionPiece language={language} data={AF.selection_piece_priority}/>

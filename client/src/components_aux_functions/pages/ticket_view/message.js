@@ -4,15 +4,16 @@ const display_not_enough_power_error_message = (message_id) => {
     let error_message_elem = document.querySelector("#TV-message-container-" + message_id_escaped + " span.TV-MSG-not-enough-power-error-message");
 
     error_message_elem.setAttribute("status", "on");
+
     setTimeout(() => {
         error_message_elem.setAttribute("status", "off");
     }, 2000);
-
 }
 
 // Meant For Displaying Or Hiding Loading Icon (Status Can Be "on" Or "off")
 const set_loading_icon_appearence = ( status, message_id ) => {
     let message_id_escaped = message_id.replace(".", "\\."); // For CSS Selection
+
     document.querySelector("#TV-message-container-" + message_id_escaped + " img.TV-MSG-deleting-gif").setAttribute("status", status);
 }
 
@@ -24,6 +25,7 @@ const generate_ticket_creator_img_src = (message_data) => {
 // Img SRC On Error Function (Set Anonymous Picture)
 const set_anonymous_picture = (event) => {
     let img = event.target;
+
     img.onerror = null;
     img.src = "/imgs/general/users_photos/anonymous.jpg";
 }
@@ -37,11 +39,10 @@ const is_user_legit_strict = (ticket_creator, userData, msg_owner) => {
     }
 }
 
-
 module.exports = {
     display_not_enough_power_error_message: display_not_enough_power_error_message,
-    set_loading_icon_appearence:               set_loading_icon_appearence,
-    generate_ticket_creator_img_src:           generate_ticket_creator_img_src,
-    set_anonymous_picture:                     set_anonymous_picture,
-    is_user_legit_strict:                      is_user_legit_strict
+    set_loading_icon_appearence:            set_loading_icon_appearence,
+    generate_ticket_creator_img_src:        generate_ticket_creator_img_src,
+    set_anonymous_picture:                  set_anonymous_picture,
+    is_user_legit_strict:                   is_user_legit_strict
 };
