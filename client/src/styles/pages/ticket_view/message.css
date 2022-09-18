@@ -12,9 +12,9 @@ div[theme='bright'] #TV-messages-direct-container {
 
 .TV-message-container {
     padding: 10px 10px 13px 10px;
-    -webkit-transition-duration: 0.4s;
-	     -o-transition-duration: 0.4s;
-	        transition-duration: 0.4s;
+    -webkit-transition-duration: 0.32s !important;
+	     -o-transition-duration: 0.32s !important;
+	        transition-duration: 0.32s !important;
 }
 
 div[class='TV-message-container'][type='2'] {
@@ -44,6 +44,12 @@ div[theme='bright'] .TV-MSG-title-direct-container {
     display: flex;
 }
 
+.TV-MSG-owner-name img, .TV-MSG-not-enough-power-error-message {
+    -webkit-transition-duration: 0.26s !important;
+	     -o-transition-duration: 0.26s !important;
+	        transition-duration: 0.26s !important;
+}
+
 .TV-MSG-owner-name img {
     height: 30px;
     width: 30px;
@@ -54,9 +60,6 @@ div[theme='bright'] .TV-MSG-title-direct-container {
 .TV-MSG-not-enough-power-error-message {
     visibility: hidden;
     opacity: 0;
-    -webkit-transition-duration: 0.35s;
-         -o-transition-duration: 0.35s;
-            transition-duration: 0.35s;
     color: rgb(199, 47, 53);
 }
 

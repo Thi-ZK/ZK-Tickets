@@ -19,7 +19,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     const filter_for_assignment    = AF.generate_filter_for_assignment_func(allTickets, userData);
     const filter_for_user_creation = AF.generate_filter_for_user_creation_func(allTickets, userData);
 
-    // 'Assigned To Me' Filtering (No Concat Needed As It Is The First Filtering)
+    // 'Assigned To Me' Filtering (No Concat Needed As It Is The First Time Filtering)
     if ( was_assigned_filter_applied ) {
         final_tickets_to_be_displayed = filter_for_assignment();
     }

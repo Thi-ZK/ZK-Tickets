@@ -48,7 +48,7 @@ const Header = ({ allPopulationData }) => {
             {allTickets.filter((ticket) => {
                 return AF.is_term_part_of_ticket_id_or_name(ticket, searchBarTerm);
             }).map((ticket, index) => {
-                return <MiniTicketBand key={index} ticket_data={ticket} language={language}/>
+                return (index < 7) ? <MiniTicketBand key={index} ticket_data={ticket} language={language}/> : null;
             })}
         </div>
         <nav id="LH-navigation-links-container">
