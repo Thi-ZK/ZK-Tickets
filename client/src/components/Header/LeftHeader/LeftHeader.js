@@ -26,8 +26,9 @@ const Header = ({ allPopulationData }) => {
     }
 
     // Search Handler - Cleans The Search
-    const clean_search = () => {
-        document.querySelector("#LH-search-container input").value = "";
+    const clean_search = async () => {
+        AF.clean_search_input();
+        await AF.fade_shown_tickets();
         updateSearchBarTerm("");
     }
 
@@ -45,7 +46,7 @@ const Header = ({ allPopulationData }) => {
         </div>
         {/* Search Logic */}
         <div id="LH-filtered-mini-ticket-bands-direct-container">
-            {allTickets.filter((ticket) => {
+            {allTickets.filter((ticket, index) => {
                 return AF.is_term_part_of_ticket_id_or_name(ticket, searchBarTerm);
             }).map((ticket, index) => {
                 return (index < 7) ? <MiniTicketBand key={index} ticket_data={ticket} language={language}/> : null;

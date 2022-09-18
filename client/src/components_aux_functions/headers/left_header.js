@@ -31,7 +31,29 @@ const is_term_part_of_ticket_id_or_name = (ticket, searchBarTerm) => {
     return false;
 }
 
+// Clean Search Input
+const clean_search_input = () => {
+    document.querySelector("#LH-search-container input").value = "";
+}
+
+// Fade Shown Tickets (Smoothly)
+const fade_shown_tickets = () => {
+    let all_tickets = document.querySelectorAll(".LH-filtered-mini-ticket-band");
+
+    return new Promise((resolve, reject) => {
+        all_tickets.forEach((ticket) => {
+            ticket.setAttribute("status", "off");
+        });
+
+        setTimeout(() => {
+            resolve();
+        }, 400);
+    });
+}
+
 module.exports = {
     switch_grouper_open_status:        switch_grouper_open_status,
-    is_term_part_of_ticket_id_or_name: is_term_part_of_ticket_id_or_name 
+    is_term_part_of_ticket_id_or_name: is_term_part_of_ticket_id_or_name,
+    clean_search_input:                clean_search_input,
+    fade_shown_tickets:                fade_shown_tickets
 };

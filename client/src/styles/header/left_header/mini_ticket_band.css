@@ -11,9 +11,9 @@
 	cursor: pointer;
 	color: white;
 	line-height: 14.5px;
-	-webkit-transition-duration: 0.2s;
-	     -o-transition-duration: 0.2s;
-	        transition-duration: 0.2s;
+	-webkit-transition-duration: 0.29s;
+	     -o-transition-duration: 0.29s;
+	        transition-duration: 0.29s;
 	height: 60px;
 	
 }
@@ -23,29 +23,29 @@
 }
 
 .LH-filtered-mini-ticket-band[status-type='open'] {
-	background-image: -webkit-gradient(linear,left top, right top,from(#861657),to(#FFA69E));
-	background-image: -o-linear-gradient(left,#861657,#FFA69E);
-	background-image: linear-gradient(to right,#861657,#FFA69E);
+	background-image: -webkit-gradient(linear,left top, right top,from(#B91372),to(#AA336A));
+	background-image: -o-linear-gradient(left,#B91372, #AA336A);
+	background-image: linear-gradient(to right,#B91372, #AA336A);
 }
 .LH-filtered-mini-ticket-band[status-type='blocked'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#B09B12), to(#FFD400));
-	background-image: -o-linear-gradient(left, #B09B12, #FFD400);
-	background-image: linear-gradient(to right, #B09B12, #FFD400);
+	background-image: -webkit-gradient(linear, left top, right top, from(#B09B12), to(#FBB034));
+	background-image: -o-linear-gradient(left, #B09B12, #FBB034);
+	background-image: linear-gradient(to right, #B09B12, #FBB034);
 }
 .LH-filtered-mini-ticket-band[status-type='concluded'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#56ab2f), to(#a8e063));
-	background-image: -o-linear-gradient(left, #56ab2f, #a8e063);
-	background-image: linear-gradient(to right, #56ab2f, #a8e063);
+	background-image: -webkit-gradient(linear, left top, right top, from(#56ab2f), to(#00B712));
+	background-image: -o-linear-gradient(left, #56ab2f, #00B712);
+	background-image: linear-gradient(to right, #56ab2f, #00B712);
 }
 .LH-filtered-mini-ticket-band[status-type='deleted'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#eb3349), to(#f45c43));
-	background-image: -o-linear-gradient(left, #eb3349, #f45c43);
-	background-image: linear-gradient(to right, #eb3349, #f45c43);
+	background-image: -webkit-gradient(linear, left top, right top, from(#3F0D12), to(#A71D31));
+	background-image: -o-linear-gradient(left, #3F0D12, #A71D31);
+	background-image: linear-gradient(to right, #3F0D12, #A71D31);
 }
 .LH-filtered-mini-ticket-band[status-type='homologation'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#2193b0), to(#6dd5ed));
-	background-image: -o-linear-gradient(left, #2193b0, #6dd5ed);
-	background-image: linear-gradient(to right, #2193b0, #6dd5ed);
+	background-image: -webkit-gradient(linear, left top, right top, from(#045DE9), to(#0CBABA));
+	background-image: -o-linear-gradient(left, #045DE9, #0CBABA);
+	background-image: linear-gradient(to right, #045DE9, #0CBABA);
 }
 
 .LH-FTB-title-direct-container {
