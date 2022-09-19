@@ -40,7 +40,7 @@ router.post('/password_recovery', async (req, res) => {
 router.get('/logout', (req, res) => {
 	req.session.destroy();
 	res.clearCookie('connect.sid');
-	res.end("Session Destroyed");
+	res.send(AF.generate_response_object(null, "Session Destroyed", req.originalUrl));
 });
 
 module.exports = router;

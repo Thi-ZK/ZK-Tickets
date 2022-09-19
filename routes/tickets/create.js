@@ -9,7 +9,6 @@ router.post('/single', async (req, res) => {
 	let error          = false;
 	let ticket_data    = req.body;
 	let last_ticket    = await R_AF.get_last_id_ticket(TicketModel);
-	console.log(last_ticket);
 	let new_group_name = ticket_data.new_group;
 
 	// If New Group Was Provided, Then Check If Exists (If Not, New ID Given) And Add It 
