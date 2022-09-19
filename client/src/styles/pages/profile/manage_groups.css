@@ -1,0 +1,67 @@
+#PFL-manage-groups-container {
+    transition-duration: 0.4s;
+    padding: 28px 157px 0px 190px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#PFL-MG-delete-group-direct-container {
+    margin-right: 30px;
+}
+
+#PFL-MG-delete-group-direct-container h3,
+#PFL-MG-add-group-direct-container h3 {
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(235, 235, 235);
+}
+div[theme='bright'] #PFL-MG-delete-group-direct-container h3,
+div[theme='bright'] #PFL-MG-add-group-direct-container h3 {
+    color: rgb(30, 30, 30);
+}
+
+#PFL-MG-delete-group-direct-container select {
+    margin: 20px 0px 15px 0px;
+    padding: 2px;
+    border: 1px solid rgb(170, 170, 170);
+    width: 150px;
+    color: rgb(235, 235, 235);
+    background: rgb(30, 30, 30);
+}
+
+#PFL-MG-add-group-direct-container input {
+    width: 200px;
+    border: none; border-bottom: 1px solid rgb(210, 210, 210);
+    background: none;
+    margin: 20px 0px 15px 0px;
+    padding: 0px 0px 6px 0px;
+    color: rgb(235, 235, 235);
+}
+div[theme='bright'] #PFL-MG-delete-group-direct-container select,
+div[theme='bright'] #PFL-MG-add-group-direct-container input {
+    color: rgb(30, 30, 30);
+}
+div[theme='bright'] #PFL-MG-delete-group-direct-container select {
+    background: rgb(255, 255, 255);
+}
+
+#PFL-MG-delete-group-direct-container button,
+#PFL-MG-add-group-direct-container button {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 150px;
+    color: white;
+}
+
+#PFL-MG-delete-group-direct-container button {
+    background-image: -webkit-gradient(linear, left top, right top, from(#3F0D12), to(#A71D31));
+	background-image: -o-linear-gradient(left, #3F0D12, #A71D31);
+	background-image: linear-gradient(to right, #3F0D12, #A71D31);
+}
+
+#PFL-MG-add-group-direct-container button {
+    background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
+	background-image: -o-linear-gradient(left, #223322, #0f9b0f);
+	background-image: linear-gradient(to right, #223322, #0f9b0f);
+}

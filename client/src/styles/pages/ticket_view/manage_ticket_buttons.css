@@ -87,7 +87,8 @@ div[theme='bright'] #TV-SAB-delete-ticket, div[theme='bright'] #TV-SAB-conclude-
 	color: darkred;
 }
 
-.TV-SAB-buttons-group #TV-SAB-delete-ticket:before, .TV-SAB-buttons-group #TV-SAB-delete-ticket:after, .TV-SAB-buttons-group #TV-SAB-delete-ticket > span:before, .TV-SAB-buttons-group #TV-SAB-delete-ticket > span:after {
+.TV-SAB-buttons-group #TV-SAB-delete-ticket:before, .TV-SAB-buttons-group #TV-SAB-delete-ticket:after,
+.TV-SAB-buttons-group #TV-SAB-delete-ticket > span:before, .TV-SAB-buttons-group #TV-SAB-delete-ticket > span:after {
 	background-color: darkred;
 }
 

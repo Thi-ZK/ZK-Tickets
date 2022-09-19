@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import texts                          from '../../../languages/Pages/Profile/Profile.json';
-import Switch                         from '../../IndependentPieces/Switch.js';
-import Preferences                    from './Preferences';
-import UserInfo                       from './UserInfo';
 import AF                             from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
+
+import Switch       from '../../IndependentPieces/Switch.js';
+import Preferences  from './Preferences';
+import UserInfo     from './UserInfo';
+import ManageGroups from './ManageGroups';
 
 function Profile({ allPopulationData }) {
     // Aliases
@@ -53,14 +55,16 @@ function Profile({ allPopulationData }) {
                 </div>
                 <div id='PFL-section-splitter-and-option-choice-container'>
                     <div id='PFL-section-choices-direct-container'>
-                        <p status="active"     which_content="user_info"   onClick={switch_displayed_content}>{texts.about[language]}</p>
-                        <p status="not-active" which_content="preferences" onClick={switch_displayed_content}>{texts.preferences[language]}</p>
+                        <p status="active"     which_content="user_info"     onClick={switch_displayed_content}>{texts.about[language]}</p>
+                        <p status="not-active" which_content="preferences"   onClick={switch_displayed_content}>{texts.preferences[language]}</p>
+                        <p status="not-active" which_content="manage_groups" onClick={switch_displayed_content}>Manage Groups</p>
                     </div>
                     <div className='PFL-long-line-splitter'></div>
                 </div>
                 <Switch currentDisplayedContent={currentDisplayedContent}>
-                    <UserInfo    switch_case="user_info"   userData={userData} language={language} texts={texts}/>
-                    <Preferences switch_case="preferences" userData={userData} language={language} update_user_data={update_user_data}/>
+                    <UserInfo     switch_case="user_info"     userData={userData} language={language} texts={texts}/>
+                    <Preferences  switch_case="preferences"   userData={userData} language={language} update_user_data={update_user_data}/>
+                    <ManageGroups switch_case="manage_groups" allPopulationData={allPopulationData}/>
                 </Switch>
             </div>
         </div>

@@ -29,7 +29,7 @@
 }
 
 #PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: normal;
     color: rgb(235, 235, 235);
 }
@@ -75,7 +75,7 @@ div[theme='bright'] #PFL-PRE-languages-direct-container h3, div[theme='bright'] 
     -webkit-transition-duration: 0.25s;
          -o-transition-duration: 0.25s;
             transition-duration: 0.25s;
-    font-size: 14.2px;
+    font-size: 14px;
     color: rgb(235, 235, 235);
 }
 div[theme='bright'] .PFL-PRE-language-label, div[theme='bright'] .PFL-PRE-brightness-theme-label {

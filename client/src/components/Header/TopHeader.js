@@ -21,7 +21,7 @@ const TopHeader = ({ allPopulationData }) => {
 
     // Destroy Session
     let destroy_session = () => {
-        axios.get('/login/logout').then(() => { 
+        axios.get('/login/logout').then((res) => { console.log(res.data);
             updateUserData(undefined); // Cleaning Existing User Data
             updateLanguage("english");
             updateBrightnessTheme("bright"); 

@@ -29,7 +29,7 @@ function Home({ allPopulationData }) {
         AF.set_loading_icon_appearence("on");
 
         axios.post('/login/auth', { email: email, password: password }).then(( res ) => { console.log(res.data);
-            event.target.disabled = false;
+            AF.enable_login_button(event);
             AF.set_loading_icon_appearence("off");
             
             if ( res.data.success ) {

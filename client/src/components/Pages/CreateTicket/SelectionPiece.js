@@ -47,6 +47,7 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
 
     return (
         <div className="TC-selection-input-direct-container" css-marker="SP">
+
             {/* Title & Description */}
             <div className='TC-SP-selection-title-direct-container'>
                 {data.allow_custom ? <input
@@ -93,7 +94,7 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
                 <></> 
             )}
             
-            {/* Those Are The Aggregative Options Selected Rectangle Blocks (Assigned Users or Groups Blocks) */}
+            {/* Aggregative Options Selected Rectangle Blocks (Assigned Users or Groups Blocks) */}
             { data.is_aggregative ? (
                 <div className='rectangle-span-selected_pieces TC-SP-aggregative-selected-blocks-direct-container'>
                     {currentAggregatives.names.map((option, index) => (
