@@ -26,8 +26,10 @@
 	width: 130px;
 }
 div[theme='bright'] .ATT-input-direct-container .ATT-input-status-text {
-	color: rgb(90, 90, 90);
-	background-color: rgb(220, 220, 220);
+	color: black;
+	background: -webkit-gradient(linear, right top, left top, from(#bfcbef), to(#DFEFF4));
+	background: -o-linear-gradient(right, #bfcbef, #DFEFF4);
+	background: linear-gradient(to left, #bfcbef, #DFEFF4);
 }
 
 .ATT-input-direct-container .ATT-input {

@@ -59,7 +59,7 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
                 : <></>}
                 <label
                     htmlFor={"TC-SP-" + current_piece + "-std-option-radio"}
-                    className="TC-SP-selection-title">{texts["select_the_" + current_piece][language]}
+                    className="TC-SP-selection-title">{texts["select_the_" + current_piece][language] + " "}
                     <span>{texts[current_piece][language]}</span>
                 </label>
             </div>

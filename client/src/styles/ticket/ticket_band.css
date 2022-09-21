@@ -1,5 +1,5 @@
 .ticket-band-container {
-	margin: 16px 0px 12px 22px;
+	margin: 15px 0px 10px 22px;
 	background-color: rgb(30, 30, 30);
     width: calc(100vw - 318px - 56px);
     cursor: pointer;
@@ -14,7 +14,7 @@
 }
 div[theme='bright'] .ticket-band-container {
 	background-color: white;
-	border: 1px solid rgb(220, 220, 220);
+	border: none;
 }
 .ticket-band-container:hover{
 	-webkit-box-shadow: 0 1px 30px 4px rgba(220,220,220,0.42);

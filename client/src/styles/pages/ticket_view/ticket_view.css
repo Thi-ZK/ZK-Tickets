@@ -26,10 +26,11 @@
 	color: white;
 }
 div[theme='bright'] #TV-title-direct-container{
-	color: rgb(30, 30, 30);
-	border: 1px solid rgb(200,200,200);
-	border-right: 0px; border-left: 0px;
-	background-color: rgb(232,232,232);
+	border: 1px none;
+	background: -webkit-gradient(linear, right top, left top, from(#cfdcff), to(#DFEFF4));
+	background: -o-linear-gradient(right, #cfdcff, #DFEFF4);
+	background: linear-gradient(to left, #cfdcff, #DFEFF4);
+	color: black;
 }
 
 #TV-title-and-info-containercontainer {
@@ -110,7 +111,7 @@ div[theme='bright'] #TV-description-direct-container {
 }
 div[theme='bright'] #TV-description-attachments-and-info-container {
 	background-color: white;
-	border: 1px solid rgb(225, 225, 225);
+	border: none;
 }
 
 #TV-title-and-info-container{

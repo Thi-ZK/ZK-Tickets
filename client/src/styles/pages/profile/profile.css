@@ -19,7 +19,7 @@
 }
 div[theme='bright'] #PFL-container-centrelizer {
     background-color: white;
-	border: 1px solid rgb(220, 220, 220);
+	border: none;
 }
 
 #PFL-container-centrelizer,

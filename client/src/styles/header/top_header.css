@@ -9,13 +9,11 @@
 	width: calc(100vw - 318px);
 	background-color: rgb(105, 105, 105);
 	font-size: 14.5px;
-	border-bottom: 1px solid rgb(120, 120, 120);
 	padding: 10px 0px 10px 0px;
 	font-family: 'Quicksand', sans-serif;
 }
 div[theme='bright'] #top-header-container {
-	background-color: rgb(232, 232, 232);
-	border-bottom: none;
+	background-color: rgb(255, 255, 255);
 }
 
 #TH-login-and-brightness-direct-container{
@@ -90,13 +88,12 @@ div[theme='bright'] #TH-logged-in-user-display-direct-container p {
 
 #TH-languages-direct-container button{
 	border: none;
-	background-color: rgb(105, 105, 105);
+	background: none;
 	padding: 0px 6px 0px 5px;
 	color: rgb(240, 240, 240);
 	cursor: pointer;
 }
 div[theme='bright'] #TH-languages-direct-container button {
-	background-color: rgb(232, 232, 232);
 	color: rgb(50, 50, 50);
 }
 

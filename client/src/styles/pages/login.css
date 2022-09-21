@@ -272,7 +272,7 @@ div[theme='bright'] #LOG-new-account-request-link-direct-container span {
     color: rgb(42, 127, 170);
 }
 
-@media(max-width: 1400px){
+@media(max-width: 1550px){
 	#LOG-form-container {
 		width: 450px;
         height: 470px;
@@ -295,14 +295,21 @@ div[theme='bright'] #LOG-new-account-request-link-direct-container span {
         height: 60px;
     }
 
-    .LOG-inputs-direct-container input,
     #LOG-forgot-password-button-direct-container button,
-    #LOG-new-account-request-link-direct-container a {
+    #LOG-new-account-request-link-direct-container a,
+    #LOG-password-recovery-modal-title-direct-container h4,
+    #LOG-password-recovery-modal-direct-container input,
+    #LOG-error-display-direct-container p {
+        font-size: 12.5px;
+    }
+
+    .LOG-inputs-direct-container input {
         font-size: 13px;
     }
 
-    #LOG-submit-button-direct-container button {
-        font-size: 14.5px;
+    #LOG-submit-button-direct-container button,
+    #LOG-new-account-request-link-direct-container {
+        font-size: 13.5px;
     }
 
     #LOG-password-recovery-modal-direct-container {

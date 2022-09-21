@@ -24,7 +24,7 @@
 }
 div[theme='bright'] #HAI-container-centrelizer {
 	background-color: white;
-	border: 1px solid rgb(220, 220, 220);
+	border: none;
 }
 
 #HAI-container-centrelizer,

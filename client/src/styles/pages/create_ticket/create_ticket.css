@@ -26,7 +26,7 @@
 }
 div[theme='bright'] #TC-container-centrelizer {
 	background-color: white;
-	border: 1px solid rgb(225, 225, 225);
+	border: none;
 }
 
 #TC-container-centrelizer,
