@@ -222,7 +222,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 	height: 40px;
 }
 
-@media(max-width: 1400px){
+@media(max-width: 1550px){
 	#loading-screen,
 	#top-header-and-main-content-container-direct-container {
 		width: calc(100vw - 288px);
@@ -230,6 +230,10 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 
 	#top-header-and-main-content-container-direct-container {
 		margin-left: 288px;
+	}
+
+	#top-header-space-auxiliary {
+		height: 42px;
 	}
 }
 

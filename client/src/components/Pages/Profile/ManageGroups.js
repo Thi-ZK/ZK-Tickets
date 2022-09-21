@@ -6,6 +6,13 @@ function ManageGroups ({ allPopulationData }) {
     const update_ticket_groups  = allPopulationData.update_ticket_groups;
     const all_ticket_groups_ids = Object.keys(ticketGroups);
 
+    // Chosen Groups To Be Deleted (Rectangle Blocks)
+    const [groupsToBeDeleted, updateGroupsToBeDeleted] = useState([]);
+    const add_group_to_be_deleted = (event) => {
+        console.log(event.target);
+        // updateGroupsToBeDeleted();
+    }
+
     // Meant For Smooth Appearence Effect Of Component Rendering
     const [manageGroupsContainerStatus, updateManageGroupsContainerStatus] = useState("off");
 
@@ -24,11 +31,11 @@ function ManageGroups ({ allPopulationData }) {
         </div>
         <div id="PFL-MG-delete-group-direct-container">
             <h3>Groups To Be Deleted</h3>
-            <select>
+            <select onChange={add_group_to_be_deleted}>
                 <option>--</option>
                 { all_ticket_groups_ids.map((id, index) => ( // Selection Options
                     <option group-id={id} key={index}>{ticketGroups[id]}</option>
-                ))}
+                )) }
             </select>
             <div>
                 <button>Delete Groups</button>

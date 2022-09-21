@@ -48,3 +48,25 @@ input[id*="LH-FC-ticket-filter"][id*='assigned']:checked {
     color: rgb(238, 238, 238);
     font-size: 13px;
 }
+
+@media(max-width: 1550px){
+	.LH-filter-checkbox-list-item label {
+        font-size: 11.5px;
+    }
+
+    .LH-filter-checkbox-list-item input {
+        padding: 5.5px;
+    }
+
+    .LH-tickets-grouper-direct-container {
+        padding-left: 27px;
+    }
+
+    li[class='LH-filter-checkbox-list-item'][type='status'] {
+        padding-left: 30px !important;
+    }
+
+    .LH-filter-checkbox-list-item[type='tree-main'] {
+        padding-left: 10px !important;
+    }
+}

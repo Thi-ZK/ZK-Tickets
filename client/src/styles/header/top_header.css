@@ -129,9 +129,28 @@ div[theme='bright'] #TH-languages-direct-container button {
 	padding-top: 2px;
 }
 
-@media(max-width: 1320px){
+@media(max-width: 1550px){
 	#top-header-container {
 		width: calc(100vw - 288px);
+		padding: 8px 0px 8px 0px;
+	}
+
+	#TH-login-and-brightness-direct-container {
+		font-size: 13px;
+	}
+
+	#TH-login-and-brightness-direct-container img {
+		width: 25px;
+		height: 25px;
+	}
+
+	.TH-language-direct-container img {
+		width: 18px;
+		height: 11px;
+	}
+
+	#TH-languages-direct-container button {
+		font-size: 12.5px;
 	}
 }
 

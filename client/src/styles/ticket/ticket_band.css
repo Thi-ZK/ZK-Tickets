@@ -205,34 +205,39 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	display: none;
 }
 
-@media(max-width: 1500px){
-	.TB-photo-and-personal-identification-container img {
-		width: 82px;
-		height: 82px;
+@media(max-width: 1550px){
+	.ticket-band-container {
+		width: calc(100vw - 288px - 48px);
+		margin: 12px 0px 9px 18px;
+		height: 180px;
 	}
 
 	.TB-title-container p {
 		font-size: 16px;
 	}
 
-	.TB-content-block-container {
-		padding-top: 1.2em;
+	.TB-header {
+		padding: 14px 0px 0px 14px;
 	}
 
 	.TB-name-and-person-info-direct-container, .TB-description-container p, .TB-description-container h2,
 	.TB-intitle-management-options-direct-container span,
 	.TB-statuses-and-dates-container {
-		font-size: 13px !important;
+		font-size: 12.3px !important;
+	}
+
+	.TB-photo-and-personal-identification-container img {
+		width: 92px;
+		height: 92px;
+	}
+
+	.TB-content-block-container {
+		padding: 0.45em 0px 8px 20px;
 	}
 
 	.TB-name-and-person-info-direct-container {
+		height: 105px;
 		padding-left: 25px;
-	}
-}
-
-@media(max-width: 1400px){
-	.ticket-band-container {
-		width: calc(100vw - 278px - 56px);
 	}
 }
 
@@ -261,15 +266,9 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	}
 }
 
-@media(max-width: 1320px){
-	.ticket-band-container {
-		width: calc(100vw - 288px - 56px);
-	}
-}
-
 @media(max-width: 1000px){
 	.ticket-band-container {
-		width: calc(100vw - 56px);
+		width: calc(100vw - 46px);
 	}
 }
 
