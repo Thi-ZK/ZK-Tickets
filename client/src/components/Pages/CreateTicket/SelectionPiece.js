@@ -101,7 +101,7 @@ function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
                         <span aggregative-id={currentAggregatives.ids[index]} onClick={delete_aggregative} key={index}>{option}</span>
                     ))}
                     <input className={"TC-SP-" + current_piece} type="hidden" aggregative_names={currentAggregatives.names} aggregative_ids={currentAggregatives.ids}></input>
-                    <input onClick={reset_aggregatives} className="TC-SP-reseter" type="hidden"></input>
+                    <input className="TC-SP-reseter"            type="hidden" onClick={reset_aggregatives}></input>
                 </div>
                 ) : (
                 <></> 

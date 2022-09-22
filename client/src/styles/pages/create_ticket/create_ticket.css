@@ -206,14 +206,15 @@ div[theme='bright'] #TC-due-date-title span, div[theme='bright'] #TC-description
 	        transition-duration: 0.35s;
 }
 div[theme='bright'] #TC-due-date-chosen {
-	background-color: rgb(200,200,200);
+	color: black;
+	background: linear-gradient(to right, #bfcbef, #DFEFF4);
 }
 
 #TC-due-date-chosen:hover {
 	background-color: rgb(115, 115, 115);
 }
 div[theme='bright'] #TC-due-date-chosen:hover {
-	background-color: rgb(255, 255, 255);
+	opacity: 0.75;
 }
 
 #TC-attachment-blocks-title {

@@ -21,7 +21,7 @@ div[theme='bright'] #PFL-MG-add-group-direct-container h3 {
 }
 
 #PFL-MG-delete-group-direct-container select {
-    margin: 20px 0px 15px 0px;
+    margin: 20px 0px 25px 0px;
     padding: 2px;
     border: 1px solid rgb(170, 170, 170);
     width: 150px;
@@ -37,6 +37,10 @@ div[theme='bright'] #PFL-MG-add-group-direct-container h3 {
     padding: 0px 0px 6px 0px;
     color: rgb(235, 235, 235);
 }
+#PFL-MG-add-group-direct-container input:focus {
+    border-bottom: 1px solid rgb(160, 160, 160);
+}
+
 div[theme='bright'] #PFL-MG-delete-group-direct-container select,
 div[theme='bright'] #PFL-MG-add-group-direct-container input {
     color: rgb(30, 30, 30);
@@ -64,4 +68,29 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
     background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
 	background-image: -o-linear-gradient(left, #223322, #0f9b0f);
 	background-image: linear-gradient(to right, #223322, #0f9b0f);
+}
+
+#PFL-MG-delete-group-direct-container button,
+#PFL-MG-add-group-direct-container button,
+#PFL-MG-add-group-direct-container input {
+    transition-duration: 0.3s;
+}
+#PFL-MG-delete-group-direct-container button:hover,
+#PFL-MG-add-group-direct-container button:hover {
+    opacity: 0.88;
+}
+
+#PFL-MG-group-to-be-deleted-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+#PFL-MG-group-to-be-deleted-container div {
+    margin: 6px 0px 6px 0px;
+}
+
+#PFL-MG-group-to-be-deleted-container span {
+    margin-right: 0px !important;
+    font-size: 12px !important;
 }
