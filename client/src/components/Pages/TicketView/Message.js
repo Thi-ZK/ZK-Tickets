@@ -55,15 +55,16 @@ function Message({ type, message_data, ticket_id, messages_utils, userData, tick
     return (
     <div status={messageContainerStatus} className="TV-message-container" css-marker="MSG" id={"TV-message-container-" + message_data.id} type={type}>
         <div className="TV-MSG-title-direct-container">
-            <p className='TV-MSG-owner-name'>
+            <div className='TV-MSG-owner-name'>
                 <img src={"/imgs/general/users_photos/" + AF.generate_ticket_creator_img_src(message_data) + ".jpg"} onError={AF.set_anonymous_picture} alt='-tv-person'/>
                 {message_data.message_owner_name}
                 <img src='/imgs/general/red_x_delete_icon.png' className='TV-MSG-delete-icon'  alt="deleted-msg-icon" onClick={delete_message} status="on"/>
                 <img src='/imgs/ticket/loading_eevee.gif'      className='TV-MSG-deleting-gif' alt='cleaning gif' status="off"/>
                 <span status="off" className="TV-MSG-not-enough-power-error-message">{texts.not_enough_power[language]}</span>
-            </p>
+            </div>
             <p className='TV-MSG-date'>{String(message_data.date_casual_format.split(" GMT")[0])}</p>
         </div>
+        <span status="off" className="TV-MSG-not-enough-power-error-message-mob">{texts.not_enough_power[language]}</span>
         <div className='TV-MSG-text'>
           {message_data.message}
         </div>

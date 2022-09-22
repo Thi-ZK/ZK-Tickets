@@ -1,8 +1,9 @@
 // Display Error Message For Not Enough Power
 const display_not_enough_power_error_message = (message_id) => {
     let message_id_escaped = message_id.replace(".", "\\."); // For CSS Selection
-    let error_message_elem = document.querySelector("#TV-message-container-" + message_id_escaped + " span.TV-MSG-not-enough-power-error-message");
-
+    let add_mob_class      = window.innerWidth <= 500 ? "-mob" : "";
+    let error_message_elem = document.querySelector("#TV-message-container-" + message_id_escaped + " span.TV-MSG-not-enough-power-error-message" + add_mob_class);
+    
     error_message_elem.setAttribute("status", "on");
 
     setTimeout(() => {

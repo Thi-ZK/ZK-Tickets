@@ -38,13 +38,15 @@ div[theme='bright'] .TV-MSG-title-direct-container {
     color: rgb(30, 30, 30);
 }
 
+
+
 .TV-MSG-owner-name {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.TV-MSG-owner-name img, .TV-MSG-not-enough-power-error-message {
+.TV-MSG-owner-name img, .TV-MSG-not-enough-power-error-message, .TV-MSG-not-enough-power-error-message-mob {
     -webkit-transition-duration: 0.26s !important;
 	     -o-transition-duration: 0.26s !important;
 	        transition-duration: 0.26s !important;
@@ -61,6 +63,10 @@ div[theme='bright'] .TV-MSG-title-direct-container {
     visibility: hidden;
     opacity: 0;
     color: rgb(199, 47, 53);
+}
+
+.TV-MSG-not-enough-power-error-message-mob {
+    display: none;
 }
 
 .TV-MSG-text {
@@ -96,14 +102,7 @@ div[theme='bright'] .TV-MSG-text {
 
 @media(max-width: 600px) {
 	.TV-MSG-title-direct-container {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-    }
-    
-    .TV-MSG-date {
-        padding: 12px 0px 4px 0px;
+        
     }
 
     .TV-MSG-owner-name {
@@ -112,5 +111,18 @@ div[theme='bright'] .TV-MSG-text {
 
     .TV-MSG-date {
         font-size: 11px;
+    }
+}
+
+@media(max-width: 500px) {
+    .TV-MSG-not-enough-power-error-message {
+        display: none;
+    }
+    
+    .TV-MSG-not-enough-power-error-message-mob {
+        padding-top: 7px;
+        display: block;
+        color: rgb(199, 47, 53);
+        font-size: 12px;
     }
 }
