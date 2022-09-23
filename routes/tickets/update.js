@@ -1,5 +1,6 @@
 const express     = require('express');
 const TicketModel = require('../../models/ticket');
+const GroupModel  = require('../../models/ticket_group');
 const router      = express.Router();
 const AF          = require('../../routes_aux/general_utils'); // AF => Generic Aux Functions
 const midds       = require('../../middlewares/tickets/update');
@@ -33,7 +34,7 @@ router.post('/single/messages/delete/', midds.check_user_legitimacy_strict, asyn
 	await TicketModel.findOneAndUpdate({
 		id:            ticket_id,
 		'messages.id': message_id
-	}, {'messages.$.status': "deleted"}).catch((err) => { error = err; });
+	}, { 'messages.$.status': "deleted" }).catch((err) => { error = err; });
 
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -44,8 +45,7 @@ router.post('/single/status', midds.check_user_legitimacy, async (req, res) => {
 	let new_status = req.body.new_status;
 	let error      = false;
 	
-	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status})
-	.catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id }, { last_status_update_date: new Date(), status: new_status}).catch((err) => { error = err; });
 	
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -101,6 +101,11 @@ router.post('/single/ticket_groups/set', midds.check_user_legitimacy_max_strict,
 			groups:       new_group,
 			groups_names: new_group_name
 		}}).catch((err) => { error = err; });
+
+	await GroupModel.updateOne({ id: new_group }, {
+		$addToSet: {
+			tickets: ticket_id
+		}}).catch((err) => { error = err; });
 	
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -117,6 +122,11 @@ router.post('/single/ticket_groups/delete', midds.check_user_legitimacy_max_stri
 		$pull: {
 			groups:       group,
 			groups_names: group_name
+		}}).catch((err) => { error = err; });
+
+	await GroupModel.updateOne({ id: group }, {
+		$pull: {
+			tickets: ticket_id
 		}}).catch((err) => { error = err; });
 
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));

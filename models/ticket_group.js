@@ -20,6 +20,11 @@ const groupSchema = new Schema({
     creator_name: {
         required: true,
         type: String
+    },
+
+    tickets: {
+        required: true,
+        type: Array
     }
 }, { timestamps: true });
 
