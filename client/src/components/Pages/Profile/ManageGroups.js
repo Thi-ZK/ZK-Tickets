@@ -42,7 +42,7 @@ function ManageGroups ({ allPopulationData }) {
 
         AF.set_loading_icon_status("right", "on");
 
-        axios.post('/ticket_groups/detele', data).then(( res ) => { console.log(res.data);
+        axios.post('/ticket_groups/delete', data).then(( res ) => { console.log(res.data);
             AF.set_loading_icon_status("right", "off");
 
             if ( res.data.success ) {
@@ -69,7 +69,11 @@ function ManageGroups ({ allPopulationData }) {
             </div>
         </div>
         <div id="PFL-MG-delete-group-direct-container">
-            <h3>Groups To Be Deleted</h3>
+            <div id='PFL-MG-delete-group-title-direct-container'>
+                <h3>Groups To Be Deleted</h3>
+                <img status="off" className='PFL-MG-loading-gif' which="right" src="/imgs/general/loading_blue_icon.gif" alt="loading circle"/>
+                <img status="off" className='PFL-MG-success-gif' which="right" src="./imgs/general/success.gif" alt="blue success balloon"/>
+            </div>
             <select onChange={add_group_to_be_deleted}>
                 <option group-name="aux">--</option>
                 { all_ticket_groups_ids.map((id, index) => ( // Selection Options

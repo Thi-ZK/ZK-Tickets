@@ -5,7 +5,7 @@ const mongoose   = require('mongoose');
 const MongoStore = require('connect-mongo');
 const path       = require('path');
 const midds      = require('./middlewares/server.js');
-const AF         = require('./routes_aux/general_utils'); // AF => Aux Functions
+const AF         = require('./routes_aux/general_utils'); // AF => Generic Aux Functions
 
 // Getting Routes
 const ticketDeleteRouter = require('./routes/tickets/delete');
@@ -15,7 +15,7 @@ const ticketGetRouter    = require('./routes/tickets/get');
 const userGetRouter      = require('./routes/users/get');
 const userUpdateRouter   = require('./routes/users/update');
 const groupGetRouter     = require('./routes/ticket_groups/get');
-const groupUpdateRouter  = require('./routes/ticket_groups/update');
+const groupDeleteRouter  = require('./routes/ticket_groups/delete');
 const loginAuthRouter    = require('./routes/login');
 
 const app = express();
@@ -59,15 +59,15 @@ app.use(session({
 app.use(midds.check_user_logged_state_and_restrict_access_if_not_logged_in);
 
 // Routes
-app.use('/tickets/delete',    ticketDeleteRouter);
-app.use('/tickets/update',    ticketUpdateRouter);
-app.use('/tickets/create',    ticketCreateRouter);
-app.use('/tickets/get',       ticketGetRouter);
-app.use('/users/get',         userGetRouter);
-app.use('/users/update',      userUpdateRouter);
-app.use('/ticket_groups/get', groupGetRouter);
-app.use('/ticket_groups/get', groupUpdateRouter);
-app.use('/login',             loginAuthRouter);
+app.use('/tickets/delete',       ticketDeleteRouter);
+app.use('/tickets/update',       ticketUpdateRouter);
+app.use('/tickets/create',       ticketCreateRouter);
+app.use('/tickets/get',          ticketGetRouter);
+app.use('/users/get',            userGetRouter);
+app.use('/users/update',         userUpdateRouter);
+app.use('/ticket_groups/get',    groupGetRouter);
+app.use('/ticket_groups/delete', groupDeleteRouter);
+app.use('/login',                loginAuthRouter);
 
 // Serving All Pages From Client
 if ( !IRL ) {

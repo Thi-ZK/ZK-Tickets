@@ -33,14 +33,26 @@ const disable_aux_option_elem = () => {
 
 // Set Loading Icon Status
 const set_loading_icon_status = (which, status) => {
-    
+    document.querySelector(".PFL-MG-loading-gif[which='" + which + "']").setAttribute("status", status);
+}
+
+// Display Success Gif
+const display_success_feedback_icon = (which) => {
+    let success_icon = document.querySelector(".PFL-MG-success-gif[which='" + which + "']");
+
+    success_icon.setAttribute("status", "on");
+
+    setTimeout(() => {
+        success_icon.setAttribute("status", "off");
+    }, 800);
 }
 
 module.exports = {
-    get_selected_option:      get_selected_option,
-    get_group_name:           get_group_name,
-    get_group_id:             get_group_id,
-    is_group_already_present: is_group_already_present,
-    disable_aux_option_elem:  disable_aux_option_elem,
-    set_loading_icon_status:  set_loading_icon_status
+    get_selected_option:           get_selected_option,
+    get_group_name:                get_group_name,
+    get_group_id:                  get_group_id,
+    is_group_already_present:      is_group_already_present,
+    disable_aux_option_elem:       disable_aux_option_elem,
+    set_loading_icon_status:       set_loading_icon_status,
+    display_success_feedback_icon: display_success_feedback_icon
 };

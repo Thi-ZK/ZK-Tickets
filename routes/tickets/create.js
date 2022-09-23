@@ -39,10 +39,6 @@ router.post('/single', async (req, res) => {
 	});
 
 	await new_ticket_document.save().catch((err) => { error = err; });
-
-	if ( !error && new_group_name ) { // Add New Created Ticket ID To Tickets Array In The New Group Created 
-		await GroupModel.updateOne({ name: new_group_name }, { tickets: [new_ticket_document.id] }).catch((err) => { error = err });
-	}
 	
 	res.send(AF.generate_response_object(error, new_ticket_document, req.originalUrl));
 });

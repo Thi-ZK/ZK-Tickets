@@ -24,21 +24,22 @@ const generate_random_id = () => {
 
 // Object Map Of Requests From Client To Know What Was Requested
 const what_was_requested_obj_map = {
-    "/tickets/get/all":                                 "All Tickets Data",
     "/users/get/piece/all_users":                       "All Users Names With IDs",
     "/users/get/single/current":                        "Authenticated User Data",
+    "/users/update/current/preferred_language":         "Set New User Preferred Language",
+    "/users/update/current/preferred_brightness_theme": "Set New User Preferred Brightness Theme",
+    "/tickets/get/all":                                 "All Tickets Data",
     "/tickets/update/single/messages/set":              "Set Message In Single Ticket",
     "/tickets/update/single/messages/delete":           "Kill Message In Single Ticket",
     "/tickets/update/single/status":                    "Set New Status In Single Ticket",
     "/tickets/update/single/assigneds/set":             "Set Assigned To Single Ticket",
     "/tickets/update/single/assigneds/delete":          "Remove Assigned From Single Ticket",
-    "/users/update/current/preferred_language":         "Set New User Preferred Language",
-    "/users/update/current/preferred_brightness_theme": "Set New User Preferred Brightness Theme",
-    "/tickets/create/single":                           "Create New Ticket",
-    "/ticket_groups/get/all":                           "All Ticket Groups Data",
-    "/ticket_groups/get/piece/all_groups":              "All Ticket Groups Names With IDs",
     "/tickets/update/single/ticket_groups/set":         "Set Ticket Group To Single Ticket",
     "/tickets/update/single/ticket_groups/delete":      "Remove Ticket Group From Single Ticket",
+    "/tickets/create/single":                           "Create New Ticket",
+    "/ticket_groups/delete":                            "Delete Provided Ticket Groups",
+    "/ticket_groups/get/all":                           "All Ticket Groups Data",
+    "/ticket_groups/get/piece/all_groups":              "All Ticket Groups Names With IDs",
     "/login/auth":                                      "Authenticate User",
     "/login/password_recovery":                         "Recover User Password",
     "/login/logout":                                    "User Logout"
