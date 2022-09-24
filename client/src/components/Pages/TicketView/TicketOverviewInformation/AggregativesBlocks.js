@@ -5,7 +5,7 @@ import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket
 
 function AggregativeBlocks ({ which_aggregative, data_for_aggregatives }) {
     // Population Data Aliases
-    const aggregative_blocks = AF.get_aggregative_blocks(which_aggregative, data_for_aggregatives);
+    const aggregative_blocks = AF.get_aggregative_blocks(which_aggregative, data_for_aggregatives); // HTML Elements
     const userData           = data_for_aggregatives.userData;
     const language           = data_for_aggregatives.language;
     const aggregatives_utils = data_for_aggregatives.aggregatives_utils;

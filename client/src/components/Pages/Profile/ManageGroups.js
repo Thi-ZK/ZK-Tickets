@@ -21,6 +21,7 @@ function ManageGroups ({ allPopulationData }) {
 
         if ( !AF.is_group_already_present(groupsToBeDeleted, group_to_be_deleted) ) {
             updateGroupsToBeDeleted([...groupsToBeDeleted, group_to_be_deleted]);
+            
             AF.disable_aux_option_elem();
         }
     }

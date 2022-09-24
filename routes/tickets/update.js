@@ -117,7 +117,6 @@ router.post('/single/ticket_groups/delete', midds.check_user_legitimacy_max_stri
 	let group_name = req.body.aggregative_name;
 	let error      = false;
 
-	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off From The Array Of Related Users.
 	await TicketModel.updateOne({ id: ticket_id }, {
 		$pull: {
 			groups:       group,
