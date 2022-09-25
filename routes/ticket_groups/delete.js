@@ -6,7 +6,7 @@ const AF          = require('../../routes_aux/general_utils');        // AF   =>
 const R_AF        = require('../../routes_aux/ticket_groups/delete'); // R_AF => Route   Aux Functions
 
 // Delete All Provided Ticket Groups
-router.post('/', async (req, res) => {
+router.post('/multiple', async (req, res) => {
 	let error                = false;
     let provided_group_ids   = R_AF.get_provided_groups_ids_as_array(req.body);
     let groups_to_be_deleted = R_AF.get_complete_groups_obj_from_req_session(provided_group_ids, req.session);

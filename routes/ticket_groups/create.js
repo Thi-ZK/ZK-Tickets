@@ -3,18 +3,17 @@ const GroupModel = require('../../models/ticket_group');
 const router     = express.Router();
 const AF         = require('../../routes_aux/general_utils'); // AF => Generic Aux Functions
 
-router.post('/', async (req, res) => {
+router.post('/single', async (req, res) => {
 	let error          = false;
-	let new_group_name = req.body;
-    // console.log(new_group_name);
-    return res.send({success:true});
-	// let last_group_id  = await R_AF.get_last_group_id(GroupModel);
+	let new_group_name = req.body.new_group;
+	let last_id_group  = await GroupModel.find().sort({_id:-1}).limit(1);
 
 	const new_group_document = new GroupModel({
-		name:                    new_group_name.name,
-		id:                      last_group_id + 1,
-		creation_date:           new Date(),
-		last_status_update_date: new Date()
+		name:         new_group_name,
+		id:           last_id_group[0].id + 1,
+		creator:      req.session.user.id,
+		creator_name: req.session.user.name,
+		tickets:      []
 	});
 
 	await new_group_document.save().catch((err) => { error = err; });

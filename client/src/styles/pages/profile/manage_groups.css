@@ -10,13 +10,13 @@
 }
 
 #PFL-MG-delete-group-direct-container h3,
-#PFL-MG-add-group-direct-container h3 {
+#PFL-MG-create-group-direct-container h3 {
     font-size: 14px;
     font-weight: normal;
     color: rgb(235, 235, 235);
 }
 div[theme='bright'] #PFL-MG-delete-group-direct-container h3,
-div[theme='bright'] #PFL-MG-add-group-direct-container h3 {
+div[theme='bright'] #PFL-MG-create-group-direct-container h3 {
     color: rgb(30, 30, 30);
 }
 
@@ -29,7 +29,7 @@ div[theme='bright'] #PFL-MG-add-group-direct-container h3 {
     background: rgb(30, 30, 30);
 }
 
-#PFL-MG-add-group-direct-container input {
+#PFL-MG-create-group-direct-container input {
     width: 200px;
     border: none; border-bottom: 1px solid rgb(210, 210, 210);
     background: none;
@@ -37,12 +37,12 @@ div[theme='bright'] #PFL-MG-add-group-direct-container h3 {
     padding: 0px 0px 6px 0px;
     color: rgb(235, 235, 235);
 }
-#PFL-MG-add-group-direct-container input:focus {
+#PFL-MG-create-group-direct-container input:focus {
     border-bottom: 1px solid rgb(160, 160, 160);
 }
 
 div[theme='bright'] #PFL-MG-delete-group-direct-container select,
-div[theme='bright'] #PFL-MG-add-group-direct-container input {
+div[theme='bright'] #PFL-MG-create-group-direct-container input {
     color: rgb(30, 30, 30);
 }
 div[theme='bright'] #PFL-MG-delete-group-direct-container select {
@@ -50,7 +50,7 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 }
 
 #PFL-MG-delete-group-direct-container button,
-#PFL-MG-add-group-direct-container button {
+#PFL-MG-create-group-direct-container button {
     border: none;
     cursor: pointer;
     padding: 10px;
@@ -64,20 +64,21 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 	background-image: linear-gradient(to right, #3F0D12, #A71D31);
 }
 
-#PFL-MG-add-group-direct-container button {
+#PFL-MG-create-group-direct-container button {
     background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
 	background-image: -o-linear-gradient(left, #223322, #0f9b0f);
 	background-image: linear-gradient(to right, #223322, #0f9b0f);
 }
 
+#PFL-MG-create-group-error-message,
 #PFL-MG-delete-group-direct-container button,
-#PFL-MG-add-group-direct-container button,
-#PFL-MG-add-group-direct-container input,
+#PFL-MG-create-group-direct-container button,
+#PFL-MG-create-group-direct-container input,
 .PFL-MG-success-gif {
     transition-duration: 0.3s;
 }
 #PFL-MG-delete-group-direct-container button:hover,
-#PFL-MG-add-group-direct-container button:hover {
+#PFL-MG-create-group-direct-container button:hover {
     opacity: 0.88;
 }
 
@@ -112,4 +113,10 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 .PFL-MG-loading-gif {
     width: 20px;
     height: 20px;
+}
+
+#PFL-MG-create-group-error-message {
+    font-size: 12.5px;
+    padding-top: 10px;
+    color: red;
 }

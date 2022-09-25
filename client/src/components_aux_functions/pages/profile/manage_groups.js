@@ -47,30 +47,58 @@ const display_success_feedback_icon = (which) => {
     }, 800);
 }
 
+// Set Delete Groups Button Disabled Status
+const set_delete_new_group_button_disabled_status = (status) => {
+    document.querySelector("#PFL-MG-delete-group-direct-container button").disabled = (status === "disable") ? true : false;
+} 
+
+// Set Create Groups Button Disabled Status
+const set_create_new_group_button_disabled_status = (status) => {
+    document.querySelector("#PFL-MG-create-group-direct-container button").disabled = (status === "disable") ? true : false;
+}
+
 // Get Inputed New Group To Be Added
 const get_new_typed_group = () => {
-    return document.querySelector("#PFL-MG-add-group-direct-container input").value;
+    return document.querySelector("#PFL-MG-create-group-direct-container input").value;
 }
 
 // Clean Add New Group Input
 const clean_new_group_input = () => {
-    document.querySelector("#PFL-MG-add-group-direct-container input").value = "";
+    document.querySelector("#PFL-MG-create-group-direct-container input").value = "";
 } 
 
-// Checks If New Group To Be Created Is Valid (Regex Check)
-const is_new_group_valid = () => {
-    // TO DO
+// Checks If New Group To Be Created Is Valid (Base Regex Check & Length)
+const is_new_group_valid = (new_group) => {
+    if ( (new_group.length <  34) && (/[0-9A-Za-z]{3,}/.test(new_group)) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Displays Unsuccessful Feedback Message For Creating New Group Bad Group Name
+const display_new_group_error_msg = () => {
+    let msg_elem = document.querySelector("#PFL-MG-create-group-error-message");
+
+    msg_elem.setAttribute("status", "on");
+
+    setTimeout(() => {
+        msg_elem.setAttribute("status", "off");
+    }, 2500);
 }
 
 module.exports = {
-    get_selected_option:            get_selected_option,
-    get_group_name:                 get_group_name,
-    get_group_id:                   get_group_id,
-    is_group_already_present:       is_group_already_present,
-    set_aux_option_disabled_status: set_aux_option_disabled_status,
-    set_loading_icon_status:        set_loading_icon_status,
-    display_success_feedback_icon:  display_success_feedback_icon,
-    get_new_typed_group:            get_new_typed_group,
-    clean_new_group_input:          clean_new_group_input,
-    is_new_group_valid:             is_new_group_valid
+    get_selected_option:                         get_selected_option,
+    get_group_name:                              get_group_name,
+    get_group_id:                                get_group_id,
+    is_group_already_present:                    is_group_already_present,
+    set_aux_option_disabled_status:              set_aux_option_disabled_status,
+    set_loading_icon_status:                     set_loading_icon_status,
+    display_success_feedback_icon:               display_success_feedback_icon,
+    get_new_typed_group:                         get_new_typed_group,
+    clean_new_group_input:                       clean_new_group_input,
+    is_new_group_valid:                          is_new_group_valid,
+    display_new_group_error_msg:                 display_new_group_error_msg,
+    set_delete_new_group_button_disabled_status: set_delete_new_group_button_disabled_status,
+    set_create_new_group_button_disabled_status: set_create_new_group_button_disabled_status
 };

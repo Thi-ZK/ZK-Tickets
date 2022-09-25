@@ -38,14 +38,21 @@ function ManageGroups ({ allPopulationData }) {
 
     // Delete Selected Groups (Delete Button Handler)
     const delete_selected_groups = () => {
+        if ( !groupsToBeDeleted.length ) {
+            return;
+        }
+
+        AF.set_delete_new_group_button_disabled_status("disable");
+
         let data = {
             groups_to_be_deleted: groupsToBeDeleted
         };
 
         AF.set_loading_icon_status("right", "on");
 
-        axios.post('/ticket_groups/delete', data).then(( res ) => { console.log(res.data);
+        axios.post('/ticket_groups/delete/multiple', data).then(( res ) => { console.log(res.data);
             AF.set_loading_icon_status("right", "off");
+            AF.set_delete_new_group_button_disabled_status("enable");
 
             if ( res.data.success ) {
                 update_all_tickets();
@@ -61,18 +68,21 @@ function ManageGroups ({ allPopulationData }) {
     const create_new_group = () => {
         let new_group = AF.get_new_typed_group();
 
-        if ( !new_group ) { console.log("VOU FAZER VODE DANÇAR");
+        if ( !new_group ) {
             return;
         }
 
         if ( !AF.is_new_group_valid(new_group) ) {
-            return; // PROVIDE VALID NAME FUNC
+            AF.display_new_group_error_msg();
+            return;
         }
 
+        AF.set_create_new_group_button_disabled_status("disable");
         AF.set_loading_icon_status("left", "on");
 
-        axios.post('/ticket_groups/create', { new_group: new_group }).then(( res ) => { console.log(res.data);
+        axios.post('/ticket_groups/create/single', { new_group: new_group }).then(( res ) => { console.log(res.data);
             AF.set_loading_icon_status("left", "off");
+            AF.set_create_new_group_button_disabled_status("enable");
 
             if ( res.data.success ) {
                 update_ticket_groups();
@@ -92,7 +102,7 @@ function ManageGroups ({ allPopulationData }) {
     return (
     <div status={manageGroupsContainerStatus} id='PFL-manage-groups-container' css-marker="MG">
         {/* Create New Group Block */}
-        <div id="PFL-MG-add-group-direct-container">
+        <div id="PFL-MG-create-group-direct-container">
             <div id='PFL-MG-create-group-title-direct-container'>
                 <h3>Add New Groups</h3>
                 <img status="off" className='PFL-MG-loading-gif' which="left" src="/imgs/general/loading_blue_icon.gif" alt="loading circle"/>
@@ -102,6 +112,7 @@ function ManageGroups ({ allPopulationData }) {
             <div>
                 <button onClick={create_new_group}>Add Group</button>
             </div>
+            <p status="off" id='PFL-MG-create-group-error-message'>Group name too long or too poor</p>
         </div>
         {/* Delete Groups Block */}
         <div id="PFL-MG-delete-group-direct-container">
@@ -112,7 +123,8 @@ function ManageGroups ({ allPopulationData }) {
             </div>
             <select onChange={add_group_to_be_deleted}>
                 <option group-name="aux">--</option>
-                { all_ticket_groups_ids.map((id, index) => ( // Selection Options
+                {/* Selection Options */}
+                { all_ticket_groups_ids.map((id, index) => (
                     <option group-name={ticketGroups[id]} group-id={id} key={index}>{ticketGroups[id]}</option>
                 )) }
             </select>
@@ -120,7 +132,8 @@ function ManageGroups ({ allPopulationData }) {
                 <button onClick={delete_selected_groups}>Delete Groups</button>
             </div>
             <div id='PFL-MG-group-to-be-deleted-container' className='rectangle-span-selected_pieces'>
-                { groupsToBeDeleted.map((option, index) => ( // Groups Rectangle Blocks
+                {/* Groups Rectangle Blocks */}
+                { groupsToBeDeleted.map((option, index) => (
                     <div key={index}>
                         <span onClick={remove_group_to_be_deleted} group-id={option.id} group-name={option.name}>{option.name}</span>
                     </div>
