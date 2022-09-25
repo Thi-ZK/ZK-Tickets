@@ -51,11 +51,23 @@ const get_selected_option = (event) => {
     return event.target.options[event.target.selectedIndex];
 }
 
+// Generate Object With Groups Names & IDs As Keys
+const generate_groups_names_with_ids = (ticketGroups) => {
+    let groups = {};
+
+    ticketGroups.forEach((group) => {
+        groups[group.id] = group.name;
+    });
+
+    return groups;
+}
+
 module.exports = {
     generate_options_map_obj:            generate_options_map_obj,
     generate_options_id_map_obj:         generate_options_id_map_obj,
     update_custom_text_input_appearence: update_custom_text_input_appearence,
     disable_select_aux_value_filler:     disable_select_aux_value_filler,
     is_selection_piece_an_aggregative:   is_selection_piece_an_aggregative,
-    get_selected_option:                 get_selected_option
+    get_selected_option:                 get_selected_option,
+    generate_groups_names_with_ids:      generate_groups_names_with_ids
 };

@@ -11,7 +11,7 @@ const Header = ({ allPopulationData }) => {
     const language             = allPopulationData.language;
     const allTickets           = allPopulationData.allTickets;
     const ticketGroups         = allPopulationData.ticketGroups;
-    const ticket_groups_names  = ticketGroups ? Object.values(ticketGroups) : [];
+    const ticket_groups_names  = ticketGroups.length ? AF.get_ticket_groups_names(ticketGroups) : [];
 
     // Utils Alias For Filter Checkbox
     const listing_filters_utils = {
@@ -21,6 +21,7 @@ const Header = ({ allPopulationData }) => {
 
     // Search State & onChange Handler
     const [searchBarTerm, updateSearchBarTerm] = useState("");
+
     const update_search_bar_state = (event) => {
         updateSearchBarTerm(event.target.value);
     }
@@ -29,6 +30,7 @@ const Header = ({ allPopulationData }) => {
     const clean_search = async () => {
         AF.clean_search_input();
         await AF.fade_shown_tickets();
+
         updateSearchBarTerm("");
     }
 

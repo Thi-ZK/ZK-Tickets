@@ -123,12 +123,32 @@ const get_aggregative_blocks = (which_aggregative, agg_data) => {
 
 // Get All Aggregative Names (For Selectors) - Returns Array
 const get_all_aggregative_names = (which_aggregative, aggregatives_utils) => {
-    return which_aggregative === "groups" ? Object.values(aggregatives_utils.ticketGroups) : Object.values(aggregatives_utils.usersNamesWithIds);
+    if ( which_aggregative !== "groups" ) {
+        return Object.values(aggregatives_utils.usersNamesWithIds);
+    } else {
+        let groups_names = [];
+
+        aggregatives_utils.ticketGroups.forEach((group) => {
+            groups_names.push(group.name);
+        });
+
+        return groups_names;
+    }
 }
 
 // Get All Aggregative IDs (For Selectors) - Returns Array
 const get_all_aggregative_ids = (which_aggregative, aggregatives_utils) => {
-    return which_aggregative === "groups" ? Object.keys(aggregatives_utils.ticketGroups) : Object.keys(aggregatives_utils.usersNamesWithIds);
+    if ( which_aggregative !== "groups" ) {
+        return Object.keys(aggregatives_utils.usersNamesWithIds);
+    } else {
+        let groups_ids = [];
+
+        aggregatives_utils.ticketGroups.forEach((group) => {
+            groups_ids.push(group.id);
+        });
+
+        return groups_ids;
+    }
 }
 
 // Generate Data Object For Unassign Aggregative Function - Returns Object

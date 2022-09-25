@@ -4,9 +4,10 @@ import AF                  from '../../../components_aux_functions/pages/create_
 
 function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
     // Aliases. "current_piece" Example: "assigneds" or "priority"
-    const current_piece  = data.type_of_piece;
-    const options_map    = AF.generate_options_map_obj(usersNamesWithIds, ticketGroups);
-    const options_id_map = AF.generate_options_id_map_obj(usersNamesWithIds, ticketGroups);
+    const current_piece         = data.type_of_piece;
+    const groups_names_with_ids = AF.generate_groups_names_with_ids(ticketGroups ? ticketGroups : []);
+    const options_map           = AF.generate_options_map_obj(usersNamesWithIds, groups_names_with_ids);
+    const options_id_map        = AF.generate_options_id_map_obj(usersNamesWithIds, groups_names_with_ids);
 
     // Meant For Aggregative Options Selections (Groups & Assigneds)
     const [currentAggregatives, updateAggregatives] = useState({ids: [], names: []});

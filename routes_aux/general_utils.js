@@ -39,7 +39,6 @@ const what_was_requested_obj_map = {
     "/tickets/create/single":                           "Create New Ticket",
     "/ticket_groups/delete/multiple":                   "Delete Provided Ticket Groups",
     "/ticket_groups/get/all":                           "All Ticket Groups Data",
-    "/ticket_groups/get/piece/all_groups":              "All Ticket Groups Names With IDs",
     "/ticket_groups/create/single":                     "Create New Ticket Group",
     "/login/auth":                                      "Authenticate User",
     "/login/password_recovery":                         "Recover User Password",

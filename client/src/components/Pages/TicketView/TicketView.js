@@ -11,38 +11,55 @@ import TicketOverviewInformation from "./TicketOverviewInformation/TicketOvervie
 
 function TicketView({ allPopulationData }) {
 	// Aliases
-	const allTickets         = allPopulationData.allTickets;
-	const update_all_tickets = allPopulationData.update_all_tickets;
-	const userData           = allPopulationData.userData;
-	const language           = allPopulationData.language;
-	const { ticket_id }      = useParams();
-	const ticket_data        = AF.get_ticket_data(allTickets, ticket_id);
+	const allTickets           = allPopulationData.allTickets;
+	const update_all_tickets   = allPopulationData.update_all_tickets;
+	const update_ticket_groups = allPopulationData.update_ticket_groups;
+	const userData             = allPopulationData.userData;
+	const language             = allPopulationData.language;
+	const { ticket_id }        = useParams();
+	const ticket_data          = AF.get_ticket_data(allTickets, ticket_id);
 
 	// Checks Ticket Legitimacy (If Not, Then Send To 404 Page)
 	AF.check_ticket_legitimacy(ticket_data, ticket_id);
 
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
-	const messages_utils             = { messages: messages, updateMessages: updateMessages, language: language };
 
-	// Aggregative States Declaration | assigneds and assumers are the same thing.
+	const messages_utils = { 
+		messages:       messages,
+		updateMessages: updateMessages,
+		language:       language
+	};
+
+	// Aggregative States Declaration | assigneds And assumers Are The Same Thing.
 	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
-	const [groups, updateGroups]       = useState(ticket_data.groups_names); 
-	const aggregatives_utils           = AF.generate_aggregatives_utils_obj(assigneds, groups, updateAssigneds, updateGroups, allPopulationData);
+	const [groups, updateGroups]       = useState(ticket_data.groups_names);
+
+	const aggregatives_utils = {
+		assigneds:         assigneds,
+		updateAssigneds:   updateAssigneds,
+		groups:            groups,
+		updateGroups:      updateGroups,
+		usersNamesWithIds: allPopulationData.usersNamesWithIds,
+		ticketGroups:      allPopulationData.ticketGroups
+	};
 	
 	// Brings Fresh Tickets From DB Whenever User Performs Action (Updates The Ticket).
 	useEffect(() => {
-		if ( window.__was_ticket_interacted ) { update_all_tickets(); }
+		if ( window.__was_ticket_interacted ) {
+			update_all_tickets();
+			update_ticket_groups();
+		}
 
 		window.__was_ticket_interacted = false; 
-	}, [messages, assigneds, groups, update_all_tickets]);
+	}, [messages, assigneds, groups]);
 
 	// Meant For When User Goes From One Ticket To Another Directly (Bcz Component Is Not Rerendered) (Occurs In Search)
 	useEffect(() => {
 		updateMessages(ticket_data.messages);
 		updateAssigneds(ticket_data.assumers_names);
 		updateGroups(ticket_data.groups_names);
-	}, [ticket_id, ticket_data]);
+	}, [ticket_id]);
 
 	// Meant For Smooth Appearence Effect Of Component Rendering
 	const [ticketViewContainerStatus, updateTicketViewContainerStatus] = useState("off");

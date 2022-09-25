@@ -9,19 +9,7 @@ router.get('/all', async (req, res) => {
 	let error              = false;
 	let all_ticket_groups = await GroupModel.find().catch((err) => { error = err; });
 
-	req.session.ticket_groups = all_ticket_groups;
-
 	res.send(AF.generate_response_object(error, all_ticket_groups, req.originalUrl));
-});
-
-// Get All Ticket Groups Names With IDs (Object)
-router.get('/piece/all_groups', async (req, res) => {
-	let all_ticket_groups            = await GroupModel.find();
-	let ticket_groups_names_with_ids = R_AF.generate_groups_names_with_ids_obj(all_ticket_groups);
-
-	req.session.ticket_groups = all_ticket_groups;
-
-	res.send(AF.generate_response_object(false, ticket_groups_names_with_ids, req.originalUrl));
 });
 
 module.exports = router;

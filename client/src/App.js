@@ -44,7 +44,7 @@ function App() {
     const [usersNamesWithIds, updateUsers]   = useState({});
     const update_user_names_and_ids          = AF.generate_update_user_names_and_ids_function(updateUsers, axios);
 
-    const [ticketGroups, updateTicketGroups] = useState({});
+    const [ticketGroups, updateTicketGroups] = useState([]);
     const update_ticket_groups               = AF.generate_update_ticket_groups_function(updateTicketGroups, axios);
  
     // Loading All Population Data For First Time User Opens The Application Logged In (Or Refresh Page F5)

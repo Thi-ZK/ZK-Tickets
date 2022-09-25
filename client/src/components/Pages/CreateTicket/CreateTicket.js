@@ -101,8 +101,7 @@ function CreateTicket ({ allPopulationData }) {
                 </div>
                 <div id='TC-due-date-direct-container'>
                     <div id='TC-due-date-title'>{texts.select_a[language]} <span>{texts.due_date[language]}</span></div>
-                    <div id='TC-due-date-chosen' onClick={AF.switch_calendar_appearence}
-                        >{calendarValue ? calendarValue.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
+                    <div id='TC-due-date-chosen' onClick={AF.switch_calendar_appearence}>{calendarValue ? calendarValue.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
                     </div>
                     <Calendar className="closed" onChange={updateCalendarValue} value={calendarValue}/>
                 </div>
@@ -118,7 +117,7 @@ function CreateTicket ({ allPopulationData }) {
                         <p status="off" id='TC-description-error-message' className='TC-error-message'>{texts.description_is_too_long[language]}</p>
                     </div>
                     <textarea
-                        onFocus={() => { return AF.set_ticket_description_error_message_appearence("off");}}>
+                        onFocus={() => AF.set_ticket_description_error_message_appearence("off")}>
                     </textarea> 
                 </div>
             </div>

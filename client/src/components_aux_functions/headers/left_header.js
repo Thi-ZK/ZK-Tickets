@@ -10,7 +10,8 @@ const switch_grouper_open_status = (event) => {
             let is_grouper_closed  = li_elems_container.getAttribute("status") === "closed";
             
             li_elems_container.setAttribute("status", is_grouper_closed ? "open" : "closed");
-            arrow_image.setAttribute("src", is_grouper_closed ? "/imgs/headers/arrow_up.png" : "/imgs/headers/arrow_down.png")
+            arrow_image.setAttribute("src", is_grouper_closed ? "/imgs/headers/arrow_up.png" : "/imgs/headers/arrow_down.png");
+
             break;
         }
 
@@ -51,9 +52,21 @@ const fade_shown_tickets = () => {
     });
 }
 
+// Process & Return Ticket Groups Names Array
+const get_ticket_groups_names = (ticketGroups) => {
+    let groups_names = [];
+
+    ticketGroups.forEach((group) => {
+        groups_names.push(group.name);
+    });
+
+    return groups_names;
+}
+
 module.exports = {
     switch_grouper_open_status:        switch_grouper_open_status,
     is_term_part_of_ticket_id_or_name: is_term_part_of_ticket_id_or_name,
     clean_search_input:                clean_search_input,
-    fade_shown_tickets:                fade_shown_tickets
+    fade_shown_tickets:                fade_shown_tickets,
+    get_ticket_groups_names:           get_ticket_groups_names
 };

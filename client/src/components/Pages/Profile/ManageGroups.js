@@ -8,17 +8,13 @@ function ManageGroups ({ allPopulationData }) {
     const ticketGroups          = allPopulationData.ticketGroups;
     const update_ticket_groups  = allPopulationData.update_ticket_groups;
     const update_all_tickets    = allPopulationData.update_all_tickets;
-    const all_ticket_groups_ids = Object.keys(ticketGroups);
 
     // Chosen Groups To Be Deleted (Rectangle Blocks)
     const [groupsToBeDeleted, updateGroupsToBeDeleted] = useState([]);
 
     // Add Group To Be Deleted Function (Selection Handler)
     const add_group_to_be_deleted = (event) => {
-        let group_to_be_deleted = {
-            name: AF.get_group_name(event),
-            id:   AF.get_group_id(event)
-        };
+        let group_to_be_deleted = ticketGroups[AF.get_group_id(event) - 1];
 
         if ( !AF.is_group_already_present(groupsToBeDeleted, group_to_be_deleted) ) {
             updateGroupsToBeDeleted([...groupsToBeDeleted, group_to_be_deleted]);
@@ -31,8 +27,8 @@ function ManageGroups ({ allPopulationData }) {
     const remove_group_to_be_deleted = (event) => {
         let group_id_to_be_deleted = AF.get_group_id(event);
 
-        updateGroupsToBeDeleted(groupsToBeDeleted.filter((group_obj) => { 
-            return group_id_to_be_deleted !== group_obj.id;
+        updateGroupsToBeDeleted(groupsToBeDeleted.filter((group) => {
+            return group_id_to_be_deleted !== group.id;
         }));
     }
 
@@ -124,8 +120,8 @@ function ManageGroups ({ allPopulationData }) {
             <select onChange={add_group_to_be_deleted}>
                 <option group-name="aux">--</option>
                 {/* Selection Options */}
-                { all_ticket_groups_ids.map((id, index) => (
-                    <option group-name={ticketGroups[id]} group-id={id} key={index}>{ticketGroups[id]}</option>
+                { ticketGroups.map((group, index) => (
+                    <option group-name={group.name} group-id={group.id} key={index}>{group.name}</option>
                 )) }
             </select>
             <div>

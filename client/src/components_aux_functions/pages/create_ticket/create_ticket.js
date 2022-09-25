@@ -116,7 +116,7 @@ const gather_new_ticket_data = (userData) => {
     };
 
     // As The User Is The Creator Of The Ticket, He/She Is Already Related To The Ticket (And So Must Be Included As Such)
-    if (!new_ticket_data.assumers_names.includes(userData.name)) {
+    if ( !new_ticket_data.assumers_names.includes(userData.name) ) {
         new_ticket_data.related_users_names.push(userData.name);
         new_ticket_data.related_users.push(userData.id);
     }

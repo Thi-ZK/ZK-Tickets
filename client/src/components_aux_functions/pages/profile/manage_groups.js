@@ -14,7 +14,7 @@ const get_group_name = (event) => {
 const get_group_id = (event) => {
     let elem = event.target.tagName === "SELECT" ? get_selected_option(event) : event.target;
 
-    return elem.getAttribute("group-id");
+    return Number(elem.getAttribute("group-id"));
 }
 
 // Check If Group To Be Deleted Is Already Added

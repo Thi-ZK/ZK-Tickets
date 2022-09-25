@@ -1,7 +1,7 @@
 // Generates And Returns A Function That Updates The Ticket Groups Names With IDs (Gets Fresh Data From DB)
 const generate_update_ticket_groups_function = (updateTicketGroups, axios) => {
     return () => {
-        axios.get('/ticket_groups/get/piece/all_groups').then((ticket_groups) => { console.log(ticket_groups.data);
+        axios.get('/ticket_groups/get/all').then((ticket_groups) => { console.log(ticket_groups.data);
             updateTicketGroups(ticket_groups.data.data);
         })
     }
