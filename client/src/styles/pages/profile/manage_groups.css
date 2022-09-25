@@ -96,7 +96,8 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
     font-size: 12px !important;
 }
 
-#PFL-MG-delete-group-title-direct-container {
+#PFL-MG-delete-group-title-direct-container,
+#PFL-MG-create-group-title-direct-container {
     display: flex;
     align-items: center;
 }

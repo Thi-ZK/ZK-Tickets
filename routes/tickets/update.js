@@ -57,13 +57,12 @@ router.post('/single/assigneds/set', midds.check_user_legitimacy_max_strict, asy
 	let new_assumer_name = req.body.aggregative_name;
 	let error            = false;
 
-	await TicketModel.updateOne({ id: ticket_id }, {
-		$addToSet: {
-			assumers:            new_assumer,
-			assumers_names:      new_assumer_name,
-			related_users:       new_assumer,
-			related_users_names: new_assumer_name
-		}}).catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id }, { $addToSet: {
+		assumers:            new_assumer,
+		assumers_names:      new_assumer_name,
+		related_users:       new_assumer,
+		related_users_names: new_assumer_name
+	}}).catch((err) => { error = err; });
 	
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -78,13 +77,12 @@ router.post('/single/assigneds/delete', midds.check_user_legitimacy_strict, asyn
 	let error               = false;
 
 	// If User Is The Creator Of The Ticket, He/She Is Still Related To The Ticket And Therefore Shouldn't Be Pulled Off From The Array Of Related Users.
-	await TicketModel.updateOne({ id: ticket_id }, {
-		$pull: {
-			assumers:            assumer,
-			assumers_names:      assumer_name,
-			related_users:       ticket_creator      === assumer      ? undefined : assumer,
-			related_users_names: ticket_creator_name === assumer_name ? undefined : assumer_name,
-		}}).catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id }, { $pull: {
+		assumers:            assumer,
+		assumers_names:      assumer_name,
+		related_users:       ticket_creator      === assumer      ? undefined : assumer,
+		related_users_names: ticket_creator_name === assumer_name ? undefined : assumer_name,
+	}}).catch((err) => { error = err; });
 
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -96,16 +94,14 @@ router.post('/single/ticket_groups/set', midds.check_user_legitimacy_max_strict,
 	let new_group_name  = req.body.aggregative_name;
 	let error           = false;
 
-	await TicketModel.updateOne({ id: ticket_id }, {
-		$addToSet: {
-			groups:       new_group,
-			groups_names: new_group_name
-		}}).catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id }, { $addToSet: {
+		groups:       new_group,
+		groups_names: new_group_name
+	}}).catch((err) => { error = err; });
 
-	await GroupModel.updateOne({ id: new_group }, {
-		$addToSet: {
-			tickets: ticket_id
-		}}).catch((err) => { error = err; });
+	await GroupModel.updateOne({ id: new_group }, { $addToSet: {
+		tickets: ticket_id
+	}}).catch((err) => { error = err; });
 	
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });
@@ -117,16 +113,14 @@ router.post('/single/ticket_groups/delete', midds.check_user_legitimacy_max_stri
 	let group_name = req.body.aggregative_name;
 	let error      = false;
 
-	await TicketModel.updateOne({ id: ticket_id }, {
-		$pull: {
-			groups:       group,
-			groups_names: group_name
-		}}).catch((err) => { error = err; });
+	await TicketModel.updateOne({ id: ticket_id }, { $pull: {
+		groups:       group,
+		groups_names: group_name
+	}}).catch((err) => { error = err; });
 
-	await GroupModel.updateOne({ id: group }, {
-		$pull: {
-			tickets: ticket_id
-		}}).catch((err) => { error = err; });
+	await GroupModel.updateOne({ id: group }, { $pull: {
+		tickets: ticket_id
+	}}).catch((err) => { error = err; });
 
 	res.send(AF.generate_response_object(error, req.body, req.originalUrl));
 });

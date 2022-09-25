@@ -7,6 +7,7 @@ function ManageGroups ({ allPopulationData }) {
     // Aliases
     const ticketGroups          = allPopulationData.ticketGroups;
     const update_ticket_groups  = allPopulationData.update_ticket_groups;
+    const update_all_tickets    = allPopulationData.update_all_tickets;
     const all_ticket_groups_ids = Object.keys(ticketGroups);
 
     // Chosen Groups To Be Deleted (Rectangle Blocks)
@@ -22,7 +23,7 @@ function ManageGroups ({ allPopulationData }) {
         if ( !AF.is_group_already_present(groupsToBeDeleted, group_to_be_deleted) ) {
             updateGroupsToBeDeleted([...groupsToBeDeleted, group_to_be_deleted]);
             
-            AF.disable_aux_option_elem();
+            AF.set_aux_option_disabled_status(true);
         }
     }
 
@@ -47,7 +48,10 @@ function ManageGroups ({ allPopulationData }) {
             AF.set_loading_icon_status("right", "off");
 
             if ( res.data.success ) {
-                console.log("GOODY");
+                update_all_tickets();
+                update_ticket_groups();
+                updateGroupsToBeDeleted([]);
+                AF.set_aux_option_disabled_status(false);
                 AF.display_success_feedback_icon("right");
             }
         });
@@ -62,18 +66,24 @@ function ManageGroups ({ allPopulationData }) {
 
     return (
     <div status={manageGroupsContainerStatus} id='PFL-manage-groups-container' css-marker="MG">
+        {/* Create New Group Block */}
         <div id="PFL-MG-add-group-direct-container">
-            <h3>Add New Groups</h3>
+            <div id='PFL-MG-create-group-title-direct-container'>
+                <h3>Add New Groups</h3>
+                <img status="off" className='PFL-MG-loading-gif' which="left" src="/imgs/general/loading_blue_icon.gif" alt="loading circle"/>
+                <img status="off" className='PFL-MG-success-gif' which="left" src="./imgs/general/success.gif"          alt="blue success balloon"/>
+            </div>
             <input placeholder='Type the new group name'></input>
             <div>
                 <button>Add Group</button>
             </div>
         </div>
+        {/* Delete Groups Block */}
         <div id="PFL-MG-delete-group-direct-container">
             <div id='PFL-MG-delete-group-title-direct-container'>
                 <h3>Groups To Be Deleted</h3>
                 <img status="off" className='PFL-MG-loading-gif' which="right" src="/imgs/general/loading_blue_icon.gif" alt="loading circle"/>
-                <img status="off" className='PFL-MG-success-gif' which="right" src="./imgs/general/success.gif" alt="blue success balloon"/>
+                <img status="off" className='PFL-MG-success-gif' which="right" src="./imgs/general/success.gif"          alt="blue success balloon"/>
             </div>
             <select onChange={add_group_to_be_deleted}>
                 <option group-name="aux">--</option>

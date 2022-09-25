@@ -26,9 +26,9 @@ const is_group_already_present = (groupsToBeDeleted, group_to_be_deleted) => {
     }
 }
 
-// Disables The Aux Option From The Selection ("--")
-const disable_aux_option_elem = () => {
-    document.querySelector("#PFL-MG-delete-group-direct-container select option[group-name='aux']").disabled = true;
+// Disables The Aux Option From The Selection ("--") (Receives Boolean)
+const set_aux_option_disabled_status = (status) => {
+    document.querySelector("#PFL-MG-delete-group-direct-container select option[group-name='aux']").disabled = status;
 }
 
 // Set Loading Icon Status
@@ -52,7 +52,7 @@ module.exports = {
     get_group_name:                get_group_name,
     get_group_id:                  get_group_id,
     is_group_already_present:      is_group_already_present,
-    disable_aux_option_elem:       disable_aux_option_elem,
+    set_aux_option_disabled_status:       set_aux_option_disabled_status,
     set_loading_icon_status:       set_loading_icon_status,
     display_success_feedback_icon: display_success_feedback_icon
 };
