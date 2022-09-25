@@ -8,14 +8,15 @@ const midds      = require('./middlewares/server.js');
 const AF         = require('./routes_aux/general_utils'); // AF => Generic Aux Functions
 
 // Getting Routes
+const ticketGetRouter    = require('./routes/tickets/get');
 const ticketDeleteRouter = require('./routes/tickets/delete');
 const ticketUpdateRouter = require('./routes/tickets/update');
 const ticketCreateRouter = require('./routes/tickets/create');
-const ticketGetRouter    = require('./routes/tickets/get');
 const userGetRouter      = require('./routes/users/get');
 const userUpdateRouter   = require('./routes/users/update');
 const groupGetRouter     = require('./routes/ticket_groups/get');
 const groupDeleteRouter  = require('./routes/ticket_groups/delete');
+const groupCreateRouter  = require('./routes/ticket_groups/create');
 const loginAuthRouter    = require('./routes/login');
 
 const app = express();
@@ -59,14 +60,15 @@ app.use(session({
 app.use(midds.check_user_logged_state_and_restrict_access_if_not_logged_in);
 
 // Routes
+app.use('/tickets/get',          ticketGetRouter);
 app.use('/tickets/delete',       ticketDeleteRouter);
 app.use('/tickets/update',       ticketUpdateRouter);
 app.use('/tickets/create',       ticketCreateRouter);
-app.use('/tickets/get',          ticketGetRouter);
 app.use('/users/get',            userGetRouter);
 app.use('/users/update',         userUpdateRouter);
 app.use('/ticket_groups/get',    groupGetRouter);
 app.use('/ticket_groups/delete', groupDeleteRouter);
+app.use('/ticket_groups/create', groupCreateRouter);
 app.use('/login',                loginAuthRouter);
 
 // Serving All Pages From Client

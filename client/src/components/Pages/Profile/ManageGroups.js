@@ -57,6 +57,31 @@ function ManageGroups ({ allPopulationData }) {
         });
     }
 
+    // Create New Group (Add New Handler)
+    const create_new_group = () => {
+        let new_group = AF.get_new_typed_group();
+
+        if ( !new_group ) { console.log("VOU FAZER VODE DANÇAR");
+            return;
+        }
+
+        if ( !AF.is_new_group_valid(new_group) ) {
+            return; // PROVIDE VALID NAME FUNC
+        }
+
+        AF.set_loading_icon_status("left", "on");
+
+        axios.post('/ticket_groups/create', { new_group: new_group }).then(( res ) => { console.log(res.data);
+            AF.set_loading_icon_status("left", "off");
+
+            if ( res.data.success ) {
+                update_ticket_groups();
+                AF.display_success_feedback_icon("left");
+                AF.clean_new_group_input();
+            }
+        });
+    }
+
     // Meant For Smooth Appearence Effect Of Component Rendering
     const [manageGroupsContainerStatus, updateManageGroupsContainerStatus] = useState("off");
 
@@ -75,7 +100,7 @@ function ManageGroups ({ allPopulationData }) {
             </div>
             <input placeholder='Type the new group name'></input>
             <div>
-                <button>Add Group</button>
+                <button onClick={create_new_group}>Add Group</button>
             </div>
         </div>
         {/* Delete Groups Block */}
