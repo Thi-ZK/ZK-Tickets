@@ -6,7 +6,7 @@
 	font-family: 'Questrial', sans-serif;
 }
 div[theme='bright'] #TV-status-action-buttons-container {
-	border: 1px solid rgb(225, 225, 225);
+	border: none;
 	background-color: white;
 }
 

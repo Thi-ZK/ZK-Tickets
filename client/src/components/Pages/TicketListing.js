@@ -30,33 +30,27 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     }
 
     // In Case No Tree Main Filter Applied, Consider All Tickets For Child Filters
-    final_tickets_to_be_displayed  = was_any_tree_filter_applied ? final_tickets_to_be_displayed : allTickets;
+    final_tickets_to_be_displayed = was_any_tree_filter_applied ? final_tickets_to_be_displayed : allTickets;
 
     // Status Filtering (Concluded, Homologated ...) & Groups Filtering
     const filter_for_ticket_status = AF.generate_filter_for_ticket_status_func(final_tickets_to_be_displayed);
 
-    for ( let i = 0; i < listingFilters.length; i++ ) {
-        let filter_name = listingFilters[i].name;
-        let filter_type = listingFilters[i].type;
-
-        if ( filter_type === "status" ) {
-            status_tickets_filtered       = status_tickets_filtered.concat(filter_for_ticket_status(filter_name));
+    listingFilters.forEach((filter) => {
+        if ( filter.type === "status" ) {
+            status_tickets_filtered       = status_tickets_filtered.concat(filter_for_ticket_status(filter.name));
             final_tickets_to_be_displayed = status_tickets_filtered;
         }
-    }
+    });
 
     // Groups Filtering
     const filter_for_ticket_group = AF.generate_filter_for_ticket_group_func(final_tickets_to_be_displayed);
 
-    for ( let i = 0; i < listingFilters.length; i++ ) {
-        let filter_name = listingFilters[i].name;
-        let filter_type = listingFilters[i].type;
-        
-        if ( filter_type === "group" ) {
-            group_tickets_filtered        = group_tickets_filtered.concat(filter_for_ticket_group(filter_name));
+    listingFilters.forEach((filter) => {
+        if ( filter.type === "group" ) {
+            group_tickets_filtered        = group_tickets_filtered.concat(filter_for_ticket_group(filter.name));
             final_tickets_to_be_displayed = group_tickets_filtered;
         }
-    }
+    });
 
     // In Case No Filter Was Applied, Return Full List, Case Yes, Clean Repeated Items
     if ( !listingFilters.length ) {

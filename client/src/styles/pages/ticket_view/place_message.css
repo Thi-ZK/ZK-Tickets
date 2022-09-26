@@ -7,7 +7,7 @@
 	        transition-duration: 0.38s;
 }
 div[theme='bright'] #TV-place-message-container {
-	border: 1px solid rgb(225, 225, 225);
+	border: none;
 	background-color: white;
 }
 
@@ -77,7 +77,7 @@ div[theme='bright'] #TV-PM-message-textarea {
 	    -ms-flex-pack: end;
 	        justify-content: flex-end;
 	padding-right: 2.5%;
-	margin-bottom: 12px;
+	padding-bottom: 12px;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;

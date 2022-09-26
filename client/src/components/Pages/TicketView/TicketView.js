@@ -51,14 +51,14 @@ function TicketView({ allPopulationData }) {
 			update_ticket_groups();
 		}
 
-		window.__was_ticket_interacted = false; 
+		window.__was_ticket_interacted = false; // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [messages, assigneds, groups]);
 
 	// Meant For When User Goes From One Ticket To Another Directly (Bcz Component Is Not Rerendered) (Occurs In Search)
 	useEffect(() => {
 		updateMessages(ticket_data.messages);
 		updateAssigneds(ticket_data.assumers_names);
-		updateGroups(ticket_data.groups_names);
+		updateGroups(ticket_data.groups_names); // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ticket_id]);
 
 	// Meant For Smooth Appearence Effect Of Component Rendering
