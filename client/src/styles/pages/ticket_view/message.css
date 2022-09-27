@@ -24,7 +24,7 @@ div[class='TV-message-container'][type='2'] {
     background-color: rgb(40, 40, 40) !important;
 }
 div[theme='bright'] div[class='TV-message-container'][type='2'] {
-    background: linear-gradient(to left, #f5f5f5, #f5f5f5);
+    background: linear-gradient(to left, #cfdcff, #DFEFF4);
 }
 
 .TV-MSG-title-direct-container {

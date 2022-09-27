@@ -87,6 +87,34 @@ const display_new_group_error_msg = () => {
     }, 2500);
 }
 
+// Checks If User Is Legit To Perform Action (Admin Or Group Creator)
+const is_user_legit_max_strict = (userData, groupsToBeDeleted) => {
+    let is_there_a_group_that_user_is_not_creator = false;
+    
+    groupsToBeDeleted.forEach((group) => {
+        if ( group.creator !== userData.id ) {
+            is_there_a_group_that_user_is_not_creator = true;
+        }
+    });
+
+    if ( (userData.user_power === 4) || (!is_there_a_group_that_user_is_not_creator) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Displays Legitimacy Error In Groups Deletion Attempt
+const display_user_legitimacy_error_for_deletion = () => {
+    let msg_elem = document.querySelector("#PFL-MG-delete-group-error-message");
+
+    msg_elem.setAttribute("status", "on");
+
+    setTimeout(() => {
+        msg_elem.setAttribute("status", "off");
+    }, 2500);
+}
+
 module.exports = {
     get_selected_option:                         get_selected_option,
     get_group_name:                              get_group_name,
@@ -100,5 +128,7 @@ module.exports = {
     is_new_group_valid:                          is_new_group_valid,
     display_new_group_error_msg:                 display_new_group_error_msg,
     set_delete_new_group_button_disabled_status: set_delete_new_group_button_disabled_status,
-    set_create_new_group_button_disabled_status: set_create_new_group_button_disabled_status
+    set_create_new_group_button_disabled_status: set_create_new_group_button_disabled_status,
+    is_user_legit_max_strict:                    is_user_legit_max_strict,
+    display_user_legitimacy_error_for_deletion:  display_user_legitimacy_error_for_deletion
 };

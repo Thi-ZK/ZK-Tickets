@@ -20,8 +20,8 @@
     "deleted": {
         "english": "Deleted Tickets",
         "german": "Gelöschte Tickets",
-        "portuguese": "Tickets Criados Por Mim",
-        "spanish": "Tickets Creados Por Mí"
+        "portuguese": "Tickets Deletados",
+        "spanish": "Tickets Deletados"
     },
     "concluded": {
         "english": "Concluded Tickets",

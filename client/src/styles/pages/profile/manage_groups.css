@@ -6,7 +6,8 @@
 }
 
 #PFL-MG-delete-group-direct-container {
-    margin-right: 30px;
+    margin-right: 44px;
+    width: 200px;
 }
 
 #PFL-MG-delete-group-direct-container h3,
@@ -71,6 +72,7 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 }
 
 #PFL-MG-create-group-error-message,
+#PFL-MG-delete-group-error-message,
 #PFL-MG-delete-group-direct-container button,
 #PFL-MG-create-group-direct-container button,
 #PFL-MG-create-group-direct-container input,
@@ -115,8 +117,11 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
     height: 20px;
 }
 
-#PFL-MG-create-group-error-message {
+#PFL-MG-create-group-error-message,
+#PFL-MG-delete-group-error-message {
     font-size: 12.5px;
     padding-top: 10px;
     color: red;
+    width: 150px;
+    line-height: 18px;
 }

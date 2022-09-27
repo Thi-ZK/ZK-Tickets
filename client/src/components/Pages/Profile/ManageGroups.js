@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import axios from '../../../api/axios';
 import AF    from '../../../components_aux_functions/pages/profile/manage_groups'; // Aux Functions
+import texts from '../../../languages/Pages/Profile/ManageGroups.json';
 
 function ManageGroups ({ allPopulationData }) {
     // Aliases
-    const ticketGroups          = allPopulationData.ticketGroups;
-    const update_ticket_groups  = allPopulationData.update_ticket_groups;
-    const update_all_tickets    = allPopulationData.update_all_tickets;
+    const userData             = allPopulationData.userData;
+    const ticketGroups         = allPopulationData.ticketGroups;
+    const update_ticket_groups = allPopulationData.update_ticket_groups;
+    const update_all_tickets   = allPopulationData.update_all_tickets;
+    const language             = allPopulationData.language;
 
     // Chosen Groups To Be Deleted (Rectangle Blocks)
     const [groupsToBeDeleted, updateGroupsToBeDeleted] = useState([]);
@@ -23,7 +26,7 @@ function ManageGroups ({ allPopulationData }) {
         }
     }
 
-    // Remove Group To Be Deleted
+    // Remove Group To Be Deleted (Rectangle Block Handler)
     const remove_group_to_be_deleted = (event) => {
         let group_id_to_be_deleted = AF.get_group_id(event);
 
@@ -37,16 +40,15 @@ function ManageGroups ({ allPopulationData }) {
         if ( !groupsToBeDeleted.length ) {
             return;
         }
+        
+        if ( !AF.is_user_legit_max_strict(userData, groupsToBeDeleted) ) {
+            return AF.display_user_legitimacy_error_for_deletion();
+        }
 
         AF.set_delete_new_group_button_disabled_status("disable");
-
-        let data = {
-            groups_to_be_deleted: groupsToBeDeleted
-        };
-
         AF.set_loading_icon_status("right", "on");
 
-        axios.post('/ticket_groups/delete/multiple', data).then(( res ) => { console.log(res.data);
+        axios.post('/ticket_groups/delete/multiple', { groups_to_be_deleted: groupsToBeDeleted }).then(( res ) => { console.log(res.data);
             AF.set_loading_icon_status("right", "off");
             AF.set_delete_new_group_button_disabled_status("enable");
 
@@ -100,20 +102,20 @@ function ManageGroups ({ allPopulationData }) {
         {/* Create New Group Block */}
         <div id="PFL-MG-create-group-direct-container">
             <div id='PFL-MG-create-group-title-direct-container'>
-                <h3>Add New Groups</h3>
+                <h3>{texts.add_new_groups[language]}</h3>
                 <img status="off" className='PFL-MG-loading-gif' which="left" src="/imgs/general/loading_blue_icon.gif" alt="loading circle"/>
                 <img status="off" className='PFL-MG-success-gif' which="left" src="./imgs/general/success.gif"          alt="blue success balloon"/>
             </div>
             <input placeholder='Type the new group name'></input>
             <div>
-                <button onClick={create_new_group}>Add Group</button>
+                <button onClick={create_new_group}>{texts.add_group[language]}</button>
             </div>
-            <p status="off" id='PFL-MG-create-group-error-message'>Group name too long or too poor</p>
+            <p status="off" id='PFL-MG-create-group-error-message'>{texts.invalid_name[language]}</p>
         </div>
         {/* Delete Groups Block */}
         <div id="PFL-MG-delete-group-direct-container">
             <div id='PFL-MG-delete-group-title-direct-container'>
-                <h3>Groups To Be Deleted</h3>
+                <h3>{texts.groups_to_be_deleted[language]}</h3>
                 <img status="off" className='PFL-MG-loading-gif' which="right" src="/imgs/general/loading_blue_icon.gif" alt="loading circle"/>
                 <img status="off" className='PFL-MG-success-gif' which="right" src="./imgs/general/success.gif"          alt="blue success balloon"/>
             </div>
@@ -125,7 +127,7 @@ function ManageGroups ({ allPopulationData }) {
                 )) }
             </select>
             <div>
-                <button onClick={delete_selected_groups}>Delete Groups</button>
+                <button onClick={delete_selected_groups}>{groupsToBeDeleted.length > 1 ? texts.delete_groups[language] : texts.delete_group[language]}</button>
             </div>
             <div id='PFL-MG-group-to-be-deleted-container' className='rectangle-span-selected_pieces'>
                 {/* Groups Rectangle Blocks */}
@@ -135,6 +137,7 @@ function ManageGroups ({ allPopulationData }) {
                     </div>
                 )) }
             </div>
+            <p status="off" id='PFL-MG-delete-group-error-message'>{texts.legitimacy_error[language]}</p>
         </div>
     </div>
     )

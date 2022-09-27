@@ -17,10 +17,10 @@ function FilterCheckbox ({ which_filter, language, listing_filters_utils, type }
             type: type
         };
 
-        if ( event.target.checked ) { // Add Filter
-            updateListingFilters([...listingFilters, filter]); 
-        } else {                      // Remove Filter
-            updateListingFilters(listingFilters.filter(elem => elem.name !== which_filter));
+        if ( event.target.checked ) {
+            updateListingFilters([...listingFilters, filter]); // Add Filter
+        } else {                      
+            updateListingFilters(listingFilters.filter(elem => elem.name !== which_filter)); // Remove Filter
         }
     }
     
