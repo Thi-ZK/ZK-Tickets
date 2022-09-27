@@ -11,7 +11,7 @@ const Header = ({ allPopulationData }) => {
     const language             = allPopulationData.language;
     const allTickets           = allPopulationData.allTickets;
     const ticketGroups         = allPopulationData.ticketGroups;
-    const ticket_groups_names  = ticketGroups.length ? AF.get_ticket_groups_names(ticketGroups) : [];
+    // const ticket_groups_names  = ticketGroups.length ? AF.get_ticket_groups_names(ticketGroups) : [];
 
     // Utils Alias For Filter Checkbox
     const listing_filters_utils = {
@@ -87,8 +87,8 @@ const Header = ({ allPopulationData }) => {
                         </div>
                     </div>
                     <div status="closed" className="LH-tickets-grouper-direct-container">
-                        {ticket_groups_names.map((group_name, index) => {
-                            return <FilterCheckbox which_filter={group_name} language={language} listing_filters_utils={listing_filters_utils} type="group" key={index}/>
+                        {ticketGroups && ticketGroups.map((group, index) => {
+                            return <FilterCheckbox which_filter={group.name} language={language} listing_filters_utils={listing_filters_utils} type="group" key={index}/>
                         })}
                     </div>
                 </div>
