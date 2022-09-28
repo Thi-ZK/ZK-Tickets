@@ -125,3 +125,19 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
     width: 150px;
     line-height: 18px;
 }
+
+@media(max-width: 1550px){
+    #PFL-MG-delete-group-direct-container {
+        margin-right: 0px !important;
+    }
+
+    #PFL-MG-delete-group-direct-container h3, #PFL-MG-create-group-direct-container h3 {
+        font-size: 14px;
+    }
+
+    #PFL-MG-create-group-direct-container input,
+    #PFL-MG-delete-group-direct-container button, #PFL-MG-create-group-direct-container button,
+    #PFL-MG-delete-group-direct-container select {
+        font-size: 13px;
+    }
+}

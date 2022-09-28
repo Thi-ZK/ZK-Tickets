@@ -46,5 +46,11 @@
         "german": "Telefonnummer",
         "portuguese": "Número de Telefone",
         "spanish": "Número de teléfono"
+    },
+    "manage_groups": {
+        "english": "Manage Groups",
+        "german": "Gruppen verwalten",
+        "portuguese": "Admnistrar Grupos",
+        "spanish": "Admnistrar Grupos"
     }
 }

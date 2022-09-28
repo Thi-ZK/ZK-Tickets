@@ -83,3 +83,22 @@ div[theme='bright'] .TC-SP-selection-title span {
 .TC-SP-aggregative-selected-blocks-direct-container {
 	line-height: 27px;
 }
+
+@media(max-width: 1550px){
+	.TC-SP-selection-title, .TC-SP-new-option-radio-input-direct-container label,
+	#TC-name-direct-container p,
+	#TC-due-date-title,
+	#TC-due-date-chosen,
+	#TC-description-direct-container p {
+		font-size: 12.5px !important;
+	}
+
+	#TC-name-direct-container input {
+		font-size: 13px !important;
+	}
+
+	.TC-selection-input-direct-container select {
+		padding: 0.3em;
+		font-size: 12.5px;
+	}
+}

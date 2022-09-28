@@ -32,3 +32,13 @@ div[theme='bright'] .PFL-PI-person-key-info {
 div[theme='bright'] .PFL-PI-person-info-direct-container p {
     color: rgb(29, 109, 109);
 }
+
+@media(max-width: 1550px){
+    .PFL-PI-person-info-direct-container p {
+        font-size: 12.5px !important;
+    }
+
+    .PFL-PI-person-info-direct-container {
+        margin-right: calc(30px + 40px) !important;
+    }
+}

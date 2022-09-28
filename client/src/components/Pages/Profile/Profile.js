@@ -57,7 +57,7 @@ function Profile({ allPopulationData }) {
                     <div id='PFL-section-choices-direct-container'>
                         <p status="active"     which_content="user_info"     onClick={switch_displayed_content}>{texts.about[language]}</p>
                         <p status="not-active" which_content="preferences"   onClick={switch_displayed_content}>{texts.preferences[language]}</p>
-                        <p status="not-active" which_content="manage_groups" onClick={switch_displayed_content}>Manage Groups</p>
+                        <p status="not-active" which_content="manage_groups" onClick={switch_displayed_content}>{texts.manage_groups[language]}</p>
                     </div>
                     <div className='PFL-long-line-splitter'></div>
                 </div>

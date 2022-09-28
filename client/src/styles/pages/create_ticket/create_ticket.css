@@ -354,6 +354,26 @@ div[theme='bright'] #TC-description-direct-container textarea {
 	}
 }
 
+@media(max-width: 1550px){
+	.TC-create-button-direct-container button {
+		font-size: 12.5px;
+		padding: 10px;
+	}
+
+	#TC-title-container h1 {
+		font-size: 16px;
+		line-height: 19px;
+	}
+
+	#TC-inputs-first-block-container {
+		padding-top: 25px !important;
+	}
+
+	#TC-inputs-second-block-container {
+		padding-top: 15px !important;
+	}
+}
+
 @media(max-width: 1360px){
 	#TC-container-centrelizer {
 		width: 94%;

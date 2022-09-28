@@ -15,7 +15,7 @@
 }
 
 #PFL-PRE-languages-direct-container, #PFL-PRE-brightness-themes-direct-container {
-    margin-top: 27px;
+    margin-top: 20px;
 }
 
 .PFL-PRE-title-and-success-icon-direct-container {
@@ -103,13 +103,13 @@ div[theme='bright'] .PFL-PRE-language-label, div[theme='bright'] .PFL-PRE-bright
     padding-left: 5px;
 }
 
-@media(max-width: 1600px){
+@media(max-width: 1550px){
 	#PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
-        font-size: 14.5px;
+        font-size: 14px;
     }
 
     .PFL-PRE-language-label, .PFL-PRE-brightness-theme-label {
-        font-size: 13px;
+        font-size: 12.5px;
     }
 }
 
