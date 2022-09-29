@@ -15,7 +15,7 @@
     width: 600px;
 }
 
-@media(max-width: 750px){
+@media(max-width: 1550px){
 	#unauthorized-container img {
 		width: 500px;
         height: 500px;

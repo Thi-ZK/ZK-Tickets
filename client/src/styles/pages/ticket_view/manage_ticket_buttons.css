@@ -159,6 +159,22 @@ div[theme='bright'] #TV-SAB-delete-ticket, div[theme='bright'] #TV-SAB-conclude-
 }
 /* Buttons Effects */
 
+@media(max-width: 1550px) {
+	#TV-SAB-button-groups-container {
+		padding-top: 0.75em;
+	}
+
+	#TV-status-action-buttons-container {
+		padding-bottom: 0.75em;
+	}
+
+	.TV-SAB-buttons-group button {
+		max-width: 110px;
+		height: 40px;
+		font-size: 12px;
+	}
+}
+
 @media(max-width: 600px){
 	#TV-SAB-button-groups-container button{
 		font-size: 0.88em;

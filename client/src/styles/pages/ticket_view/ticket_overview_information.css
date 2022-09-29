@@ -98,6 +98,25 @@ div[theme='bright'] #TV-INF-assumers-selector, div[theme='bright'] #TV-INF-group
 	line-height: 27px;
 }
 
+@media(max-width: 1550px) {
+	#TV-ticket-info-container,
+	.rectangle-span-selected_pieces span,
+	#TV-INF-assumers-selector, #TV-INF-groups-selector,
+	#TV-description-direct-container {
+		font-size: 11.8px !important;
+	}
+
+	#TV-description-container #TV-description-title-direct-container h3,
+	.TV-attachment-title-direct-container {
+		font-size: 12.5px;
+	}
+
+	#TV-INF-assumers-selector, #TV-INF-groups-selector {
+		height: 20px;
+		width: 75px;
+	}
+}
+
 @media(max-width: 720px) {
 	#ticket-view-container {
 		margin-top: 3em;

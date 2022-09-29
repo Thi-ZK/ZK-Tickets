@@ -163,6 +163,25 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 	        flex-direction: column;
 }
 
+@media(max-width: 1550px) {
+	#ticket-view-container {
+		margin: 1.2em 0em 1.5em 1em;
+	}
+
+	#TV-title-and-info-container {
+		padding-top: 0.85em;
+	}
+
+	#TV-title-direct-container {
+		padding: 9px;
+		align-items: center;
+	}
+
+	#TV-title-and-info-container h2 {
+		font-size: 15px;
+	}
+}
+
 @media(max-width: 1500px) {
 	#ticket-view-container {
 		-webkit-box-orient: vertical;

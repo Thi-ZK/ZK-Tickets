@@ -87,6 +87,11 @@ div[theme='bright'] .TV-MSG-text {
     cursor: pointer;
 }
 
+.TV-MSG-deleting-gif {
+    position: relative;
+    top: -9px;
+}
+
 .TV-MSG-deleting-gif[status='off']{
     display: none;
 }
@@ -95,17 +100,31 @@ div[theme='bright'] .TV-MSG-text {
     display: inline-block;
 }
 
-@media(max-width: 720px) {
-	.TV-MSG-text {
-        font-size: 13px;
+@media(max-width: 1550px) {
+	.TV-MSG-owner-name img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .TV-MSG-delete-icon {
+        width: 11px !important;
+        height: 11px !important;
+    }
+
+    .TV-MSG-title-direct-container {
+        font-size: 11.5px;
+    }
+
+    .TV-MSG-text {
+        font-size: 12px;
+    }
+
+    .TV-MSG-not-enough-power-error-message-mob {
+        font-size: 11px;
     }
 }
 
 @media(max-width: 600px) {
-	.TV-MSG-title-direct-container {
-        
-    }
-
     .TV-MSG-owner-name {
         line-height: 16px;
     }
@@ -124,6 +143,5 @@ div[theme='bright'] .TV-MSG-text {
         padding-top: 7px;
         display: block;
         color: rgb(199, 47, 53);
-        font-size: 12px;
     }
 }
