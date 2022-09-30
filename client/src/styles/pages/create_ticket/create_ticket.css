@@ -348,13 +348,11 @@ div[theme='bright'] #TC-description-direct-container textarea {
 	        flex-direction: column;
 }
 
-@media(max-width: 1600px){
+@media(max-width: 1620px){
 	#TC-container-centrelizer {
 		width: 85%;
 	}
-}
 
-@media(max-width: 1550px){
 	.TC-create-button-direct-container button {
 		font-size: 12.5px;
 		padding: 10px;
@@ -374,9 +372,27 @@ div[theme='bright'] #TC-description-direct-container textarea {
 	}
 }
 
-@media(max-width: 1360px){
+@media(max-width: 1380px){
 	#TC-container-centrelizer {
 		width: 94%;
+	}
+
+	.TC-create-button-direct-container button {
+		font-size: 12px;
+		padding: 10px;
+	}
+
+	#TC-title-container h1 {
+		font-size: 15px;
+		line-height: 18.5px;
+	}
+
+	#TC-inputs-first-block-container {
+		padding-top: 22px !important;
+	}
+
+	#TC-inputs-second-block-container {
+		padding-top: 12px !important;
 	}
 }
 

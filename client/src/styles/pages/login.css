@@ -272,7 +272,7 @@ div[theme='bright'] #LOG-new-account-request-link-direct-container span {
     color: rgb(42, 127, 170);
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#LOG-form-container {
 		width: 450px;
         height: 470px;
@@ -315,6 +315,52 @@ div[theme='bright'] #LOG-new-account-request-link-direct-container span {
     #LOG-password-recovery-modal-direct-container {
         margin-left: 25px;
         height: 52px;
+    }
+}
+
+@media(max-width: 1380px){
+	#LOG-form-container {
+		width: 430px;
+        height: 450px;
+	}
+
+    #LOG-inputs-container {
+        padding-top: 24px;
+    }
+
+    #LOG-new-account-request-link-direct-container {
+        width: calc(430px - 40px);
+    }
+
+    #LOG-title-direct-container > p {
+        font-size: 15px;
+    }
+
+    #LOG-loading-gif-direct-container img {
+        width: 52px;
+        height: 52px;
+    }
+
+    #LOG-forgot-password-button-direct-container button,
+    #LOG-new-account-request-link-direct-container a,
+    #LOG-password-recovery-modal-title-direct-container h4,
+    #LOG-password-recovery-modal-direct-container input,
+    #LOG-error-display-direct-container p {
+        font-size: 12px;
+    }
+
+    .LOG-inputs-direct-container input {
+        font-size: 12.5px;
+    }
+
+    #LOG-submit-button-direct-container button,
+    #LOG-new-account-request-link-direct-container {
+        font-size: 13px;
+    }
+
+    #LOG-password-recovery-modal-direct-container {
+        margin-left: 25px;
+        height: 46px;
     }
 }
 

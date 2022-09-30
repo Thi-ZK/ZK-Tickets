@@ -15,10 +15,17 @@
     width: 600px;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#unauthorized-container img {
 		width: 500px;
         height: 500px;
+	}
+}
+
+@media(max-width: 1380px){
+	#unauthorized-container img {
+		width: 420px;
+        height: 420px;
 	}
 }
 

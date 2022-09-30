@@ -103,13 +103,23 @@ div[theme='bright'] .PFL-PRE-language-label, div[theme='bright'] .PFL-PRE-bright
     padding-left: 5px;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
         font-size: 14px;
     }
 
     .PFL-PRE-language-label, .PFL-PRE-brightness-theme-label {
         font-size: 12.5px;
+    }
+}
+
+@media(max-width: 1380px){
+	#PFL-PRE-languages-direct-container h3, #PFL-PRE-brightness-themes-direct-container h3 {
+        font-size: 13.5px;
+    }
+
+    .PFL-PRE-language-label, .PFL-PRE-brightness-theme-label {
+        font-size: 12px;
     }
 }
 

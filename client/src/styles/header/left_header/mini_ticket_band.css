@@ -75,7 +75,7 @@
 	font-weight: bold;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	.LH-filtered-mini-ticket-band {
 		padding: 6px 10px 8px 10px;
 		width: 230px;
@@ -88,6 +88,24 @@
 	
 	.LH-FTB-general-infos-container {
 		font-size: 10.8px;
+	}
+
+	.LH-FTB-general-infos-container {
+		padding-top: 4px;
+	}
+}
+
+@media(max-width: 1380px){
+	.LH-filtered-mini-ticket-band {
+		width: 220px;
+	}
+
+	.LH-FTB-title-direct-container {
+		font-size: 11px;
+	}
+	
+	.LH-FTB-general-infos-container {
+		font-size: 10.5px;
 	}
 
 	.LH-FTB-general-infos-container {

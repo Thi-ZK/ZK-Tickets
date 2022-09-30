@@ -94,13 +94,23 @@ div[theme='bright'] .ATT-file-path-text {
 	visibility: visible;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#TC-attachment-blocks-title {
 		font-size: 13px !important;
 	}
 
 	.attachment-container * {
 		font-size: 12.5px !important;
+	}
+}
+
+@media(max-width: 1380px){
+	#TC-attachment-blocks-title {
+		font-size: 12.5px !important;
+	}
+
+	.attachment-container * {
+		font-size: 12px !important;
 	}
 }
 

@@ -205,7 +205,7 @@ div[theme='bright'] .TB-description-container p, div[theme='bright'] .TB-descrip
 	display: none;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	.ticket-band-container {
 		width: calc(100vw - 288px - 48px);
 		margin: 12px 0px 9px 18px;

@@ -104,7 +104,7 @@ div[theme='bright'] #HAI-contact-email-container p {
 	padding: 15px 0px 15px 0px;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#HAI-container-centrelizer {
         width: 80%;
     }
@@ -115,6 +115,20 @@ div[theme='bright'] #HAI-contact-email-container p {
 
 	#HAI-contact-email-container p {
 		font-size: 14px;
+	}
+}
+
+@media(max-width: 1380px){
+	#HAI-container-centrelizer {
+        width: 85%;
+    }
+
+	#HAI-contact-email-container p {
+		font-size: 15px;
+	}
+
+	#HAI-contact-email-container p {
+		font-size: 13.5px;
 	}
 }
 

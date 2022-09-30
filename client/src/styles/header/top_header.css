@@ -126,7 +126,7 @@ div[theme='bright'] #TH-languages-direct-container button {
 	padding-top: 2px;
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#top-header-container {
 		width: calc(100vw - 288px);
 		padding: 8px 0px 8px 0px;

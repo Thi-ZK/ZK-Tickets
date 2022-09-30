@@ -100,7 +100,7 @@ div[theme='bright'] .TV-MSG-text {
     display: inline-block;
 }
 
-@media(max-width: 1550px) {
+@media(max-width: 1620px) {
 	.TV-MSG-owner-name img {
         width: 26px;
         height: 26px;

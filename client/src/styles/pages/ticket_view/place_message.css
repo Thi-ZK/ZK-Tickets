@@ -124,7 +124,7 @@ div[theme='bright'] #TV-PM-submit-button-direct-container button:hover {
 	color: white !important;
 }
 
-@media(max-width: 1550px) {
+@media(max-width: 1620px) {
 	#TV-PM-title-direct-container p {
 		font-size: 14.5px;
 		padding-top: 0px;
@@ -133,5 +133,15 @@ div[theme='bright'] #TV-PM-submit-button-direct-container button:hover {
 	#TV-PM-message-textarea {
 		font-size: 13px;
 		height: 95px;
+	}
+}
+
+@media(max-width: 1380px) {
+	#TV-PM-title-direct-container p {
+		font-size: 14px;
+	}
+
+	#TV-PM-message-textarea {
+		font-size: 12.5px;
 	}
 }

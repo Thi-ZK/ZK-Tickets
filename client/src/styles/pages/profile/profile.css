@@ -154,7 +154,7 @@ div[theme='bright'] .PFL-long-line-splitter {
     border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-@media(max-width: 1550px){
+@media(max-width: 1620px){
 	#PFL-container-centrelizer {
 		width: 85%;
 	}
@@ -201,6 +201,40 @@ div[theme='bright'] .PFL-long-line-splitter {
 
     #PFL-preferences-container {
         padding-right: 35px !important;
+    }
+}
+
+@media(max-width: 1380px){
+    #PFL-picture-direct-container img {
+        width: 105px;
+        height: 105px;
+    }
+
+    #PFL-section-splitter-and-option-choice-container,
+    #PFL-person-info-container,
+    #PFL-preferences-container,
+    #PFL-manage-groups-container {
+        padding-left: 145px !important;
+    }
+
+    #PFL-person-name {
+        font-size: 17px;
+    }
+
+    #PFL-title-direct-container h1 {
+        font-size: 15px;
+    }
+
+    #PFL-job-title {
+        font-size: 12px !important;
+    }
+
+    #PFL-total-linked-tickets-direct-container {
+        font-size: 13px;
+    }
+
+    #PFL-section-choices-direct-container p {
+        font-size: 13.5px;
     }
 }
 

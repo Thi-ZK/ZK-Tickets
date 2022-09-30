@@ -163,7 +163,7 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 	        flex-direction: column;
 }
 
-@media(max-width: 1550px) {
+@media(max-width: 1620px) {
 	#ticket-view-container {
 		margin: 1.2em 0em 1.5em 1em;
 	}
@@ -182,6 +182,12 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 	}
 }
 
+@media(max-width: 1380px) {
+	#TV-title-and-info-container h2 {
+		font-size: 14.5px;
+	}
+}
+
 @media(max-width: 1500px) {
 	#ticket-view-container {
 		-webkit-box-orient: vertical;
@@ -191,7 +197,7 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 	}
 
 	#TV-description-attachments-and-info-container, #TV-place-message-and-ticket-management-options-container {
-		width: 100%;
+		width: 98.5%;
 	}
 
 	#TV-place-message-and-ticket-management-options-container {
