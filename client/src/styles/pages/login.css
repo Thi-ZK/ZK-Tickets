@@ -4,11 +4,16 @@
 }
 
 #LOG-centralizer {
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
 	position: relative;
 	top: 6vh;
+}
+
+#LOG-centralizer,
+#LOG-inputs-container,
+#LOG-password-recovery-modal-title-direct-container {
+    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 #LOG-form-container {
@@ -44,17 +49,21 @@ div[theme='bright'] #LOG-title-direct-container {
 }
 
 #LOG-inputs-container {
+    padding-top: 40px;
+}
+
+#LOG-inputs-container,
+#LOG-password-recovery-modal-direct-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding-top: 40px;
 }
 
-#LOG-centralizer, #LOG-inputs-container, #LOG-submit-button-direct-container, #LOG-forgot-password-button-direct-container, #LOG-loading-gif-direct-container[status='on'] {
+#LOG-centralizer, #LOG-inputs-container,
+#LOG-submit-button-direct-container,
+#LOG-forgot-password-button-direct-container,
+#LOG-loading-gif-direct-container[status='on'] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -175,10 +184,6 @@ div[theme='bright'] #LOG-forgot-password-button-direct-container button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -195,9 +200,6 @@ div[theme='bright'] #LOG-password-recovery-modal-direct-container input {
 }
 
 #LOG-password-recovery-modal-title-direct-container {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

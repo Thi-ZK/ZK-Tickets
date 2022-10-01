@@ -1,8 +1,14 @@
 #PFL-manage-groups-container {
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+         -o-transition-duration: 0.4s;
+            transition-duration: 0.4s;
     padding: 28px 95px 0px 190px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 #PFL-MG-delete-group-direct-container {
@@ -60,14 +66,14 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 }
 
 #PFL-MG-delete-group-direct-container button {
-    background-image: -webkit-gradient(linear, left top, right top, from(#3F0D12), to(#A71D31));
 	background-image: -o-linear-gradient(left, #3F0D12, #A71D31);
+	background-image: -webkit-gradient(linear, left top, right top, from(#3F0D12), to(#A71D31));
 	background-image: linear-gradient(to right, #3F0D12, #A71D31);
 }
 
 #PFL-MG-create-group-direct-container button {
-    background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
 	background-image: -o-linear-gradient(left, #223322, #0f9b0f);
+	background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
 	background-image: linear-gradient(to right, #223322, #0f9b0f);
 }
 
@@ -77,7 +83,9 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 #PFL-MG-create-group-direct-container button,
 #PFL-MG-create-group-direct-container input,
 .PFL-MG-success-gif {
-    transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+         -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
 }
 #PFL-MG-delete-group-direct-container button:hover,
 #PFL-MG-create-group-direct-container button:hover {
@@ -85,8 +93,13 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 }
 
 #PFL-MG-group-to-be-deleted-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding-top: 10px;
 }
 
@@ -101,8 +114,12 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
 
 #PFL-MG-delete-group-title-direct-container,
 #PFL-MG-create-group-title-direct-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .PFL-MG-success-gif,
@@ -151,5 +168,52 @@ div[theme='bright'] #PFL-MG-delete-group-direct-container select {
     #PFL-MG-delete-group-direct-container button, #PFL-MG-create-group-direct-container button,
     #PFL-MG-delete-group-direct-container select {
         font-size: 12.5px;
+    }
+}
+
+@media(max-width: 1200px){
+    #PFL-MG-create-group-direct-container input {
+        width: 170px;
+    }
+}
+
+@media(max-width: 750px){
+    #PFL-manage-groups-container {
+        padding: 28px 0px 0px 0px !important;
+    }
+}
+
+@media(max-width: 550px){
+    #PFL-manage-groups-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+
+    #PFL-manage-groups-container > div {
+        width: 280px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        padding-bottom: 15px;
+    }
+
+    #PFL-manage-groups-container > div h3 {
+        margin-left: 55px;
+    }
+
+    #PFL-MG-create-group-error-message, #PFL-MG-delete-group-error-message {
+        width: 200px;
     }
 }

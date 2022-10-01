@@ -48,3 +48,13 @@ div[theme='bright'] .PFL-PI-person-info-direct-container p {
         font-size: 12px !important;
     }
 }
+
+@media(max-width: 450px) {
+    .PFL-PI-person-info-direct-container {
+        margin-right: 40px !important;
+    }
+
+    .PFL-PI-person-info-direct-container p {
+        font-size: 13.5px !important;
+    }
+}

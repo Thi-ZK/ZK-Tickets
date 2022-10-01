@@ -278,13 +278,24 @@ div[theme='bright'] .PFL-long-line-splitter {
 @media(max-width: 450px){
     #PFL-all-content-info-container {
         padding-right: 10px;
+        padding-left: 10px;
     }
 
-	.PFL-PI-person-info-direct-container {
-        margin-right: 40px !important;
+    #PFL-section-choices-direct-container {
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+    
+    #PFL-section-choices-direct-container p {
+        font-size: 13.5px;
     }
 
-    .PFL-PI-person-info-direct-container p {
-        font-size: 13.5px !important;
+    #PFL-section-choices-direct-container p[which_content='manage_groups'] {
+        padding-right: 0px;
+    }
+
+    .PFL-long-line-splitter {
+        margin-right: 0px !important;
     }
 }
