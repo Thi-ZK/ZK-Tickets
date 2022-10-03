@@ -277,6 +277,7 @@ div[theme='bright'] .rectangle-span-selected_pieces span:hover {
 @import "./styles/pages/help_and_info.css";
 @import "./styles/pages/error_page.css";
 @import "./styles/pages/home.css";
+@import "./styles/pages/ticket_listing/pagination.css";
 
 /* Profile Page Styles */
 @import "./styles/pages/profile/profile.css";

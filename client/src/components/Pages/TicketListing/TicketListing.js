@@ -1,6 +1,7 @@
 import React      from "react";
-import TicketBand from '../Ticket/TicketBand';
-import AF         from '../../components_aux_functions/pages/ticket_listing.js'; // Aux Functions
+import TicketBand from '../../Ticket/TicketBand';
+import Pagination from './Pagination';
+import AF         from '../../../components_aux_functions/pages/ticket_listing/ticket_listing.js'; // Aux Functions
 
 function TicketListing ({ allPopulationData }) { // Look Into Documentation For Valuable Info Regarding Filters
     // Data Variable Aliases
@@ -19,12 +20,12 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     const filter_for_assignment    = AF.generate_filter_for_assignment_func(allTickets, userData);
     const filter_for_user_creation = AF.generate_filter_for_user_creation_func(allTickets, userData);
 
-    // 'Assigned To Me' Filtering (No Concat Needed As It Is The First Time Filtering)
+    // 'Assigned To Me' Filtering (No Concat Needed As It Is The First Time Filtering) (Tree Main Filter)
     if ( was_assigned_filter_applied ) {
         final_tickets_to_be_displayed = filter_for_assignment();
     }
 
-    // 'Created By Me' Filtering
+    // 'Created By Me' Filtering (Tree Main Filter)
     if ( was_creation_filter_applied ) {
         final_tickets_to_be_displayed = final_tickets_to_be_displayed.concat(filter_for_user_creation());
     }
@@ -32,7 +33,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     // In Case No Tree Main Filter Applied, Consider All Tickets For Child Filters
     final_tickets_to_be_displayed = was_any_tree_filter_applied ? final_tickets_to_be_displayed : allTickets;
 
-    // Status Filtering (Concluded, Homologated ...) & Groups Filtering
+    // Status Filtering (Concluded, Homologated ...)
     const filter_for_ticket_status = AF.generate_filter_for_ticket_status_func(final_tickets_to_be_displayed);
 
     listingFilters.forEach((filter) => {
@@ -61,6 +62,8 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
 
     return (
         <div id="ticket-listing-container">
+            <Pagination final_tickets_to_be_displayed={final_tickets_to_be_displayed}></Pagination>
+            
             {final_tickets_to_be_displayed.map((ticket_data, index) => (
                 <TicketBand key={index} ticket_data={ticket_data} allPopulationData={allPopulationData}/>
             ))}
