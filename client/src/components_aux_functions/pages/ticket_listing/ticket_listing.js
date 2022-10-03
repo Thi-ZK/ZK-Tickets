@@ -1,5 +1,5 @@
 // Generates A Function That Filters For 'Assigned To Me' Tickets
-const generate_filter_for_assignment_func = (allTickets, userData) => {
+const gen_filter_for_assignment_func = (allTickets, userData) => {
     return () => {
         return allTickets.filter((elem) => {
             return elem.assumers.includes(userData.id);
@@ -8,7 +8,7 @@ const generate_filter_for_assignment_func = (allTickets, userData) => {
 }
 
 // Generates A Function That Filters For 'Created By Me' Tickets
-const generate_filter_for_user_creation_func = (allTickets, userData) => {
+const gen_filter_for_user_creation_func = (allTickets, userData) => {
     return () => {
         return allTickets.filter((elem) => {
             return elem.creator === userData.id;
@@ -17,7 +17,7 @@ const generate_filter_for_user_creation_func = (allTickets, userData) => {
 }
 
 // Generates A Function That Filters Given A Tickets Source (Array Of Tickets) For Statuses (Homologation, Concluded ...)
-const generate_filter_for_ticket_status_func = (tickets_source) => {
+const gen_filter_for_ticket_status_func = (tickets_source) => {
     return (which_filter) => {
         return tickets_source.filter((elem) => {
             return which_filter === elem.status;
@@ -26,7 +26,7 @@ const generate_filter_for_ticket_status_func = (tickets_source) => {
 }
 
 // Generates A Function That Filters Given A Tickets Source (Array Of Tickets) For Groups
-const generate_filter_for_ticket_group_func = (tickets_source) => {
+const gen_filter_for_ticket_group_func = (tickets_source) => {
     return (which_filter) => {
         return tickets_source.filter((elem) => {
             return elem.groups_names.includes(which_filter);
@@ -57,7 +57,7 @@ const was_created_by_me_filter_applied = (listingFilters) => {
 }
 
 // Clean Repeated Filtered Tickets
-const clean_repeated_repeated_filtered_tickets = (final_tickets_to_be_displayed) => {
+const clean_repeated_filtered_tickets = (final_tickets_to_be_displayed) => {
     const unique_ids = [];
 
     return final_tickets_to_be_displayed.filter(ticket => {
@@ -79,11 +79,11 @@ const clean_repeated_repeated_filtered_tickets = (final_tickets_to_be_displayed)
     // But Also Checks 'Assigned To Me' Filter, Then Only Blocked & Deleted Tickets That Were 'Assigned To Me' Will Be Displayed.
 
 module.exports = {
-    generate_filter_for_assignment_func:      generate_filter_for_assignment_func,
-    generate_filter_for_user_creation_func:   generate_filter_for_user_creation_func,
-    generate_filter_for_ticket_status_func:   generate_filter_for_ticket_status_func,
-    clean_repeated_repeated_filtered_tickets: clean_repeated_repeated_filtered_tickets,
-    was_assigned_to_me_filter_applied:        was_assigned_to_me_filter_applied,
-    was_created_by_me_filter_applied:         was_created_by_me_filter_applied,
-    generate_filter_for_ticket_group_func:    generate_filter_for_ticket_group_func
+    gen_filter_for_assignment_func:    gen_filter_for_assignment_func,
+    gen_filter_for_user_creation_func: gen_filter_for_user_creation_func,
+    gen_filter_for_ticket_status_func: gen_filter_for_ticket_status_func,
+    clean_repeated_filtered_tickets:   clean_repeated_filtered_tickets,
+    was_assigned_to_me_filter_applied: was_assigned_to_me_filter_applied,
+    was_created_by_me_filter_applied:  was_created_by_me_filter_applied,
+    gen_filter_for_ticket_group_func:  gen_filter_for_ticket_group_func
 };
