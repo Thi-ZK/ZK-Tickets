@@ -21,9 +21,13 @@ function Pagination ({ tickets_to_be_shown, updateSelectedPage }) {
         let first_current_index = currentShownBlocks[0];
 
         if ( event.target.id.includes("proceed") ) {
-            updateCurrentShownBlocks(total_page_blocks.slice(last_current_index + 1, last_current_index + 10));
+            if ( total_page_blocks[last_current_index + 1] ) {
+                updateCurrentShownBlocks(total_page_blocks.slice(last_current_index + 1, last_current_index + 10));
+            }
         } else {
-            updateCurrentShownBlocks(total_page_blocks.slice(first_current_index - 10, first_current_index));
+            if ( first_current_index !== 0 ) {
+                updateCurrentShownBlocks(total_page_blocks.slice(first_current_index - 10, first_current_index));
+            }
         }
     }
 
