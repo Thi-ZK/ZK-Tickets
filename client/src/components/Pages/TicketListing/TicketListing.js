@@ -7,7 +7,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     // Data Variable Aliases
     const listingFilters = allPopulationData.listingFilters; // Array Of Objects
     const userData       = allPopulationData.userData;
-    const allTickets     = allPopulationData.allTickets;  
+    const allTickets     = allPopulationData.allTickets;
 
     // Pagination Selected Display Page
     const [selectedPage, updateSelectedPage] = useState(1);
@@ -62,12 +62,12 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     } else {
         tickets_to_be_shown = AF.clean_repeated_filtered_tickets(tickets_to_be_shown);
     }
-
+    
     return (
         <div current-pagination={selectedPage} id="ticket-listing-container">
-            <Pagination tickets_to_be_shown={tickets_to_be_shown} updateSelectedPage={updateSelectedPage}/>
+            <Pagination tickets_to_be_shown={tickets_to_be_shown} updateSelectedPage={updateSelectedPage} listingFilters={listingFilters}/>
             
-            {tickets_to_be_shown.map((ticket_data, index) => (
+            {tickets_to_be_shown.slice((selectedPage -1) * 15, selectedPage * 15).map((ticket_data, index) => (
                 <TicketBand key={index} ticket_data={ticket_data} allPopulationData={allPopulationData}/>
             ))}
         </div>

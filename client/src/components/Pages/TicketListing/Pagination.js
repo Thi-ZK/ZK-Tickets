@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import AF from '../../../components_aux_functions/pages/ticket_listing/pagination.js'; // Aux Functions
-
-function Pagination ({ tickets_to_be_shown, updateSelectedPage }) {
-    // Meant For The Page Indexes Generation (Each Page Can Have Max Of 20 Tickets)
+ 
+function Pagination ({ tickets_to_be_shown, updateSelectedPage, listingFilters }) { // The Pagination Has A Max Of 10 Blocks.
+    // Aliases (Each Page Can Have Max Of 15 Tickets)
     const total_page_blocks             = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
     const is_page_number_reaching_limit = AF.is_page_number_reaching_limit(tickets_to_be_shown);
 
@@ -18,7 +18,7 @@ function Pagination ({ tickets_to_be_shown, updateSelectedPage }) {
         updateSelectedPage(Number(event.target.innerText));
     }
     
-    // Update Current Page Blocks Array
+    // Update Current Page Blocks Array (This Is Only Used, When The Number Of Blocks Surpasses 10 And User Clicks On "...")
     const update_current_shown_page_blocks = (event) => {
         AF.clean_page_blocks_attributes();
 
@@ -36,10 +36,15 @@ function Pagination ({ tickets_to_be_shown, updateSelectedPage }) {
         }
     }
 
-    // Updates The Pagination When Listing Is Re-rendered (Filter Applied)
+    // Updates The Pagination When Listing Is Re-rendered (When Filter Is Applied)
     useEffect(() => {
-        updateCurrentShownBlocks(AF.gen_initial_page_blocks(tickets_to_be_shown));
-    }, [tickets_to_be_shown]);
+        AF.clean_page_blocks_attributes();
+        AF.set_first_block_as_selected();
+
+        updateSelectedPage(1);
+
+        updateCurrentShownBlocks(AF.gen_initial_page_blocks(tickets_to_be_shown)); // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [listingFilters]);
 
     // Meant For Smooth Appearence Effect Of Component Rendering
     const [paginationContainer, updatePaginationContainer] = useState("off");
