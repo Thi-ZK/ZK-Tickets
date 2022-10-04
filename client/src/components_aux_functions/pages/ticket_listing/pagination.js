@@ -44,25 +44,25 @@ const clean_page_blocks_attributes = () => {
     });
 }
 
-// Set Selected Attribute To Clicked Block
-const set_selected_attribute_to_clicked_block = (event) => {
-    event.target.setAttribute("current-selected", "");
-}
+// Set Selected Attribute To Block
+const set_selected_attribute_to_block = (which_page_index) => {
+    let elem = document.querySelector("div.PN-page-index-block[index='" + which_page_index + "']");
 
-// Set First Block As Selected (Used When Filtered)
-const set_first_block_as_selected = () => {
-    let first_page_block = document.querySelector(".PN-page-index-block");
-
-    if ( first_page_block ) {
-        first_page_block.setAttribute("current-selected", "");
+    if ( elem ) {
+        elem.setAttribute("current-selected", "");
     }
 }
 
+// Checks If The Block To Be Updated Exists
+const is_update_block_existing = (index) => {
+    return document.querySelector("div.PN-page-index-block[index='" + index + "']") ? true : false;
+}
+
 module.exports = {
-    gen_initial_page_blocks:                 gen_initial_page_blocks,
-    is_page_number_reaching_limit:           is_page_number_reaching_limit,
-    gen_total_page_blocks:                   gen_total_page_blocks,
-    clean_page_blocks_attributes:            clean_page_blocks_attributes,
-    set_selected_attribute_to_clicked_block: set_selected_attribute_to_clicked_block,
-    set_first_block_as_selected:             set_first_block_as_selected
+    gen_initial_page_blocks:         gen_initial_page_blocks,
+    is_page_number_reaching_limit:   is_page_number_reaching_limit,
+    gen_total_page_blocks:           gen_total_page_blocks,
+    clean_page_blocks_attributes:    clean_page_blocks_attributes,
+    set_selected_attribute_to_block: set_selected_attribute_to_block,
+    is_update_block_existing:        is_update_block_existing
 };

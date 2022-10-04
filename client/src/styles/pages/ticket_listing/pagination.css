@@ -27,9 +27,19 @@
 .PN-page-index-block:hover {
     box-shadow: 0px 0px 2px 0px black;
 }
+div[theme='dark'] #PN-proceed-button-direct-container button,
+div[theme='dark'] #PN-go-back-button-direct-container button,
+div[theme='dark'] .PN-page-index-block {
+    color: rgb(240, 240, 240);
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(90, 90, 90);
+}
 
 .PN-page-index-block[current-selected] {
     background: linear-gradient(to left, #cfdcff, #DFEFF4);
+}
+div[theme='dark'] .PN-page-index-block[current-selected] {
+    background: linear-gradient(to left, #414345, #232526)
 }
 
 .PN-page-index-block {

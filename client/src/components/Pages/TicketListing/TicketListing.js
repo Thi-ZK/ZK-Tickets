@@ -65,7 +65,12 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     
     return (
         <div current-pagination={selectedPage} id="ticket-listing-container">
-            <Pagination tickets_to_be_shown={tickets_to_be_shown} updateSelectedPage={updateSelectedPage} listingFilters={listingFilters}/>
+            <Pagination
+                tickets_to_be_shown={tickets_to_be_shown}
+                selectedPage={selectedPage}
+                updateSelectedPage={updateSelectedPage}
+                listingFilters={listingFilters}>
+            </Pagination>
             
             {tickets_to_be_shown.slice((selectedPage -1) * 15, selectedPage * 15).map((ticket_data, index) => (
                 <TicketBand key={index} ticket_data={ticket_data} allPopulationData={allPopulationData}/>
