@@ -28,6 +28,10 @@
     box-shadow: 0px 0px 2px 0px black;
 }
 
+.PN-page-index-block[current-selected] {
+    background: linear-gradient(to left, #cfdcff, #DFEFF4);
+}
+
 .PN-page-index-block {
     background-color: white;
     color: rgb(140, 140, 140);

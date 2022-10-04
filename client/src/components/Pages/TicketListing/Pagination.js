@@ -12,11 +12,16 @@ function Pagination ({ tickets_to_be_shown, updateSelectedPage }) {
 
     // Update Selected Pagination Page State
     const update_selected_page = (event) => {
+        AF.clean_page_blocks_attributes();
+        AF.set_selected_attribute_to_clicked_block(event);
+
         updateSelectedPage(Number(event.target.innerText));
     }
     
     // Update Current Page Blocks Array
     const update_current_shown_page_blocks = (event) => {
+        AF.clean_page_blocks_attributes();
+
         let last_current_index  = currentShownBlocks[currentShownBlocks.length - 1];
         let first_current_index = currentShownBlocks[0];
 
@@ -52,7 +57,11 @@ function Pagination ({ tickets_to_be_shown, updateSelectedPage }) {
             { is_page_number_reaching_limit ? <div onClick={update_current_shown_page_blocks} id="PN-display-more-page-blocks-go-back" className="PN-page-index-block">...</div> : null }
 
             { currentShownBlocks.map((elem, index) => {
-                return <div onClick={update_selected_page} className="PN-page-index-block" key={index}>{currentShownBlocks[index] + 1}</div>
+                if ( index === 0 ) {
+                    return <div onClick={update_selected_page} className="PN-page-index-block" key={index} current-selected="">{currentShownBlocks[index] + 1}</div>
+                } else {
+                    return <div onClick={update_selected_page} className="PN-page-index-block" key={index}>{currentShownBlocks[index] + 1}</div>
+                }
             }) }
 
             { is_page_number_reaching_limit ? <div onClick={update_current_shown_page_blocks} id="PN-display-more-page-blocks-proceed" className="PN-page-index-block">...</div> : null }
