@@ -1,4 +1,5 @@
-const MAX_NUMBER_OF_TICKETS_PER_PAGE = 15;
+const MAX_NUMBER_OF_TICKETS_PER_PAGE = 1;
+const MAX_NUMBER_OF_BLOCKS_PER_PAGE  = 10;
 
 // Generate All Page Blocks (Array) (Array For Easier Loop)
 const gen_total_page_blocks = (all_tickets) => {
@@ -27,14 +28,21 @@ const gen_initial_page_blocks = (all_tickets) => {
 }
 
 // Checks If The Number Of Page Blocks Surpasses Limit (10)
-const is_page_number_reaching_limit = (all_tickets) => {
-    let blocks_number = Math.floor(all_tickets.length / MAX_NUMBER_OF_TICKETS_PER_PAGE);
-
-    if ( (all_tickets.length % MAX_NUMBER_OF_TICKETS_PER_PAGE) !== 0 ) {
-        blocks_number = blocks_number + 1;
+const are_there_more_forward_blocks = (currentBlocks, total_page_blocks) => {
+    if ( (currentBlocks.length === MAX_NUMBER_OF_BLOCKS_PER_PAGE) && ((total_page_blocks.length % MAX_NUMBER_OF_BLOCKS_PER_PAGE) !== 0) ) {
+        return true;
+    } else { console.log("VOLTEI FALSE");
+        return false;
     }
+}
 
-    return blocks_number > 10;
+// Checks If The Number Of Page Blocks Surpasses Limit (10)
+const are_there_more_backward_blocks = (currentBlocks) => {
+    if ( currentBlocks[0] !== 0 ) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Clean Attributes (Attribute Regarding Being Selected) Of All Page Blocks
@@ -77,14 +85,32 @@ const switch_to_correspondent_blocks = (event) => {
     }
 }
 
+// Update Current Blocks ("...")
+const update_current_blocks_state = (action_taken, updateCurrentBlocks, currentBlocks, total_page_blocks) => {
+    let last_current_index  = currentBlocks[currentBlocks.length - 1];
+    let first_current_index = currentBlocks[0];
+
+    if ( action_taken === "proceed" ) {
+        if ( total_page_blocks[last_current_index + 1] ) {
+            updateCurrentBlocks(total_page_blocks.slice(last_current_index + 1, last_current_index + 10));
+        }
+    } else {
+        if ( first_current_index !== 0 ) {
+            updateCurrentBlocks(total_page_blocks.slice(first_current_index - 10, first_current_index));
+        }
+    }
+}
+
 module.exports = {
     gen_initial_page_blocks:               gen_initial_page_blocks,
-    is_page_number_reaching_limit:         is_page_number_reaching_limit,
+    are_there_more_forward_blocks:         are_there_more_forward_blocks,
+    are_there_more_backward_blocks:        are_there_more_backward_blocks,
     gen_total_page_blocks:                 gen_total_page_blocks,
     clean_page_blocks_attributes:          clean_page_blocks_attributes,
     set_selected_attribute_to_block:       set_selected_attribute_to_block,
     is_update_block_existing:              is_update_block_existing,
     get_proceed_or_go_back_index:          get_proceed_or_go_back_index,
     are_there_more_blocks_to_be_displayed: are_there_more_blocks_to_be_displayed,
-    switch_to_correspondent_blocks:        switch_to_correspondent_blocks
+    switch_to_correspondent_blocks:        switch_to_correspondent_blocks,
+    update_current_blocks_state:           update_current_blocks_state
 };

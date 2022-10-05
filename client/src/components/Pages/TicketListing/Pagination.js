@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 import AF from '../../../components_aux_functions/pages/ticket_listing/pagination.js'; // Aux Functions
  
 function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, listingFilters }) { // The Pagination Has A Max Of 10 Blocks.
-    // Aliases (Each Page Can Have Max Of 15 Tickets)
-    const total_page_blocks             = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
-    const is_page_number_reaching_limit = AF.is_page_number_reaching_limit(tickets_to_be_shown);
+    // Alias - All Page Blocks Array
+    const total_page_blocks = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
 
-    // Current Being Shown Blocks State
-    const [currentBlocks, updateCurrentBlocks] = useState(AF.gen_initial_page_blocks(tickets_to_be_shown)); // Array
-
-    // Update Selected Page Block
+    // States Aliases
+    const [currentBlocks, updateCurrentBlocks]               = useState(AF.gen_initial_page_blocks(tickets_to_be_shown)); // Array
+    const [forwardBlocksStatus, updateForwardBlocksStatus]   = useState(AF.are_there_more_forward_blocks(currentBlocks, total_page_blocks) ? "on" : "off"); // String (On or Off)
+    const [backwardBlocksStatus, updateBackwardBlocksStatus] = useState(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off"); // String (On or Off)
+    
+    // Update Selected Page Block (For When New Block Is Selected)
     const update_selected_page = (which_block_index) => {
         AF.clean_page_blocks_attributes();
         AF.set_selected_attribute_to_block(which_block_index);
@@ -18,13 +19,14 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
         updateSelectedPage(which_block_index);
     }
 
-    // Proceed & Go Back Handler
+    // Proceed & Go Back Buttons Handler
     const proceed_or_go_back = (event) => {
         let index = AF.get_proceed_or_go_back_index(event, selectedPage);
 
         if ( AF.is_update_block_existing(index) ) {
             update_selected_page(index);
-        } else if ( AF.are_there_more_blocks_to_be_displayed() ) {
+        } else
+        if ( AF.are_there_more_blocks_to_be_displayed() ) {
             AF.switch_to_correspondent_blocks(event);
         }
     }
@@ -33,26 +35,23 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
     const update_current_blocks = (event) => {
         AF.clean_page_blocks_attributes();
 
-        let last_current_index  = currentBlocks[currentBlocks.length - 1];
-        let first_current_index = currentBlocks[0];
+        let action_taken = event.target.id.includes("proceed") ? "proceed" : "go_back";
 
-        if ( event.target.id.includes("proceed") ) {
-            if ( total_page_blocks[last_current_index + 1] ) {
-                updateCurrentBlocks(total_page_blocks.slice(last_current_index + 1, last_current_index + 10));
-            }
-        } else {
-            if ( first_current_index !== 0 ) {
-                updateCurrentBlocks(total_page_blocks.slice(first_current_index - 10, first_current_index));
-            }
-        }
+        AF.update_current_blocks_state(action_taken, updateCurrentBlocks, currentBlocks, total_page_blocks);
     }
 
     // Updates The Pagination When Listing Is Re-rendered (When Filter Is Applied)
     useEffect(() => {
         update_selected_page(1);
 
-        updateCurrentBlocks(AF.gen_initial_page_blocks(tickets_to_be_shown));// eslint-disable-next-line react-hooks/exhaustive-deps
+        updateCurrentBlocks(AF.gen_initial_page_blocks(tickets_to_be_shown)); // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [listingFilters]);
+
+    // Updates The Forward & Backward Appearence States (Ex: When User Clicks On "...") 
+    useEffect(() => {
+        updateForwardBlocksStatus(AF.are_there_more_forward_blocks(currentBlocks, total_page_blocks) ? "on" : "off");
+        updateBackwardBlocksStatus(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off"); // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentBlocks]);
 
     // Meant For Smooth Appearence Effect Of Component Rendering
     const [paginationContainer, updatePaginationContainer] = useState("off");
@@ -67,7 +66,7 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
             <button onClick={proceed_or_go_back} id="PN-go-back-button">Previous</button>
         </div>
         <div id="PN-page-indexes-container">
-            { is_page_number_reaching_limit ? <div onClick={update_current_blocks} id="PN-display-more-page-blocks-go-back" className="PN-page-index-block">...</div> : null }
+            <div status={backwardBlocksStatus} onClick={update_current_blocks} id="PN-display-more-page-blocks-go-back" className="PN-page-index-block">...</div>
 
             { currentBlocks.map((elem, index) => {
                 if ( index === 0 ) {
@@ -77,7 +76,7 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
                 }
             }) }
 
-            { is_page_number_reaching_limit ? <div onClick={update_current_blocks} id="PN-display-more-page-blocks-proceed" className="PN-page-index-block">...</div> : null }
+            <div status={forwardBlocksStatus} onClick={update_current_blocks} id="PN-display-more-page-blocks-proceed" className="PN-page-index-block">...</div>
         </div>
         <div id="PN-proceed-button-direct-container">
             <button onClick={proceed_or_go_back} id="PN-proceed-button">Next</button>

@@ -3,7 +3,7 @@ import TicketBand          from '../../Ticket/TicketBand';
 import Pagination          from './Pagination';
 import AF                  from '../../../components_aux_functions/pages/ticket_listing/ticket_listing.js'; // Aux Functions
 
-const MAX_NUMBER_OF_TICKETS_PER_PAGE = 15; // Also Present In "pagination.js"
+const MAX_NUMBER_OF_TICKETS_PER_PAGE = 1; // Also Present In "pagination.js"
 
 function TicketListing ({ allPopulationData }) { // Look Into Documentation For Valuable Info Regarding Filters
     // Data Variable Aliases
