@@ -3,6 +3,8 @@ import TicketBand          from '../../Ticket/TicketBand';
 import Pagination          from './Pagination';
 import AF                  from '../../../components_aux_functions/pages/ticket_listing/ticket_listing.js'; // Aux Functions
 
+const MAX_NUMBER_OF_TICKETS_PER_PAGE = 15; // Also Present In "pagination.js"
+
 function TicketListing ({ allPopulationData }) { // Look Into Documentation For Valuable Info Regarding Filters
     // Data Variable Aliases
     const listingFilters = allPopulationData.listingFilters; // Array Of Objects
@@ -57,11 +59,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     });
 
     // In Case No Filter Was Applied, Return Full List, Case Yes, Clean Repeated Items
-    if ( !listingFilters.length ) {
-        tickets_to_be_shown = allTickets;
-    } else {
-        tickets_to_be_shown = AF.clean_repeated_filtered_tickets(tickets_to_be_shown);
-    }
+    tickets_to_be_shown = !listingFilters.length ? allTickets : AF.clean_repeated_filtered_tickets(tickets_to_be_shown);
     
     return (
         <div current-pagination={selectedPage} id="ticket-listing-container">
@@ -72,7 +70,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
                 listingFilters={listingFilters}>
             </Pagination>
             
-            {tickets_to_be_shown.slice((selectedPage -1) * 15, selectedPage * 15).map((ticket_data, index) => (
+            {tickets_to_be_shown.slice((selectedPage -1) * MAX_NUMBER_OF_TICKETS_PER_PAGE, selectedPage * MAX_NUMBER_OF_TICKETS_PER_PAGE).map((ticket_data, index) => (
                 <TicketBand key={index} ticket_data={ticket_data} allPopulationData={allPopulationData}/>
             ))}
         </div>

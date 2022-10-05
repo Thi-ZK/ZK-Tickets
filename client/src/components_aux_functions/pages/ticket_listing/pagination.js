@@ -58,11 +58,33 @@ const is_update_block_existing = (index) => {
     return document.querySelector("div.PN-page-index-block[index='" + index + "']") ? true : false;
 }
 
+// Get New Block Index To Be Selected For Proceed And Go Back Handler
+const get_proceed_or_go_back_index = (event, selectedPage) => {
+    return event.target.id.includes("proceed") ? (selectedPage + 1) : (selectedPage - 1);
+}
+
+// Checks If There Are More Blocks To Be Displayed (Checks If "..." Is Present)
+const are_there_more_blocks_to_be_displayed = () => {
+    return document.querySelector("#PN-display-more-page-blocks-proceed") ? true : false;
+}
+
+// Advance Or Go Back To Blocks When User Tries To Go Back Or Proceed A Last / First Block Using The Buttons
+const switch_to_correspondent_blocks = (event) => {
+    if ( event.target.id.includes("proceed") ) {
+        document.querySelector("#PN-display-more-page-blocks-proceed").click();
+    } else {
+        document.querySelector("#PN-display-more-page-blocks-go-back").click();
+    }
+}
+
 module.exports = {
-    gen_initial_page_blocks:         gen_initial_page_blocks,
-    is_page_number_reaching_limit:   is_page_number_reaching_limit,
-    gen_total_page_blocks:           gen_total_page_blocks,
-    clean_page_blocks_attributes:    clean_page_blocks_attributes,
-    set_selected_attribute_to_block: set_selected_attribute_to_block,
-    is_update_block_existing:        is_update_block_existing
+    gen_initial_page_blocks:               gen_initial_page_blocks,
+    is_page_number_reaching_limit:         is_page_number_reaching_limit,
+    gen_total_page_blocks:                 gen_total_page_blocks,
+    clean_page_blocks_attributes:          clean_page_blocks_attributes,
+    set_selected_attribute_to_block:       set_selected_attribute_to_block,
+    is_update_block_existing:              is_update_block_existing,
+    get_proceed_or_go_back_index:          get_proceed_or_go_back_index,
+    are_there_more_blocks_to_be_displayed: are_there_more_blocks_to_be_displayed,
+    switch_to_correspondent_blocks:        switch_to_correspondent_blocks
 };

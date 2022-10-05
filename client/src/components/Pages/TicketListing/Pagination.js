@@ -20,10 +20,12 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
 
     // Proceed & Go Back Handler
     const proceed_or_go_back = (event) => {
-        let index = event.target.id.includes("proceed") ? (selectedPage + 1) : (selectedPage - 1);
+        let index = AF.get_proceed_or_go_back_index(event, selectedPage);
 
         if ( AF.is_update_block_existing(index) ) {
             update_selected_page(index);
+        } else if ( AF.are_there_more_blocks_to_be_displayed() ) {
+            AF.switch_to_correspondent_blocks(event);
         }
     }
     
@@ -69,9 +71,9 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
 
             { currentBlocks.map((elem, index) => {
                 if ( index === 0 ) {
-                    return <div onClick={() => update_selected_page(index + 1)} index={index + 1} className="PN-page-index-block" key={index} current-selected="">{currentBlocks[index] + 1}</div>
+                    return <div onClick={() => update_selected_page(currentBlocks[index] + 1)} index={currentBlocks[index] + 1} className="PN-page-index-block" key={index} current-selected="">{currentBlocks[index] + 1}</div>
                 } else {
-                    return <div onClick={() => update_selected_page(index + 1)} index={index + 1} className="PN-page-index-block" key={index}>{currentBlocks[index] + 1}</div>
+                    return <div onClick={() => update_selected_page(currentBlocks[index] + 1)} index={currentBlocks[index] + 1} className="PN-page-index-block" key={index}>{currentBlocks[index] + 1}</div>
                 }
             }) }
 
