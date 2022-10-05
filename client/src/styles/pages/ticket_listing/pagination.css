@@ -42,6 +42,11 @@ div[theme='dark'] .PN-page-index-block[current-selected] {
     background: linear-gradient(to left, #414345, #232526)
 }
 
+#PN-display-more-page-blocks-go-back[status='off'],
+#PN-display-more-page-blocks-proceed[status='off'] {
+    display: none;
+}
+
 .PN-page-index-block {
     background-color: white;
     color: rgb(140, 140, 140);

@@ -26,7 +26,7 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
         if ( AF.is_update_block_existing(index) ) {
             update_selected_page(index);
         } else
-        if ( AF.are_there_more_blocks_to_be_displayed() ) {
+        if ( AF.are_there_more_blocks_to_be_displayed(event) ) {
             AF.switch_to_correspondent_blocks(event);
         }
     }

@@ -31,7 +31,7 @@ const gen_initial_page_blocks = (all_tickets) => {
 const are_there_more_forward_blocks = (currentBlocks, total_page_blocks) => {
     if ( (currentBlocks.length === MAX_NUMBER_OF_BLOCKS_PER_PAGE) && ((total_page_blocks.length % MAX_NUMBER_OF_BLOCKS_PER_PAGE) !== 0) ) {
         return true;
-    } else { console.log("VOLTEI FALSE");
+    } else {
         return false;
     }
 }
@@ -72,8 +72,12 @@ const get_proceed_or_go_back_index = (event, selectedPage) => {
 }
 
 // Checks If There Are More Blocks To Be Displayed (Checks If "..." Is Present)
-const are_there_more_blocks_to_be_displayed = () => {
-    return document.querySelector("#PN-display-more-page-blocks-proceed") ? true : false;
+const are_there_more_blocks_to_be_displayed = (event) => {
+    if ( event.target.id.includes("proceed") ) {
+        return document.querySelector("#PN-display-more-page-blocks-proceed[status='on']") ? true : false;
+    } else {
+        return document.querySelector("#PN-display-more-page-blocks-go-back[status='on']") ? true : false;
+    }
 }
 
 // Advance Or Go Back To Blocks When User Tries To Go Back Or Proceed A Last / First Block Using The Buttons
