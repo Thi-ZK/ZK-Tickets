@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import texts                          from '../../../languages/Pages/Profile/Profile.json';
-import AF                             from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
 import Switch       from '../../IndependentPieces/Switch.js';
 import Preferences  from './Preferences';
 import UserInfo     from './UserInfo';
 import ManageGroups from './ManageGroups';
+
+import texts from '../../../languages/Pages/Profile/Profile.json';
+import AF    from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
 function Profile({ allPopulationData }) {
     // Aliases

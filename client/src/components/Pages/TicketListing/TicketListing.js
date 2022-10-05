@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import TicketBand          from '../../Ticket/TicketBand';
-import Pagination          from './Pagination';
-import AF                  from '../../../components_aux_functions/pages/ticket_listing/ticket_listing.js'; // Aux Functions
 
-const MAX_NUMBER_OF_TICKETS_PER_PAGE = 1; // Also Present In "pagination.js"
+import TicketBand from '../../Ticket/TicketBand';
+import Pagination from './Pagination';
+import AF         from '../../../components_aux_functions/pages/ticket_listing/ticket_listing.js'; // Aux Functions
+
+const MAX_NUMBER_OF_TICKETS_PER_PAGE = 10; // Also Present In "pagination.js"
 
 function TicketListing ({ allPopulationData }) { // Look Into Documentation For Valuable Info Regarding Filters
     // Data Variable Aliases
     const listingFilters = allPopulationData.listingFilters; // Array Of Objects
     const userData       = allPopulationData.userData;
     const allTickets     = allPopulationData.allTickets;
+    const language       = allPopulationData.language;
 
     // Pagination Selected Display Page
     const [selectedPage, updateSelectedPage] = useState(1);
@@ -64,10 +66,11 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
     return (
         <div current-pagination={selectedPage} id="ticket-listing-container">
             <Pagination
-                tickets_to_be_shown={tickets_to_be_shown}
-                selectedPage={selectedPage}
-                updateSelectedPage={updateSelectedPage}
-                listingFilters={listingFilters}>
+                tickets_to_be_shown = {tickets_to_be_shown}
+                selectedPage        = {selectedPage}
+                updateSelectedPage  = {updateSelectedPage}
+                listingFilters      = {listingFilters}
+                language            = {language}>
             </Pagination>
             
             {tickets_to_be_shown.slice((selectedPage -1) * MAX_NUMBER_OF_TICKETS_PER_PAGE, selectedPage * MAX_NUMBER_OF_TICKETS_PER_PAGE).map((ticket_data, index) => (

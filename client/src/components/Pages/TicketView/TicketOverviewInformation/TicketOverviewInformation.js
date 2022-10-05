@@ -1,8 +1,8 @@
-import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
-import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux 
-
 import AggregativeBlocks    from './AggregativesBlocks';
 import AggregativeSelectors from './AggregativesSelectors';
+
+import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
+import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
 function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language, userData }) {
     // Alias For Aggregative Blocks Components Props

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios                          from '../../../api/axios';
-import texts                          from '../../../languages/Pages/CreateTicket/CreateTicket.json';
-import AF                             from '../../../components_aux_functions/pages/create_ticket/create_ticket.js'; // Aux Functions
 
 import                 'react-calendar/dist/Calendar.css';
 import SelectionPiece  from './SelectionPiece';
 import AttachmentBlock from '../../IndependentPieces/AttachmentBlock';
 import Calendar        from 'react-calendar';
+
+import texts from '../../../languages/Pages/CreateTicket/CreateTicket.json';
+import AF    from '../../../components_aux_functions/pages/create_ticket/create_ticket.js'; // Aux Functions
 
 function CreateTicket ({ allPopulationData }) {
     // User Names & IDs Alias / Also Language Alias

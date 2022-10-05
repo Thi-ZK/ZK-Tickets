@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios                          from '../../api/axios';
-import texts                          from '../../languages/Pages/Login.json';
-import AF                             from '../../components_aux_functions/pages/login.js'; // Aux Functions
+
+import axios from '../../api/axios';
+import texts from '../../languages/Pages/Login.json';
+import AF    from '../../components_aux_functions/pages/login.js'; // Aux Functions
 
 function Home({ allPopulationData }) {
     // Aliases For Population Data

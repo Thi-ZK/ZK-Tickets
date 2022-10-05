@@ -1,0 +1,14 @@
+{
+    "next": {
+        "english": "Next",
+        "german": "Nächste",
+        "portuguese": "Próximo",
+        "spanish": "Próximo"
+    },
+    "previous": {
+        "english": "Previous",
+        "german": "Letzte",
+        "portuguese": "Anterior",
+        "spanish": "Anterior"
+    }
+}

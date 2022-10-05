@@ -1,4 +1,4 @@
-const MAX_NUMBER_OF_TICKETS_PER_PAGE = 1;
+const MAX_NUMBER_OF_TICKETS_PER_PAGE = 10;
 const MAX_NUMBER_OF_BLOCKS_PER_PAGE  = 10;
 
 // Generate All Page Blocks (Array) (Array For Easier Loop)

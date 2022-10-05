@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios                          from '../../../api/axios';
-import AF                             from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
-import texts                          from '../../../languages/Pages/Profile/Preferences.json';
+
+import axios from '../../../api/axios';
+import AF    from '../../../components_aux_functions/pages/profile/preferences.js'; // Aux Functions
+import texts from '../../../languages/Pages/Profile/Preferences.json';
 
 function Preferences ({ userData, update_user_data, language }) {
     // Aliases

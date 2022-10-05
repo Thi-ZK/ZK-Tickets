@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import texts                          from '../../languages/Pages/HelpAndInfo.json';
+
+import texts from '../../languages/Pages/HelpAndInfo.json';
 
 function HelpAndInfo ({ language }) {
     // Meant For Smooth Appearence Effect Of Component Rendering

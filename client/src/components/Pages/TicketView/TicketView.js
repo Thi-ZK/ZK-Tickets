@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams }                  from "react-router-dom";
-import texts                          from '../../../languages/Pages/TicketView/TicketView.json';
-import AF                             from '../../../components_aux_functions/pages/ticket_view/ticket_view.js'; // Aux Functions
 
 import AttachmentBlock           from '../../IndependentPieces/AttachmentBlock';
 import Message                   from './Message';
 import ManageTicketButtons       from "./ManageTicketButtons";
 import PlaceMessage              from "./PlaceMessage";
 import TicketOverviewInformation from "./TicketOverviewInformation/TicketOverviewInformation";
+
+import texts from '../../../languages/Pages/TicketView/TicketView.json';
+import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_view.js'; // Aux Functions
 
 function TicketView({ allPopulationData }) {
 	// Aliases

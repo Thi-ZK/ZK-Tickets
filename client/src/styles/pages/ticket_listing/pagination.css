@@ -59,3 +59,41 @@ div[theme='dark'] .PN-page-index-block[current-selected] {
     margin: 0px 2px 0px 2px;
     cursor: pointer;
 }
+
+@media(max-width: 1620px){
+    .PN-page-index-block,
+    #PN-proceed-button-direct-container button,
+    #PN-go-back-button-direct-container button {
+        font-size: 13px;
+    }
+    
+    .PN-page-index-block {
+        padding: 8px 0px 8px 0px;
+    }
+
+    #PN-proceed-button-direct-container button,
+    #PN-go-back-button-direct-container button {
+        padding: 7px 0px 7px 0px;
+    }
+}
+
+@media(max-width: 720px){
+    #PN-page-indexes-container {
+        display: none;
+    }
+
+    #ticket-listing-pagination-container {
+        margin-left: 12px;
+    }
+
+    #PN-go-back-button {
+        margin-right: 8px;
+    }
+}
+
+@media(max-width: 480px){
+    #ticket-listing-pagination-container {
+        margin-right: 12px;
+        justify-content: space-between;
+    }
+}

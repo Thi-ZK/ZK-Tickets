@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from '../../../api/axios';
+
 import texts from '../../../languages/Pages/TicketView/PlaceMessage.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/place_message.js'; // Aux Functions
 

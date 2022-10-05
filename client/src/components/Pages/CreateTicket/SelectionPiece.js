@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import texts               from '../../../languages/Pages/CreateTicket/SelectionPiece.json';
-import AF                  from '../../../components_aux_functions/pages/create_ticket/selection_piece.js'; // Aux Functions
+
+import texts from '../../../languages/Pages/CreateTicket/SelectionPiece.json';
+import AF    from '../../../components_aux_functions/pages/create_ticket/selection_piece.js'; // Aux Functions
 
 function SelectionPiece({ data, usersNamesWithIds, ticketGroups, language }) {
     // Aliases. "current_piece" Example: "assigneds" or "priority"
