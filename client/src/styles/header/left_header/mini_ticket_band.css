@@ -23,28 +23,28 @@
 }
 
 .LH-filtered-mini-ticket-band[status-type='open'] {
-	background-image: -webkit-gradient(linear,left top, right top,from(#33001b),to(#ff0084));
 	background-image: -o-linear-gradient(left,#33001b, #ff0084);
+	background-image: -webkit-gradient(linear,left top, right top,from(#33001b), to(#ff0084));
 	background-image: linear-gradient(to right,#33001b, #ff0084);
 }
 .LH-filtered-mini-ticket-band[status-type='blocked'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#3e3708), to(#dad313));
 	background-image: -o-linear-gradient(left, #3e3708, #dad313);
+	background-image: -webkit-gradient(linear, left top, right top, from(#3e3708), to(#dad313));
 	background-image: linear-gradient(to right, #3e3708, #dad313);
 }
 .LH-filtered-mini-ticket-band[status-type='concluded'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
 	background-image: -o-linear-gradient(left, #223322, #0f9b0f);
+	background-image: -webkit-gradient(linear, left top, right top, from(#223322), to(#0f9b0f));
 	background-image: linear-gradient(to right, #223322, #0f9b0f);
 }
 .LH-filtered-mini-ticket-band[status-type='deleted'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#3F0D12), to(#A71D31));
 	background-image: -o-linear-gradient(left, #3F0D12, #A71D31);
+	background-image: -webkit-gradient(linear, left top, right top, from(#3F0D12), to(#A71D31));
 	background-image: linear-gradient(to right, #3F0D12, #A71D31);
 }
 .LH-filtered-mini-ticket-band[status-type='homologation'] {
-	background-image: -webkit-gradient(linear, left top, right top, from(#000046), to(#1CB5E0));
 	background-image: -o-linear-gradient(left, #000046, #1CB5E0);
+	background-image: -webkit-gradient(linear, left top, right top, from(#000046), to(#1CB5E0));
 	background-image: linear-gradient(to right, #000046, #1CB5E0);
 }
 

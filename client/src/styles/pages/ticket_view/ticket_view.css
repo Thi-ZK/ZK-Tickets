@@ -27,8 +27,8 @@
 }
 div[theme='bright'] #TV-title-direct-container{
 	border: 1px none;
-	background: -webkit-gradient(linear, right top, left top, from(#cfdcff), to(#DFEFF4));
 	background: -o-linear-gradient(right, #cfdcff, #DFEFF4);
+	background: -webkit-gradient(linear, right top, left top, from(#cfdcff), to(#DFEFF4));
 	background: linear-gradient(to left, #cfdcff, #DFEFF4);
 	color: black;
 }
@@ -174,7 +174,9 @@ div[theme='bright'] .TV-attachment-title-direct-container {
 
 	#TV-title-direct-container {
 		padding: 9px;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 	#TV-title-and-info-container h2 {

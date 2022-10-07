@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect }             from "react";
-import axios                                      from './api/axios';
-import AF                                         from './components_aux_functions/app';
 
 import Home              from './components/Pages/Home';
 import Login             from './components/Pages/Login';
@@ -15,6 +13,9 @@ import NotAuthorized     from './components/Pages/NotAuthorized';
 import LeftHeader        from './components/Header/LeftHeader/LeftHeader';
 import TopHeader         from './components/Header/TopHeader';
 import TicketActionModal from './components/Ticket/TicketActionModal';
+
+import axios from './api/axios';
+import AF    from './components_aux_functions/app';
 
 function App() {
     // Ticket Action Modal State

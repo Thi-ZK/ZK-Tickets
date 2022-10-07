@@ -1,4 +1,6 @@
 .LH-filter-checkbox-list-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 

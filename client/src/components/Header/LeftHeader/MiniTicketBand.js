@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate }                from "react-router-dom";
-import texts                          from '../../../languages/Header/MiniTicketBand.json';
+
+import texts from '../../../languages/Header/MiniTicketBand.json';
 
 function MiniTicketBand({ ticket_data, language }) {
     // Meant For When User Clicks In The Mini Ticket Band To Go To The Desired Ticket
@@ -11,6 +12,9 @@ function MiniTicketBand({ ticket_data, language }) {
 
     // Status Type (Homologation, Concluded...)
     const status_type = ticket_data.status.toLowerCase();
+
+    // Assumers Names Concatenated By ","
+    const assumers_names_string = ticket_data.assumers_names.length ? (" " + ticket_data.assumers_names.join(", ")) : " None";
 
     // Meant For Smooth Appearence Effect Of Component Rendering
     const [miniTicketStatus, updateMiniTicketStatus] = useState("off");
@@ -28,7 +32,7 @@ function MiniTicketBand({ ticket_data, language }) {
         <div className="LH-FTB-general-infos-container">
             <div>
                 {ticket_data.assumers_names.length > 1 ? texts.assigneds_plural[language] : texts.assigneds[language]}:
-                <span>{" " + ticket_data.assumers_names.join(", ")}</span>
+                <span>{assumers_names_string.length > 56 ? (assumers_names_string.substring(0, 56) + "...") : assumers_names_string}</span>
             </div>
         </div>
     </div>

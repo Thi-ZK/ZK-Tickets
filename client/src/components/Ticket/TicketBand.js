@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate }                from "react-router-dom";
-import texts                          from '../../languages/Ticket/TicketBand.json';
-import AF                             from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
+
+import texts from '../../languages/Ticket/TicketBand.json';
+import AF    from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
 
 const Ticket = ({ ticket_data, allPopulationData }) => {
 	// Aliases
 	const language                        = allPopulationData.language;
 	const userData                        = allPopulationData.userData;
 	const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
+	const assumers_names_string           = AF.gen_string_formatted_from_array(ticket_data.assumers_names);
+	const groups_names_string             = AF.gen_string_formatted_from_array(ticket_data.groups_names);
 
 	// Meant For When User Clicks And Select To View A Ticket From The List
 	let navigate           = useNavigate();
@@ -69,8 +72,8 @@ const Ticket = ({ ticket_data, allPopulationData }) => {
 					<p className="TB-name">{texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
 					<div>
 						<p className="TB-ticket-id">{texts.ticket_id[language]}: <span>#{ticket_data.id}</span></p>
-						<p className="TB-assigneds-names">{texts.assigneds[language]}: <span>{ticket_data.assumers_names.join(", ")}</span></p>
-						<p className="TB-groups-names">{texts.groups[language]}: <span>{ticket_data.groups_names.join(", ")}</span></p>
+						<p className="TB-assigneds-names">{texts.assigneds[language]}: <span>{assumers_names_string}</span></p>
+						<p className="TB-groups-names">{texts.groups[language]}: <span>{groups_names_string}</span></p>
 					</div>
 				</div>
 			</div>

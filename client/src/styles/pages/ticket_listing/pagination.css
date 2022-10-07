@@ -1,13 +1,21 @@
 #PN-page-indexes-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 0px 15px 0px 15px;
 }
 
 #ticket-listing-pagination-container {
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+         -o-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 15px 0px 10px 22px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 #PN-proceed-button-direct-container button,
@@ -25,7 +33,8 @@
 #PN-proceed-button-direct-container button:hover,
 #PN-go-back-button-direct-container button:hover,
 .PN-page-index-block:hover {
-    box-shadow: 0px 0px 2px 0px black;
+    -webkit-box-shadow: 0px 0px 2px 0px black;
+            box-shadow: 0px 0px 2px 0px black;
 }
 div[theme='dark'] #PN-proceed-button-direct-container button,
 div[theme='dark'] #PN-go-back-button-direct-container button,
@@ -36,9 +45,13 @@ div[theme='dark'] .PN-page-index-block {
 }
 
 .PN-page-index-block[current-selected] {
+    background: -webkit-gradient(linear, right top, left top, from(#cfdcff), to(#DFEFF4));
+    background: -o-linear-gradient(right, #cfdcff, #DFEFF4);
     background: linear-gradient(to left, #cfdcff, #DFEFF4);
 }
 div[theme='dark'] .PN-page-index-block[current-selected] {
+    background: -webkit-gradient(linear, right top, left top, from(#414345), to(#232526));
+    background: -o-linear-gradient(right, #414345, #232526);
     background: linear-gradient(to left, #414345, #232526)
 }
 
@@ -94,6 +107,8 @@ div[theme='dark'] .PN-page-index-block[current-selected] {
 @media(max-width: 480px){
     #ticket-listing-pagination-container {
         margin-right: 12px;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
 }

@@ -24,6 +24,8 @@ div[class='TV-message-container'][type='2'] {
     background-color: rgb(40, 40, 40) !important;
 }
 div[theme='bright'] div[class='TV-message-container'][type='2'] {
+    background: -webkit-gradient(linear, right top, left top, from(#cfdcff), to(#DFEFF4));
+    background: -o-linear-gradient(right, #cfdcff, #DFEFF4);
     background: linear-gradient(to left, #cfdcff, #DFEFF4);
 }
 
@@ -75,6 +77,7 @@ div[theme='bright'] .TV-MSG-title-direct-container {
     padding: 14px 12px 0px 2px;
     line-height: 120%;
     color: white;
+    white-space: pre-line;
 }
 div[theme='bright'] .TV-MSG-text {
     color: rgb(30, 30, 30);

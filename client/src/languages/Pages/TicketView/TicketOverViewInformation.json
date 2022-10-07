@@ -29,6 +29,12 @@
         "portuguese": "Finalizado Em",
         "spanish": "Concluido en"
     },
+    "last_update_date": {
+        "english": "Last Status Update Date",
+        "german": "letzten Statusaktualisierung",
+        "portuguese": "Data Da Última Atualização",
+        "spanish": "Fecha De La Última Actualización"
+    },
     "groups": {
         "english": "Ticket Group",
         "german": "Ticket Gruppe",

@@ -207,6 +207,8 @@ div[theme='bright'] #TC-due-date-title span, div[theme='bright'] #TC-description
 }
 div[theme='bright'] #TC-due-date-chosen {
 	color: black;
+	background: -webkit-gradient(linear, left top, right top, from(#bfcbef), to(#DFEFF4));
+	background: -o-linear-gradient(left, #bfcbef, #DFEFF4);
 	background: linear-gradient(to right, #bfcbef, #DFEFF4);
 }
 

@@ -42,11 +42,19 @@ const display_legitimacy_error = (event) => {
     }, 2500);
 }
 
+// Generate Assumers Name String
+const gen_string_formatted_from_array = (assumers_names_array) => {
+    let names = assumers_names_array.length ? (" " + assumers_names_array.join(", ")) : " None";
+
+    return names.length > 56 ? (names.substring(0, 75) + "...") : names;
+}
+
 module.exports = {
     date_formatter:                  date_formatter,
     turn_overlay_on:                 turn_overlay_on,
     generate_ticket_creator_img_src: generate_ticket_creator_img_src,
     set_anonymous_picture:           set_anonymous_picture,
     is_user_legit:                   is_user_legit,
-    display_legitimacy_error:        display_legitimacy_error
+    display_legitimacy_error:        display_legitimacy_error,
+    gen_string_formatted_from_array: gen_string_formatted_from_array
 };

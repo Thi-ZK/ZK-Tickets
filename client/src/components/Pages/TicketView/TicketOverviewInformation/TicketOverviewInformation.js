@@ -25,7 +25,7 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
         </div>
         <div className='TV-INF-info-line-direct-container'>
             <p className='TV-INF-line-info-key'>Status: <span>{texts[ticket_data.status][language]}</span></p>
-            <p className='TV-INF-line-info-value'>{"Last Status Update Date"}: <span>{AF.date_formater(ticket_data.last_status_update_date)}</span></p>
+            <p className='TV-INF-line-info-value'>{texts.last_update_date[language]}: <span>{AF.date_formater(ticket_data.last_status_update_date)}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
             <p className='TV-INF-line-info-key'>  {texts.priority[language]}:       <span>{texts[ticket_data.priority][language]}</span></p>
