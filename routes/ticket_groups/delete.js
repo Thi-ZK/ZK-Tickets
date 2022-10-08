@@ -3,9 +3,10 @@ const GroupModel  = require('../../models/ticket_group');
 const TicketModel = require('../../models/ticket');
 const router      = express.Router();
 const AF          = require('../../routes_aux/general_utils'); // AF => Generic Aux Functions
+const midds       = require('../../middlewares/ticket_groups/general');
 
 // Delete All Provided Ticket Groups
-router.post('/multiple', async (req, res) => {
+router.post('/multiple', midds.check_user_legitimacy_max_strict, async (req, res) => {
 	let error                = false;
     let groups_to_be_deleted = req.body.groups_to_be_deleted;
 

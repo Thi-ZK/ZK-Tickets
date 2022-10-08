@@ -58,7 +58,7 @@ function App() {
     }, []);
 
     // Utils Variable To Reduce Props Number. Could Use Contexts, But They Pollute Code Legibility Too Much For A Small Project Like Such
-    const allPopulationData = {
+    const all_population_data = {
         allTickets:                      allTickets,
         update_all_tickets:              update_all_tickets,
         userData:                        userData,
@@ -82,10 +82,10 @@ function App() {
     <Router>
         <div className="App" theme={brightnessTheme} language={language}>
             <div status="off" id="universal-overlay"></div>
-            <TicketActionModal allPopulationData={allPopulationData}/>
-            <LeftHeader        allPopulationData={allPopulationData}/>
+            <TicketActionModal all_population_data={all_population_data}/>
+            <LeftHeader        all_population_data={all_population_data}/>
             <div id="top-header-and-main-content-container-direct-container">
-                <TopHeader allPopulationData={allPopulationData}/>
+                <TopHeader all_population_data={all_population_data}/>
                 <div id="top-header-space-auxiliary"></div>
                 <div id="main-content-container">
                     <div status="on" id="loading-screen">
@@ -97,16 +97,16 @@ function App() {
                     <Routes>
                         {userData && allTickets.length ? (
                         <> 
-                            <Route path='/ticket_listing'         element={<TicketListing allPopulationData={allPopulationData}/>}/>
-                            <Route path='/ticket_view/:ticket_id' element={<TicketView allPopulationData={allPopulationData}/>}/>
-                            <Route path='/create_ticket'          element={<CreateTicket allPopulationData={allPopulationData}/>}/>
-                            <Route path='/profile'                element={<Profile allPopulationData={allPopulationData}/>}/>
+                            <Route path='/ticket_listing'         element={<TicketListing all_population_data={all_population_data}/>}/>
+                            <Route path='/ticket_view/:ticket_id' element={<TicketView all_population_data={all_population_data}/>}/>
+                            <Route path='/create_ticket'          element={<CreateTicket all_population_data={all_population_data}/>}/>
+                            <Route path='/profile'                element={<Profile all_population_data={all_population_data}/>}/>
                             <Route path='/help_and_info'          element={<HelpAndInfo language={language}/>}/>
                         </>
                         ) : (
                             <Route path='*' element={<NotAuthorized/>}/>
                         )}
-                        <Route path='/login' element={<Login allPopulationData={allPopulationData}/>}/>
+                        <Route path='/login' element={<Login all_population_data={all_population_data}/>}/>
                         <Route path='/'      element={<Home/>}/>
                         <Route path='*'      element={<ErrorPage/>}/>
                     </Routes>

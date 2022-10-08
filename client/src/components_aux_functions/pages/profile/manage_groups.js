@@ -89,6 +89,10 @@ const display_new_group_error_msg = () => {
 
 // Checks If User Is Legit To Perform Action (Admin Or Group Creator)
 const is_user_legit_max_strict = (userData, groupsToBeDeleted) => {
+    if ( userData.user_power < 3 ) {
+        return false;
+    }
+
     let is_there_a_group_that_user_is_not_creator = false;
     
     groupsToBeDeleted.forEach((group) => {
@@ -98,6 +102,15 @@ const is_user_legit_max_strict = (userData, groupsToBeDeleted) => {
     });
 
     if ( (userData.user_power === 4) || (!is_there_a_group_that_user_is_not_creator) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Checks If User Has Enough Power To Perform Action (Power > 2)
+const is_user_legit_no_strict = (userData) => {
+    if ( userData.user_power > 2 ) {
         return true;
     } else {
         return false;
@@ -130,5 +143,6 @@ module.exports = {
     set_delete_new_group_button_disabled_status: set_delete_new_group_button_disabled_status,
     set_create_new_group_button_disabled_status: set_create_new_group_button_disabled_status,
     is_user_legit_max_strict:                    is_user_legit_max_strict,
-    display_user_legitimacy_error_for_deletion:  display_user_legitimacy_error_for_deletion
+    display_user_legitimacy_error_for_deletion:  display_user_legitimacy_error_for_deletion,
+    is_user_legit_no_strict:                     is_user_legit_no_strict
 };

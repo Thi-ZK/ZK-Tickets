@@ -135,6 +135,15 @@ const switch_calendar_appearence = () => {
     }
 }
 
+// Checks If User Has Enough Power To Perform Action
+const is_user_legit_no_strict = (userData) => {
+    if ( userData.user_power > 2 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 module.exports = {
     // Meant For The Selection Pieces Inputs
 	selection_piece_group:     {type_of_piece: 'groups', allow_custom: true, is_aggregative: true},
@@ -152,5 +161,6 @@ module.exports = {
     gather_new_ticket_data:                          gather_new_ticket_data,
     is_creation_submission_valid:                    is_creation_submission_valid,
     handle_feedback_error_messages:                  handle_feedback_error_messages,
-    switch_calendar_appearence:                      switch_calendar_appearence
+    switch_calendar_appearence:                      switch_calendar_appearence,
+    is_user_legit_no_strict:                         is_user_legit_no_strict
 };

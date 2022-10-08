@@ -38,6 +38,10 @@ const set_aux_aggregative_option_disabled_status = (status, event) => {
 
 // Check If User Is Legit To Perform Desired Action - Returns Boolean
 const is_user_legit = (userData, data, strictness) => {
+    if ( userData.user_power < 3 ) {
+        return false;
+    }
+
     // In Case Group Was Attempted To Be Unassigned, Disconsider Second Check (Bcz User & Group Could Happen To Have Same ID, Then The Check Would Wrongly Pass)
     let aggregative_id       = data.aggregative_type === "group" ? null : data.aggregative_id;
     let ticket_related_users = data.ticket_related_users;

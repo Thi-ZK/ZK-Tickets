@@ -9,14 +9,14 @@ import Calendar        from 'react-calendar';
 import texts from '../../../languages/Pages/CreateTicket/CreateTicket.json';
 import AF    from '../../../components_aux_functions/pages/create_ticket/create_ticket.js'; // Aux Functions
 
-function CreateTicket ({ allPopulationData }) {
+function CreateTicket ({ all_population_data }) {
     // User Names & IDs Alias / Also Language Alias
-    const usersNamesWithIds    = allPopulationData.usersNamesWithIds;
-    const language             = allPopulationData.language;
-    const userData             = allPopulationData.userData;
-    const update_all_tickets   = allPopulationData.update_all_tickets;
-    const ticketGroups         = allPopulationData.ticketGroups;
-    const update_ticket_groups = allPopulationData.update_ticket_groups;
+    const usersNamesWithIds    = all_population_data.usersNamesWithIds;
+    const language             = all_population_data.language;
+    const userData             = all_population_data.userData;
+    const update_all_tickets   = all_population_data.update_all_tickets;
+    const ticketGroups         = all_population_data.ticketGroups;
+    const update_ticket_groups = all_population_data.update_ticket_groups;
     
     // Meant For Calendar
     const [calendarValue, updateCalendarValue] = useState(null);
@@ -26,6 +26,10 @@ function CreateTicket ({ allPopulationData }) {
         
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
     const create_ticket = () => {
+        if ( !AF.is_user_legit_no_strict(userData) ) {
+            return;
+        }
+
         AF.set_disabled_status_on_ticket_creation_buttons(true);
         AF.set_loading_icons_appearence("on");
 
@@ -79,8 +83,8 @@ function CreateTicket ({ allPopulationData }) {
             </div>
             <div id="TC-inputs-container">
                 <div id="TC-inputs-first-block-container" className='TC-inputs-block-container'>
-                    <SelectionPiece language={language} data={AF.selection_piece_assigneds} usersNamesWithIds={usersNamesWithIds} /*Users To Be Assigned*//>
-                    <SelectionPiece language={language} data={AF.selection_piece_group}     ticketGroups={ticketGroups}           /*Groups To Be Chosen*//>
+                    <SelectionPiece language={language} data={AF.selection_piece_assigneds} usersNamesWithIds={usersNamesWithIds} /* Users To Be Assigned */ />
+                    <SelectionPiece language={language} data={AF.selection_piece_group}     ticketGroups={ticketGroups}           /* Groups To Be Chosen */ />
                 </div>
                 <div id="TC-inputs-second-block-container" className='TC-inputs-block-container'>
                     <SelectionPiece language={language} data={AF.selection_piece_priority}/>

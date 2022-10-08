@@ -3,15 +3,15 @@ import React from 'react';
 import texts from '../../../languages/Pages/TicketView/ManageTicketButtons.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/manage_ticket_buttons.js'; // Aux Functions
 
-function ManageTicketButtons ({ ticket_data, allPopulationData }) {
+function ManageTicketButtons ({ ticket_data, all_population_data }) {
     // Aliases For Population Data
-    const language                        = allPopulationData.language;
-    const userData                        = allPopulationData.userData;
-    const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
+    const language                        = all_population_data.language;
+    const userData                        = all_population_data.userData;
+    const updateTicketActionModalSettings = all_population_data.updateTicketActionModalSettings;
 
     // Meant For Opening Ticket Action Modal
 	const open_ticket_action_modal = (action) => {
-        if (!AF.is_user_legit(ticket_data.related_users, userData)) {
+        if ( !AF.is_user_legit(ticket_data.related_users, userData) ) {
             return AF.display_legitimacy_error();
         }
 

@@ -6,12 +6,12 @@ import AF         from '../../../components_aux_functions/pages/ticket_listing/t
 
 const MAX_NUMBER_OF_TICKETS_PER_PAGE = 10; // Also Present In "pagination.js"
 
-function TicketListing ({ allPopulationData }) { // Look Into Documentation For Valuable Info Regarding Filters
+function TicketListing ({ all_population_data }) { // Look Into Documentation For Valuable Info Regarding Filters
     // Data Variable Aliases
-    const listingFilters = allPopulationData.listingFilters; // Array Of Objects
-    const userData       = allPopulationData.userData;
-    const allTickets     = allPopulationData.allTickets;
-    const language       = allPopulationData.language;
+    const listingFilters = all_population_data.listingFilters; // Array Of Objects
+    const userData       = all_population_data.userData;
+    const allTickets     = all_population_data.allTickets;
+    const language       = all_population_data.language;
 
     // Pagination Selected Display Page
     const [selectedPage, updateSelectedPage] = useState(1);
@@ -74,7 +74,7 @@ function TicketListing ({ allPopulationData }) { // Look Into Documentation For 
             </Pagination>
             
             {tickets_to_be_shown.slice((selectedPage -1) * MAX_NUMBER_OF_TICKETS_PER_PAGE, selectedPage * MAX_NUMBER_OF_TICKETS_PER_PAGE).map((ticket_data, index) => (
-                <TicketBand key={index} ticket_data={ticket_data} allPopulationData={allPopulationData}/>
+                <TicketBand key={index} ticket_data={ticket_data} all_population_data={all_population_data}/>
             ))}
         </div>
     )

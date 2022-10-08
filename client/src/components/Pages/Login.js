@@ -4,10 +4,10 @@ import axios from '../../api/axios';
 import texts from '../../languages/Pages/Login.json';
 import AF    from '../../components_aux_functions/pages/login.js'; // Aux Functions
 
-function Home({ allPopulationData }) {
+function Home({ all_population_data }) {
     // Aliases For Population Data
-    const userData = allPopulationData.userData;
-    const language = allPopulationData.language;
+    const userData = all_population_data.userData;
+    const language = all_population_data.language;
 
     // Meant For Displaying Or Hiding Login Error Message ("on" Or "off") (State Used Here Due To Language Dynamicity Need)
     const [errorMessage, updateErrorMessage] = useState("none");
@@ -24,6 +24,7 @@ function Home({ allPopulationData }) {
         if ( !email || !password ) {
             AF.set_error_message_appearence("on", updateErrorMessage, "what_is_your_plan"); // Text Matches Language File
             AF.enable_login_button(event);
+            
             return;
         }
         
@@ -34,7 +35,7 @@ function Home({ allPopulationData }) {
             AF.set_loading_icon_appearence("off");
             
             if ( res.data.success ) {
-                AF.load_all_application_to_be_used_data(allPopulationData);
+                AF.load_all_application_to_be_used_data(all_population_data);
                 AF.set_error_message_appearence("off");
                 AF.vanish_login_form();
                 AF.clean_pass_and_email_inputs();

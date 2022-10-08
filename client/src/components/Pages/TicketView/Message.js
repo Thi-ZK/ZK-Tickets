@@ -37,7 +37,7 @@ function Message({ type, message_data, ticket_id, messages_utils, userData, tick
         axios.post('/tickets/update/single/messages/delete', data).then(async (res) => { console.log(res.data);
             AF.set_loading_icon_appearence("off", msg_id);
             await AF.fade_in_message(updateMessageContainerStatus);
-            AF.set_delete_icon_status(event, "on"); // Components Are Reused, So Let It "on" In Case This Component Is Reused
+            AF.set_delete_icon_status(event, "on"); // Components Are Reused, So Set It "on" In Case This Component Is Reused
 
             window.__was_ticket_interacted = true;
             

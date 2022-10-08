@@ -20,9 +20,19 @@ const get_message = () => {
     return document.querySelector("#TV-PM-message-textarea").innerText;
 }
 
+// Checks If User Has Power Enough To Perform Action
+const is_user_legit_no_strict = (userData) => {
+    if ( userData.user_power > 2 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 module.exports = {
     show_and_fade_success_icon: show_and_fade_success_icon,
     generate_random_id:         generate_random_id,
     clean_message_text_area:    clean_message_text_area,
-    get_message:                get_message
+    get_message:                get_message,
+    is_user_legit_no_strict:    is_user_legit_no_strict
 };

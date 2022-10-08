@@ -37,16 +37,6 @@ const userSchema = new Schema({
         type: String // CHANGE LATER
     },
 
-    related_tickets: {
-        required: true,
-        type: Array
-    },
-
-    ticket_groups_related: {
-        required: true,
-        type: Array
-    },
-
     password: {
         required: true,
         type: String

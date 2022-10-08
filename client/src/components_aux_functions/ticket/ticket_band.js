@@ -24,6 +24,10 @@ const set_anonymous_picture = (event) => {
 
 // Check If User Is Legit To Perform Desired Action
 const is_user_legit = (related_users, userData) => {
+    if ( userData.user_power < 3 ) {
+        return false;
+    }
+
     if ( (related_users.includes(userData.id)) || (userData.user_power === 4) ) {
         return true;
     } else {

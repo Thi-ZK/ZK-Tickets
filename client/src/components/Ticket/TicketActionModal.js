@@ -2,14 +2,14 @@ import axios from '../../api/axios';
 import texts from '../../languages/Ticket/TicketActionModal.json';
 import AF    from '../../components_aux_functions/ticket/ticket_action_modal'; // Aux Functions
 
-const TicketActionModal = ({ allPopulationData }) => {
+const TicketActionModal = ({ all_population_data }) => {
     // General Aliases
-    const update_all_tickets = allPopulationData.update_all_tickets;
-    const language           = allPopulationData.language;
+    const update_all_tickets = all_population_data.update_all_tickets;
+    const language           = all_population_data.language;
 
     // Ticket Action Modal Aliases
-    const ticketActionModalSettings       = allPopulationData.ticketActionModalSettings;
-    const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
+    const ticketActionModalSettings       = all_population_data.ticketActionModalSettings;
+    const updateTicketActionModalSettings = all_population_data.updateTicketActionModalSettings;
     const text_thema                      = ticketActionModalSettings.text_thema;
     const is_action_redundant             = ticketActionModalSettings.is_action_redundant;
 

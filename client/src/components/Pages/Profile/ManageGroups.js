@@ -4,13 +4,13 @@ import axios from '../../../api/axios';
 import AF    from '../../../components_aux_functions/pages/profile/manage_groups'; // Aux Functions
 import texts from '../../../languages/Pages/Profile/ManageGroups.json';
 
-function ManageGroups ({ allPopulationData }) {
+function ManageGroups ({ all_population_data }) {
     // Aliases
-    const userData             = allPopulationData.userData;
-    const ticketGroups         = allPopulationData.ticketGroups;
-    const update_ticket_groups = allPopulationData.update_ticket_groups;
-    const update_all_tickets   = allPopulationData.update_all_tickets;
-    const language             = allPopulationData.language;
+    const userData             = all_population_data.userData;
+    const ticketGroups         = all_population_data.ticketGroups;
+    const update_ticket_groups = all_population_data.update_ticket_groups;
+    const update_all_tickets   = all_population_data.update_all_tickets;
+    const language             = all_population_data.language;
 
     // Chosen Groups To Be Deleted (Rectangle Blocks)
     const [groupsToBeDeleted, updateGroupsToBeDeleted] = useState([]);
@@ -64,6 +64,10 @@ function ManageGroups ({ allPopulationData }) {
 
     // Create New Group (Add New Handler)
     const create_new_group = () => {
+        if ( !AF.is_user_legit_no_strict(userData) ) {
+            return;
+        }
+
         let new_group = AF.get_new_typed_group();
 
         if ( !new_group ) {

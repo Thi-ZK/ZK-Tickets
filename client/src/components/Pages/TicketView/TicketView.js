@@ -10,13 +10,13 @@ import TicketOverviewInformation from "./TicketOverviewInformation/TicketOvervie
 import texts from '../../../languages/Pages/TicketView/TicketView.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_view.js'; // Aux Functions
 
-function TicketView({ allPopulationData }) {
+function TicketView({ all_population_data }) {
 	// Aliases
-	const allTickets           = allPopulationData.allTickets;
-	const update_all_tickets   = allPopulationData.update_all_tickets;
-	const update_ticket_groups = allPopulationData.update_ticket_groups;
-	const userData             = allPopulationData.userData;
-	const language             = allPopulationData.language;
+	const allTickets           = all_population_data.allTickets;
+	const update_all_tickets   = all_population_data.update_all_tickets;
+	const update_ticket_groups = all_population_data.update_ticket_groups;
+	const userData             = all_population_data.userData;
+	const language             = all_population_data.language;
 	const { ticket_id }        = useParams();
 	const ticket_data          = AF.get_ticket_data(allTickets, ticket_id);
 
@@ -41,8 +41,8 @@ function TicketView({ allPopulationData }) {
 		updateAssigneds:   updateAssigneds,
 		groups:            groups,
 		updateGroups:      updateGroups,
-		usersNamesWithIds: allPopulationData.usersNamesWithIds,
-		ticketGroups:      allPopulationData.ticketGroups
+		usersNamesWithIds: all_population_data.usersNamesWithIds,
+		ticketGroups:      all_population_data.ticketGroups
 	};
 	
 	// Brings Fresh Tickets From DB Whenever User Performs Action (Updates The Ticket).
@@ -117,7 +117,7 @@ function TicketView({ allPopulationData }) {
 			</div>
 			<div id="TV-place-message-and-manage-ticket-buttons">
 				<PlaceMessage userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id}></PlaceMessage>
-				<ManageTicketButtons allPopulationData={allPopulationData} ticket_data={ticket_data}></ManageTicketButtons>
+				<ManageTicketButtons all_population_data={all_population_data} ticket_data={ticket_data}></ManageTicketButtons>
 			</div>
 		</div>
 	</div>

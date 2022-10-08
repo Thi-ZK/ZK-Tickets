@@ -6,17 +6,17 @@ import ListLink       from './ListLink';
 import FilterCheckbox from './FilterCheckbox';
 import MiniTicketBand from './MiniTicketBand';
 
-const Header = ({ allPopulationData }) => {
+const Header = ({ all_population_data }) => {
     // Aliases
-    const language             = allPopulationData.language;
-    const allTickets           = allPopulationData.allTickets;
-    const ticketGroups         = allPopulationData.ticketGroups;
+    const language             = all_population_data.language;
+    const allTickets           = all_population_data.allTickets;
+    const ticketGroups         = all_population_data.ticketGroups;
     // const ticket_groups_names  = ticketGroups.length ? AF.get_ticket_groups_names(ticketGroups) : [];
 
     // Utils Alias For Filter Checkbox
     const listing_filters_utils = {
-        listingFilters:       allPopulationData.listingFilters,
-        updateListingFilters: allPopulationData.updateListingFilters
+        listingFilters:       all_population_data.listingFilters,
+        updateListingFilters: all_population_data.updateListingFilters
     };
 
     // Search State & onChange Handler

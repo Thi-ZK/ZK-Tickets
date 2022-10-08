@@ -12,6 +12,10 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
 
     // Meant For Setting Messages
     const set_message = () => {
+        if ( !AF.is_user_legit_no_strict(userData) ) {
+            return;
+        }
+
         let message    = AF.get_message();
         let new_msg_id = AF.generate_random_id();
         

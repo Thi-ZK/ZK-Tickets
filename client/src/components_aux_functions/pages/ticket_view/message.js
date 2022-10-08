@@ -33,6 +33,10 @@ const set_anonymous_picture = (event) => {
 
 // Check If User Is Ticket Creator OR Admin OR Message Creator (If Not, He / She Is Not Legit Delete The Message)
 const is_user_legit_strict = (ticket_creator, userData, msg_owner) => {
+    if ( userData.user_power < 3 ) {
+        return false;
+    }
+
     if ( (userData.id === ticket_creator) || (userData.user_power === 4) || (msg_owner === userData.id) ) {
         return true;
     } else {

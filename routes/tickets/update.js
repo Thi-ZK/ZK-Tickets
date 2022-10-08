@@ -3,10 +3,10 @@ const TicketModel = require('../../models/ticket');
 const GroupModel  = require('../../models/ticket_group');
 const router      = express.Router();
 const AF          = require('../../routes_aux/general_utils'); // AF => Generic Aux Functions
-const midds       = require('../../middlewares/tickets/update');
+const midds       = require('../../middlewares/tickets/general');
 
 // NEW MESSAGE - Meant For Setting A New Message For A Single Ticket
-router.post('/single/messages/set', async (req, res) => {
+router.post('/single/messages/set', midds.check_user_legitimacy_no_strict, async (req, res) => {
 	let ticket_id  = req.body.ticket_id;
 	let error      = false; 
 

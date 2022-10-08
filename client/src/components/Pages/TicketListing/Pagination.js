@@ -4,7 +4,7 @@ import AF    from '../../../components_aux_functions/pages/ticket_listing/pagina
 import texts from '../../../languages/Pages/TicketListing/Pagination.json';
  
 function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, listingFilters, language }) { // The Pagination Has A Max Of 10 Blocks.
-    // Alias - All Page Blocks Array
+    // Alias - All Page Blocks
     const total_page_blocks = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
 
     // States Aliases

@@ -93,16 +93,17 @@ The indexes goes from 1 to 4:
 - 3 - User is allowed to perform many actions.
 - 4 - Admin power. User is allowed to do anything he/she wants.
 </br>
-Inside the Components or Middlewares one can find legitimacy check functions. They exist to prevent action from user, in case he/she is not legit for the action. There are three types of those:
+Inside the Components or Middlewares one can find legitimacy check functions. They exist to prevent action from user, in case he/she is not legit for the action. There are four types of those:
 </br>
 </br>
 </br>
 
+- <strong>check_user_legitimacy_no_strict</strong> - Any user is allowed to performed the action, as long as it has power above 2.
 - <strong>check_user_legitimacy</strong> - User is allowed to perform action, as long as he/she is generally related to the ticket (assigned or creator).
 - <strong>check_user_legitimacy_strict</strong> - User is allowed to perform the action, as long as he/she is the ticket creator OR the action directly owner.
 - <strong>check_user_legitimacy_max_strict</strong> - User is only allowed to perform action, as long as he/she is the ticket creator.
 </br>
-Admins can always perform the action, doesn't matter which.
+Admins can always perform the action, doesn't matter which. All the three last functions already checks if the user is at least power 2. 
 </br>
 </br>
 <h4><ins>Ticket Filters Structure (CLIENT):</ins></h4>

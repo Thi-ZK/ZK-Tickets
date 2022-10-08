@@ -2,10 +2,11 @@ const express     = require('express');
 const TicketModel = require('../../models/ticket');
 const GroupModel  = require('../../models/ticket_group');
 const router      = express.Router();
-const AF          = require('../../routes_aux/general_utils'); //  AF   => Generic Aux Functions
+const AF          = require('../../routes_aux/general_utils');  // AF   => Generic Aux Functions
 const R_AF        = require('../../routes_aux/tickets/create'); // R_AF => Route   Aux Functions (Specific For This Route)
+const midds       = require('../../middlewares/tickets/general');
 
-router.post('/single', async (req, res) => {
+router.post('/single', midds.check_user_legitimacy_no_strict, async (req, res) => {
 	let error          = false;
 	let ticket_data    = req.body;
 	let last_ticket    = await R_AF.get_last_id_ticket(TicketModel);

@@ -4,11 +4,11 @@ import { useNavigate }                from "react-router-dom";
 import texts from '../../languages/Ticket/TicketBand.json';
 import AF    from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
 
-const Ticket = ({ ticket_data, allPopulationData }) => {
+const Ticket = ({ ticket_data, all_population_data }) => {
 	// Aliases
-	const language                        = allPopulationData.language;
-	const userData                        = allPopulationData.userData;
-	const updateTicketActionModalSettings = allPopulationData.updateTicketActionModalSettings;
+	const language                        = all_population_data.language;
+	const userData                        = all_population_data.userData;
+	const updateTicketActionModalSettings = all_population_data.updateTicketActionModalSettings;
 	const assumers_names_string           = AF.gen_string_formatted_from_array(ticket_data.assumers_names);
 	const groups_names_string             = AF.gen_string_formatted_from_array(ticket_data.groups_names);
 

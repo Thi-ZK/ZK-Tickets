@@ -3,16 +3,16 @@ import axios    from '../../api/axios';
 import { Link } from "react-router-dom";
 import texts    from '../../languages/Header/TopHeader.json';
 
-const TopHeader = ({ allPopulationData }) => {
+const TopHeader = ({ all_population_data }) => {
     // Aliases For Language Related
-    const updateLanguage   = allPopulationData.updateLanguage;
-    const language         = allPopulationData.language;
+    const updateLanguage   = all_population_data.updateLanguage;
+    const language         = all_population_data.language;
 
     // Aliases For User Related
-    const userData               = allPopulationData.userData;
-    const updateUserData         = allPopulationData.updateUserData;
-    const brightnessTheme        = allPopulationData.brightnessTheme;
-    const updateBrightnessTheme  = allPopulationData.updateBrightnessTheme;
+    const userData               = all_population_data.userData;
+    const updateUserData         = all_population_data.updateUserData;
+    const brightnessTheme        = all_population_data.brightnessTheme;
+    const updateBrightnessTheme  = all_population_data.updateBrightnessTheme;
 
     // Switch The Current Brightness
     const switch_brightness = () => {

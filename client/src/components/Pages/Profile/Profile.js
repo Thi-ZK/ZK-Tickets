@@ -8,12 +8,12 @@ import ManageGroups from './ManageGroups';
 import texts from '../../../languages/Pages/Profile/Profile.json';
 import AF    from '../../../components_aux_functions/pages/profile/profile.js'; // Aux Functions
 
-function Profile({ allPopulationData }) {
+function Profile({ all_population_data }) {
     // Aliases
-    const userData             = allPopulationData.userData;
-    const language             = allPopulationData.language;
-    const allTickets           = allPopulationData.allTickets;
-    const update_user_data     = allPopulationData.update_user_data;
+    const userData             = all_population_data.userData;
+    const language             = all_population_data.language;
+    const allTickets           = all_population_data.allTickets;
+    const update_user_data     = all_population_data.update_user_data;
     const total_linked_tickets = AF.get_total_linked_tickets_number(allTickets, userData);
 
     // State Declaration For Which Main Content To Be Displayed 
@@ -65,7 +65,7 @@ function Profile({ allPopulationData }) {
                 <Switch currentDisplayedContent={currentDisplayedContent}>
                     <UserInfo     switch_case="user_info"     userData={userData} language={language} texts={texts}/>
                     <Preferences  switch_case="preferences"   userData={userData} language={language} update_user_data={update_user_data}/>
-                    <ManageGroups switch_case="manage_groups" allPopulationData={allPopulationData}/>
+                    <ManageGroups switch_case="manage_groups" all_population_data={all_population_data}/>
                 </Switch>
             </div>
         </div>
