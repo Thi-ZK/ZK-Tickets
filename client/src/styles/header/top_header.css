@@ -1,4 +1,4 @@
-#top-header-container{
+#top-header-container {
 	position: fixed;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -12,6 +12,7 @@
 	padding: 10px 0px 10px 0px;
 	font-family: 'Quicksand', sans-serif;
 	z-index: 2;
+	margin-left: 3px;
 }
 div[theme='bright'] #top-header-container {
 	background-color: rgb(255, 255, 255);
@@ -131,6 +132,7 @@ div[theme='bright'] #TH-languages-direct-container button {
 	#top-header-container {
 		width: calc(100vw - 288px);
 		padding: 8px 0px 8px 0px;
+		margin-left: 0px;
 	}
 
 	#TH-login-and-brightness-direct-container {

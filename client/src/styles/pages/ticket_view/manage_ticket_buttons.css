@@ -43,12 +43,22 @@ html *:before, html *:after {
 	z-index: -1;
 }
 
-.TV-SAB-buttons-group div{
-	position: relative; -webkit-box-sizing: border-box; box-sizing: border-box; float: left; width: 35%;
+.TV-SAB-buttons-group div {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box; float: left;
 	background-color: rgb(30, 30, 30);
 }
 div[theme='bright'] .TV-SAB-buttons-group div {
 	background-color: white;
+}
+
+.TV-SAB-buttons-group[index='1'] {
+	margin-left: 8px;
+}
+
+.TV-SAB-buttons-group[index='2'] {
+	margin-right: 15px;
 }
 
 .TV-SAB-buttons-group button{
@@ -57,8 +67,7 @@ div[theme='bright'] .TV-SAB-buttons-group div {
 	display: block;
 	overflow: hidden;
 	font-size: 0.8em;
-	width: 100%;
-	max-width: 220px;
+	width: 130px;
 	background-color: white;
 	height: 45px;
 	border-radius: 1px;
@@ -192,20 +201,20 @@ div[theme='bright'] #TV-SAB-delete-ticket, div[theme='bright'] #TV-SAB-conclude-
 }
 
 @media(max-width: 600px){
-	#TV-SAB-button-groups-container button{
-		font-size: 0.88em;
+	#TV-SAB-button-groups-container button {
 		padding: 0px 3px 0px 3px;
 	}
 
-	#TV-SAB-button-groups-container{
+	#TV-SAB-button-groups-container {
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 	}
 
-	.TV-SAB-buttons-group{
+	.TV-SAB-buttons-group {
 		width: auto;
 		padding: 5px 0px 5px 0px;
+		margin: 0px !important;
 	}
 }

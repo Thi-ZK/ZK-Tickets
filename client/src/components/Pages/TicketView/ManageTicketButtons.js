@@ -30,7 +30,7 @@ function ManageTicketButtons ({ ticket_data, all_population_data }) {
     return (
     <div id="TV-status-action-buttons-container" css-marker="SAB">
         <div id="TV-SAB-button-groups-container">
-            <div className="TV-SAB-buttons-group">
+            <div className="TV-SAB-buttons-group" index="1">
                 <div>
                     <button onClick={() => open_ticket_action_modal("delete")} id="TV-SAB-delete-ticket"><span>{texts.delete[language]}</span></button>	
                 </div>
@@ -38,7 +38,7 @@ function ManageTicketButtons ({ ticket_data, all_population_data }) {
                     <button onClick={() => open_ticket_action_modal("conclude")} id="TV-SAB-conclude-ticket"><span>{texts.conclude[language]}</span></button>	
                 </div>
             </div>
-            <div className="TV-SAB-buttons-group">
+            <div className="TV-SAB-buttons-group" index="2">
                 <div>
                     <button onClick={() => open_ticket_action_modal("block")} id="TV-SAB-block-ticket"><span>{texts.block[language]}</span></button>	
                 </div>

@@ -125,6 +125,7 @@ div[theme='bright'] #TC-title-container h1 {
 }
 
 .TC-error-message {
+	font-size: 12px;
 	padding-left: 15px;
 	color: red !important;
 	-webkit-transition-duration: 0.3s;
@@ -300,7 +301,8 @@ div[theme='bright'] .TC-create-button-direct-container button:hover {
 
 .react-calendar {
 	position: absolute !important;
-	top: 20%;
+	top: 18%;
+	z-index: 2;
 }
 .react-calendar[class*='closed'] {
 	display: none;
@@ -447,5 +449,11 @@ div[theme='bright'] #TC-description-direct-container textarea {
 		    -ms-flex-align: center;
 		        align-items: center;
 		margin-bottom: 20px;
+	}
+}
+
+@media(max-width: 600px) {
+	.react-calendar {
+		left: 1%;
 	}
 }

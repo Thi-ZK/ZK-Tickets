@@ -4,7 +4,8 @@
     display: flex;
 }
 
-.LH-filter-checkbox-list-item[type='tree-main'] {
+.LH-filter-checkbox-list-item[type='tree-main'],
+.LH-filter-checkbox-list-item[type='group'] {
     padding-left: 10px !important;
 }
 

@@ -70,7 +70,7 @@ As already mentioned, absolutely NO framework was used in this project, which me
 
 That said, the languages are configured as JSON files containing all texts and imported inside the Components, where they are then used, instead of pure static text.
 
-They are matched with the [language] state dynamically (object hash map), so, "in real time" as experience. Although very demanding to be firstly implemented, as one needs to write all texts JSON, there are some surely benefits:
+They are matched with the [language] state dynamically (object hash map), so, "in real time" as experience. Although it could be very demanding to be firstly implemented, as one needs to write all texts JSON, there are some surely benefits:
 </br>
 </br>
 
