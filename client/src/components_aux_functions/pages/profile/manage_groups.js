@@ -77,8 +77,10 @@ const is_new_group_valid = (new_group) => {
 }
 
 // Displays Unsuccessful Feedback Message For Creating New Group Bad Group Name
-const display_new_group_error_msg = () => {
+const display_new_group_error_msg = (updateCreateGroupError) => {
     let msg_elem = document.querySelector("#PFL-MG-create-group-error-message");
+
+    updateCreateGroupError("invalid_name");
 
     msg_elem.setAttribute("status", "on");
 
@@ -128,6 +130,19 @@ const display_user_legitimacy_error_for_deletion = () => {
     }, 2500);
 }
 
+// Displays Legitimacy Error For Create Ticket
+const display_create_ticket_legitimacy_error = (updateCreateGroupError) => {
+    let msg_elem = document.querySelector("#PFL-MG-create-group-error-message");
+
+    updateCreateGroupError("legitimacy_error");
+
+    msg_elem.setAttribute("status", "on");
+
+    setTimeout(() => {
+        msg_elem.setAttribute("status", "off");
+    }, 2500);
+}
+
 module.exports = {
     get_selected_option:                         get_selected_option,
     get_group_name:                              get_group_name,
@@ -144,5 +159,6 @@ module.exports = {
     set_create_new_group_button_disabled_status: set_create_new_group_button_disabled_status,
     is_user_legit_max_strict:                    is_user_legit_max_strict,
     display_user_legitimacy_error_for_deletion:  display_user_legitimacy_error_for_deletion,
-    is_user_legit_no_strict:                     is_user_legit_no_strict
+    is_user_legit_no_strict:                     is_user_legit_no_strict,
+    display_create_ticket_legitimacy_error:      display_create_ticket_legitimacy_error
 };

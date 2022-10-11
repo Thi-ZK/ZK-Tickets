@@ -71,6 +71,12 @@
         "portuguese": "A Descrição É Muito Longa",
         "spanish": "La Descripción Es Muy Larga"
     },
+    "legitimacy_error": {
+        "english": "Not allowed",
+        "german": "Nicht erlaubt",
+        "portuguese": "Ação não permitida",
+        "spanish": "Acción no permitida"
+    },
     "none": {
         "english": "",
         "german": "",

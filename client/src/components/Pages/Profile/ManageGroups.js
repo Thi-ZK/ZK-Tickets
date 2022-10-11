@@ -15,6 +15,9 @@ function ManageGroups ({ all_population_data }) {
     // Chosen Groups To Be Deleted (Rectangle Blocks)
     const [groupsToBeDeleted, updateGroupsToBeDeleted] = useState([]);
 
+    // Create Group Error Message (State Used Due To Language Dinamicty) (This State String Must Match Languages JSON)
+    const [createGroupError, updateCreateGroupError] = useState("");
+
     // Add Group To Be Deleted Function (Selection Handler)
     const add_group_to_be_deleted = (event) => {
         let group_to_be_deleted = ticketGroups[AF.get_group_id(event) - 1];
@@ -65,6 +68,7 @@ function ManageGroups ({ all_population_data }) {
     // Create New Group (Add New Handler)
     const create_new_group = () => {
         if ( !AF.is_user_legit_no_strict(userData) ) {
+            AF.display_create_ticket_legitimacy_error(updateCreateGroupError);
             return;
         }
 
@@ -75,7 +79,7 @@ function ManageGroups ({ all_population_data }) {
         }
 
         if ( !AF.is_new_group_valid(new_group) ) {
-            AF.display_new_group_error_msg();
+            AF.display_new_group_error_msg(updateCreateGroupError);
             return;
         }
 
@@ -114,7 +118,7 @@ function ManageGroups ({ all_population_data }) {
             <div>
                 <button onClick={create_new_group}>{texts.add_group[language]}</button>
             </div>
-            <p status="off" id='PFL-MG-create-group-error-message'>{texts.invalid_name[language]}</p>
+            <p status="off" id='PFL-MG-create-group-error-message'>{texts[createGroupError][language]}</p>
         </div>
         {/* Delete Groups Block */}
         <div id="PFL-MG-delete-group-direct-container">

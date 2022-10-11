@@ -13,6 +13,7 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
     // Meant For Setting Messages
     const set_message = () => {
         if ( !AF.is_user_legit_no_strict(userData) ) {
+            AF.display_legitimacy_error();
             return;
         }
 
@@ -56,9 +57,12 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
                     <img alt="arrow img in place message" src="/imgs/ticket/black_right_arrow.png"/>
                 </div>
             </div>
-            <div id="TV-PM-submit-button-direct-container">
-                <img status="off" alt="success message placed icon" src="/imgs/general/success.gif"/>
-                <button onClick={set_message}>{texts.place_message[language]}</button>
+            <div id="TV-PM-submit-button-container">
+                <p status="off" id='TV-PM-error-message'>{texts.legitimacy_error[language]}</p>
+                <div id='TV-PM-submit-button-direct-container'>
+                    <img status="off" alt="success message placed icon" src="/imgs/general/success.gif"/>
+                    <button onClick={set_message}>{texts.place_message[language]}</button>
+                </div>
             </div>
         </div>
     </div>

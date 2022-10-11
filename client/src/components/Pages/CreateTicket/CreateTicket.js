@@ -27,6 +27,7 @@ function CreateTicket ({ all_population_data }) {
     // Meant For The Ticket Creation Action (Request To Server -> Request To Database)
     const create_ticket = () => {
         if ( !AF.is_user_legit_no_strict(userData) ) {
+            AF.display_legitimacy_error(updateTicketNameError);
             return;
         }
 

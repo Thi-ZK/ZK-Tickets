@@ -144,6 +144,15 @@ const is_user_legit_no_strict = (userData) => {
     }
 }
 
+// Displays Legitimacy Error
+const display_legitimacy_error = (updateTicketNameError) => {
+    let error_elem = document.querySelector("#TC-ticket-name-error-message");
+
+    updateTicketNameError("legitimacy_error");
+
+    error_elem.setAttribute("status", "on");
+}
+
 module.exports = {
     // Meant For The Selection Pieces Inputs
 	selection_piece_group:     {type_of_piece: 'groups', allow_custom: true, is_aggregative: true},
@@ -162,5 +171,6 @@ module.exports = {
     is_creation_submission_valid:                    is_creation_submission_valid,
     handle_feedback_error_messages:                  handle_feedback_error_messages,
     switch_calendar_appearence:                      switch_calendar_appearence,
-    is_user_legit_no_strict:                         is_user_legit_no_strict
+    is_user_legit_no_strict:                         is_user_legit_no_strict,
+    display_legitimacy_error:                        display_legitimacy_error
 };

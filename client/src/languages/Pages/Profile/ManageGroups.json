@@ -40,5 +40,11 @@
         "german": "Sie sind nicht berechtigt, diese Aktion durchzuführen",
         "portuguese": "Você não é legítimo para realizar esta ação",
         "spanish": "Usted no es legítimo para realizar esta acción"
+    },
+    "": {
+        "english": "",
+        "german": "",
+        "portuguese": "",
+        "spanish": ""
     }
 }

@@ -11,6 +11,7 @@
 	font-size: 14.5px;
 	padding: 10px 0px 10px 0px;
 	font-family: 'Quicksand', sans-serif;
+	z-index: 2;
 }
 div[theme='bright'] #top-header-container {
 	background-color: rgb(255, 255, 255);

@@ -10,5 +10,11 @@
         "german": "Nachricht hinterlassen",
         "portuguese": "Enviar Mensagem",
         "spanish": "Enviar Mensaje"
+    },
+    "legitimacy_error": {
+        "english": "You're not allowed to do that",
+        "german": "Sie sind nicht erlaubt, das zu tun",
+        "portuguese": "Você não pode realizar esta ação",
+        "spanish": "Usted no puedes hacer esta acción"
     }
 }

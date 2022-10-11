@@ -29,10 +29,22 @@ const is_user_legit_no_strict = (userData) => {
     }
 }
 
+// Displays Legitimacy Error
+const display_legitimacy_error = () => {
+    let error_elem = document.querySelector("#TV-PM-error-message");
+
+    error_elem.setAttribute("status", "on");
+
+    setTimeout(() => {
+        error_elem.setAttribute("status", "off");
+    }, 2500);
+}
+
 module.exports = {
     show_and_fade_success_icon: show_and_fade_success_icon,
     generate_random_id:         generate_random_id,
     clean_message_text_area:    clean_message_text_area,
     get_message:                get_message,
-    is_user_legit_no_strict:    is_user_legit_no_strict
+    is_user_legit_no_strict:    is_user_legit_no_strict,
+    display_legitimacy_error:   display_legitimacy_error
 };
