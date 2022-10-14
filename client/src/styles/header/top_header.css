@@ -28,17 +28,18 @@ div[theme='bright'] #top-header-container {
 	        align-items: center;
 }
 
-#TH-login-and-brightness-direct-container a{
+#TH-login-and-brightness-direct-container > a{
 	text-decoration: none;
 	color: rgb(240, 240, 240);
 	padding-left: 10px;
 }
-div[theme='bright'] #TH-login-and-brightness-direct-container a{
+div[theme='bright'] #TH-login-and-brightness-direct-container > a{
 	color: rgb(50, 50, 50);
 }
 
-#TH-login-and-brightness-direct-container a:hover{
-	text-decoration: underline;
+#TH-login-and-brightness-direct-container a:hover,
+#TH-logged-in-user-display-direct-container p:hover {
+	text-decoration: underline !important;
 }
 
 #TH-login-and-brightness-direct-container img{
@@ -73,7 +74,7 @@ div[theme='bright'] #TH-logged-in-user-display-direct-container p {
 	color: rgb(50, 50, 50);
 }
 
-#TH-brightness-theme-direct-container span:hover, #TH-logged-in-user-display-direct-container p span {
+#TH-brightness-theme-direct-container span:hover {
 	text-decoration: underline;
 }
 

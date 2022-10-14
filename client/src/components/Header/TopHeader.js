@@ -39,10 +39,12 @@ const TopHeader = ({ all_population_data }) => {
                 <img alt="brightness-theme" src={ brightnessTheme === "dark" ? "/imgs/headers/bright_sun.png" : "/imgs/headers/dark_sun.png"}/>
                 <span onClick={switch_brightness}>{texts[brightnessTheme === "dark" ? "bright" : "dark"][language]}</span>
             </div>
-            {userData ? 
+            {userData ?
                 <div id="TH-logged-in-user-display-direct-container">
                     <img alt="logout icon" src="/imgs/headers/pink_ghost.gif"/> 
-                    <p>{texts.user[language]}: <span>{userData.name}</span></p>
+                    <Link to="/profile">
+                        <p>{texts.user[language]}: <span>{userData.name}</span></p>
+                    </Link>
                 </div> : <></>
             }
       </div>
