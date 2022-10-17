@@ -128,11 +128,7 @@ const gather_new_ticket_data = (userData) => {
 const switch_calendar_appearence = () => {
     let calendar = document.querySelector(".react-calendar");
 
-    if (calendar.className.includes("closed")) {
-        calendar.className = "react-calendar open"; 
-    } else {
-        calendar.className = "react-calendar closed";
-    }
+    calendar.setAttribute("status", "on");
 }
 
 // Checks If User Has Enough Power To Perform Action
@@ -151,6 +147,11 @@ const display_legitimacy_error = (updateTicketNameError) => {
     updateTicketNameError("legitimacy_error");
 
     error_elem.setAttribute("status", "on");
+}
+
+// Close The Calendar (Sets Class As "Closed")
+const close_calendar = () => {
+    document.querySelector(".react-calendar").setAttribute("status", "off");
 }
 
 module.exports = {
@@ -172,5 +173,6 @@ module.exports = {
     handle_feedback_error_messages:                  handle_feedback_error_messages,
     switch_calendar_appearence:                      switch_calendar_appearence,
     is_user_legit_no_strict:                         is_user_legit_no_strict,
-    display_legitimacy_error:                        display_legitimacy_error
+    display_legitimacy_error:                        display_legitimacy_error,
+    close_calendar:                                  close_calendar
 };

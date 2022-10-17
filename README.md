@@ -111,7 +111,9 @@ Admins can always perform the action, doesn't matter which. All the three last f
 
 The filters works divided in <strong>levels</strong>. Currently, there are two: <strong>main tree filters</strong> and <strong>lower filters</strong>.
 
-Filters in the <strong>SAME LEVEL</strong> are always <strong>"OR"</strong> conditioned. Filters In <strong>DIFFERENT LEVEL</strong> are always <strong>"AND"</strong> conditioned:
+Filters in the <strong>SAME LEVEL</strong> are always <strong>"OR"</strong> conditioned. Filters In <strong>DIFFERENT LEVEL</strong> are always <strong>"AND"</strong> conditioned.
+
+Also, different <strong>TYPE</strong> of filters are always <strong>"AND"</strong> conditioned.
 
 The filters always <strong>INCLUDES</strong> tickets, <strong>AS LONG AS</strong> upper level filters are satisfied as well. In case a filter is active, and no lower level filter is active, then all tickets are considered for those.
 

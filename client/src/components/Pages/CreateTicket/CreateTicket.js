@@ -57,6 +57,11 @@ function CreateTicket ({ all_population_data }) {
         }
     }
 
+    // Meant For Closing Calendar, When User Chooses A Value
+    useEffect(() => {
+		AF.close_calendar();
+	}, [calendarValue]); 
+
     // Meant For Smooth Appearence Effect Of Component Rendering
 	const [createTicketContainerStatus, updateCreateTicketContainerStatus] = useState("off");
 
@@ -109,7 +114,7 @@ function CreateTicket ({ all_population_data }) {
                     <div id='TC-due-date-title'>{texts.select_a[language]} <span>{texts.due_date[language]}</span></div>
                     <div id='TC-due-date-chosen' onClick={AF.switch_calendar_appearence}>{calendarValue ? calendarValue.toString().split(" 00")[0] : texts.click_to_pick_a_date[language]}
                     </div>
-                    <Calendar className="closed" onChange={updateCalendarValue} value={calendarValue}/>
+                    <Calendar status="off" onChange={updateCalendarValue} value={calendarValue}/>
                 </div>
             </div>
             <div id='TC-attachments-and-description-container'>

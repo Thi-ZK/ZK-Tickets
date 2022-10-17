@@ -303,9 +303,7 @@ div[theme='bright'] .TC-create-button-direct-container button:hover {
 	position: absolute !important;
 	top: 18%;
 	z-index: 2;
-}
-.react-calendar[class*='closed'] {
-	display: none;
+	transition-duration: 0.5s;
 }
 
 .react-calendar__month-view__weekdays__weekday {
