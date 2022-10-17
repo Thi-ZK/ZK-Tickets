@@ -70,7 +70,7 @@ As already mentioned, absolutely NO framework was used in this project, which me
 
 That said, the languages are configured as JSON files containing all texts and imported inside the Components, where they are then used, instead of pure static text.
 
-They are matched with the [language] state dynamically (object hash map), so, "in real time" as experience. Although it could be very demanding to be firstly implemented, as one needs to write all texts JSON, there are some surely benefits:
+They are matched with the [language] state dynamically (object hash map), so, "in real time" as experience. Although it could be very demanding to be firstly implemented and not very scalable to big applications, as one needs to write all texts JSON, there are some surely benefits, for a smaller project like such:
 </br>
 </br>
 
@@ -82,7 +82,7 @@ They are matched with the [language] state dynamically (object hash map), so, "i
 </br>
 <h4><ins>Strictness & Power System:</ins></h4>
 </br>
-In the application, the users have power indexes, that dictates what they can or can not do in it. 
+In the application, the users have power indexes, that dictates what they can or can not do through the application. 
 </br>
 
 The indexes goes from 1 to 4:
@@ -93,17 +93,17 @@ The indexes goes from 1 to 4:
 - 3 - User is allowed to perform many actions.
 - 4 - Admin power. User is allowed to do anything he/she wants.
 </br>
-Inside the Components or Middlewares one can find legitimacy check functions. They exist to prevent action from user, in case he/she is not legit for the action. There are four types of those:
+Inside the Components or Middlewares, one can find legitimacy check functions. They exist to prevent an action from the user, in case he/she is not legit for this action. There are four types of those:
 </br>
 </br>
 </br>
 
-- <strong>check_user_legitimacy_no_strict</strong> - Any user is allowed to performed the action, as long as it has power above 2.
-- <strong>check_user_legitimacy</strong> - User is allowed to perform action, as long as he/she is generally related to the ticket (assigned or creator).
+- <strong>check_user_legitimacy_no_strict</strong> - Any user is allowed to performed the action, as long as he/she has power above 2.
+- <strong>check_user_legitimacy</strong> - User is allowed to perform the action, as long as he/she is generally related to the ticket (assigned or creator).
 - <strong>check_user_legitimacy_strict</strong> - User is allowed to perform the action, as long as he/she is the ticket creator OR the action directly owner.
-- <strong>check_user_legitimacy_max_strict</strong> - User is only allowed to perform action, as long as he/she is the ticket creator.
+- <strong>check_user_legitimacy_max_strict</strong> - User is only allowed to perform the action, as long as he/she is the ticket creator.
 </br>
-Admins can always perform the action, doesn't matter which. All the three last functions already checks if the user is at least power 2. 
+Admins can always perform the action, doesn't matter which. All the three last functions already checks if the user has at least power 2. 
 </br>
 </br>
 <h4><ins>Ticket Filters Structure (CLIENT):</ins></h4>
@@ -113,7 +113,7 @@ The filters works divided in <strong>levels</strong>. Currently, there are two: 
 
 Filters in the <strong>SAME LEVEL</strong> are always <strong>"OR"</strong> conditioned. Filters In <strong>DIFFERENT LEVEL</strong> are always <strong>"AND"</strong> conditioned.
 
-Also, different <strong>TYPE</strong> of filters are always <strong>"AND"</strong> conditioned.
+Also, different <strong>TYPES</strong> of filters are always <strong>"AND"</strong> conditioned.
 
 The filters always <strong>INCLUDES</strong> tickets, <strong>AS LONG AS</strong> upper level filters are satisfied as well. In case a filter is active, and no lower level filter is active, then all tickets are considered for those.
 
