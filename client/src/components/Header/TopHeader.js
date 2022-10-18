@@ -41,7 +41,7 @@ const TopHeader = ({ all_population_data }) => {
             </div>
             {userData ?
                 <div id="TH-logged-in-user-display-direct-container">
-                    <img alt="logout icon" src="/imgs/headers/pink_ghost.gif"/> 
+                    <img alt="logout icon" src="/imgs/headers/cherry_blossom.gif"/> 
                     <Link to="/profile">
                         <p>{texts.user[language]}: <span>{userData.name}</span></p>
                     </Link>
