@@ -53,6 +53,18 @@ const gen_string_formatted_from_array = (assumers_names_array) => {
     return names.length > 56 ? (names.substring(0, 75) + "...") : names;
 }
 
+// Updates The State Of Ticket Status With Data From The Input Fed By The Ticket Action Modal Click
+const update_ticket_status = (event, updateTicketStatus) => {
+    event.preventDefault();
+
+    updateTicketStatus(event.target.getAttribute("status"));
+}
+
+// Checks If The Click Wasn't Done In Functional Elements
+const was_click_in_functional_elem = (event) => {
+    return (event.target.className === "TB-action-options-button") || (event.target.className ==="TB-status-updater");
+}
+
 module.exports = {
     date_formatter:                  date_formatter,
     turn_overlay_on:                 turn_overlay_on,
@@ -60,5 +72,7 @@ module.exports = {
     set_anonymous_picture:           set_anonymous_picture,
     is_user_legit:                   is_user_legit,
     display_legitimacy_error:        display_legitimacy_error,
-    gen_string_formatted_from_array: gen_string_formatted_from_array
+    gen_string_formatted_from_array: gen_string_formatted_from_array,
+    update_ticket_status:            update_ticket_status,
+    was_click_in_functional_elem:    was_click_in_functional_elem
 };
