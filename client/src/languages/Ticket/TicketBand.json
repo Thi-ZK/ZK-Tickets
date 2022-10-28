@@ -148,5 +148,11 @@
         "german": "Sie sind nicht erlaubt, das zu tun",
         "portuguese": "Você não pode realizar esta ação",
         "spanish": "Usted no puedes hacer esta acción"
+    },
+    "": {
+        "english": "",
+        "german": "",
+        "portuguese": "",
+        "spanish": ""
     }
 }

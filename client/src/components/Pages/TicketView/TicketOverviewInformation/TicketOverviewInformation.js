@@ -4,7 +4,7 @@ import AggregativeSelectors from './AggregativesSelectors';
 import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
 import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
-function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language, userData }) {
+function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language, userData, ticketStatus }) {
     // Alias For Aggregative Blocks Components Props
     const data_for_aggregatives = {
         ticket_data:        ticket_data,
@@ -24,12 +24,12 @@ function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language,
             <p className='TV-INF-line-info-value'>{texts.due_date[language]}:  <span>{ticket_data.due_date ? AF.date_formater(ticket_data.due_date) : "--"}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key'>Status: <span>{texts[ticket_data.status][language]}</span></p>
+            <p className='TV-INF-line-info-key'>Status: <span>{texts[ticketStatus][language]}</span></p>
             <p className='TV-INF-line-info-value'>{texts.last_update_date[language]}: <span>{AF.date_formater(ticket_data.last_status_update_date)}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
             <p className='TV-INF-line-info-key'>  {texts.priority[language]}:       <span>{texts[ticket_data.priority][language]}</span></p>
-            <p className='TV-INF-line-info-value'>{texts.concluded_date[language]}: <span>{ticket_data.status === "Concluded" ? AF.date_formater(ticket_data.last_status_update_date) : "--"}</span></p>
+            <p className='TV-INF-line-info-value'>{texts.concluded_date[language]}: <span>{ticketStatus === "Concluded" ? AF.date_formater(ticket_data.last_status_update_date) : "--"}</span></p>
         </div>
         <div id='TV-INF-aggregatives-container'>
             <div className='TV-INF-info-line-direct-container'>

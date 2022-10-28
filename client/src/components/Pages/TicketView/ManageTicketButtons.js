@@ -3,7 +3,7 @@ import React from 'react';
 import texts from '../../../languages/Pages/TicketView/ManageTicketButtons.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/manage_ticket_buttons.js'; // Aux Functions
 
-function ManageTicketButtons ({ ticket_data, all_population_data }) {
+function ManageTicketButtons ({ ticket_data, all_population_data, updateTicketStatus }) {
     // Aliases For Population Data
     const language                        = all_population_data.language;
     const userData                        = all_population_data.userData;
@@ -47,6 +47,7 @@ function ManageTicketButtons ({ ticket_data, all_population_data }) {
                 </div>
             </div>
         </div>
+        <input className="TV-SAB-status-updater" type="hidden" onClick={(ev) => AF.update_ticket_status(ev, updateTicketStatus)}></input>
     </div>
   )
 }

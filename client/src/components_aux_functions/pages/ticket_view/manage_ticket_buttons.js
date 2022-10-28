@@ -27,8 +27,16 @@ const display_legitimacy_error = () => {
     }, 2500);
 }
 
+// Updates The State Of Ticket Status With Data From The Input Fed By The Ticket Action Modal Click
+const update_ticket_status = (event, updateTicketStatus) => {
+    event.preventDefault();
+
+    updateTicketStatus(event.target.getAttribute("status"));
+}
+
 module.exports = {
     turn_overlay_on:          turn_overlay_on,
     is_user_legit:            is_user_legit,
-    display_legitimacy_error: display_legitimacy_error
+    display_legitimacy_error: display_legitimacy_error,
+    update_ticket_status:     update_ticket_status
 };

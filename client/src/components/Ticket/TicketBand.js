@@ -42,6 +42,11 @@ const Ticket = ({ ticket_data, all_population_data }) => {
 		});
 	}
 
+	// Meant To Guarantee That The Status Is Always The Latest Updated (User Can Switch Pages Too Quickly)
+	useEffect(() => {
+        updateTicketStatus(ticket_data.status);
+    }, [ticket_data]);
+
 	// Meant For Smooth Appearence Effect Of Component Rendering
     const [ticketBandStatus, updateTicketBandStatus] = useState("off");
 

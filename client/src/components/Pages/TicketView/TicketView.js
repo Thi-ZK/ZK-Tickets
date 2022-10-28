@@ -26,6 +26,9 @@ function TicketView({ all_population_data }) {
 	// Messages State Declaration
 	const [messages, updateMessages] = useState(ticket_data.messages);
 
+	// Meant For Front-End Performance (Not Having To Wait Until Tickets Update Request)
+    const [ticketStatus, updateTicketStatus] = useState(ticket_data.status);
+
 	const messages_utils = { 
 		messages:       messages,
 		updateMessages: updateMessages,
@@ -57,6 +60,7 @@ function TicketView({ all_population_data }) {
 
 	// Meant For When User Goes From One Ticket To Another Directly (Bcz Component Is Not Rerendered) (Occurs In Search)
 	useEffect(() => {
+		updateTicketStatus(ticket_data.status);
 		updateMessages(ticket_data.messages);
 		updateAssigneds(ticket_data.assumers_names);
 		updateGroups(ticket_data.groups_names); // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -75,9 +79,9 @@ function TicketView({ all_population_data }) {
 			<div id="TV-title-and-info-container">
 				<div id="TV-title-direct-container">
 					<h2>{ticket_data.name}</h2>
-					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticket_data.status + "_ticket_icon.png"}/>
+					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticketStatus + "_ticket_icon.png"}/>
 				</div>
-				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language} userData={userData}/>
+				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language} userData={userData} ticketStatus={ticketStatus}/>
 			</div>
 			<div id="TV-aggregatives-legitimacy-error-direct-container" status="off">
 				<p>{texts.not_allowed[language]}</p>
@@ -117,7 +121,7 @@ function TicketView({ all_population_data }) {
 			</div>
 			<div id="TV-place-message-and-manage-ticket-buttons">
 				<PlaceMessage userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id}></PlaceMessage>
-				<ManageTicketButtons all_population_data={all_population_data} ticket_data={ticket_data}></ManageTicketButtons>
+				<ManageTicketButtons all_population_data={all_population_data} ticket_data={ticket_data} updateTicketStatus={updateTicketStatus}></ManageTicketButtons>
 			</div>
 		</div>
 	</div>
