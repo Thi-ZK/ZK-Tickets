@@ -4,11 +4,13 @@ import axios from '../../../api/axios';
 import texts from '../../../languages/Pages/TicketView/PlaceMessage.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/place_message.js'; // Aux Functions
 
-function PlaceMessage({ ticket_id, messages_utils, userData }) {
+function PlaceMessage({ all_population_data, ticket_data_utils }) {
     // Messages Aliases
-    const messages       = messages_utils.messages;
-    const updateMessages = messages_utils.updateMessages;
-    const language       = messages_utils.language;
+    const ticketData         = ticket_data_utils.ticketData;
+    const updateTicketData   = ticket_data_utils.updateTicketData;
+    const userData           = all_population_data.userData;
+    const update_all_tickets = all_population_data.update_all_tickets;
+    const language           = all_population_data.language;
 
     // Meant For Setting Messages
     const set_message = () => {
@@ -27,22 +29,23 @@ function PlaceMessage({ ticket_id, messages_utils, userData }) {
         let data ={
             message:    message,
             message_id: new_msg_id,
-            ticket_id:  ticket_id
+            ticket_id:  ticketData.id
         };
 
         axios.post('/tickets/update/single/messages/set', data).then((res) => { console.log(res.data);
-            AF.show_and_fade_success_icon();
-
-            window.__was_ticket_interacted = true;
-
-            updateMessages([...messages, {
+            let new_message = {
                 message_owner_name: userData.name,
                 message_owner:      userData.id,
                 date_casual_format: String(new Date()),
                 message:            message,
                 status:             "alive",
                 id:                 new_msg_id
-            }])
+            }
+
+            AF.show_and_fade_success_icon();
+            AF.update_ticket_data_with_new_message(ticketData, updateTicketData, new_message);
+
+            update_all_tickets();
         })
     }
     

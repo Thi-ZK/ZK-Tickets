@@ -81,6 +81,6 @@ if ( !IRL ) {
 // Server Start After Successful Connection With DB
 mongoose.connect(DB_URI).then(() => {
     app.listen(PORT, () => { console.log(`Server Running On ${PORT}`);
-        AF.prevent_heroku_from_sleeping(29);
+        AF.prevent_heroku_from_sleeping(14);
     });
 }).catch( (error) => { console.log(error); } );

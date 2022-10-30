@@ -54,10 +54,14 @@ const gen_string_formatted_from_array = (assumers_names_array) => {
 }
 
 // Updates The State Of Ticket Status With Data From The Input Fed By The Ticket Action Modal Click
-const update_ticket_status = (event, updateTicketStatus) => {
+const update_ticket_status = (event, ticketData, updateTicketData) => {
     event.preventDefault();
 
-    updateTicketStatus(event.target.getAttribute("status"));
+    let ticket_data = JSON.parse(JSON.stringify(ticketData));
+
+    ticket_data.status = event.target.getAttribute("status");
+
+    updateTicketData(ticket_data);
 }
 
 // Checks If The Click Wasn't Done In Functional Elements
@@ -73,6 +77,6 @@ module.exports = {
     is_user_legit:                   is_user_legit,
     display_legitimacy_error:        display_legitimacy_error,
     gen_string_formatted_from_array: gen_string_formatted_from_array,
-    update_ticket_status:            update_ticket_status,
-    was_click_in_functional_elem:    was_click_in_functional_elem
+    was_click_in_functional_elem:    was_click_in_functional_elem,
+    update_ticket_status:            update_ticket_status
 };

@@ -3,27 +3,30 @@ import React from 'react';
 import texts from '../../../languages/Pages/TicketView/ManageTicketButtons.json';
 import AF    from '../../../components_aux_functions/pages/ticket_view/manage_ticket_buttons.js'; // Aux Functions
 
-function ManageTicketButtons ({ ticket_data, all_population_data, updateTicketStatus }) {
+function ManageTicketButtons ({ all_population_data, ticket_data_utils }) {
     // Aliases For Population Data
     const language                        = all_population_data.language;
     const userData                        = all_population_data.userData;
     const updateTicketActionModalSettings = all_population_data.updateTicketActionModalSettings;
 
+    const ticketData       = ticket_data_utils.ticketData;
+    const updateTicketData = ticket_data_utils.updateTicketData;
+
     // Meant For Opening Ticket Action Modal
 	const open_ticket_action_modal = (action) => {
-        if ( !AF.is_user_legit(ticket_data.related_users, userData) ) {
+        if ( !AF.is_user_legit(ticketData.related_users, userData) ) {
             return AF.display_legitimacy_error();
         }
 
         AF.turn_overlay_on();
 
 		updateTicketActionModalSettings({
-			is_action_redundant:  ticket_data.status.toLowerCase().includes(action.substring(0, 8)),
+			is_action_redundant:  ticketData.status.toLowerCase().includes(action.substring(0, 8)),
 			text_thema:           action,
 			status:               "open",
-			ticket_id:            ticket_data.id,
+			ticket_id:            ticketData.id,
 			which_action:         action,
-            ticket_related_users: ticket_data.related_users
+            ticket_related_users: ticketData.related_users
 		});
 	}
 
@@ -47,7 +50,7 @@ function ManageTicketButtons ({ ticket_data, all_population_data, updateTicketSt
                 </div>
             </div>
         </div>
-        <input className="TV-SAB-status-updater" type="hidden" onClick={(ev) => AF.update_ticket_status(ev, updateTicketStatus)}></input>
+        <input className="TV-SAB-status-updater" type="hidden" onClick={(ev) => AF.update_ticket_status(ev, ticketData, updateTicketData)}></input>
     </div>
   )
 }

@@ -83,56 +83,60 @@ const gen_unassign_req_url = (aggregative_type) => {
 }
 
 // Is Aggregative Already Set - Returns Boolean
-const is_aggregative_already_set = (data, aggregatives_utils) => {
-    let data_array_to_be_checked = data.aggregative_type === "group" ? aggregatives_utils.groups : aggregatives_utils.assigneds;
-    return data_array_to_be_checked.includes(data.aggregative_name);
+const is_aggregative_already_set = (data, ticketData) => {
+    let data_array_to_be_checked = data.aggregative_type === "group" ? ticketData.groups : ticketData.assumers;
+
+    return data_array_to_be_checked.includes(data.aggregative_id);
 }
 
 // Update Aggregative State For Assigning
-const update_aggregative_state_with_added = (data, aggregatives_utils) => {
+const update_aggregative_state_with_added = (data, updateTicketData, ticketData) => {
+    let ticket_data = JSON.parse(JSON.stringify(ticketData));
+    
     if ( data.aggregative_type === "group" ) {
-        aggregatives_utils.updateGroups([...aggregatives_utils.groups, data.aggregative_name]);
+        ticket_data.groups.push(data.aggregative_id);
+        ticket_data.groups_names.push(data.aggregative_name);
     } else {
-        aggregatives_utils.updateAssigneds([...aggregatives_utils.assigneds, data.aggregative_name]);
+        ticket_data.assumers.push(data.aggregative_id);
+        ticket_data.assumers_names.push(data.aggregative_name);
     }
 
-    window.__was_ticket_interacted = true;
+    updateTicketData(ticket_data);
 }
 
 // Update Aggregative State For Unassigning
-const update_aggregative_state_with_removed = (data, aggregatives_utils) => {
-    let groups          = aggregatives_utils.groups;
-    let assigneds       = aggregatives_utils.assigneds;
-    let updateGroups    = aggregatives_utils.updateGroups;
-    let updateAssigneds = aggregatives_utils.updateAssigneds;
-
+const update_ticket_data_state_with_removed = (data, ticketData, updateTicketData) => {
+    let ticket_data = JSON.parse(JSON.stringify(ticketData));
+   
     if ( data.aggregative_type === "group" ) {
-        updateGroups(groups.filter((group) => { return group !== data.aggregative_name }));
+        ticket_data.groups       = ticket_data.groups.filter(group_id => group_id !== data.aggregative_id);
+        ticket_data.groups_names = ticket_data.groups_names.filter(group_name => group_name !== data.aggregative_name);
     } else {
-        updateAssigneds(assigneds.filter((assigned) => { return assigned !== data.aggregative_name }));
+        ticket_data.assumers       = ticket_data.assumers.filter(assumer_id => assumer_id !== data.aggregative_id);
+        ticket_data.assumers_names = ticket_data.assumers_names.filter(assumer_name => assumer_name !== data.aggregative_name);
     }
-
-    window.__was_ticket_interacted = true;
+    
+    updateTicketData(ticket_data);
 }
 
 // Generate Aggregative Names Text (Checks For Singular Or Plural Text, Ex: "Assumer" or "Assumers") - Returns String
-const generate_text_for_aggregative_names = (agg_data, which_aggregative, texts) => {
-    return agg_data.ticket_data[which_aggregative + "_names"].length > 1 ? texts[which_aggregative + "_plural"] : texts[which_aggregative];
+const generate_text_for_aggregative_names = (ticketData, which_aggregative, texts) => {
+    return ticketData[which_aggregative + "_names"].length > 1 ? texts[which_aggregative + "_plural"] : texts[which_aggregative];
 }
 
-// Get Aggregative Totals To Be Used (aggregatives_utils.groups or aggregatives_utils.assigneds) - Returns Array
-const get_aggregative_blocks = (which_aggregative, agg_data) => {
-    return which_aggregative === "groups" ? agg_data.aggregatives_utils.groups : agg_data.aggregatives_utils.assigneds;
+// Get Aggregative Totals To Be Used - Returns Array
+const get_aggregative_blocks = (which_aggregative, ticketData) => {
+    return which_aggregative === "groups" ? ticketData.groups_names : ticketData.assumers_names;
 }
 
 // Get All Aggregative Names (For Selectors) - Returns Array
-const get_all_aggregative_names = (which_aggregative, aggregatives_utils) => {
+const get_all_aggregative_names = (which_aggregative, all_population_data) => {
     if ( which_aggregative !== "groups" ) {
-        return Object.values(aggregatives_utils.usersNamesWithIds);
+        return Object.values(all_population_data.usersNamesWithIds);
     } else {
         let groups_names = [];
 
-        aggregatives_utils.ticketGroups.forEach((group) => {
+        all_population_data.ticketGroups.forEach((group) => {
             groups_names.push(group.name);
         });
 
@@ -141,13 +145,13 @@ const get_all_aggregative_names = (which_aggregative, aggregatives_utils) => {
 }
 
 // Get All Aggregative IDs (For Selectors) - Returns Array
-const get_all_aggregative_ids = (which_aggregative, aggregatives_utils) => {
+const get_all_aggregative_ids = (which_aggregative, all_population_data) => {
     if ( which_aggregative !== "groups" ) {
-        return Object.keys(aggregatives_utils.usersNamesWithIds);
+        return Object.keys(all_population_data.usersNamesWithIds);
     } else {
         let groups_ids = [];
 
-        aggregatives_utils.ticketGroups.forEach((group) => {
+        all_population_data.ticketGroups.forEach((group) => {
             groups_ids.push(group.id);
         });
 
@@ -156,15 +160,15 @@ const get_all_aggregative_ids = (which_aggregative, aggregatives_utils) => {
 }
 
 // Generate Data Object For Unassign Aggregative Function - Returns Object
-const generate_data_obj_for_unassign_aggregative = (event, agg_data) => {
+const generate_data_obj_for_unassign_aggregative = (event, ticketData) => {
     let data = {
         aggregative_id:       null,
         aggregative_name:     event.target.innerText,
         aggregative_type:     event.target.getAttribute("aggregative-type"),
-        ticket_creator:       agg_data.ticket_data.creator,
-        ticket_creator_name:  agg_data.ticket_data.creator_name,
-        ticket_id:            agg_data.ticket_data.id,
-        ticket_related_users: agg_data.ticket_data.related_users
+        ticket_creator:       ticketData.creator,
+        ticket_creator_name:  ticketData.creator_name,
+        ticket_id:            ticketData.id,
+        ticket_related_users: ticketData.related_users
     }
     data["aggregative_id"] = get_aggregative_id_for_unassign(data);
 
@@ -172,14 +176,14 @@ const generate_data_obj_for_unassign_aggregative = (event, agg_data) => {
 }
 
 // Generate Data Object For Assign Aggregative Function
-const generate_data_obj_for_assign_aggregative = (event, agg_data) => {
+const generate_data_obj_for_assign_aggregative = (event, ticketData) => {
     return {
         aggregative_id:       get_aggregative_id(event.target),
         aggregative_name:     get_aggregative_name(event.target),
         aggregative_type:     event.target.getAttribute("aggregative-type"),
-        ticket_id:            agg_data.ticket_data.id,
-        ticket_creator:       agg_data.ticket_data.creator,
-        ticket_related_users: agg_data.ticket_data.related_users
+        ticket_id:            ticketData.id,
+        ticket_creator:       ticketData.creator,
+        ticket_related_users: ticketData.related_users
     };
 }
 
@@ -191,7 +195,7 @@ const AF = {
     set_aux_aggregative_option_disabled_status: set_aux_aggregative_option_disabled_status,
     gen_assign_req_url:                         gen_assign_req_url,
     update_aggregative_state_with_added:        update_aggregative_state_with_added,
-    update_aggregative_state_with_removed:      update_aggregative_state_with_removed,
+    update_ticket_data_state_with_removed:      update_ticket_data_state_with_removed,
     is_aggregative_already_set:                 is_aggregative_already_set,
     get_aggregative_id_for_unassign:            get_aggregative_id_for_unassign,
     gen_unassign_req_url:                       gen_unassign_req_url,

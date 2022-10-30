@@ -4,41 +4,37 @@ import AggregativeSelectors from './AggregativesSelectors';
 import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
 import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
-function TicketOverviewInformation ({ ticket_data, aggregatives_utils, language, userData, ticketStatus }) {
-    // Alias For Aggregative Blocks Components Props
-    const data_for_aggregatives = {
-        ticket_data:        ticket_data,
-        aggregatives_utils: aggregatives_utils,
-        language:           language,
-        userData:           userData
-    };
+function TicketOverviewInformation ({ ticket_data_utils, all_population_data }) {
+    // Aliases
+    const language   = all_population_data.language;
+    const ticketData = ticket_data_utils.ticketData;
     
     return (
     <div id='TV-ticket-info-container' css-marker="INF">
         <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key'>  {texts.ticket_creator[language]}: <span>{ticket_data.creator_name}</span></p>
-            <p className='TV-INF-line-info-value'>{texts.creation_date[language]}:  <span>{AF.date_formater(ticket_data.creation_date)}</span></p>
+            <p className='TV-INF-line-info-key'>  {texts.ticket_creator[language]}: <span>{ticketData.creator_name}</span></p>
+            <p className='TV-INF-line-info-value'>{texts.creation_date[language]}:  <span>{AF.date_formater(ticketData.creation_date)}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key'>  {texts.ticket_id[language]}: <span> #{ticket_data.id}</span></p>
-            <p className='TV-INF-line-info-value'>{texts.due_date[language]}:  <span>{ticket_data.due_date ? AF.date_formater(ticket_data.due_date) : "--"}</span></p>
+            <p className='TV-INF-line-info-key'>  {texts.ticket_id[language]}: <span> #{ticketData.id}</span></p>
+            <p className='TV-INF-line-info-value'>{texts.due_date[language]}:  <span>{ticketData.due_date ? AF.date_formater(ticketData.due_date) : "--"}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key'>Status: <span>{texts[ticketStatus][language]}</span></p>
-            <p className='TV-INF-line-info-value'>{texts.last_update_date[language]}: <span>{AF.date_formater(ticket_data.last_status_update_date)}</span></p>
+            <p className='TV-INF-line-info-key'>Status: <span>{texts[ticketData.status][language]}</span></p>
+            <p className='TV-INF-line-info-value'>{texts.last_update_date[language]}: <span>{AF.date_formater(ticketData.last_status_update_date)}</span></p>
         </div>
         <div className='TV-INF-info-line-direct-container'>
-            <p className='TV-INF-line-info-key'>  {texts.priority[language]}:       <span>{texts[ticket_data.priority][language]}</span></p>
-            <p className='TV-INF-line-info-value'>{texts.concluded_date[language]}: <span>{ticketStatus === "Concluded" ? AF.date_formater(ticket_data.last_status_update_date) : "--"}</span></p>
+            <p className='TV-INF-line-info-key'>  {texts.priority[language]}:       <span>{texts[ticketData.priority][language]}</span></p>
+            <p className='TV-INF-line-info-value'>{texts.concluded_date[language]}: <span>{ticketData.status === "Concluded" ? AF.date_formater(ticketData.last_status_update_date) : "--"}</span></p>
         </div>
         <div id='TV-INF-aggregatives-container'>
             <div className='TV-INF-info-line-direct-container'>
-                <AggregativeBlocks    which_aggregative="groups" data_for_aggregatives={data_for_aggregatives}/>
-                <AggregativeSelectors which_aggregative="groups" data_for_aggregatives={data_for_aggregatives} />
+                <AggregativeBlocks    which_aggregative="groups" all_population_data={all_population_data} ticket_data_utils={ticket_data_utils}/>
+                <AggregativeSelectors which_aggregative="groups" all_population_data={all_population_data} ticket_data_utils={ticket_data_utils} />
             </div>
             <div className='TV-INF-info-line-direct-container'>
-                <AggregativeBlocks    which_aggregative="assumers" data_for_aggregatives={data_for_aggregatives}/>
-                <AggregativeSelectors which_aggregative="assumers" data_for_aggregatives={data_for_aggregatives} />
+                <AggregativeBlocks    which_aggregative="assumers" all_population_data={all_population_data} ticket_data_utils={ticket_data_utils}/>
+                <AggregativeSelectors which_aggregative="assumers" all_population_data={all_population_data} ticket_data_utils={ticket_data_utils} />
             </div>
         </div>
     </div>

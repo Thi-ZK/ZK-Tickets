@@ -28,8 +28,11 @@ const update_and_click_ticket_status_input = (ticket_id, new_status) => {
         "#ticket-view-container[ticket-id='" + ticket_id + "'] input[type='hidden']"
     );
 
-    ticket_status_input_elem.setAttribute("status", new_status);
-    ticket_status_input_elem.click();
+    // User May Switch Page While The Function Executes And So The Input Would Be Not Present Anymore
+    if ( ticket_status_input_elem ) {
+        ticket_status_input_elem.setAttribute("status", new_status);
+        ticket_status_input_elem.click();
+    }
 }
 
 module.exports = {

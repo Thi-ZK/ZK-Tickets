@@ -4,14 +4,13 @@ import axios from '../../../api/axios';
 import AF    from '../../../components_aux_functions/pages/ticket_view/message.js'; // Aux Functions
 import texts from '../../../languages/Pages/TicketView/Message.json';
 
-function Message({ type, message_data, ticket_id, messages_utils, userData, ticket_creator }) {
+function Message({ all_population_data, ticket_data_utils, message_data, type }) {
     // Aliases
-    const messages       = messages_utils.messages;
-    const updateMessages = messages_utils.updateMessages; 
-    const language       = messages_utils.language;
-
-    // Meant For Smooth Appearence Effect Of Component Rendering
-	const [messageContainerStatus, updateMessageContainerStatus] = useState("off");
+    const language           = all_population_data.language;
+    const userData           = all_population_data.userData;
+    const update_all_tickets = all_population_data.update_all_tickets;
+    const ticketData         = ticket_data_utils.ticketData;
+    const updateTicketData   = ticket_data_utils.updateTicketData;
 
     // Delete Message Handler
     const delete_message = (event) => {
@@ -21,11 +20,11 @@ function Message({ type, message_data, ticket_id, messages_utils, userData, tick
         let data   = {
             message_id:     msg_id,
             message_owner:  message_data.message_owner,
-            ticket_id:      ticket_id,
-            ticket_creator: ticket_creator
+            ticket_id:      ticketData.id,
+            ticket_creator: ticketData.creator
         };
 
-        if ( !AF.is_user_legit_strict(ticket_creator, userData, data.message_owner) ) {
+        if ( !AF.is_user_legit_strict(data.ticket_creator, userData, data.message_owner) ) {
             AF.set_delete_icon_status(event, "on");
             AF.display_not_enough_power_error_message(msg_id);
 
@@ -38,17 +37,15 @@ function Message({ type, message_data, ticket_id, messages_utils, userData, tick
             AF.set_loading_icon_appearence("off", msg_id);
             await AF.fade_in_message(updateMessageContainerStatus);
             AF.set_delete_icon_status(event, "on"); // Components Are Reused, So Set It "on" In Case This Component Is Reused
+            AF.update_ticket_data_with_deleted_message(ticketData, msg_id, updateTicketData);
 
-            window.__was_ticket_interacted = true;
-            
-            updateMessages(messages.map((msg) => { 
-                if ( msg.id === msg_id ) {  msg.status = "deleted"; }
-                return msg;
-            }));
+            update_all_tickets();
         });
     }
 
     // Meant For Smooth Appearence Effect Of Component Rendering
+    const [messageContainerStatus, updateMessageContainerStatus] = useState("off");
+
 	useEffect(() => {
         updateMessageContainerStatus("on");
 	}, []);

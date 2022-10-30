@@ -28,10 +28,14 @@ const display_legitimacy_error = () => {
 }
 
 // Updates The State Of Ticket Status With Data From The Input Fed By The Ticket Action Modal Click
-const update_ticket_status = (event, updateTicketStatus) => {
+const update_ticket_status = (event, ticketData, updateTicketData) => {
     event.preventDefault();
 
-    updateTicketStatus(event.target.getAttribute("status"));
+    let ticket_data = JSON.parse(JSON.stringify(ticketData));
+
+    ticket_data.status = event.target.getAttribute("status");
+
+    updateTicketData(ticket_data);
 }
 
 module.exports = {

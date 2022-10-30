@@ -5,19 +5,18 @@ import texts from '../../languages/Ticket/TicketBand.json';
 import AF    from '../../components_aux_functions/ticket/ticket_band.js'; // Aux Functions
 
 const Ticket = ({ ticket_data, all_population_data }) => {
+	// Meant For Front-End Performance (Not Having To Wait Until Tickets Update Request)
+    const [ticketData, updateTicketData] = useState(ticket_data);
+
 	// Aliases
 	const language                        = all_population_data.language;
 	const userData                        = all_population_data.userData;
 	const updateTicketActionModalSettings = all_population_data.updateTicketActionModalSettings;
-	const assumers_names_string           = AF.gen_string_formatted_from_array(ticket_data.assumers_names);
-	const groups_names_string             = AF.gen_string_formatted_from_array(ticket_data.groups_names);
-
-	// Meant For Front-End Performance (Not Having To Wait Until Tickets Update Request)
-    const [ticketStatus, updateTicketStatus] = useState(ticket_data.status);
+	const assumers_names_string           = AF.gen_string_formatted_from_array(ticketData.assumers_names);
+	const groups_names_string             = AF.gen_string_formatted_from_array(ticketData.groups_names);
 
 	// Meant For When User Clicks And Select To View A Ticket From The List
 	let navigate           = useNavigate();
-
 	let navigate_to_ticket = (event) => {
 		if ( !AF.was_click_in_functional_elem(event) ) {
 			navigate('/ticket_view/' + ticket_data.id);
@@ -44,7 +43,7 @@ const Ticket = ({ ticket_data, all_population_data }) => {
 
 	// Meant To Guarantee That The Status Is Always The Latest Updated (User Can Switch Pages Too Quickly)
 	useEffect(() => {
-        updateTicketStatus(ticket_data.status);
+        updateTicketData(ticket_data);
     }, [ticket_data]);
 
 	// Meant For Smooth Appearence Effect Of Component Rendering
@@ -60,7 +59,7 @@ const Ticket = ({ ticket_data, all_population_data }) => {
 			<div className="TB-title-container">
 				<p>{ticket_data.name}</p>
 				<p className="TB-ticket_id">&nbsp;-&nbsp;</p>
-				<img alt="ticket status icon" src={"/imgs/general/" + ticketStatus + "_ticket_icon.png"}/>
+				<img alt="ticket status icon" src={"/imgs/general/" + ticketData.status + "_ticket_icon.png"}/>
 			</div>
 			<div>
 				<div className="TB-intitle-management-options-direct-container">
@@ -97,7 +96,7 @@ const Ticket = ({ ticket_data, all_population_data }) => {
 					<p className="TB-status-or-date">{texts.creation_date[language]}: <span>{AF.date_formatter(ticket_data.creation_date)}</span></p>
 					<p className="TB-status-or-date">{texts.due_date[language]}: <span>{ticket_data.due_date ? AF.date_formatter(ticket_data.due_date) : "--"}</span></p>
 					<p className="TB-status-or-date">{texts.last_updated[language]}: <span>{AF.date_formatter(ticket_data.updatedAt)}</span></p>
-					<p className="TB-status-or-date">Status: <span>{texts[ticketStatus][language]}</span></p>
+					<p className="TB-status-or-date">Status: <span>{texts[ticketData.status][language]}</span></p>
 					<p className="TB-status-or-date">{texts.priority[language]}: <span>{texts[ticket_data.priority][language]}</span></p>
 				</div>
 			</div>
@@ -108,7 +107,7 @@ const Ticket = ({ ticket_data, all_population_data }) => {
 				<p className="TB-description">{ticket_data.description.length > 200 ? (ticket_data.description.substr(0, 200) + "...") : ticket_data.description}</p>
 			</div>
 		</div>
-		<input className="TB-status-updater" type="hidden" onClick={(ev) => AF.update_ticket_status(ev, updateTicketStatus)}></input>
+		<input className="TB-status-updater" type="hidden" onClick={(ev) => AF.update_ticket_status(ev, ticketData, updateTicketData)}></input>
 	</div>
     )
 }

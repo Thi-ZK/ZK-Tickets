@@ -24,9 +24,9 @@ const TicketActionModal = ({ all_population_data }) => {
         axios.post('/tickets/update/single/status', data).then((res) => { console.log(res.data);
             if ( res.data.success ) {
                 AF.update_and_click_ticket_status_input(data.ticket_id, data.new_status);
-            }
 
-            update_all_tickets();
+                update_all_tickets();
+            }
         })
 
         AF.close_modal(updateTicketActionModalSettings);

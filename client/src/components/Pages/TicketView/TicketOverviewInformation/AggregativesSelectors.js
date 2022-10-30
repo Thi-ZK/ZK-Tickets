@@ -4,24 +4,29 @@ import axios from '../../../../api/axios';
 import texts from '../../../../languages/Pages/TicketView/TicketOverViewInformation.json';
 import AF    from '../../../../components_aux_functions/pages/ticket_view/ticket_overview_information.js'; // Aux Functions
 
-function AggregativeBlocks ({ which_aggregative, data_for_aggregatives }) {
+function AggregativeBlocks ({ which_aggregative, all_population_data, ticket_data_utils }) {
     // Aliases
-    const aggregatives_utils    = data_for_aggregatives.aggregatives_utils;
-    const userData              = data_for_aggregatives.userData;
-    const language              = data_for_aggregatives.language;
-    const all_aggregative_names = AF.get_all_aggregative_names(which_aggregative, aggregatives_utils);
-    const all_aggregative_ids   = AF.get_all_aggregative_ids(which_aggregative, aggregatives_utils);
+    const userData              = all_population_data.userData;
+    const language              = all_population_data.language;
+    const update_all_tickets    = all_population_data.update_all_tickets;
+    const update_ticket_groups  = all_population_data.update_ticket_groups;
+
+    const ticketData            = ticket_data_utils.ticketData;
+    const updateTicketData      = ticket_data_utils.updateTicketData;
+    
+    const all_aggregative_names = AF.get_all_aggregative_names(which_aggregative, all_population_data);
+    const all_aggregative_ids   = AF.get_all_aggregative_ids(which_aggregative, all_population_data);
 
     // Text Alias
     const which_aggregative_singular = which_aggregative.substring(0, which_aggregative.length -1);
 
     // Assign Aggregative Handler
     const assign_aggregative = (event) => {
-        let data = AF.generate_data_obj_for_assign_aggregative(event, data_for_aggregatives);
+        let data = AF.generate_data_obj_for_assign_aggregative(event, ticketData);
 
         AF.set_aux_aggregative_option_disabled_status(true, event); // Disables Double Dash Option "--"
 
-        if ( AF.is_aggregative_already_set(data, aggregatives_utils) ) {
+        if ( AF.is_aggregative_already_set(data, ticketData) ) {
             return; 
         }
 
@@ -30,7 +35,13 @@ function AggregativeBlocks ({ which_aggregative, data_for_aggregatives }) {
         }
         
         axios.post(AF.gen_assign_req_url(data.aggregative_type), data).then((res) => { console.log(res.data);
-            AF.update_aggregative_state_with_added(data, aggregatives_utils);
+            AF.update_aggregative_state_with_added(data, updateTicketData, ticketData);
+
+            update_all_tickets();
+
+            if ( which_aggregative === "groups" ) {
+                update_ticket_groups();
+            }
         })
     }
 

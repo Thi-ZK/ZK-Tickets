@@ -12,59 +12,26 @@ import AF    from '../../../components_aux_functions/pages/ticket_view/ticket_vi
 
 function TicketView({ all_population_data }) {
 	// Aliases
-	const allTickets           = all_population_data.allTickets;
-	const update_all_tickets   = all_population_data.update_all_tickets;
-	const update_ticket_groups = all_population_data.update_ticket_groups;
-	const userData             = all_population_data.userData;
-	const language             = all_population_data.language;
-	const { ticket_id }        = useParams();
-	const ticket_data          = AF.get_ticket_data(allTickets, ticket_id);
+	const allTickets    = all_population_data.allTickets;
+	const language      = all_population_data.language;
+	const { ticket_id } = useParams();
+	const ticket_data   = AF.get_ticket_data(allTickets, ticket_id);
+
+	// Meant For Front-End Performance (Not Having To Wait Until Tickets Update Request)
+    const [ticketData, updateTicketData] = useState(ticket_data);
+
+	const ticket_data_utils = {
+		ticketData:       ticketData,
+		updateTicketData: updateTicketData
+	};
 
 	// Checks Ticket Legitimacy (If Not, Then Send To 404 Page)
 	AF.check_ticket_legitimacy(ticket_data, ticket_id);
 
-	// Messages State Declaration
-	const [messages, updateMessages] = useState(ticket_data.messages);
-
-	// Meant For Front-End Performance (Not Having To Wait Until Tickets Update Request)
-    const [ticketStatus, updateTicketStatus] = useState(ticket_data.status);
-
-	const messages_utils = { 
-		messages:       messages,
-		updateMessages: updateMessages,
-		language:       language
-	};
-
-	// Aggregative States Declaration | assigneds And assumers Are The Same Thing.
-	const [assigneds, updateAssigneds] = useState(ticket_data.assumers_names);
-	const [groups, updateGroups]       = useState(ticket_data.groups_names);
-
-	const aggregatives_utils = {
-		assigneds:         assigneds,
-		updateAssigneds:   updateAssigneds,
-		groups:            groups,
-		updateGroups:      updateGroups,
-		usersNamesWithIds: all_population_data.usersNamesWithIds,
-		ticketGroups:      all_population_data.ticketGroups
-	};
-	
-	// Brings Fresh Tickets From DB Whenever User Performs Action (Updates The Ticket).
+	// Meant To Always Keep The Ticket Info Update, Whenever User Browses After An Action (Example, Goes From One Ticket To Another Through Search)
 	useEffect(() => {
-		if ( window.__was_ticket_interacted ) {
-			update_all_tickets();
-			update_ticket_groups();
-		}
-
-		window.__was_ticket_interacted = false; // eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [messages, assigneds, groups]);
-
-	// Meant For When User Goes From One Ticket To Another Directly (Bcz Component Is Not Rerendered) (Occurs In Search)
-	useEffect(() => {
-		updateTicketStatus(ticket_data.status);
-		updateMessages(ticket_data.messages);
-		updateAssigneds(ticket_data.assumers_names);
-		updateGroups(ticket_data.groups_names); // eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ticket_id]);
+		updateTicketData(ticket_data);
+	}, [ticket_data]);
 
 	// Meant For Smooth Appearence Effect Of Component Rendering
 	const [ticketViewContainerStatus, updateTicketViewContainerStatus] = useState("off");
@@ -79,9 +46,9 @@ function TicketView({ all_population_data }) {
 			<div id="TV-title-and-info-container">
 				<div id="TV-title-direct-container">
 					<h2>{ticket_data.name}</h2>
-					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticketStatus + "_ticket_icon.png"}/>
+					<img className="TV-title-icon" alt="lock icon" src={"/imgs/general/" + ticketData.status + "_ticket_icon.png"}/>
 				</div>
-				<TicketOverviewInformation aggregatives_utils={aggregatives_utils} ticket_data={ticket_data} language={language} userData={userData} ticketStatus={ticketStatus}/>
+				<TicketOverviewInformation ticket_data_utils={ticket_data_utils} all_population_data={all_population_data}/>
 			</div>
 			<div id="TV-aggregatives-legitimacy-error-direct-container" status="off">
 				<p>{texts.not_allowed[language]}</p>
@@ -115,13 +82,13 @@ function TicketView({ all_population_data }) {
 		</div>
 		<div id="TV-place-message-and-ticket-management-options-container">
 			<div id="TV-messages-direct-container" css-marker="MSG">
-				{messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
-					<Message userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id} ticket_creator={ticket_data.creator} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
+				{ticketData.messages.filter((message) => {return message.status === "alive"}).map((message, index) => (
+					<Message all_population_data={all_population_data} ticket_data_utils={ticket_data_utils} key={index} message_data={message} type={index % 2 === 1 ? 2 : 1}></Message>
 				))}
 			</div>
 			<div id="TV-place-message-and-manage-ticket-buttons">
-				<PlaceMessage userData={userData} messages_utils={messages_utils} ticket_id={ticket_data.id}></PlaceMessage>
-				<ManageTicketButtons all_population_data={all_population_data} ticket_data={ticket_data} updateTicketStatus={updateTicketStatus}></ManageTicketButtons>
+				<PlaceMessage        all_population_data={all_population_data} ticket_data_utils={ticket_data_utils}></PlaceMessage>
+				<ManageTicketButtons all_population_data={all_population_data} ticket_data_utils={ticket_data_utils}></ManageTicketButtons>
 			</div>
 		</div>
 	</div>

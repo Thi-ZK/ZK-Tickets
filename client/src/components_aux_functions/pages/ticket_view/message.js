@@ -61,6 +61,21 @@ const set_delete_icon_status = (event, status) => {
     event.target.setAttribute("status", status);
 }
 
+// Updates The Ticket Data State Regarding The Deleted Message
+const update_ticket_data_with_deleted_message = (ticketData, msg_id, updateTicketData) => {
+    let ticket_data = JSON.parse(JSON.stringify(ticketData));
+
+    ticket_data.messages = ticket_data.messages.map((msg) => {
+        if ( msg.id === msg_id ) {
+            msg.status = "deleted";
+        }
+
+        return msg;
+    });
+
+    updateTicketData(ticket_data);
+}
+
 module.exports = {
     display_not_enough_power_error_message:   display_not_enough_power_error_message,
     set_delete_icon_status:                   set_delete_icon_status,
@@ -68,5 +83,6 @@ module.exports = {
     generate_ticket_creator_img_src:          generate_ticket_creator_img_src,
     set_anonymous_picture:                    set_anonymous_picture,
     is_user_legit_strict:                     is_user_legit_strict,
-    fade_in_message:                          fade_in_message
+    fade_in_message:                          fade_in_message,
+    update_ticket_data_with_deleted_message:  update_ticket_data_with_deleted_message
 };
