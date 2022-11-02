@@ -5,13 +5,13 @@ import texts from '../../../languages/Pages/TicketListing/Pagination.json';
  
 function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, listingFilters, language }) { // The Pagination Has A Max Of 10 Blocks.
     // Alias - All Page Blocks
-    const total_page_blocks = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
+    const total_page_blocks    = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
 
     // States Aliases
     const [currentBlocks, updateCurrentBlocks]               = useState(AF.gen_initial_page_blocks(tickets_to_be_shown)); // Array
     const [forwardBlocksStatus, updateForwardBlocksStatus]   = useState(AF.are_there_more_forward_blocks(currentBlocks, total_page_blocks) ? "on" : "off"); // String (On or Off)
     const [backwardBlocksStatus, updateBackwardBlocksStatus] = useState(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off"); // String (On or Off)
-    
+
     // Update Selected Page Block (For When New Block Is Selected)
     const update_selected_page = (which_block_index) => {
         AF.clean_page_blocks_attributes();
@@ -38,7 +38,10 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
 
         let action_taken = event.target.id.includes("proceed") ? "proceed" : "go_back";
 
-        AF.update_current_blocks_state(action_taken, updateCurrentBlocks, currentBlocks, total_page_blocks);
+        AF.update_current_blocks_state(action_taken, updateCurrentBlocks, currentBlocks, total_page_blocks, updateSelectedPage);
+
+        window.__was_paginator_clicked   = true;
+        window.__which_paginator_clicked = action_taken;
     }
 
     // Updates The Pagination When Listing Is Re-rendered (When Filter Is Applied)
@@ -51,7 +54,12 @@ function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, li
     // Updates The Forward & Backward Appearence States (The Appreance Of The "...") 
     useEffect(() => {
         updateForwardBlocksStatus(AF.are_there_more_forward_blocks(currentBlocks, total_page_blocks) ? "on" : "off");
-        updateBackwardBlocksStatus(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off"); // eslint-disable-next-line react-hooks/exhaustive-deps
+        updateBackwardBlocksStatus(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off");
+
+        if ( window.__was_paginator_clicked ) {
+            AF.update_selected_page_after_paginator_update(update_selected_page, currentBlocks[0]);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentBlocks]);
 
     // Meant For Smooth Appearence Effect Of Component Rendering

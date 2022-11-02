@@ -38,7 +38,7 @@ const are_there_more_forward_blocks = (currentBlocks, total_page_blocks) => {
 
 // Checks If The Number Of Page Blocks Surpasses Limit (10)
 const are_there_more_backward_blocks = (currentBlocks) => {
-    if ( currentBlocks[0] !== 0 ) {
+    if ( (currentBlocks[0] !== 0) && (currentBlocks.length) ) {
         return true;
     } else {
         return false;
@@ -90,7 +90,7 @@ const switch_to_correspondent_blocks = (event) => {
 }
 
 // Update Current Blocks ("...")
-const update_current_blocks_state = (action_taken, updateCurrentBlocks, currentBlocks, total_page_blocks) => {
+const update_current_blocks_state = (action_taken, updateCurrentBlocks, currentBlocks, total_page_blocks, updateSelectedPage) => {
     let last_current_index  = currentBlocks[currentBlocks.length - 1];
     let first_current_index = currentBlocks[0];
 
@@ -105,16 +105,26 @@ const update_current_blocks_state = (action_taken, updateCurrentBlocks, currentB
     }
 }
 
+// Updates The The Block Selected, For When User Moves To Another 10 Block Or Goes Back (Three Dots Advance)
+const update_selected_page_after_paginator_update = (update_selected_page, index) => {
+    window.__was_paginator_clicked = false;
+
+    let which_index = ((window.__which_paginator_clicked === "proceed") ? 1 : 10) + index;
+
+    update_selected_page(which_index);
+}
+
 module.exports = {
-    gen_initial_page_blocks:               gen_initial_page_blocks,
-    are_there_more_forward_blocks:         are_there_more_forward_blocks,
-    are_there_more_backward_blocks:        are_there_more_backward_blocks,
-    gen_total_page_blocks:                 gen_total_page_blocks,
-    clean_page_blocks_attributes:          clean_page_blocks_attributes,
-    set_selected_attribute_to_block:       set_selected_attribute_to_block,
-    is_update_block_existing:              is_update_block_existing,
-    get_proceed_or_go_back_index:          get_proceed_or_go_back_index,
-    are_there_more_blocks_to_be_displayed: are_there_more_blocks_to_be_displayed,
-    switch_to_correspondent_blocks:        switch_to_correspondent_blocks,
-    update_current_blocks_state:           update_current_blocks_state
+    gen_initial_page_blocks:                     gen_initial_page_blocks,
+    are_there_more_forward_blocks:               are_there_more_forward_blocks,
+    are_there_more_backward_blocks:              are_there_more_backward_blocks,
+    gen_total_page_blocks:                       gen_total_page_blocks,
+    clean_page_blocks_attributes:                clean_page_blocks_attributes,
+    set_selected_attribute_to_block:             set_selected_attribute_to_block,
+    is_update_block_existing:                    is_update_block_existing,
+    get_proceed_or_go_back_index:                get_proceed_or_go_back_index,
+    are_there_more_blocks_to_be_displayed:       are_there_more_blocks_to_be_displayed,
+    switch_to_correspondent_blocks:              switch_to_correspondent_blocks,
+    update_current_blocks_state:                 update_current_blocks_state,
+    update_selected_page_after_paginator_update: update_selected_page_after_paginator_update
 };

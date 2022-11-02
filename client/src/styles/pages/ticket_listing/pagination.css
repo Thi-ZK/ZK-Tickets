@@ -3,6 +3,7 @@
     display: -ms-flexbox;
     display: flex;
     padding: 0px 15px 0px 15px;
+    min-width: 418px;
 }
 
 #ticket-listing-pagination-container {
