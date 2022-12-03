@@ -5,12 +5,12 @@ import texts from '../../../languages/Pages/TicketListing/Pagination.json';
  
 function Pagination ({ tickets_to_be_shown, selectedPage, updateSelectedPage, listingFilters, language }) { // The Pagination Has A Max Of 10 Blocks.
     // Alias - All Page Blocks
-    const total_page_blocks    = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
+    const total_page_blocks = AF.gen_total_page_blocks(tickets_to_be_shown); // Array
 
     // States Aliases
     const [currentBlocks, updateCurrentBlocks]               = useState(AF.gen_initial_page_blocks(tickets_to_be_shown)); // Array
-    const [forwardBlocksStatus, updateForwardBlocksStatus]   = useState(AF.are_there_more_forward_blocks(currentBlocks, total_page_blocks) ? "on" : "off"); // String (On or Off)
-    const [backwardBlocksStatus, updateBackwardBlocksStatus] = useState(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off"); // String (On or Off)
+    const [forwardBlocksStatus, updateForwardBlocksStatus]   = useState(AF.are_there_more_forward_blocks(currentBlocks, total_page_blocks) ? "on" : "off");
+    const [backwardBlocksStatus, updateBackwardBlocksStatus] = useState(AF.are_there_more_backward_blocks(currentBlocks) ? "on" : "off");
 
     // Update Selected Page Block (For When New Block Is Selected)
     const update_selected_page = (which_block_index) => {

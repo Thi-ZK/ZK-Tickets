@@ -8,10 +8,9 @@ import MiniTicketBand from './MiniTicketBand';
 
 const Header = ({ all_population_data }) => {
     // Aliases
-    const language             = all_population_data.language;
-    const allTickets           = all_population_data.allTickets;
-    const ticketGroups         = all_population_data.ticketGroups;
-    // const ticket_groups_names  = ticketGroups.length ? AF.get_ticket_groups_names(ticketGroups) : [];
+    const language     = all_population_data.language;
+    const allTickets   = all_population_data.allTickets;
+    const ticketGroups = all_population_data.ticketGroups;
 
     // Utils Alias For Filter Checkbox
     const listing_filters_utils = {
@@ -46,7 +45,9 @@ const Header = ({ all_population_data }) => {
                 <img onClick={clean_search} className='LH-delete-icon' alt="delete red icon on search" src='/imgs/general/red_x_delete_icon.png'/>
             </div>
         </div>
+
         {/* Search Logic */}
+
         <div id="LH-filtered-mini-ticket-bands-direct-container">
             {allTickets.filter((ticket) => {
                 return AF.is_term_part_of_ticket_id_or_name(ticket, searchBarTerm);
@@ -54,11 +55,14 @@ const Header = ({ all_population_data }) => {
                 return (index < 7) ? <MiniTicketBand key={index} ticket_data={ticket} language={language}/> : null;
             })}
         </div>
+
         <nav id="LH-navigation-links-container">
             <ul>
                 <ListLink link_url="/create_ticket"  img_src_url="tickets/tag_icon" link_text={texts.create_ticket[language]}/>
                 <ListLink link_url="/ticket_listing" img_src_url="ticket_listing" link_text={texts.ticket_listing[language]}/>
+
                 {/* Listing Filters */}
+
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                         <img alt="filter icon" src="/imgs/headers/filter_icon.png"/>
@@ -77,7 +81,9 @@ const Header = ({ all_population_data }) => {
                         <FilterCheckbox which_filter={"Homologation"}     language={language} listing_filters_utils={listing_filters_utils} type="status"/>
                     </div>
                 </div>
+
                 {/* Groups Filters */}
+                
                 <div className="LH-links-grouper-container">
                     <div onClick={AF.switch_grouper_open_status} className="LH-links-grouper-expander-container">
                     <img alt="filter icon" src="/imgs/headers/filter_icon.png"/>
