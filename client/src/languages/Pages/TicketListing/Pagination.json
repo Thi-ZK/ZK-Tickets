@@ -3,12 +3,14 @@
         "english": "Next",
         "german": "Nächste",
         "portuguese": "Próximo",
-        "spanish": "Próximo"
+        "spanish": "Próximo",
+        "mandarin": "下一个"
     },
     "previous": {
         "english": "Previous",
         "german": "Letzte",
         "portuguese": "Anterior",
-        "spanish": "Anterior"
+        "spanish": "Anterior",
+        "mandarin": "上一个"
     }
 }

@@ -3,48 +3,56 @@
         "english": "Add New Group",
         "german": "Neue Gruppe hinzufügen",
         "portuguese": "Adicione Um Novo Grupo",
-        "spanish": "Añadir Un Nuevo Grupo"
+        "spanish": "Añadir Un Nuevo Grupo",
+        "mandarin": "添加新组"
     },
     "add_group": {
         "english": "Add Group",
         "german": "Gruppe hinzufügen",
         "portuguese": "Adicionar Grupo",
-        "spanish": "Añadir Grupo"
+        "spanish": "Añadir Grupo",
+        "mandarin": "添加组"
     },
     "invalid_name": {
         "english": "Group name too long or too poor",
         "german": "Gruppenname zu lang oder zu schlecht",
         "portuguese": "Nome do grupo muito longo ou muito pobre",
-        "spanish": "Nombre del grupo muy longo o muy pobre"
+        "spanish": "Nombre del grupo muy longo o muy pobre",
+        "mandarin": "组名太长或太贫乏"
     },
     "groups_to_be_deleted": {
         "english": "Delete Groups",
         "german": "Gruppen löschen",
         "portuguese": "Delete Grupos",
-        "spanish": "Delete Grupos"
+        "spanish": "Delete Grupos",
+        "mandarin": "删除组"
     },
     "delete_group": {
         "english": "Delete Group",
         "german": "Gruppe löschen",
         "portuguese": "Deletar Grupo",
-        "spanish": "Deletar Grupo"
+        "spanish": "Deletar Grupo",
+        "mandarin": "删除组"
     },
     "delete_groups": {
         "english": "Delete Groups",
         "german": "Gruppen löschen",
         "portuguese": "Deletar Grupos",
-        "spanish": "Deletar Grupos"
+        "spanish": "Deletar Grupos",
+        "mandarin": "删除组"
     },
     "legitimacy_error": {
         "english": "You're not legit to perform such action",
         "german": "Sie sind nicht berechtigt, diese Aktion durchzuführen",
         "portuguese": "Você não é legítimo para realizar esta ação",
-        "spanish": "Usted no es legítimo para realizar esta acción"
+        "spanish": "Usted no es legítimo para realizar esta acción",
+        "mandarin": "你无权执行操作"
     },
     "": {
         "english": "",
         "german": "",
         "portuguese": "",
-        "spanish": ""
+        "spanish": "",
+        "mandarin": ""
     }
 }

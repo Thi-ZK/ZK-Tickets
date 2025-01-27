@@ -3,12 +3,14 @@
         "english": "Select a File",
         "german": "Wählen Sie eine Datei aus",
         "portuguese": "Escolha Um Arquivo",
-        "spanish": "Elija Un Archivo"
+        "spanish": "Elija Un Archivo",
+        "mandarin": "选择一个文件"
     },
     "file chosen": {
         "english": "File Chosen",
         "german": "Datei gewählt",
         "portuguese": "Arquivo Selecionado",
-        "spanish": "Archivo Elegido"
+        "spanish": "Archivo Elegido",
+        "mandarin": "选定的文件"
     }
 }

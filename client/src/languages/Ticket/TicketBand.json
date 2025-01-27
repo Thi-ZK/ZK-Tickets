@@ -3,156 +3,182 @@
         "english": "Ticket Creator",
         "german": "Ticketersteller",
         "portuguese": "Criador do Ticket",
-        "spanish": "Creador del Ticket"
+        "spanish": "Creador del Ticket",
+        "mandarin": "任务卡创建者"
     },
     "ticket_id": {
         "english": "Ticket ID",
         "german": "Ticketnummer",
         "portuguese": "ID do Ticket",
-        "spanish": "ID del Ticket"
+        "spanish": "ID del Ticket",
+        "mandarin": "任务卡 IDID"
     },
     "assigneds": {
         "english": "Assigneds",
         "german": "Zugeordnete",
         "portuguese": "Responsáveis",
-        "spanish": "Responsables"
+        "spanish": "Responsables",
+        "mandarin": "负责人"
     },
     "groups": {
         "english": "Groups",
         "german": "Gruppen",
         "portuguese": "Grupos",
-        "spanish": "Grupos"
+        "spanish": "Grupos",
+        "mandarin": "组"
     },
     "ticket_description": {
         "english": "Ticket Description",
         "german": "Ticket Beschreibung",
         "portuguese": "Descrição do Ticket",
-        "spanish": "Descripción del Ticket"
+        "spanish": "Descripción del Ticket",
+        "mandarin": "任务卡说明"
     },
     "delete": {
         "english": "Delete",
         "german": "Löschen",
         "portuguese": "Deletar",
-        "spanish": "Eliminar"
+        "spanish": "Eliminar",
+        "mandarin": "标记为已删除"
     },
     "conclude": {
         "english": "Conclude",
         "german": "Abschliessen",
         "portuguese": "Finalizar",
-        "spanish": "Concluir"
+        "spanish": "Concluir",
+        "mandarin": "标记为已删除"
     },
     "block": {
         "english": "Block",
         "german": "Blockieren",
         "portuguese": "Bloquear",
-        "spanish": "Bloquear"
+        "spanish": "Bloquear",
+        "mandarin": "标记为待解锁"
     },
     "homologate": {
         "english": "Homologate",
         "german": "Homologieren",
         "portuguese": "Homologar",
-        "spanish": "Homologar"
+        "spanish": "Homologar",
+        "mandarin": "标记为认证中"
     },
     "Deleted": {
         "english": "Deleted",
         "german": "Gelöscht",
         "portuguese": "Deletado",
-        "spanish": "Eliminado"
+        "spanish": "Eliminado",
+        "mandarin": "已删除"
     },
     "Concluded": {
         "english": "Concluded",
         "german": "Abgeschlossen",
         "portuguese": "Finalizado",
-        "spanish": "Concluido"
+        "spanish": "Concluido",
+        "mandarin": "已完成"
     },
     "Blocked": {
         "english": "Blocked",
         "german": "Blockiert",
         "portuguese": "Bloqueado",
-        "spanish": "Bloqueado"
+        "spanish": "Bloqueado",
+        "mandarin": "待解锁"
     },
     "Homologation": {
         "english": "Homologation",
         "german": "Homologation",
         "portuguese": "Homologação",
-        "spanish": "Homologación"
+        "spanish": "Homologación",
+        "mandarin": "认证中"
     },
     "Open": {
         "english": "Open",
         "german": "Geöffnet",
         "portuguese": "Aberto",
-        "spanish": "Abierto"
+        "spanish": "Abierto",
+        "mandarin": "待分配"
     },
     "creation_date": {
         "english": "Creation Date",
         "german": "Erstellungsdatum",
         "portuguese": "Data de Criação",
-        "spanish": "Fecha de Creación"
+        "spanish": "Fecha de Creación",
+        "mandarin": "创建日期"
     },
     "due_date": {
         "english": "Due Date",
         "german": "Stichtag",
         "portuguese": "Data de Finalização",
-        "spanish": "Fecha de Finalizacion"
+        "spanish": "Fecha de Finalizacion",
+        "mandarin": "到日期"
     },
     "last_updated": {
         "english": "Last Updated",
         "german": "Zuletzt aktualisiert",
         "portuguese": "Última Atualização",
-        "spanish": "Última Actualización"
+        "spanish": "Última Actualización",
+        "mandarin": "上一次被更新日期"
     },
     "priority": {
         "english": "Priority",
         "german": "Priorität",
         "portuguese": "Prioridade",
-        "spanish": "Prioridad"
+        "spanish": "Prioridad",
+        "mandarin": "优先"
     },
     "Standard": {
         "english": "Standard",
         "german": "Standard",
         "portuguese": "Padrão",
-        "spanish": "Patrón"
+        "spanish": "Patrón",
+        "mandarin": "标准"
     },
     "Very Low": {
         "english": "Very Low",
         "german": "Sehr niedrig",
         "portuguese": "Muito Baixa",
-        "spanish": "Muy Baja"
+        "spanish": "Muy Baja",
+        "mandarin": "非常低"
     },
     "Low": {
         "english": "Low",
         "german": "Niedrig",
         "portuguese": "Baixa",
-        "spanish": "Baja"
+        "spanish": "Baja",
+        "mandarin": "低"
     },
     "High": {
         "english": "High",
         "german": "Hoch",
         "portuguese": "Alta",
-        "spanish": "Alta"
+        "spanish": "Alta",
+        "mandarin": "高"
     },
     "Very High": {
         "english": "Very High",
         "german": "Sehr hoch",
         "portuguese": "Muito Alta",
-        "spanish": "Muy Alta"
+        "spanish": "Muy Alta",
+        "mandarin": "非常高"
     },
     "Urgent!": {
         "english": "Urgent!",
         "german": "Dringend!",
         "portuguese": "Urgente!",
-        "spanish": "¡Urgente!"
+        "spanish": "¡Urgente!",
+        "mandarin": "紧迫"
     },
     "not_allowed": {
         "english": "You are not allowed to do that",
         "german": "Sie sind nicht erlaubt, das zu tun",
         "portuguese": "Você não pode realizar esta ação",
-        "spanish": "Usted no puedes hacer esta acción"
+        "spanish": "Usted no puedes hacer esta acción",
+        "mandarin": "你无权执行操作"
     },
     "": {
         "english": "",
         "german": "",
         "portuguese": "",
-        "spanish": ""
+        "spanish": "",
+        "mandarin": ""
     }
 }

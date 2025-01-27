@@ -3,42 +3,49 @@
         "english": "'Assigned To Me' Tickets",
         "german": "'Mir zugewiesen' Tickets",
         "portuguese": "Tickets Atribuídos a Mim",
-        "spanish": "Tickets Asignados a Mí"
+        "spanish": "Tickets Asignados a Mí",
+        "mandarin": "分配给我的任务卡"
     },
     "my-created": {
         "english": "My Created Tickets",
         "german": "Meine erstellte Tickets",
         "portuguese": "Tickets Criados Por Mim",
-        "spanish": "Tickets Creados Por Mí"
+        "spanish": "Tickets Creados Por Mí",
+        "mandarin": "由我创建的任务卡"
     },
     "open": {
         "english": "Open Tickets",
         "german": "Offene Tickets",
         "portuguese": "Tickets Abertos",
-        "spanish": "Tickets Abiertos"
+        "spanish": "Tickets Abiertos",
+        "mandarin": "待分配的任务卡"
     },
     "deleted": {
         "english": "Deleted Tickets",
         "german": "Gelöschte Tickets",
         "portuguese": "Tickets Deletados",
-        "spanish": "Tickets Deletados"
+        "spanish": "Tickets Deletados",
+        "mandarin": "已删除的任务卡"
     },
     "concluded": {
         "english": "Concluded Tickets",
         "german": "Abgeschlossene Tickets",
         "portuguese": "Tickets Concluídos",
-        "spanish": "Tickets Concluidos"
+        "spanish": "Tickets Concluidos",
+        "mandarin": "已完成的任务卡"
     },
     "blocked": {
         "english": "Blocked Tickets",
         "german": "Blockierte Tickets",
         "portuguese": "Tickets Bloqueados",
-        "spanish": "Tickets Bloqueados"
+        "spanish": "Tickets Bloqueados",
+        "mandarin": "待解锁的任务卡"
     },
     "homologation": {
         "english": "'In Homologation' Tickets",
         "german": "'In homologation' Tickets",
         "portuguese": "Tickets Em Homologação",
-        "spanish": "Tickets En Homologación"
+        "spanish": "Tickets En Homologación",
+        "mandarin": "认证中的任务卡"
     }
 }

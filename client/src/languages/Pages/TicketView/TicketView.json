@@ -3,18 +3,21 @@
         "english": "Ticket Description",
         "german": "Ticket Beschreibung",
         "portuguese": "Descrição do Ticket",
-        "spanish": "Descripción del Ticket"
+        "spanish": "Descripción del Ticket",
+        "mandarin": "任务卡说明"
     },
     "attachments": {
         "english": "Attachments",
         "german": "Anhänge",
         "portuguese": "Anexos",
-        "spanish": "Archivos Adjuntos"
+        "spanish": "Archivos Adjuntos",
+        "mandarin": "附件"
     },
     "not_allowed": {
         "english": "You are not allowed to do that",
         "german": "Sie sind nicht erlaubt, das zu tun",
         "portuguese": "Você não pode realizar esta ação",
-        "spanish": "Usted no puedes hacer esta acción"
+        "spanish": "Usted no puedes hacer esta acción",
+        "mandarin": "你无权执行操作"
     }
 }

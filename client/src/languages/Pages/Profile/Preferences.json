@@ -3,24 +3,28 @@
         "english": "Preferred Language",
         "german": "Bevorzugte Sprache",
         "portuguese": "Idioma Preferido",
-        "spanish": "Idioma Preferido"
+        "spanish": "Idioma Preferido",
+        "mandarin": "首选语言"
     },
     "preferred_brightness_theme": {
         "english": "Preferred Brightness Theme",
         "german": "Bevorzugte Helligkeitsthema",
         "portuguese": "Tema de Brilho Preferido",
-        "spanish": "Tema de Brillo Preferido"
+        "spanish": "Tema de Brillo Preferido",
+        "mandarin": "首选亮度主题"
     },
     "bright": {
         "english": "Bright Theme",
         "german": "Helles Thema",
         "portuguese": "Tema Claro",
-        "spanish": "Tema Claro"
+        "spanish": "Tema Claro",
+        "mandarin": "明亮主题"
     },
     "dark": {
         "english": "Dark Theme",
         "german": "Dunkles Thema",
         "portuguese": "Tema Escuro",
-        "spanish": "Tema Oscuro"
+        "spanish": "Tema Oscuro",
+        "mandarin": "黑暗主题"
     }
 }

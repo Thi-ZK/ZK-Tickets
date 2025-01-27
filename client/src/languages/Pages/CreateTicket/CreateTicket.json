@@ -3,84 +3,98 @@
         "english": "Create Ticket",
         "german": "Ticket erstellen",
         "portuguese": "Criar Ticket",
-        "spanish": "Crear Ticket"
+        "spanish": "Crear Ticket",
+        "mandarin": "创建任务卡"
     },
     "please_write_the_ticket_name": {
         "english": "Please Write The",
         "german": "Bitte schreiben Sie den",
         "portuguese": "Por Favor Escreva O",
-        "spanish": "Por Favor Escriba El"
+        "spanish": "Por Favor Escriba El",
+        "mandarin": "请写下"
     },
     "ticket_name": {
         "english": "Ticket Name",
         "german": "Ticket Name",
         "portuguese": "Nome Do Ticket",
-        "spanish": "Nombre Del Ticket"
+        "spanish": "Nombre Del Ticket",
+        "mandarin": "任务卡标题"
     },
     "select_a": {
         "english": "Select a",
         "german": "Wählen Sie ein",
         "portuguese": "Escolha Um",
-        "spanish": "Elige Un"
+        "spanish": "Elige Un",
+        "mandarin": "选择"
     },
     "due_date": {
         "english": "Due Date",
         "german": "Stichtag aus",
         "portuguese": "Prazo",
-        "spanish": "Plazo"
+        "spanish": "Plazo",
+        "mandarin": "到期日"
     },
     "please_write_the_ticket_description": {
         "english": "Please Write The",
         "german": "Bitte schreiben Sie die",
         "portuguese": "Por Favor Escreva A",
-        "spanish": "Por Favor Escribe La"
+        "spanish": "Por Favor Escribe La",
+        "mandarin": "请写下任务卡说明"
     },
     "ticket_description": {
         "english": "Ticket Description",
         "german": "Ticket Beschreibung",
         "portuguese": "Descrição Do Ticket",
-        "spanish": "Descripción Del Ticket"
+        "spanish": "Descripción Del Ticket",
+        "mandarin": "任务卡说明"
     },
     "click_to_pick_a_date": {
         "english": "Click Here To Pick a Date",
         "german": "Clicken Sie, um ein Datum auszuwählen",
         "portuguese": "Clique Para Escolher Uma Data",
-        "spanish": "Haga Click Para Elegir Una Fecha"
+        "spanish": "Haga Click Para Elegir Una Fecha",
+        "mandarin": "点击为选择日期"
     },
     "attachments": {
         "english": "Attachments",
         "german": "Anhänge",
         "portuguese": "Anexos",
-        "spanish": "Archivos Adjuntos"
+        "spanish": "Archivos Adjuntos",
+        "mandarin": "附件"
     },
     "write_substantial_name": {
         "english": "Provide a Substantial Name",
         "german": "Bitte geben Sie einen aussagekräftigen Namen ein",
         "portuguese": "Escolha Um Nome Substancial",
-        "spanish": "Elige Un Nombre Substancial"
+        "spanish": "Elige Un Nombre Substancial",
+        "mandarin": "请选择更合适/具体的标题"
     },
     "name_is_too_long": {
         "english": "Name Is Too Long",
         "german": "Der Name ist zu lang",
         "portuguese": "O Nome É Muito Longo",
-        "spanish": "El Nombre Es Muy Largo"
+        "spanish": "El Nombre Es Muy Largo",
+        "mandarin": "标题过于长"
     },
     "description_is_too_long": {
         "english": "Description Is Too Long",
         "german": "Die Beschreibung ist zu lang",
         "portuguese": "A Descrição É Muito Longa",
-        "spanish": "La Descripción Es Muy Larga"
+        "spanish": "La Descripción Es Muy Larga",
+        "mandarin": "说明过于长"
     },
     "legitimacy_error": {
         "english": "Not allowed",
         "german": "Nicht erlaubt",
         "portuguese": "Ação não permitida",
-        "spanish": "Acción no permitida"
+        "spanish": "Acción no permitida",
+        "mandarin": "你无权执行操作"
     },
     "none": {
         "english": "",
         "german": "",
         "portuguese": "",
-        "spanish": ""
+        "spanish": "",
+        "mandarin": ""
     }
 }

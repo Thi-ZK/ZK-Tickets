@@ -3,24 +3,28 @@
         "english": "Delete",
         "german": " Löschen",
         "portuguese": "Deletar",
-        "spanish": "Eliminar"
+        "spanish": "Eliminar",
+        "mandarin": "标记为已删除"
     },
     "conclude": {
         "english": "Conclude ",
         "german": "Abschliessen",
         "portuguese": "Finalizar",
-        "spanish": "Concluir"
+        "spanish": "Concluir",
+        "mandarin": "标记为已完成"
     },
     "block": {
         "english": "Block ",
         "german": " Blockieren",
         "portuguese": "Bloquear",
-        "spanish": "Bloquear"
+        "spanish": "Bloquear",
+        "mandarin": "标记为待解锁"
     },
     "homologate": {
         "english": "Homologate ",
         "german": " Homologieren",
         "portuguese": "Homologar",
-        "spanish": "Homologar"
+        "spanish": "Homologar",
+        "mandarin": "标记为已认证中"
     }
 }

@@ -3,61 +3,71 @@
         "english": "Confirmation",
         "german": "Bestätigung",
         "portuguese": "Confirmação",
-        "spanish": "Confirmación"
+        "spanish": "Confirmación",
+        "mandarin": "确认"
     },
     "action_warning1": {
         "english": "Are you sure you want to",
         "german": "Sind Sie sicher, dass Sie dieses Ticket",
         "portuguese": "Você têm certeza que gostaria de",
-        "spanish": "¿Usted estas seguro que desea"
+        "spanish": "¿Usted estas seguro que desea",
+        "mandarin": "你确认你想要将任务卡"
     },
     "action_warning2": {
         "english": "this ticket? This action can be changed again.",
         "german": "möchten? Diese Aktion kann wieder geändert werden.",
         "portuguese": "este ticket? Esta ação pode ser mudada novamente.",
-        "spanish": "este ticket? Esta acción se puede cambiar de nuevo."
+        "spanish": "este ticket? Esta acción se puede cambiar de nuevo.",
+        "mandarin": "？你可以以后再改变任务卡状态"
     },
     "delete": {
         "english": "delete",
         "german": "löschen",
         "portuguese": "deletar",
-        "spanish": "eliminar"
+        "spanish": "eliminar",
+        "mandarin": "标记为已删除"
     },
     "conclude": {
         "english": "conclude",
         "german": "abschliessen",
         "portuguese": "finalizar",
-        "spanish": "concluir"
+        "spanish": "concluir",
+        "mandarin": "标记为已完成"
     },
     "block": {
         "english": "block",
         "german": "blockieren",
         "portuguese": "bloquear",
-        "spanish": "bloquear"
+        "spanish": "bloquear",
+        "mandarin": "标记为待解锁"
     },
     "homologate": {
         "english": "homologate",
         "german": "homologieren",
         "portuguese": "homologar",
-        "spanish": "homologar"
+        "spanish": "homologar",
+        "mandarin": "标记为认证中"
     },
     "cancel": {
         "english": "Cancel",
         "german": "Abbrechen",
         "portuguese": "Cancelar",
-        "spanish": "Cancelar"
+        "spanish": "Cancelar",
+        "mandarin": "取消"
     },
     "yes_go_on": {
         "english": "Yes.",
         "german": "Ja.",
         "portuguese": "Sim.",
-        "spanish": "Si."
+        "spanish": "Si.",
+        "mandarin": "前往"
     },
     "already_in_status": {
         "english": "The ticket is already in status:",
         "german": "Das Ticket befindet sich bereits im Status:",
         "portuguese": "O ticket já está em status de:",
-        "spanish": "El ticket ya está en status de:"
+        "spanish": "El ticket ya está en status de:",
+        "mandarin": "此任务卡已属于该状态:"
     },
     "none": {
 

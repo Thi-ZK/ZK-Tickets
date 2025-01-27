@@ -58,6 +58,10 @@ const TopHeader = ({ all_population_data }) => {
                 <button status={language === "german" ? "active" : "not-active"}     onClick={(ev) => updateLanguage('german')}>Deutsch</button>
             </div>
             <div className="TH-language-direct-container">
+                <img    alt="" src="./imgs/general/country_flag_icons/china.png"/>
+                <button status={language === "mandarin" ? "active" : "not-active"}   onClick={(ev) => updateLanguage('mandarin')}>简体中文</button>
+            </div>
+            <div className="TH-language-direct-container">
                 <img    alt="" src="./imgs/general/country_flag_icons/usa.png"/>
                 <button status={language === "english" ? "active" : "not-active"}    onClick={(ev) => updateLanguage('english')}>English</button>
             </div>

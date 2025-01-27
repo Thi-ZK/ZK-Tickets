@@ -3,12 +3,14 @@
         "english": "Ticket Assigned",
         "german": "Ticket zugewiesen",
         "portuguese": "Responsável Pelo Ticket",
-        "spanish": "Responsable Del Ticket"
+        "spanish": "Responsable Del Ticket",
+        "mandarin": "负责任务卡的人"
     },
     "assigneds_plural": {
         "english": "Ticket Assigneds",
         "german": "Ticket zugewiesene",
         "portuguese": "Responsáveis Pelo Ticket",
-        "spanish": "Responsables Del Ticket"
+        "spanish": "Responsables Del Ticket",
+        "mandarin": "负责任务卡的人们"
     }
 }

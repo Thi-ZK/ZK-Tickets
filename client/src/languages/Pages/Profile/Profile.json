@@ -3,54 +3,63 @@
         "english": "Profile",
         "german": "Profil",
         "portuguese": "Perfil",
-        "spanish": "Perfil"
+        "spanish": "Perfil",
+        "mandarin": "用户资料"
     },
     "total_linked_tickets": {
         "english": "Total Linked Tickets",
         "german": "Insgesamnt verbundene Tickets",
         "portuguese": "Total De Tickets Relacionados",
-        "spanish": "Total De Tickets Relacionados"
+        "spanish": "Total De Tickets Relacionados",
+        "mandarin": "总与用户有关的任务卡数"
     },
     "about": {
         "english": "About",
         "german": "Über den Benutzer",
         "portuguese": "Sobre",
-        "spanish": "Sobre"
+        "spanish": "Sobre",
+        "mandarin": "关于用户"
     },
     "preferences": {
         "english": "Preferences",
         "german": "Vorlieben",
         "portuguese": "Preferências",
-        "spanish": "Preferencias"
+        "spanish": "Preferencias",
+        "mandarin": "喜好"
     },
     "user_id": {
         "english": "User ID",
         "german": "ID des Benutzers",
         "portuguese": "ID do Usuário",
-        "spanish": "ID del Usuario"
+        "spanish": "ID del Usuario",
+        "mandarin": "用户 ID"
     },
     "name": {
         "english": "Name",
         "german": "Name",
         "portuguese": "Nome",
-        "spanish": "Nombre"
+        "spanish": "Nombre",
+        "mandarin": "名字"
     },
     "user_power": {
         "english": "User Power",
         "german": "Benutzerleistung",
         "portuguese": "Autoridade do Usuário",
-        "spanish": "Autoridad del Usuario"
+        "spanish": "Autoridad del Usuario",
+        "mandarin": "用户权力等级"
     },
     "phone_number": {
         "english": "Phone Number",
         "german": "Telefonnummer",
         "portuguese": "Número de Telefone",
-        "spanish": "Número de teléfono"
+        "spanish": "Número de teléfono",
+        "mandarin": "手机号码"
     },
     "manage_groups": {
         "english": "Manage Groups",
         "german": "Gruppen verwalten",
         "portuguese": "Admnistrar Grupos",
-        "spanish": "Admnistrar Grupos"
+        "spanish": "Admnistrar Grupos",
+        "mandarin": "管理组"
     }
 }

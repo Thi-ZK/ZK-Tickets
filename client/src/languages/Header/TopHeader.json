@@ -3,30 +3,35 @@
         "english": "Log In",
         "german": "Anmelden",
         "portuguese": "Realizar Login",
-        "spanish": "Hacer Login"
+        "spanish": "Hacer Login",
+        "mandarin": "登录"
     },
     "logout": {
         "english": "Log Out",
         "german": "Abmelden",
         "portuguese": "Realizar Logout",
-        "spanish": "Hacer Logout"
+        "spanish": "Hacer Logout",
+        "mandarin": "注销"
     },
     "bright": {
         "english": "Bright Theme",
         "german": "Helles Thema",
         "portuguese": "Tema Claro",
-        "spanish": "Tema Claro"
+        "spanish": "Tema Claro",
+        "mandarin": "明亮主题"
     },
     "dark": {
         "english": "Dark Theme",
         "german": "Dunkles Thema",
         "portuguese": "Tema Escuro",
-        "spanish": "Tema Oscuro"
+        "spanish": "Tema Oscuro",
+        "mandarin": "黑暗主题"
     },
     "user": {
         "english": "User",
         "german": "Nutzer",
         "portuguese": "Usuário",
-        "spanish": "Usuario"
+        "spanish": "Usuario",
+        "mandarin": "用户"
     }
 }

@@ -3,144 +3,168 @@
         "english": "Ticket Creator",
         "german": "Ticketersteller",
         "portuguese": "Criador do Ticket",
-        "spanish": "Creador del Ticket"
+        "spanish": "Creador del Ticket",
+        "mandarin": "任务卡创建者"
     },
     "creation_date": {
         "english": "Creation Date",
         "german": "Erstellungsdatum",
         "portuguese": "Data de Criação",
-        "spanish": "Fecha de creación"
+        "spanish": "Fecha de creación",
+        "mandarin": "创建日期"
     },
     "ticket_id": {
         "english": "Ticket ID",
         "german": "Ticketnummer",
         "portuguese": "ID do Ticket",
-        "spanish": "ID del Ticket"
+        "spanish": "ID del Ticket",
+        "mandarin": "任务卡 ID"
     },
     "due_date": {
         "english": "Due Date",
         "german": "Stichtag",
         "portuguese": "Prazo",
-        "spanish": "Plazo"
+        "spanish": "Plazo",
+        "mandarin": "到日期"
     },
     "concluded_date": {
         "english": "Concluded At",
         "german": "Abgeschlossen am",
         "portuguese": "Finalizado Em",
-        "spanish": "Concluido en"
+        "spanish": "Concluido en",
+        "mandarin": "完成于"
     },
     "last_update_date": {
         "english": "Last Status Update Date",
         "german": "letzten Statusaktualisierung",
         "portuguese": "Data Da Última Atualização",
-        "spanish": "Fecha De La Última Actualización"
+        "spanish": "Fecha De La Última Actualización",
+        "mandarin": "上一次被更新日期"
     },
     "groups": {
         "english": "Ticket Group",
         "german": "Ticket Gruppe",
         "portuguese": "Grupo Do Ticket",
-        "spanish": "Grupo Del Ticket"
+        "spanish": "Grupo Del Ticket",
+        "mandarin": "任务卡组"
     },
     "groups_plural": {
         "english": "Ticket Groups",
         "german": "Ticket Gruppen",
         "portuguese": "Grupos Do Ticket",
-        "spanish": "Grupos Del Ticket"
+        "spanish": "Grupos Del Ticket",
+        "mandarin": "任务卡组"
     },
     "priority": {
         "english": "Priority",
         "german": "Priorität",
         "portuguese": "Prioridade",
-        "spanish": "Prioridad"
+        "spanish": "Prioridad",
+        "mandarin": "优先"
     },
     "assumers": {
         "english": "Ticket Assigned",
         "german": "Ticket zugewiesen",
         "portuguese": "Responsável Pelo Ticket",
-        "spanish": "Responsable Del Ticket"
+        "spanish": "Responsable Del Ticket",
+        "mandarin": "负责任务卡的人"
     },
     "assumers_plural": {
         "english": "Ticket Assigneds",
         "german": "Ticket zugewiesene",
         "portuguese": "Responsáveis Pelo Ticket",
-        "spanish": "Responsables Del Ticket"
+        "spanish": "Responsables Del Ticket",
+        "mandarin": "负责任务卡的人们"
     },
     "add_groups": {
         "english": "Add Groups",
         "german": "Gruppen hinzufügen",
         "portuguese": "Adicionar Grupos",
-        "spanish": "Añadir Grupos"
+        "spanish": "Añadir Grupos",
+        "mandarin": "分配组"
     },
     "add_assumers": {
         "english": "Add Assgineds",
         "german": "Zuweisungen hinzufügen",
         "portuguese": "Adicionar Responsáveis",
-        "spanish": "Añadir Responsable"
+        "spanish": "Añadir Responsable",
+        "mandarin": "分配人"
     },
     "Open": {
         "english": "Open",
         "german": "Geöffnet",
         "portuguese": "Aberto",
-        "spanish": "Abierto"
+        "spanish": "Abierto",
+        "mandarin": "待分配"
     },
     "Deleted": {
         "english": "Deleted",
         "german": "Gelöscht",
         "portuguese": "Deletado",
-        "spanish": "Eliminado"
+        "spanish": "Eliminado",
+        "mandarin": "已删除"
     },
     "Concluded": {
         "english": "Concluded",
         "german": "Abgeschlossen",
         "portuguese": "Finalizado",
-        "spanish": "Concluido"
+        "spanish": "Concluido",
+        "mandarin": "已完成"
     },
     "Blocked": {
         "english": "Blocked",
         "german": "Blockiert",
         "portuguese": "Bloqueado",
-        "spanish": "Bloqueado"
+        "spanish": "Bloqueado",
+        "mandarin": "带解锁"
     },
     "Homologation": {
         "english": "Homologation",
         "german": "Homologation",
         "portuguese": "Homologação",
-        "spanish": "Homologación"
+        "spanish": "Homologación",
+        "mandarin": "认证中"
     },
     "Standard": {
         "english": "Standard",
         "german": "Standard",
         "portuguese": "Padrão",
-        "spanish": "Patrón"
+        "spanish": "Patrón",
+        "mandarin": "标准"
     },
     "Very Low": {
         "english": "Very Low",
         "german": "Sehr niedrig",
         "portuguese": "Muito Baixa",
-        "spanish": "Muy Baja"
+        "spanish": "Muy Baja",
+        "mandarin": "非常低"
     },
     "Low": {
         "english": "Low",
         "german": "Niedrig",
         "portuguese": "Baixa",
-        "spanish": "Baja"
+        "spanish": "Baja",
+        "mandarin": "低"
     },
     "High": {
         "english": "High",
         "german": "Hoch",
         "portuguese": "Alta",
-        "spanish": "Alta"
+        "spanish": "Alta",
+        "mandarin": "高"
     },
     "Very High": {
         "english": "Very High",
         "german": "Sehr hoch",
         "portuguese": "Muito Alta",
-        "spanish": "Muy Alta"
+        "spanish": "Muy Alta",
+        "mandarin": "非常高"
     },
     "Urgent!": {
         "english": "Urgent!",
         "german": "Dringend!",
         "portuguese": "Urgente!",
-        "spanish": "¡Urgente!"
+        "spanish": "¡Urgente!",
+        "mandarin": "紧迫"
     }
 }

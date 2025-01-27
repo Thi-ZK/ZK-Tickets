@@ -67,6 +67,11 @@ function Preferences ({ userData, update_user_data, language }) {
                     <img alt="germany flag icon" src="./imgs/general/country_flag_icons/germany.png"/>
                 </div>
                 <div className='PFL-PRE-language-direct-container'>
+                    <input onChange={update_preferred_language} className="PFL-PRE-language-input" type="radio" name="pfl-language" language="mandarin" id="PFL-PRE-mandarin" defaultChecked={preferred_language === "chinese"}/>
+                    <label className="PFL-PRE-language-label" htmlFor="PFL-PRE-mandarin">简体中文</label>
+                    <img alt="chinese flag icon" src="./imgs/general/country_flag_icons/china.png"/>
+                </div>
+                <div className='PFL-PRE-language-direct-container'>
                     <input onChange={update_preferred_language} className="PFL-PRE-language-input" type="radio" name="pfl-language" language="english" id="PFL-PRE-english" defaultChecked={preferred_language === "english"}/>
                     <label className="PFL-PRE-language-label" htmlFor="PFL-PRE-english">English</label>
                     <img alt="usa flag icon" src="./imgs/general/country_flag_icons/usa.png"/>

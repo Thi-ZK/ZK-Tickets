@@ -3,24 +3,28 @@
         "english": "Help & Informations",
         "german": "Hilfe & Informationen",
         "portuguese": "Ajuda & Informações",
-        "spanish": "Ayuda & Informaciones"
+        "spanish": "Ayuda & Informaciones",
+        "mandarin": "帮助和信息"
     },
     "have_question_or_need_help": {
         "english": "Do you have a question or need help?",
         "german": "Haben Sie eine Frage oder brauchen Sie Hilfe?",
         "portuguese": "Você teria uma pergunta ou precisa de ajuda?",
-        "spanish": "¿Usted tiene alguna pregunta o necesita ayuda?"
+        "spanish": "¿Usted tiene alguna pregunta o necesita ayuda?",
+        "mandarin": "你有任何问题或者需要帮助吗？"
     },
     "contact_email_below": {
         "english": "Then plese contact the email below with your question / your observation:",
         "german": "Dann kontaktieren Sie bitte die untenstehende Email mit Ihrer Frage / Beobachtung",
         "portuguese": "Para tal, por favor contate o email abaixo com sua pergunta / observação",
-        "spanish": "Para hacerlo, envía por favor un email para el email abajo con su pregunta / nota."
+        "spanish": "Para hacerlo, envía por favor un email para el email abajo con su pregunta / nota.",
+        "mandarin": "为了得到合适的帮助，请你通过下面的电子邮件发你的问题"
     },
     "alternatively": {
         "english": "Alternatively you can also talk directly to me (thiago), if you prefer! Send me a message directly.",
         "german": "Alternativ können Sie auch direkt mit mir (Thiago) sprechen, wenn Ihnen es lieber ist! Senden Sie mir gerne eine direkte Nachricht",
         "portuguese": "Caso você prefira, também pode falar comigo diretamente! Me envie uma mensagem.",
-        "spanish": "Si lo prefieres, ¡también puedes hablar conmigo directamente! Envíame un mensaje."
+        "spanish": "Si lo prefieres, ¡también puedes hablar conmigo directamente! Envíame un mensaje.",
+        "mandarin": "如果加了方便的话，你也可以和我（渊雨）直接联系！给我发一个消息。"
     }
 }

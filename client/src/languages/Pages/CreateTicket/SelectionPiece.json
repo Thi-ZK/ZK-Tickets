@@ -3,126 +3,147 @@
         "english": "Select The",
         "german": "Wählen Sie die",
         "portuguese": "Selecione Os",
-        "spanish": "Seleccione Los"
+        "spanish": "Seleccione Los",
+        "mandarin": "选择"
     },
     "assigneds": {
         "english": "Assigneds",
         "german": "Zugewiesene aus",
         "portuguese": "Responsáveis",
-        "spanish": "Responsables"
+        "spanish": "Responsables",
+        "mandarin": "被分配的人"
     },
     "select_the_groups": {
         "english": "Select The",
         "german": "Wählen Sie die",
         "portuguese": "Selecione Os",
-        "spanish": "Seleccione Los"
+        "spanish": "Seleccione Los",
+        "mandarin": "选择"
     },
     "groups": {
         "english": "Groups",
         "german": "Gruppen aus",
         "portuguese": "Grupos",
-        "spanish": "Grupos"
+        "spanish": "Grupos",
+        "mandarin": "组"
     },
     "select_the_priority": {
         "english": "Select The",
         "german": "Wählen Sie die",
         "portuguese": "Selecione A",
-        "spanish": "Seleccione La"
+        "spanish": "Seleccione La",
+        "mandarin": "选择"
     },
     "priority": {
         "english": "Priority",
         "german": "Priorität",
         "portuguese": "Prioridade",
-        "spanish": "Prioridad"
+        "spanish": "Prioridad",
+        "mandarin": "优先"
     },
     "select_the_status": {
         "english": "Select The",
         "german": "Wählen Sie die",
         "portuguese": "Selecione O",
-        "spanish": "Seleccione Lo"
+        "spanish": "Seleccione Lo",
+        "mandarin": "选择"
     },
     "status": {
         "english": "Status",
         "german": "Status",
         "portuguese": "Status",
-        "spanish": "Status"
+        "spanish": "Status",
+        "mandarin": "状态"
     },
     "select_a": {
         "english": "Select a",
         "german": "Wählen Sie ein",
         "portuguese": "Escolha Um",
-        "spanish": "Elige Un"
+        "spanish": "Elige Un",
+        "mandarin": "选择"
     },
     "standard": {
         "english": "Standard",
         "german": "Standard",
         "portuguese": "Padrão",
-        "spanish": "Patrón"
+        "spanish": "Patrón",
+        "mandarin": "标准"
     },
     "very low": {
         "english": "Very Low",
         "german": "Sehr niedrig",
         "portuguese": "Muito Baixa",
-        "spanish": "Muy Baja"
+        "spanish": "Muy Baja",
+        "mandarin": "非常低"
     },
     "low": {
         "english": "Low",
         "german": "Niedrig",
         "portuguese": "Baixa",
-        "spanish": "Baja"
+        "spanish": "Baja",
+        "mandarin": "低"
     },
     "high": {
         "english": "High",
         "german": "Hoch",
         "portuguese": "Alta",
-        "spanish": "Alta"
+        "spanish": "Alta",
+        "mandarin": "高"
     },
     "very high": {
         "english": "Very High",
         "german": "Sehr hoch",
         "portuguese": "Muito Alta",
-        "spanish": "Muy Alta"
+        "spanish": "Muy Alta",
+        "mandarin": "非常高"
     },
     "urgent!": {
         "english": "Urgent!",
         "german": "Dringend!",
         "portuguese": "Urgente!",
-        "spanish": "¡Urgente!"
+        "spanish": "¡Urgente!",
+        "mandarin": "紧迫"
     },
     "open": {
         "english": "Open",
         "german": "Geöffnet",
         "portuguese": "Aberto",
-        "spanish": "Abierto"
+        "spanish": "Abierto",
+        "mandarin": "待分配"
     },
     "blocked": {
         "english": "Blocked",
         "german": "Blockiert",
         "portuguese": "Bloqueado",
-        "spanish": "Bloqueado"
+        "spanish": "Bloqueado",
+        "mandarin": "待解锁"
     },
     "concluded": {
         "english": "Concluded",
         "german": "Abgeschlossen",
         "portuguese": "Finalizado",
-        "spanish": "Concluido"
+        "spanish": "Concluido",
+        "mandarin": "已完成"
     },
     "homologation": {
         "english": "Homologation",
         "german": "Homologation",
         "portuguese": "Homologação",
-        "spanish": "Homologación"
+        "spanish": "Homologación",
+        "mandarin": "认证中"
     },
     "write_a_custom_groups": {
         "english": "Write a New Group",
         "german": "Eine neue Gruppe schreiben",
         "portuguese": "Escrever Um Novo Grupo",
-        "spanish": "Escribir Un Nuevo Grupo"
+        "spanish": "Escribir Un Nuevo Grupo",
+        "mandarin": "写新组"
     },
     "type_new_groups_name": {
         "english": "Type the name of the group you want to create",
         "german": "Schreiben Sie die Gruppenname, die Sie erstellen möchten",
         "portuguese": "Escreva o nome do grupo que você deseja criar",
-        "spanish": "Escribe el nombre del grupo que deseas crear"
+        "spanish": "Escribe el nombre del grupo que deseas crear",
+        "mandarin": "请写下你想要创建的组名"
     }
 }

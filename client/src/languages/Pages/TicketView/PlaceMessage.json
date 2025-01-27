@@ -3,18 +3,21 @@
         "english": "Place a Message In The Box Below",
         "german": "Hinterlassen Sie eine Nachricht unten",
         "portuguese": "Escreva Uma Mensagem No Campo Abaixo",
-        "spanish": "Escribe Un Mensaje En El Campo Abajo"
+        "spanish": "Escribe Un Mensaje En El Campo Abajo",
+        "mandarin": "在下面的文本框里写下消息"
     },
     "place_message": {
         "english": "Place Message",
         "german": "Nachricht hinterlassen",
         "portuguese": "Enviar Mensagem",
-        "spanish": "Enviar Mensaje"
+        "spanish": "Enviar Mensaje",
+        "mandarin": "放置消息"
     },
     "legitimacy_error": {
         "english": "You're not allowed to do that",
         "german": "Sie sind nicht erlaubt, das zu tun",
         "portuguese": "Você não pode realizar esta ação",
-        "spanish": "Usted no puedes hacer esta acción"
+        "spanish": "Usted no puedes hacer esta acción",
+        "mandarin": "你无权执行操作"
     }
 }
