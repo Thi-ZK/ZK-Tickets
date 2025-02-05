@@ -180,6 +180,13 @@ div[theme='bright'] #TH-languages-direct-container button {
 
 	#TH-languages-direct-container {
 		padding-right: 0px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.TH-language-direct-container {
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 
 	#TH-login-and-brightness-direct-container {

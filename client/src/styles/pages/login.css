@@ -367,6 +367,10 @@ div[theme='bright'] #LOG-new-account-request-link-direct-container span {
 }
 
 @media(max-width: 600px){
+    #LOG-centralizer {
+        margin-top: 55px;
+    }
+    
 	#LOG-form-container {
 		width: 340px;
 	}
